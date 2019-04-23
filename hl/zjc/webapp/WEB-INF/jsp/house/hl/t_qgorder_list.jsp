@@ -247,7 +247,7 @@
 			if(status == "已确认"){//禁用
  				return '<div style="color:red">已确认</div>'; 
 			} else {
-				return '<div style="color:green">待确认</div>';
+				return '<div style="color:blue">待确认</div>';
 			}
 		}
 		
