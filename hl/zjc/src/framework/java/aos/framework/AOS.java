@@ -23,7 +23,7 @@ public class AOS {
 	public static void main(String[] args) throws Exception {
 		AOSServer aosServer = new AOSServer();
 		aosServer.setWebContext("/aosuite");
-		aosServer.setPort(10010);
+		aosServer.setPort(10010);//端口号
 		aosServer.start();
 		CertUtil.contextInitialized();
 	}
