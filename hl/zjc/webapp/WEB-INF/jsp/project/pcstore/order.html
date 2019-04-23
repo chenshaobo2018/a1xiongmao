@@ -1,0 +1,1149 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="UTF-8"> 
+	<meta name="keywords" content="中军创"/>
+	<meta name="description" content="中军创"/> 
+	<title>中军创-订单确认</title>
+	 <!-- common css and zjc_index css-->
+	<link href="css/common.css" rel="stylesheet" type="text/css"/>
+	<link href="css/h_foot.css" rel="stylesheet" type="text/css"/>
+	<link href="css/zjc_index.css" rel="stylesheet" type="text/css"/>
+	<!-- js -->  
+	<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+	<!-- common js and zjc_index -->
+	<script src="js/common.js"></script>  
+	<script src="js/order.js"></script>   
+</head>
+<body> 
+  <!-- container  start-->
+    <div class="container"> 	
+	 <!-- 首页及商品header start-->
+	  <div class="header_login">	  
+	  <!-- header_top nav -->
+	    <div class="header_top">
+		<div class="header_top_cen clearfix">
+		    <ul class="head_ul fr">
+			   <li>欢迎光临</li>
+			   <li class="coll_register"><a href="register.html">免费注册</a></li> 
+			   <li class="coll_li_my" style="display:none;">
+				<div id="menu">
+					<ul id="nav"> 
+						<li class="mainlevel" id="mainlevel_01"><a href="#" target="_blank"><img src="Images/icon/icon_tree.png" alt=" " title="" class="cll_icons"/> 中军创<img src="Images/icon/botn.png" alt=" " title="" class="cll_icon"/></a>
+							<ul id="sub_01">
+								<li><a href="user_vip.html" target="_blank">每天签到</a></li>
+								<li><a href="user_vip.html" target="_blank">我的中军创</a></li> 
+							</ul>
+						</li> 
+						<div class="clear"></div> 
+					</ul>
+				</div> 
+			   </li>
+			   <li class="log_plear"><a href="login.html"><div class="icon_nav greet_index fl"></div> 请登录</a></li> 
+			   <li class="coll_li"> 
+				<div id="menu">
+					<ul id="nav"> 
+						<li class="mainlevel" id="mainlevel_01"><a href="coll.html" target="_blank"><img src="Images/icon/head_icon.png" alt=" " title="" class="cll_icons"/> 我的收藏<img src="Images/icon/botn.png" alt=" " title="" class="cll_icon"/></a>
+							<ul id="sub_01">
+								<li><a href="coll.html" target="_blank">收藏店铺</a></li>
+								<li><a href="coll.html" target="_blank">收藏商品</a></li> 
+							</ul>
+						</li> 
+						<div class="clear"></div> 
+					</ul>
+				</div>  
+			   </li>
+			   <li class="mob_li"><a href="mobil_service.html"><div class="icon_nav mob_index fl"></div> 手机中军创</a></li>
+			   <li><a href="service.html"><div class="icon_nav ser_index fl"></div>客服与投诉</a></li>
+				<div class="clear"></div>
+			</ul>		 
+		</div>
+		</div>
+		<!-- header_bottom -->
+		<div class="header_bottom_login">
+		  <div class="header_bottom_cen_log clearfix">
+		    <div class="header_bottom_cenl fl">
+			   <a href="index.html"><img src="images/logo.png" alt="logo" title="logo" class="cll_icons" width="385" height="149"/></a>
+			</div>
+		    <div class="header_bottom_cenr fl">
+			   <div class="header_bottom_cenrl fl">
+			   <div class="log_head">
+			       <div class="search_top">
+				   <div class="seo fl"><div class="secf_bord fl"></div>
+					<div id="searchTxt" class="searchTxt fr" onMouseOver="this.className='searchTxt searchTxtHover';" onMouseOut="this.className='searchTxt';"> 
+					
+						<input name="w" type="text" />						
+							<div class="searchMenu">							
+							<div class="searchSelected" id="searchSelected">全部分类 </div>							
+							<div style="display:none;" class="searchTab" id="searchTab"> 
+								<ul>
+									<li><a href="#">全部分类</a></li>
+									<li><a href="#">平台分类</a></li>
+									<li><a href="#">食品分类</a></li>
+									<li><a href="#">汽车分类</a></li> 
+									<li><a href="#">图书分类</a></li> 
+									<li><a href="#">家具分类</a></li>
+									<li><a href="#">女鞋分类</a></li>
+									<li><a href="#">男装分类</a></li> 
+									<li><a href="#">旅行分类</a></li> 
+									<li><a href="#">男鞋分类</a></li> 
+									<li><a href="#">手机分类</a></li> 
+									<li><a href="#">母婴分类</a></li> 
+									<li><a href="#">电器分类</a></li> 
+									<div class="clear"></div>
+								</ul>
+							</div>							
+						</div> 
+					</div>	
+					<div class="clear"></div>	
+					</div>					
+					<div class="searchBtn fr">
+						<button id="searchBtn" type="submit"><img src="images/icon/ser_icon.png"></button>
+					</div>
+					   <div class="clear"></div>
+				</div>
+				<div class="search_a">
+					<ul>
+					   <li>热搜：<a href="#">中军创云易酒</a></li>
+					   <li><a href="#">房车</a></li>
+					   <li><a href="#">大米</a></li>
+					   <div class="clear"></div>
+					</ul>
+				</div>	
+				</div>					
+			   </div>
+			     <!-- 没登录 -->
+			   <div class="header_bottom_cenrr fr">
+			   <div class="login_cartse">
+		      <div class="dfde_null"  style="display:None;">
+					  <div id="settleup" class="dorpdown">
+							<div class="cw-icon">							 
+							  <a target="_blank" href="#">购物车</a>
+							  <i class="i_img"><img src="images/icon/carts.png"/></i>
+							</div><div class="clear"></div>
+							<!-- 下拉 -->
+							<div class="dorpdown-layer"> 
+								<!-- 登录后 -->
+								<div class="drop_block">
+							      <ul>
+								     <li><a href="#">
+									   <div class="drop_side fl">
+									    <i class=""><img src="images/icon/head_cart.png" alt="购物车" title="购物车"/></i>
+									   </div>
+									   <div class="drop_cont fr">
+									     <p>劵:424</p>
+									     <a href="#">删除</a>
+									   </div>
+										<div class="clear"></div></a>
+									 </li>
+								     <li><a href="#">
+									   <div class="drop_side fl">
+									    <i class=""><img src="images/icon/head_cart.png" alt="购物车" title="购物车"/></i>
+									   </div>
+									   <div class="drop_cont fr">
+									     <p>劵:424</p>
+									     <a href="#">删除</a>
+									   </div>
+										<div class="clear"></div></a>
+									 </li>
+								     <li><a href="#">
+									   <div class="drop_side fl">
+									    <i class=""><img src="images/icon/head_cart.png" alt="购物车" title="购物车"/></i>
+									   </div>
+									   <div class="drop_cont fr">
+									     <p>劵:424</p>
+									     <a href="#">删除</a>
+									   </div>
+										<div class="clear"></div></a>
+									 </li>
+								     <li><a href="#">
+									   <div class="drop_side fl">
+									    <i class=""><img src="images/icon/head_cart.png" alt="购物车" title="购物车"/></i>
+									   </div>
+									   <div class="drop_cont fr">
+									     <p>劵:424</p>
+									     <a href="#">删除</a>
+									   </div>
+										<div class="clear"></div></a>
+									 </li><div class="clear"></div>
+								  </ul>								  
+								</div> 
+							</div>
+						  </div>
+					</div>
+			      <div class="dfde_block">
+					  <div id="settleup" class="dorpdown">
+							<div class="cw-icon">							 
+							  <a target="_blank" href="#">购物车</a>
+							  <i class="i_img"><img src="images/icon/carts.png"/></i>
+							</div><div class="clear"></div>
+							<!-- 下拉 -->
+							<div class="dorpdown-layer">
+							<!-- 没登录 -->
+								<div class="drop_none clearfix">
+							      <div class="drop_noneside fl">
+								      <i class=""><img src="images/icon/cart_null.png"/></i>
+								  </div>
+							      <div class="drop_nonecont fr">
+								    <a href="#">还没有商品<br/>快去选购吧~</a>
+								  </div> 
+								</div> 
+							</div>
+						  </div>
+					</div>	
+				</div>					
+			   </div> 
+			   <div class="clear"></div>			
+			</div> 
+		  </div> 
+		</div> 
+	  </div>
+	 <!-- header end-->
+	 <!-- mian_login start --> 
+	 <!-- 我的订单 -->
+	 <div class="order_main">
+	     <div class="order_main_cen"> 
+			  <div class="file_indexl_order"> 
+		 <div class="reg-steps_order r3">
+			<ul class="reg-step-1order">
+				<li id="step-1_order" class="step-1"><span class="txt">   </span></li>
+				<li id="step-2_order" style="display:none;"><span class="txt"> </span></li>
+				<li id="step-3_order" style="display:none;"><span class="txt"> </span></li>
+				<li id="step-4_order" style="display:none;"><span class="txt"> </span></li>
+				<div class="clear"></div>
+			</ul>
+		</div>
+		<div>
+		  <div class="order_content">
+		  <!-- content1_order -->
+		    <div id="content1_order" style="display:block;"> 
+			   <div class="order_one">
+			     <div class="orderone_head">确认订单信息</div>
+			     <div class="orderone_cont">
+				 <!-- content -->
+				   <div class="orderone_cont_one">
+				     <div class="orderone_cont_onehead">
+						<ul class="ldij">
+								<li class="lis_one">店铺名称：中军创云易</li>
+							    <li class="lis_two">
+								<a href="#" class="img_back_order"><img src="images/vip/back.png"></a> 
+									<ul>  
+										<li>028-61533763</li>  <div class="clear"></div>   
+									</ul>  
+							    </li><div class="clear"></div>
+							</ul>
+					 
+					 </div>
+					 <div class="order_onecon">
+					   <div class="order_oneconhead clearfix">
+					      <div class="fonts order_dgone fl">订单信息</div>
+					      <div class="fonts order_dgtwo fl">数量</div>
+					      <div class="fonts order_dgtree fl">价格</div>
+					      <div class="fonts order_dgfour fl">运费</div>
+					      <div class="fonts order_dgfive fl">小计</div> 
+					   </div>
+					   <div class="order_onecontes">
+					     <ul>
+						    <li class="orderul_li">
+							   <div class="orderimg fl">
+								<a href="#">
+										   <img src="images/user/cart_two.png" title="购物车" alt="购物车" width="82" height="82">
+								</a>
+							   </div>
+							   <div class="orderimgr fl">
+								<p class="sd_divorder"><a href="#" title="中军创云易酒白酒">中军创云易酒 白酒 （500ml/瓶）浓香型白酒</a></p>
+							   <p class="sd_order_one"><span class="s_order">产品规格</span><span class="sd_orde">一件4瓶装</span></p>
+							   </div>
+							   <div class="clear"></div>							
+							</li>
+							<li class="orderul_litwo">
+								<div class="num">
+									<span class="red_order">&nbsp;-&nbsp;</span>
+									<input type="text" value="1" class="text_order" readonly="">
+									<span class="add_order">&nbsp;+&nbsp;</span>
+								</div>
+							</li> 
+							<li class="orderul_litree">
+								<p class="order_text"><span class="pices">10</span>券</p> 
+							</li>
+							<li class="orderul_lifour">
+								￥<span class="sumd_or">10</span>
+							</li>
+							<li class="orderul_lifive">
+								<span class="osde_sum">10</span>券<br/>
+								现金：<span class="mon_order_text">￥10</span>
+							</li>
+							<div class="clear"></div>
+						 </ul>
+							<div class="clear"></div>
+					   </div>
+					   <div class="order_onecontes">
+					     <ul>
+						    <li class="orderul_li">
+							   <div class="orderimg fl">
+								<a href="#">
+										   <img src="images/user/cart_two.png" title="购物车" alt="购物车" width="82" height="82">
+								</a>
+							   </div>
+							   <div class="orderimgr fl">
+								<p class="sd_divorder"><a href="#" title="中军创云易酒白酒">中军创云易酒 白酒 （500ml/瓶）浓香型白酒</a></p>
+							   <p class="sd_order_one"><span class="s_order">产品规格</span><span class="sd_orde">一件4瓶装</span></p>
+							   </div>
+							   <div class="clear"></div>							
+							</li>
+							<li class="orderul_litwo">
+								<div class="num">
+									<span class="red_order">&nbsp;-&nbsp;</span>
+									<input type="text" value="1" class="text_order" readonly="">
+									<span class="add_order">&nbsp;+&nbsp;</span>
+								</div>
+							</li> 
+							<li class="orderul_litree">
+								<p class="order_text"><span class="pices">10</span>券</p> 
+							</li>
+							<li class="orderul_lifour">
+								￥<span class="sumd_or">10</span>
+							</li>
+							<li class="orderul_lifive">
+								<span class="osde_sum">10</span>券<br/>
+								现金：<span class="mon_order_text">￥10</span>
+							</li>
+							<div class="clear"></div>
+						 </ul>
+							<div class="clear"></div>
+					   </div> 
+					 </div>
+				   </div>
+				 <!-- content -->
+				   <div class="orderone_cont_one">
+				     <div class="orderone_cont_onehead">
+						<ul class="ldij">
+								<li class="lis_one">店铺名称：中军创云易</li>
+							    <li class="lis_two">
+								<a href="#" class="img_back_order"><img src="images/vip/back.png"></a> 
+									<ul>  
+										<li>028-61533763</li>  <div class="clear"></div>   
+									</ul>  
+							    </li><div class="clear"></div>
+							</ul>
+					 
+					 </div>
+					 <div class="order_onecon">
+					   <div class="order_oneconhead clearfix">
+					      <div class="fonts order_dgone fl">订单信息</div>
+					      <div class="fonts order_dgtwo fl">数量</div>
+					      <div class="fonts order_dgtree fl">价格</div>
+					      <div class="fonts order_dgfour fl">运费</div>
+					      <div class="fonts order_dgfive fl">小计</div> 
+					   </div>
+					   <div class="order_onecontes">
+					     <ul>
+						    <li class="orderul_li">
+							   <div class="orderimg fl">
+								<a href="#">
+										   <img src="images/user/cart_two.png" title="购物车" alt="购物车" width="82" height="82"/>
+								</a>
+							   </div>
+							   <div class="orderimgr fl">
+								<p class="sd_divorder"><a href="#" title="中军创云易酒白酒">中军创云易酒 白酒 （500ml/瓶）浓香型白酒</a></p>
+							    <p class="sd_order_one"><span class="s_order">产品规格</span><span class="sd_orde">一件4瓶装</span></p>
+							   </div>
+							   <div class="clear"></div>							
+							</li>
+							<li class="orderul_litwo">
+								<div class="num">
+									<span class="red_order">&nbsp;-&nbsp;</span>
+									<input type="text" value="1" class="text_order" readonly="">
+									<span class="add_order">&nbsp;+&nbsp;</span>
+								</div>
+							</li> 
+							<li class="orderul_litree">
+								<p class="order_text"><span class="pices">10</span>券</p> 
+							</li>
+							<li class="orderul_lifour">
+								￥<span class="sumd_or">10</span>
+							</li>
+							<li class="orderul_lifive">
+								<span class="osde_sum">10</span>券<br/>
+								现金：<span class="mon_order_text">￥10</span>
+							</li>
+							<div class="clear"></div>
+						 </ul>
+							<div class="clear"></div>
+					   </div>
+					   <div class="order_onecontes">
+					     <ul>
+						    <li class="orderul_li">
+							   <div class="orderimg fl">
+								<a href="#">
+									<img src="images/user/cart_two.png" title="购物车" alt="购物车" width="82" height="82">
+								</a>
+							   </div>
+							   <div class="orderimgr fl">
+								<p class="sd_divorder"><a href="#" title="中军创云易酒白酒">中军创云易酒 白酒 （500ml/瓶）浓香型白酒</a></p>
+							   <p class="sd_order_one"><span class="s_order">产品规格</span><span class="sd_orde">一件4瓶装</span></p>
+							   </div>
+							   <div class="clear"></div>							
+							</li>
+							<li class="orderul_litwo">
+								<div class="num">
+									<span class="red_order">&nbsp;-&nbsp;</span>
+									<input type="text" value="1" class="text_order" readonly="">
+									<span class="add_order">&nbsp;+&nbsp;</span>
+								</div>
+							</li> 
+							<li class="orderul_litree">
+								<p class="order_text"><span class="pices">10</span>券</p> 
+							</li>
+							<li class="orderul_lifour">
+								￥<span class="sumd_or">10</span>
+							</li>
+							<li class="orderul_lifive">
+								<span class="osde_sum">10</span>券<br/>
+								现金：<span class="mon_order_text">￥10</span>
+							</li>
+							<div class="clear"></div>
+						 </ul>
+							<div class="clear"></div>
+					   </div> 
+					 </div>
+				   </div> 
+				 </div>
+				 <!-- order_addres -->
+			   <div class="order_addres">
+			      <div class="order_addhead clearfix">
+					<div class="order_addresfl fl">
+					  确认收货地址
+					</div>
+					<div class="order_addresfr fr">
+					 管理收货地址
+					</div> 
+				  </div>
+				  <div class="order_addconts">
+				      <ul>
+						  <li class="selected">
+						  <div class="selfkl fl">
+							<span class="spans">邮寄至:</span><img src="images/user/adds.png" class="img_order" />
+						  </div>
+						  <div class="selfkr fl">
+							  <div class="sdf_span fl">
+								  <input type="radio" checked="checked" name="loi_one" value="1" />
+								  &nbsp;&nbsp;四川省成都市锦江区东大街紫东楼段35号
+							  </div>
+						      <span class="sdsd_span fr"><a href="#" class="coks_href">默认地址</a> 
+							  <a href="#" class="coks_hrefs">设默认地址</a> </span>
+						  </div>
+						  <div class="clear"></div> 
+						  </li>
+						  <li>
+						  <div class="selfkl fl">
+							<span class="spans">邮寄至:</span><img src="images/user/adds.png" class="img_order" />
+						  </div>
+						  <div class="selfkr fl">
+							  <div class="sdf_span fl">
+								  <input type="radio" name="loi_one" value="2" /> 
+								  &nbsp;&nbsp;四川省成都市锦江区东大街紫东楼段35号
+							  </div>
+						      <span class="sdsd_span fr"><a href="#" class="coks_href">默认地址</a> 
+							  <a href="#" class="coks_hrefs">设默认地址</a> </span>
+						  </div>
+								<div class="clear"></div> 
+						  </li> 
+						</ul><div class="clear"></div> 
+				  </div>				  
+				  <div class="news_add">
+					<a href="#"><img src="images/user/add.png" class="add_img_order"/> 使用新地址</a>
+				  </div>
+			   </div>
+			   <!-- order_sums -->
+			   <div class="order_sums">
+					<div class="order_sumsfr fr">
+					  <p class="orderc_text">合计券：<span id="order_total"> </span></p>
+					  <p class="orderc_text">运费：<span class="sdyu"></span>元</p>
+					  <p class="order_adds ones_order">邮寄至：四川省成都市锦江区东大街紫东楼段35号</p>
+					  <p class="order_adds">收货人：中军创  138 8888 8888</p>
+					 <div class="btn_ok fr"><button class="subd">提交订单</button></div>
+					<div class="clear"></div>
+					</div><div class="clear"></div>
+			   </div> 
+			   </div> 
+			</div> 
+			<!-- content2_order -->
+		    <div id="content2_order">
+				<div class="order_two_click">
+				  <div class="order_two_click_top">
+				   <div class="lkd_topl">支付方式</div>  
+				  </div>
+				  <div class="order_two_click_cen">
+					 <div class="oderg_botn">
+					   <div class="oderg_botn_side">
+					     <ul>
+						     <li>
+							     <div class="osde"> <input type="radio" name="Sex" value="female" />
+								 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;劵支付：<span class="sdli_cd"> 共计3888劵</span> 
+								 </div>  
+							 </li> 
+						     <li class="select">
+							     <div class="osde fl"> 
+								 <div class="osde_text fl"><input type="radio" checked="checked" name="Sex" value="male" /> 
+								 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在线支付：</div>
+								 <div class="btn_zf fl">
+								  <select class="sel_order">
+								    <option>支付宝支付</option>
+								    <option>微信支付</option>
+								    <option>银联支付</option>
+								  </select>
+								 </div>
+								 <div class="clear"></div>
+								 </div>  
+								 <div class="pans_sp fl">
+								 <p>共计10元</p>
+								 
+								 </div><div class="clear"></div>
+							 </li>
+						 </ul><div class="clear"></div> 
+					   </div>
+							<div class="order_be">
+								   <p class="order_be_p font20 coloroo">备注:</p>
+								   <textarea>
+								   </textarea>
+							</div>					   
+					 </div>
+				 </div>
+				 <!-- z-index start -->
+				 <div class="order_pwd_popover">
+				   <div class="odsr_tex">
+				      <div id="payPassword_container" class="alieditContainer fl" data-busy="0">
+						<label for="i_payPassword" class="i-block lkfigo fl">输入密码： </label>
+						<div class="i-block fr rights_ove" data-error="i_error">
+							<div class="i-block six-password">
+								<input class="i-text sixDigitPassword" id="payPassword_rsainput" type="password" autocomplete="off" required="required" value="" name="payPassword_rsainput" data-role="sixDigitPassword" tabindex="" maxlength="6" minlength="6" aria-required="true">
+								<div tabindex="0" class="sixDigitPassword-box" style="width: 200px;">
+									<i style="width: 29px; border-color: transparent;" class=""><b style="visibility: hidden;"></b></i>
+									<i style="width: 29px;"><b style="visibility: hidden;"></b></i>
+									<i style="width: 29px;"><b style="visibility: hidden;"></b></i>
+									<i style="width: 29px;"><b style="visibility: hidden;"></b></i>
+									<i style="width: 29px;"><b style="visibility: hidden;"></b></i>
+									<i style="width: 29px;"><b style="visibility: hidden;"></b></i>
+									<span style="width: 29px; left: 0px; visibility: hidden;" id="cardwrap" data-role="cardwrap"></span>
+								</div>
+							</div> 
+							</div><div class="clear"></div>
+						</div>
+						<div class="dsddd  fr">
+							<button class="btn_pwds_oi">确定</button>
+						</div>
+					<div class="clear"></div>
+				   </div>
+				  <div class="pf_pwd_scuu">
+				  <!-- 成功 -->
+				     <div class="psdf_succe"> 
+					 <p>支付成功<img src="images/user/su_ord.png" class="imf_ose_sucee"></p> 
+					 </div> 
+					 <div class="psdf_succe_no" style="display:none;"> 
+					 <p>余额不足<img src="images/user/over_order.png" class="imf_ose_sucee"></p> 
+					 </div>
+				  </div>
+				 </div>
+				 <div class="order_pwd_popover_maker"></div>				 
+				 <!-- z-index end --> 
+				<div class="oder_btn">
+					<div class="dfkl_tbns"> <input type="submit" value="取消支付" class="cth_btn"/> 
+					 <input type="submit" value="确定支付" class="ok_btn"/> 
+				</div> 
+				<!-- 取消 -->
+				<div class="onv_pwd_popover">
+				 <div class="psdf_succe_noop" > 
+					 <p>取消成功 <img src="images/user/over_order.png" class="imf_ose_sucee"></p> 
+					 </div>
+				</div>
+				<div class="onv_pwd_popover_maker"></div> 
+				</div> 
+				</div> 
+			  </div>
+		    <div id="content3_order"> 
+			 <div class="orde_tree">
+			     <div class="orde_tree_cont">
+				    <div class="odfe_head clearfix">
+					   <div class="odfe_headtext fl oder_one">订单号：20170400004</div>
+					   <div class="odfe_headtext fl oder_two">中军自营店</div>
+					   <div class="odfe_headtext fl oder_tree lis_two">
+							<a href="#" class="img_back_order"><img src="images/vip/back.png"></a> 
+							<ul>  
+								<li>028-61533763</li>  <div class="clear"></div>   
+							</ul>  
+					   </div>
+					   <div class="odfe_headtext fl oder_four">下单时间：2017年4月8日 13：9</div> 
+					</div>
+					<div class="confl_cont">
+					  <table>
+						<tbody><tr class="cons_tr">
+							<td width="410" class="td_onsd">
+								<div class="lisd_dvixd clearfix">
+									<div class="lisd_dvixdsde fl">
+									<a href="#">
+									<img src="images/user/cart_two.png" title="购物车" alt="购物车" width="60" height="60">
+									</a>
+									</div>
+									<div class="lisd_dvixdsdew fl">
+									<p class="sd_divorder"><a href="#" title="中军创云易酒白酒">中军创云易酒 白酒 （500ml/瓶）浓香型白酒</a></p>
+									<p class="sd_order_one"><span class="s_order">产品规格</span><span class="sd_orde">一件4瓶装</span></p>
+									<p class="s_order">数量：<span class="sum_ons_order">3</span></p>
+									</div> 						
+								</div>  			  
+							</td>
+							<td width="190" class="dweoptwo td_onsd" align="center">
+								<p class="litoe_tex_on"><span class="osde_on">10</span>券</p> 
+							</td>
+							<td width="250" class="dweop">
+								<div class="pos_order"><p class="litoe_tex"><span class="usmdf">40</span>券</p>
+								<p class="litoe_tex">含运费：￥0</p>
+								</div>
+							</td>
+							<td width="246" align="center">
+							<div class="pos_order">
+								<p class="litoe_tex">卖家已发货</p>
+								</div>
+							</td>
+							<td width="200" align="center">
+							<div class="pos_order">
+								<p class="litoe_tex op_oks">确认收货</p>
+								</div>
+							</td>
+						</tr> 
+						<tr class="cons_tr">
+							<td width="410" class="td_onsd">
+								<div class="lisd_dvixd clearfix">
+									<div class="lisd_dvixdsde fl">
+									<a href="#">
+										<img src="images/user/cart_two.png" title="购物车" alt="购物车" width="60" height="60">
+									</a>
+									</div>
+									<div class="lisd_dvixdsdew fl">
+									<p class="sd_divorder"><a href="#" title="中军创云易酒白酒">中军创云易酒 白酒 （500ml/瓶）浓香型白酒</a></p>
+									<p class="sd_order_one"><span class="s_order">产品规格</span><span class="sd_orde">一件4瓶装</span></p>
+									<p class="s_order">数量：<span class="sum_ons_order">1</span></p>
+									</div> 						
+								</div>  			  
+							</td>
+							<td width="190" class="dweoptwo td_onsd" align="center"> 
+								<p class="litoe_tex_on"><span class="osde_on">10</span>券</p> 
+							</td>
+							<td width="250" class="dweop">
+								 
+							</td>
+							<td width="246" align="center">
+								 
+							</td>
+							<td width="200" align="center">
+								 
+							</td> 
+						</tr>   
+				</tbody></table>
+					</div>
+				 </div>
+			     <div class="orde_tree_cont">
+				    <div class="odfe_head clearfix">
+					   <div class="odfe_headtext fl oder_one">订单号：20170400004</div>
+					   <div class="odfe_headtext fl oder_two">中军自营店</div>
+					   <div class="odfe_headtext fl oder_tree lis_two">
+							<a href="#" class="img_back_order"><img src="images/vip/back.png"></a> 
+							<ul>  
+								<li>028-61533763</li>  <div class="clear"></div>   
+							</ul>  
+					   </div>
+					   <div class="odfe_headtext fl oder_four">下单时间：2017年4月8日 13：9</div> 
+					</div>
+					<div class="confl_cont">
+					  <table>
+						<tbody><tr class="cons_tr">
+							<td width="410" class="td_onsd">
+								<div class="lisd_dvixd clearfix">
+									<div class="lisd_dvixdsde fl">
+									<a href="#">
+									<img src="images/user/cart_two.png" title="购物车" alt="购物车" width="60" height="60">
+									</a>
+									</div>
+									<div class="lisd_dvixdsdew fl">
+									<p class="sd_divorder"><a href="#" title="中军创云易酒白酒">中军创云易酒 白酒 （500ml/瓶）浓香型白酒</a></p>
+									<p class="sd_order_one"><span class="s_order">产品规格</span><span class="sd_orde">一件4瓶装</span></p>
+									<p class="s_order">数量：<span class="sum_ons_order">3</span></p>
+									</div> 						
+								</div>  			  
+							</td>
+							<td width="190" class="dweoptwo td_onsd" align="center">
+								<p class="litoe_tex_on"><span class="osde_on">10</span>券</p> 
+							</td>
+							<td width="250" class="dweop">
+								<div class="pos_order"><p class="litoe_tex"><span class="usmdf">40</span>券</p>
+								<p class="litoe_tex">含运费：￥0</p>
+								</div>
+							</td>
+							<td width="246" align="center">
+							<div class="pos_order">
+								<p class="litoe_tex">卖家已发货</p>
+								</div>
+							</td>
+							<td width="200" align="center">
+							<div class="pos_order">
+								<p class="litoe_tex op_oks">确认收货</p>
+								</div>
+							</td>
+						</tr> 
+						<tr class="cons_tr">
+							<td width="410" class="td_onsd">
+								<div class="lisd_dvixd clearfix">
+									<div class="lisd_dvixdsde fl">
+									<a href="#">
+										<img src="images/user/cart_two.png" title="购物车" alt="购物车" width="60" height="60">
+									</a>
+									</div>
+									<div class="lisd_dvixdsdew fl">
+									<p class="sd_divorder"><a href="#" title="中军创云易酒白酒">中军创云易酒 白酒 （500ml/瓶）浓香型白酒</a></p>
+									<p class="sd_order_one"><span class="s_order">产品规格</span><span class="sd_orde">一件4瓶装</span></p>
+									<p class="s_order">数量：<span class="sum_ons_order">1</span></p>
+									</div> 						
+								</div>  			  
+							</td>
+							<td width="190" class="dweoptwo td_onsd" align="center"> 
+								<p class="litoe_tex_on"><span class="osde_on">10</span>券</p> 
+							</td>
+							<td width="250" class="dweop">
+								 
+							</td>
+							<td width="246" align="center">
+								 
+							</td>
+							<td width="200" align="center">
+								 
+							</td> 
+						</tr>   
+				</tbody></table>
+					</div>
+				 </div>
+			 
+			 </div>
+			 <!-- z-index start-->
+			 <div class="order_popover">
+			 <div class="pwd_zf clearfix">
+			   <div id="payPassword_container1" class="alieditContainer fl" data-busy="0">
+				<label for="i_payPassword1" class="i-block1 lkfigo fl">支付密码：</label>
+				<div class="i-block1 fr rights_ove" data-error="i_error">
+					<div class="i-block1 six-password1">
+						<input class="i-text sixDigitPassword1" id="payPassword_rsainput1" type="password" autocomplete="off" required="required" value="" name="payPassword_rsainput1" data-role="sixDigitPassword" tabindex="" maxlength="6" minlength="6" aria-required="true">
+						<div tabindex="0" class="sixDigitPassword-box1" style="width: 200px;">
+							<i style="width: 29px; border-color: transparent;" class=""><b style="visibility: hidden;"></b></i>
+							<i style="width: 29px;"><b style="visibility: hidden;"></b></i>
+							<i style="width: 29px;"><b style="visibility: hidden;"></b></i>
+							<i style="width: 29px;"><b style="visibility: hidden;"></b></i>
+							<i style="width: 29px;"><b style="visibility: hidden;"></b></i>
+							<i style="width: 29px;"><b style="visibility: hidden;"></b></i>
+							<span style="width: 29px; left: 0px; visibility: hidden;" id="cardwrap1" data-role="cardwrap"></span>
+						</div>
+					</div> 
+				</div><div class="clear"></div>
+			</div>
+			<div class="dsddd  fr">
+			<button class="btn_pwds">确定</button>
+			</div> 
+			 </div>
+			 <div class="sudn_order">
+			 <p>支付成功<img src="images/user/su_ord.png" class="imf_ose_sucee"/></p>
+			 </div>
+			 <div class="over_order">
+			 <p>密码错误<img src="images/user/over_order.png" class="imf_ose_sucee"/></p>
+			 </div>
+			 </div>
+			 <div class="order_popover_mask"></div>
+			 <!-- z-index end-->
+			<div class="indent_page">
+				<div class="cart_page">
+				  <ul>
+					 <li><a href="#" class="clicksd">1</a></li>
+					 <li><a href="#">2</a></li>
+					 <li><a href="#">3</a></li>
+					 <li><a href="#">4</a></li>
+					 <li><a href="#">...</a></li>
+					 <li class="next_page"><a href="#">下一页</a></li>
+					 <li class="top_page"><a href="#">上一页</a></li>
+					 <li class="index_page"><a href="#">首页</a></li>
+					 <li class="end_page"><a href="#">末页</a></li> <div class="clear"></div> 
+				  </ul> 
+				</div>
+			</div>
+			  </div>
+		       <div id="content4_order"> 
+		<div class="cont_top">
+			 <div class="orde_tree">
+			     <div class="orde_tree_cont">
+				    <div class="odfe_head clearfix">
+					   <div class="odfe_headtext fl oder_one">订单号：20170400004</div>
+					   <div class="odfe_headtext fl oder_two">中军自营店</div>
+					   <div class="odfe_headtext fl oder_tree lis_two">
+							<a href="#" class="img_back_order"><img src="images/vip/back.png"></a> 
+							<ul>  
+								<li>028-61533763</li> 
+								<div class="clear"></div>   
+							</ul>  
+					   </div>
+					   <div class="odfe_headtext fl oder_four">下单时间：2017年4月8日 13：9</div> 
+					</div>
+					<div class="confl_cont">				
+					<table>
+						<tr class="cons_tr">
+							<td width="410" class="td_onsd">
+								<div class="lisd_dvixd clearfix">
+									<div class="lisd_dvixdsde fl">
+									<a href="#">
+									<img src="images/user/cart_two.png" title="购物车" alt="购物车" width="60" height="60">
+									</a>
+									</div>
+									<div class="lisd_dvixdsdew fl">
+									<p class="sd_divorder"><a href="#" title="中军创云易酒白酒">中军创云易酒 白酒 （500ml/瓶）浓香型白酒</a></p>
+									<p class="sd_order_one"><span class="s_order">产品规格</span><span class="sd_orde">一件4瓶装</span></p>
+									<p class="s_order">数量:<span class="sum_ons_order">3</span></p>
+									</div> 							
+								</div>  			  
+							</td>
+							<td width="190" class="dweoptwo td_onsd" align="center" >
+								<p class="litoe_tex_on"><span class="osde_on">10</span>券</p> 
+							</td>
+							<td width="250" class="dweop">
+								<div class="pos_order"><p class="litoe_tex"><span class="usmdf"></span>券</p>
+								<p class="litoe_tex">含运费：￥0</p>
+								</div>
+							</td>
+							<td width="246" align="center">
+							<div class="pos_order">
+								<p class="litoe_tex">已确认收货</p>
+								</div>
+							</td>
+							<td width="200" align="center">
+							<div class="pos_order">
+								<p class="litoe_tex op_oks_pins">评价</p>
+								</div>
+							</td>
+						</tr> 
+						<tr class="cons_tr">
+							<td width="410" class="td_onsd">
+								<div class="lisd_dvixd clearfix">
+									<div class="lisd_dvixdsde fl">
+									<a href="#">
+										<img src="images/user/cart_two.png" title="购物车" alt="购物车" width="60" height="60">
+									</a>
+									</div>
+									<div class="lisd_dvixdsdew fl">
+									<p class="sd_divorder"><a href="#" title="中军创云易酒白酒">中军创云易酒 白酒 （500ml/瓶）浓香型白酒</a></p>
+									<p class="sd_order_one"><span class="s_order">产品规格</span><span class="sd_orde">一件4瓶装</span></p>
+									<p class="s_order">数量:<span class="sum_ons_order">1</span></p>
+									</div> 						
+								</div>  			  
+							</td>
+							<td width="190" class="dweoptwo td_onsd" align="center" > 
+								<p class="litoe_tex_on"><span class="osde_on">10</span>券</p> 
+							</td>
+							<td width="250" class="dweop">
+								 
+							</td>
+							<td width="246" align="center">
+								 
+							</td>
+							<td width="200" align="center">
+								 
+							</td> 
+						</tr>   
+				</table>  
+					</div>
+				 </div>
+			     <div class="orde_tree_cont">
+				    <div class="odfe_head clearfix">
+					   <div class="odfe_headtext fl oder_one">订单号：20170400004</div>
+					   <div class="odfe_headtext fl oder_two">中军自营店</div>
+					   <div class="odfe_headtext fl oder_tree lis_two">
+							<a href="#" class="img_back_order"><img src="images/vip/back.png"></a> 
+							<ul>  
+								<li>028-61533763</li>
+								<div class="clear"></div>   
+							</ul>  
+					   </div>
+					   <div class="odfe_headtext fl oder_four">下单时间：2017年4月8日 13：9</div> 
+					</div>
+					<div class="confl_cont">
+					<table>
+						<tr class="cons_tr">
+							<td width="410" class="td_onsd">
+								<div class="lisd_dvixd clearfix">
+									<div class="lisd_dvixdsde fl">
+										<a href="#">
+										<img src="images/user/cart_two.png" title="购物车" alt="购物车" width="60" height="60">
+										</a>
+									</div>
+									<div class="lisd_dvixdsdew fl">
+										<p class="sd_divorder"><a href="#" title="中军创云易酒白酒">中军创云易酒 白酒 （500ml/瓶）浓香型白酒</a></p>
+										<p class="sd_order_one"><span class="s_order">产品规格</span><span class="sd_orde">一件4瓶装</span></p>
+										<p class="s_order">数量:<span class="sum_ons_order">3</span></p>
+									</div> 						
+								</div>  			  
+							</td>
+							<td width="190" class="dweoptwo td_onsd" align="center" >
+								<p class="litoe_tex_on"><span class="osde_on">10</span>券</p> 
+							</td>
+							<td width="250" class="dweop">
+								<div class="pos_order" ><p class="litoe_tex"><span class="usmdf"></span>券</p>
+								<p class="litoe_tex">含运费：￥0</p>
+								</div>
+							</td>
+							<td width="246" align="center">
+								<div class="pos_order">
+									<p class="litoe_tex">已确认收货</p>
+								</div>
+							</td>
+							<td width="200" align="center">
+								<div class="pos_order">
+									<p class="litoe_tex op_oks_pins">评价</p>
+								</div>
+							</td>
+						</tr> 
+						<tr class="cons_tr">
+							<td width="410" class="td_onsd">
+								<div class="lisd_dvixd clearfix">
+									<div class="lisd_dvixdsde fl">
+										<a href="#">
+											<img src="images/user/cart_two.png" title="购物车" alt="购物车" width="60" height="60">
+										</a>
+									</div>
+									<div class="lisd_dvixdsdew fl">
+										<p class="sd_divorder"><a href="#" title="中军创云易酒白酒">中军创云易酒 白酒 （500ml/瓶）浓香型白酒</a></p>
+										<p class="sd_order_one"><span class="s_order">产品规格</span><span class="sd_orde">一件4瓶装</span></p>
+										<p class="s_order">数量:<span class="sum_ons_order">1</span></p>
+									</div> 						
+								</div>  			  
+							</td>
+							<td width="190" class="dweoptwo td_onsd" align="center" > 
+									<p class="litoe_tex_on"><span class="osde_on">10</span>券</p> 
+							</td>
+							<td width="250" class="dweop">
+								 
+							</td>
+							<td width="246" align="center">
+								 
+							</td>
+							<td width="200" align="center">
+								 
+							</td> 
+						</tr> 
+				</table> 				
+					</div>
+				 </div> 
+				 <div class="orde_tree_cont">
+				    <div class="odfe_head clearfix">
+					   <div class="odfe_headtext fl oder_one">订单号：20170400004</div>
+					   <div class="odfe_headtext fl oder_two">中军自营店</div>
+					   <div class="odfe_headtext fl oder_tree lis_two">
+							<a href="#" class="img_back_order"><img src="images/vip/back.png"></a> 
+							<ul>  
+								<li>028-61533763</li>
+								<div class="clear"></div>   
+							</ul>  
+					   </div>
+					   <div class="odfe_headtext fl oder_four">下单时间：2017年4月8日 13：9</div> 
+					</div>
+					<div class="confl_cont">
+						<table>
+							<tr class="cons_tr">
+								<td width="410" class="td_onsd">
+									<div class="lisd_dvixd clearfix">
+										<div class="lisd_dvixdsde fl">
+											<a href="#">
+											<img src="images/user/cart_two.png" title="购物车" alt="购物车" width="60" height="60">
+											</a>
+										</div>
+										<div class="lisd_dvixdsdew fl">
+											<p class="sd_divorder"><a href="#" title="中军创云易酒白酒">中军创云易酒 白酒 （500ml/瓶）浓香型白酒</a></p>
+											<p class="sd_order_one"><span class="s_order">产品规格</span><span class="sd_orde">一件4瓶装</span></p>
+											<p class="s_order">数量:<span class="sum_ons_order">3</span></p>
+										</div> 						
+									</div>  			  
+								</td>
+								<td width="190" class="dweoptwo td_onsd" align="center" >
+									<p class="litoe_tex_on"><span class="osde_on">10</span>券</p> 
+								</td>
+								<td width="250" class="dweop">
+									<div class="pos_order" >
+										<p class="litoe_tex"><span class="usmdf"></span>券</p>
+										<p class="litoe_tex">含运费：￥0</p>
+									</div>
+								</td>
+								<td width="246" align="center">
+									<div class="pos_order">
+										<p class="litoe_tex">已确认收货</p>
+									</div>
+								</td>
+								<td width="200" align="center">
+									<div class="pos_order">
+										<p class="litoe_tex op_oks_pins">评价</p>
+									</div>
+								</td>
+							</tr>
+							<tr class="cons_tr">
+								<td width="410" class="td_onsd">
+									<div class="lisd_dvixd clearfix">
+										<div class="lisd_dvixdsde fl">
+										<a href="#">
+										<img src="images/user/cart_two.png" title="购物车" alt="购物车" width="60" height="60">
+										</a>
+										</div>
+										<div class="lisd_dvixdsdew fl">
+										<p class="sd_divorder"><a href="#" title="中军创云易酒白酒">中军创云易酒 白酒 （500ml/瓶）浓香型白酒</a></p>
+										<p class="sd_order_one"><span class="s_order">产品规格</span><span class="sd_orde">一件4瓶装</span></p>
+										<p class="s_order">数量:<span class="sum_ons_order">3</span></p>
+										</div> 						
+									</div>  			  
+								</td>
+								<td width="190" class="dweoptwo td_onsd" align="center" > 
+									<p class="litoe_tex_on"><span class="osde_on">10</span>券</p> 
+								</td>
+								<td width="250" class="dweop"> 
+								</td>
+								<td width="246" align="center"> 
+								</td>
+								<td width="200" align="center"> 
+								</td>
+							</tr>  
+						 </table> 				
+					 </div>
+				 </div> 
+			 </div>
+			 </div>
+			 <!-- index -->
+			<div class="order_popover_four">
+				<div class="ofr_fou">
+					<div class="df_top">
+					<div class="ofr_fou_topside fl">
+					 评价商品
+					 </div>
+					 <div class="ofr_fou_topcon fr">
+					 <textarea placeholder="评价字数100字以内。"></textarea>
+					 </div>
+					<div class="clear"></div> 
+						</div>
+						<div class="ofr_fou_btn">
+						<div class="fl"><input type="radio" checked="checked" name="loi" value="er"> 满意
+						<input type="radio" name="loi" value="sd"> 不满意
+						</div>
+						<div class="fl">
+						  <ul class="star_four_order" id="UserStart">
+							  <li class="on"></li>
+							  <li class="on"></li>
+							  <li class="off"></li>
+							  <li class="off"></li>
+							  <li class="off"></li>
+						  </ul>
+						  <div class="clear"></div> 
+						</div>
+						</div>
+						<div class="order_btnsd fr">
+							<button class="sud_ok">提交评价</button>
+						</div><div class="clear"></div>  
+				</div>
+				<div class="oder_sudd">
+					<p>评价成功<img src="images/user/su_ord.png" class="imf_ose_sucee"/></p> 
+				</div>
+			 </div>
+			 <div class="order_popover_mask_four"></div>
+			 <!-- index --> 
+			<div class="indent_page">
+				<div class="cart_page">
+				  <ul>
+					 <li><a href="#" class="clicksd">1</a></li>
+					 <li><a href="#">2</a></li>
+					 <li><a href="#">3</a></li>
+					 <li><a href="#">4</a></li>
+					 <li><a href="#">...</a></li>
+					 <li class="next_page"><a href="#">下一页</a></li>
+					 <li class="top_page"><a href="#">上一页</a></li>
+					 <li class="index_page"><a href="#">首页</a></li>
+					 <li class="end_page"><a href="#">末页</a></li> <div class="clear"></div> 
+				  </ul> 
+				</div>
+			 </div>
+			</div>
+			<div class="clear"></div>
+		  </div> 
+		  </div> 
+		 </div>  
+		 </div>
+	 </div>
+	 <!-- mian_login end -->
+	  <!-- footer start -->
+	  <div class="footer">
+	    <div class="footer_top">
+		   <div class="footer_top_cen">
+		    <ul> 
+				<li class="foot_lione">
+					 <div class="zjxli_one clearfix">
+						<div class="zjxli_onel fl"><img src="images/icon/foot (1).png" alt="品质保证" title="品质保证" width="32" height="32"/></div>
+						<div class="zjxli_oner fr"><p class="pinz">品质保证</p><span class="foot_span">商品严格审查上架</span></div> 
+					 </div>
+				 </li>
+				<li class="foot_litwo">
+					 <div class="zjxli_one clearfix">
+						<div class="zjxli_onel fl"><img src="images/icon/foot (2).png" alt="担保交易" title="担保交易" width="32" height="32"/></div>
+						<div class="zjxli_oner fr"><p class="pinz">担保交易</p><span class="foot_span">10天平台担保交易</span></div> 
+					 </div>
+				 </li>
+				<li class="foot_litree">
+					 <div class="zjxli_two clearfix">
+						<div class="zjxli_onel fl"><img src="images/icon/foot (3).png" alt="特色服务体验" title="特色服务体验" width="32" height="32"/></div>
+						<div class="zjxli_oner fr"><p class="pinz">特色服务体验</p><span class="foot_span">为你提供家一样的感觉</span></div> 
+					 </div>
+				 </li>
+				<li class="foot_lifour">
+					 <div class="zjxli_two clearfix">
+						<div class="zjxli_onel fl"><img src="images/icon/foot (4).png" alt="帮助中心" title="帮助中心" width="32" height="32"/></div>
+						<div class="zjxli_oner fr"><p class="pinz">帮助中心</p><span class="foot_span"><a href="#">新手指南</a></span><span class="foot_span"><br/><a href="#">消费指示</a></span></div>
+					  </div>
+				 </li>
+				<li class="foot_lifour">
+					 <div class="zjxli_two">
+						<p class="pinz help_cen">微信订阅号</p>
+						<img src="images/icon/wei.png" alt="微信订阅号" title="微信订阅号" width="48" height="48"/>
+					 </div>
+				 </li>
+				 <div class="clear"></div>
+			 </ul> 
+			</div>
+		   </div>
+		   <div class="footer_bottom">
+		     <div class="footer_bot_cen">
+			    <p class="text_p"><span class="span_one">增值电信业务经营许可证：京A8-888888</span>     |     <span class="span_two">京公网安备案号：88888888</span></p>
+			    <p class="text_p"><span class="spans_one">Copyright © 2017</span><span class="spans_two">北京中军创云易物联网科技有限公司版权所有</span>     |     <span class="spans_tree">备案号：京ICP备888888号</span></p>
+			  </div> 
+		   </div>
+		</div>    
+	  <!-- footer end --> 
+	</div>			 
+	<script>
+	<!--(会员)个人中心首页中的待评价商品中的待评价跳转至双方互评-->
+	   $(function(){
+			  getQueryString("orders_url"); 
+			  var cons = getQueryString("orders_url"); //接收cons
+			  if(cons=="12"){//判断当前url后面的参数显示对应内容 
+			    $("#step-1_order,#step-2_order,#step-3_order").hide();
+				$("#content1_order,#content2_order,#content3_order").hide();
+				$("#step-4_order,#content4_order").show(); 
+			  }			  
+	   });	
+        function getQueryString(value){
+            var reg = new RegExp("(^|&)" + value + "=([^&]*)(&|$)", "i");//构造一个含有目标参数的正则表达式对象
+            var r = window.location.search.substr(1).match(reg);//匹配目标参数
+            if (r == null){//返回参数值
+			   return null;
+			}else{
+				return unescape(r[2]);			   
+			}
+        }
+	</script>
+  <!-- container  end--> 
+</body>
+</html>

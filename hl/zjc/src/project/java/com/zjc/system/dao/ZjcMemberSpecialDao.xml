@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- zjc_member_special[zjc_member_special]SQL自动映射 -->
+<!--  注意:此文件由AOS平台自动生成-禁止手工修改 2017-06-13 17:47:13 -->
+<mapper namespace="com.zjc.system.dao.ZjcMemberSpecialDao">
+	
+	<!-- 插入一个数据持久化对象(插入字段为传入PO实体的非空属性) -->
+	<insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="ZjcMemberSpecialPO">
+		INSERT INTO zjc_member_special (
+		<if test="premise_condition != null and premise_condition != ''">
+	         premise_condition, <!-- 设置前提条件 -->
+		</if>
+		<if test="limited_product_id != null and limited_product_id != ''">
+	         limited_product_id, <!-- 配置的val值 -->
+		</if>
+		<if test="special_commodity != null and special_commodity != ''">
+	         special_commodity, <!-- 特殊商品ID列表 -->
+		</if>
+		<if test="time_condition != null and time_condition != ''">
+	         time_condition, <!-- 时间条件 -->
+		</if>
+		<if test="limit_for_purchasing != null and limit_for_purchasing != ''">
+	         limit_for_purchasing, <!-- 限购数量限制 -->
+		</if>
+		<if test="membership_level_limit != null and membership_level_limit != ''">
+	         membership_level_limit, <!-- 会员等级限制 -->
+		</if>
+		<if test="date_time != null and date_time != ''">
+	         date_time, <!-- date_time -->
+		</if>
+	          id
+		)VALUES(
+		<if test="premise_condition != null and premise_condition != ''">
+	          #{premise_condition, jdbcType=VARCHAR}, <!-- 设置前提条件 -->
+	    </if>
+		<if test="limited_product_id != null and limited_product_id != ''">
+	          #{limited_product_id, jdbcType=VARCHAR}, <!-- 配置的val值 -->
+	    </if>
+		<if test="special_commodity != null and special_commodity != ''">
+	          #{special_commodity, jdbcType=VARCHAR}, <!-- 特殊商品ID列表 -->
+	    </if>
+		<if test="time_condition != null and time_condition != ''">
+	          #{time_condition, jdbcType=VARCHAR}, <!-- 时间条件 -->
+	    </if>
+		<if test="limit_for_purchasing != null and limit_for_purchasing != ''">
+	          #{limit_for_purchasing, jdbcType=VARCHAR}, <!-- 限购数量限制 -->
+	    </if>
+		<if test="membership_level_limit != null and membership_level_limit != ''">
+	          #{membership_level_limit, jdbcType=VARCHAR}, <!-- 会员等级限制 -->
+	    </if>
+		<if test="date_time != null and date_time != ''">
+	          #{date_time, jdbcType=VARCHAR}, <!-- date_time -->
+	    </if>
+	          null
+		)
+	</insert>
+	
+	<!-- 插入一个数据持久化对象(含所有字段) -->
+	<insert id="insertAll" useGeneratedKeys="true" keyProperty="id" parameterType="ZjcMemberSpecialPO">
+		INSERT INTO zjc_member_special (
+		    <include refid="column" />
+		)
+		VALUES (
+		    #{id, jdbcType=INTEGER},  <!-- 表id -->
+		    #{premise_condition, jdbcType=VARCHAR},  <!-- 设置前提条件 -->
+		    #{limited_product_id, jdbcType=VARCHAR},  <!-- 配置的val值 -->
+		    #{special_commodity, jdbcType=VARCHAR},  <!-- 特殊商品ID列表 -->
+		    #{time_condition, jdbcType=VARCHAR},  <!-- 时间条件 -->
+		    #{limit_for_purchasing, jdbcType=VARCHAR},  <!-- 限购数量限制 -->
+		    #{membership_level_limit, jdbcType=VARCHAR},  <!-- 会员等级限制 -->
+		    #{date_time, jdbcType=VARCHAR}  <!-- date_time -->
+		)
+	</insert>
+
+	<!-- 根据主键修改数据持久化对象 -->
+	<update id="updateByKey" parameterType="ZjcMemberSpecialPO">
+		UPDATE zjc_member_special
+		<set>
+			<if test="id != null">
+		          id = #{id, jdbcType=INTEGER},  <!-- 表id -->
+			</if>
+			<if test="premise_condition != null">
+		          premise_condition = #{premise_condition, jdbcType=VARCHAR},  <!-- 设置前提条件 -->
+			</if>
+			<if test="limited_product_id != null">
+		          limited_product_id = #{limited_product_id, jdbcType=VARCHAR},  <!-- 配置的val值 -->
+			</if>
+			<if test="special_commodity != null">
+		          special_commodity = #{special_commodity, jdbcType=VARCHAR},  <!-- 特殊商品ID列表 -->
+			</if>
+			<if test="time_condition != null">
+		          time_condition = #{time_condition, jdbcType=VARCHAR},  <!-- 时间条件 -->
+			</if>
+			<if test="limit_for_purchasing != null">
+		          limit_for_purchasing = #{limit_for_purchasing, jdbcType=VARCHAR},  <!-- 限购数量限制 -->
+			</if>
+			<if test="membership_level_limit != null">
+		          membership_level_limit = #{membership_level_limit, jdbcType=VARCHAR},  <!-- 会员等级限制 -->
+			</if>
+			<if test="date_time != null">
+		          date_time = #{date_time, jdbcType=VARCHAR},  <!-- date_time -->
+			</if>
+		</set>
+		WHERE  id = #{id}
+	</update>
+	
+	<!-- 根据主键删除数据持久化对象 -->
+	<delete id="deleteByKey">
+		DELETE FROM zjc_member_special WHERE  id = #{id}
+	</delete>
+
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="selectByKey" resultType="ZjcMemberSpecialPO">
+		SELECT
+		<include refid="column" />
+		FROM zjc_member_special WHERE  id = #{id}
+	</select>
+   
+    <!-- 根据最大id查询最新数据 -->
+	<select id="selectByMaxKey" resultType="ZjcMemberSpecialPO">
+		SELECT
+		<include refid="column" />
+		 from zjc_member_special t  
+         where t.id=(select max(id) from zjc_member_special)
+	</select>
+   
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="selectOne" parameterType="Dto" resultType="ZjcMemberSpecialPO">
+		SELECT
+		    <include refid="column" />
+		FROM zjc_member_special
+		<where>
+		    <include refid="equal" />
+		</where>		
+	</select>
+
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="list" parameterType="Dto" resultType="ZjcMemberSpecialPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_member_special
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listPage" parameterType="Dto" resultType="ZjcMemberSpecialPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_member_special
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto模糊查询并返回数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="like" parameterType="Dto" resultType="ZjcMemberSpecialPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_member_special
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto模糊查询并返回分页数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="likePage" parameterType="Dto" resultType="ZjcMemberSpecialPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_member_special
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto统计行数 -->
+	<select id="rows" resultType="Integer" parameterType="Dto">
+		SELECT COUNT(1) AS aos_rows_ FROM zjc_member_special
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 根据数学表达式进行数学运算 -->
+	<select id="calc" parameterType="Dto" resultType="String">
+		SELECT
+			${_expr}
+		FROM zjc_member_special
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 表字段 -->
+	<sql id="column">
+		  id,  <!-- 表id -->
+		  premise_condition,  <!-- 设置前提条件 -->
+		  limited_product_id,  <!-- 配置的val值 -->
+		  special_commodity,  <!-- 特殊商品ID列表 -->
+		  time_condition,  <!-- 时间条件 -->
+		  limit_for_purchasing,  <!-- 限购数量限制 -->
+		  membership_level_limit,  <!-- 会员等级限制 -->
+		  date_time  <!-- date_time -->
+	</sql>
+	
+	<!-- 表字段(用于外表的关联时引用) -->
+	<sql id="column2">
+		  zjc_member_special.id,  <!-- 表id -->
+		  zjc_member_special.premise_condition,  <!-- 设置前提条件 -->
+		  zjc_member_special.limited_product_id,  <!-- 配置的val值 -->
+		  zjc_member_special.special_commodity,  <!-- 特殊商品ID列表 -->
+		  zjc_member_special.time_condition,  <!-- 时间条件 -->
+		  zjc_member_special.limit_for_purchasing,  <!-- 限购数量限制 -->
+		  zjc_member_special.membership_level_limit,  <!-- 会员等级限制 -->
+		  zjc_member_special.date_time  <!-- date_time -->
+	</sql>
+
+	<!-- Where精确匹配字段 -->
+	<sql id="equal">
+	   <if test="id != null ">
+		      AND id = #{id}  <!-- 表id -->
+		</if>
+	    <if test="premise_condition != null and premise_condition != ''">
+		      AND premise_condition = #{premise_condition}  <!-- 设置前提条件 -->
+		</if>
+	    <if test="limited_product_id != null and limited_product_id != ''">
+		      AND limited_product_id = #{limited_product_id}  <!-- 配置的val值 -->
+		</if>
+	    <if test="special_commodity != null and special_commodity != ''">
+		      AND special_commodity = #{special_commodity}  <!-- 特殊商品ID列表 -->
+		</if>
+	    <if test="time_condition != null and time_condition != ''">
+		      AND time_condition = #{time_condition}  <!-- 时间条件 -->
+		</if>
+	    <if test="limit_for_purchasing != null and limit_for_purchasing != ''">
+		      AND limit_for_purchasing = #{limit_for_purchasing}  <!-- 限购数量限制 -->
+		</if>
+	    <if test="membership_level_limit != null and membership_level_limit != ''">
+		      AND membership_level_limit = #{membership_level_limit}  <!-- 会员等级限制 -->
+		</if>
+	    <if test="date_time != null and date_time != ''">
+		      AND date_time = #{date_time}  <!-- date_time -->
+		</if>
+	</sql>
+	
+	<!-- Where模糊匹配字段 -->
+	<sql id="like">
+	    <if test="premise_condition != null and premise_condition != ''">
+		      AND premise_condition like '${premise_condition}%'  <!-- 设置前提条件 -->
+		</if>
+	    <if test="limited_product_id != null and limited_product_id != ''">
+		      AND limited_product_id like '${limited_product_id}%'  <!-- 配置的val值 -->
+		</if>
+	    <if test="special_commodity != null and special_commodity != ''">
+		      AND special_commodity like '${special_commodity}%'  <!-- 特殊商品ID列表 -->
+		</if>
+	    <if test="time_condition != null and time_condition != ''">
+		      AND time_condition like '${time_condition}%'  <!-- 时间条件 -->
+		</if>
+	    <if test="limit_for_purchasing != null and limit_for_purchasing != ''">
+		      AND limit_for_purchasing like '${limit_for_purchasing}%'  <!-- 限购数量限制 -->
+		</if>
+	    <if test="membership_level_limit != null and membership_level_limit != ''">
+		      AND membership_level_limit like '${membership_level_limit}%'  <!-- 会员等级限制 -->
+		</if>
+	    <if test="date_time != null and date_time != ''">
+		      AND date_time like '${date_time}%'  <!-- date_time -->
+		</if>
+	</sql>
+	
+</mapper>

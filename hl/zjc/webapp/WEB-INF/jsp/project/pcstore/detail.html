@@ -1,0 +1,524 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="UTF-8"> 
+	<meta name="keywords" content="中军创"/>
+	<meta name="description" content="中军创"/> 
+	<title>中军创-详情页</title>
+	<!-- common css and zjc_index css-->
+	<link href="css/common.css" rel="stylesheet" type="text/css"/>
+	<link href="css/h_foot.css" rel="stylesheet" type="text/css"/>
+	<link href="css/zjc_index.css" rel="stylesheet" type="text/css"/>
+	<!-- js -->  
+	<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+	<!-- jqzoom -->
+	<script type="text/javascript" src="js/jquery.jqzoom.js"></script>
+	<script type="text/javascript" src="js/base.js"></script>
+	<!-- common js and zjc_index -->
+	<script src="js/common.js"></script>  
+	<script src="js/zjc_detail.js"></script>  
+	<!-- 配送地址 -->
+	<script src="js/Popt.js"></script>
+	<script src="js/cityJson.js"></script>
+	<script src="js/citySet.js"></script> 
+</head>
+<body> 
+  <!-- container  start-->
+    <div class="container"> 	
+	 <!-- 首页及商品header start-->
+	  <div class="header_index">	  
+	  <!-- header_top nav -->
+	    <div class="header_top">
+		<div class="header_top_cen clearfix">
+		    <ul class="head_ul fr"> 
+			   <li>欢迎光临</li>
+			   <li class="coll_register"><a href="register.html">免费注册</a></li> 
+			   <li class="coll_li_my" style="display:none;">
+				<div id="menu">
+					<ul id="nav"> 
+						<li class="mainlevel" id="mainlevel_01"><a href="#" target="_blank"><img src="Images/icon/icon_tree.png" alt=" " title="" class="cll_icons"/> 中军创<img src="Images/icon/botn.png" alt=" " title="" class="cll_icon"/></a>
+							<ul id="sub_01">
+								<li><a href="user_vip.html" target="_blank">每天签到</a></li>
+								<li><a href="user_vip.html" target="_blank">我的中军创</a></li> 
+							</ul>
+						</li> 
+						<div class="clear"></div> 
+					</ul>
+				</div> 
+			   </li>
+			   <li class="log_plear"><a href="login.html"><div class="icon_nav greet_index fl"></div> 请登录</a></li> 
+			   <li class="coll_li"> 
+				<div id="menu">
+					<ul id="nav"> 
+						<li class="mainlevel" id="mainlevel_01"><a href="coll.html" target="_blank"><img src="Images/icon/head_icon.png" alt=" " title="" class="cll_icons"/> 我的收藏<img src="Images/icon/botn.png" alt=" " title="" class="cll_icon"/></a>
+							<ul id="sub_01">
+								<li><a href="coll.html" target="_blank">收藏店铺</a></li>
+								<li><a href="coll.html" target="_blank">收藏商品</a></li> 
+							</ul>
+						</li> 
+						<div class="clear"></div> 
+					</ul>
+				</div>  
+			   </li>
+			   <li class="mob_li"><a href="mobil_service.html"><div class="icon_nav mob_index fl"></div> 手机中军创</a></li>
+			   <li><a href="service.html"><div class="icon_nav ser_index fl"></div>客服与投诉</a></li>
+				<div class="clear"></div>
+			</ul>		 
+		</div>
+		</div>
+		<!-- header_bottom -->
+		<div class="header_bottom">
+		  <div class="header_bottom_cen clearfix">
+		    <div class="header_bottom_cenl fl">
+			   <a href="index.html"><img src="images/logo.png" alt="logo" title="logo" class="cll_icons" width="385" height="149"/></a>
+			</div>
+		    <div class="header_bottom_cenr fl">
+			   <div class="header_bottom_cenrl fl">
+			       <div class="search_top clearfix">
+				   <div class="seo fl"><div class="secf_bord fl"></div>
+					<div id="searchTxt" class="searchTxt fr" onMouseOver="this.className='searchTxt searchTxtHover';" onMouseOut="this.className='searchTxt';"> 					
+						<input name="w" type="text" />						
+							<div class="searchMenu">							
+							<div class="searchSelected" id="searchSelected">全部分类 </div>							
+							<div style="display:none;" class="searchTab" id="searchTab"> 
+								<ul>
+									<li><a href="#">全部分类</a></li>
+									<li><a href="#">平台分类</a></li>
+									<li><a href="#">食品分类</a></li>
+									<li><a href="#">汽车分类</a></li> 
+									<li><a href="#">图书分类</a></li> 
+									<li><a href="#">家具分类</a></li>
+									<li><a href="#">女鞋分类</a></li>
+									<li><a href="#">男装分类</a></li> 
+									<li><a href="#">旅行分类</a></li> 
+									<li><a href="#">男鞋分类</a></li> 
+									<li><a href="#">手机分类</a></li> 
+									<li><a href="#">母婴分类</a></li> 
+									<li><a href="#">电器分类</a></li> 
+									<div class="clear"></div>
+								</ul>
+							</div>							
+						</div> 
+					</div>	
+					<div class="clear"></div>	
+					</div>					
+					<div class="searchBtn fr">
+						<button id="searchBtn" type="submit"><img src="images/icon/ser_icon.png"></button>
+					</div> 
+				</div>
+				<div class="search_a">
+					<ul>
+					   <li>热搜：<a href="#">中军创云易酒</a></li>
+					   <li><a href="#">房车</a></li>
+					   <li><a href="#">大米</a></li>
+					   <div class="clear"></div>
+					</ul>
+				</div>	
+				<div class="head_nav">
+					<ul>
+					   <li><a href="index.html" class="click_hover">平台首页</a></li>
+					   <li><a href="good_product.html">优选商品</a></li>
+					   <li><a href="#">购商品</a></li>
+					   <li><a href="#">购实惠</a></li>
+					   <li><a href="#">易生活</a></li>
+					   <div class="clear"></div>
+					</ul> 
+				</div>				
+			   </div>
+		     <!-- 没登录 -->
+			   <div class="header_bottom_cenrr fr">
+			      <div class="dfde_null"  style="display:None;">
+					  <div id="settleup" class="dorpdown">
+							<div class="cw-icon">							 
+							  <a target="_blank" href="#">购物车</a>
+							  <i class="i_img"><img src="images/icon/carts.png" alt="购物车" title="购物车"/></i>
+							</div><div class="clear"></div>
+							<!-- 下拉 -->
+							<div class="dorpdown-layer"> 
+								<!-- 登录后 -->
+								<div class="drop_block">
+							      <ul>
+								     <li><a href="#">
+									   <div class="drop_side fl">
+									    <i class=""><img src="images/icon/head_cart.png" alt="购物车" title="购物车"/></i>
+									   </div>
+									   <div class="drop_cont fr">
+									     <p>劵:424</p>
+									     <a href="#">删除</a>
+									   </div>
+										<div class="clear"></div></a>
+									 </li>
+								     <li><a href="#">
+									   <div class="drop_side fl">
+									    <i class=""><img src="images/icon/head_cart.png" alt="购物车" title="购物车"/></i>
+									   </div>
+									   <div class="drop_cont fr">
+									     <p>劵:424</p>
+									     <a href="#">删除</a>
+									   </div>
+										<div class="clear"></div></a>
+									 </li>
+								     <li><a href="#">
+									   <div class="drop_side fl">
+									    <i class=""><img src="images/icon/head_cart.png" alt="购物车" title="购物车"/></i>
+									   </div>
+									   <div class="drop_cont fr">
+									     <p>劵:424</p>
+									     <a href="#">删除</a>
+									   </div>
+										<div class="clear"></div></a>
+									 </li>
+								     <li><a href="#">
+									   <div class="drop_side fl">
+									    <i class=""><img src="images/icon/head_cart.png" alt="购物车" title="购物车"/></i>
+									   </div>
+									   <div class="drop_cont fr">
+									     <p>劵:424</p>
+									     <a href="#">删除</a>
+									   </div>
+										<div class="clear"></div></a>
+									 </li><div class="clear"></div>
+								  </ul>								  
+								</div> 
+							</div>
+						  </div>
+					</div>
+			      <div class="dfde_block">
+					  <div id="settleup" class="dorpdown">
+							<div class="cw-icon">							 
+							  <a target="_blank" href="#">购物车</a>
+							  <i class="i_img"><img src="images/icon/carts.png"/></i>
+							</div><div class="clear"></div>
+							<!-- 下拉 -->
+							<div class="dorpdown-layer">
+							<!-- 没登录 -->
+								<div class="drop_none">
+							      <div class="drop_noneside fl">
+								      <i class=""><img src="images/icon/cart_null.png"/></i>
+								  </div>
+							      <div class="drop_nonecont fr">
+								    <a href="#">还没有商品<br/>快去选购吧~</a>
+								  </div>
+							      <div class="clear"></div>
+								</div> 
+							</div>
+						  </div>
+					</div>	 
+			   </div> 
+			   <div class="clear"></div> 
+			</div> 
+		  </div> 
+		</div> 
+	  </div>
+	 <!-- header end-->
+	 <!-- main start-->
+	 <div class="main">
+         <div class="main_detail_one">
+		   <a href="#"><img src="images/detail/adv_deone.png" alt="adv" title="adv" width="1200" height="150"/></a>
+		 </div>
+		 <div class="main_de_op">
+		 <div class="main_detail_two">
+		  <div class="main_detailtwol fl">
+		    <ul class="msinfdtwo_ul">
+			   <li class="msin_lione">食品/饮料</li>
+			   <li class="msin_litwo">酒水</li>
+			   <li class="msin_litree">白酒</li>
+			   <li class="msin_lifour">中军创云易酒（500ml/瓶）浓香型白酒</li>
+			</ul>
+		  </div>
+		  <div class="main_detailtwor fr">
+		    <a href="#" class="font16 bold"><img src="images/icon/cart_right.png" alt="我的购物车" title="我的购物车" width="28" height="23"/> 我的购物车</a>
+		  </div>
+		  <div class="clear"></div>  
+		 </div>
+		 </div>
+		 <!-- md_img -->
+		 <div class="md_img clearfix">
+		    <div class="md_imgl fl">
+			<div class="mdetail_one clearfix">
+			    <div class="md_imgll fl">
+				    <div class="right-extra" >
+					  <!--产品参数开始-->
+					  <div>
+						<div id="preview" class="spec-preview"> <span class="jqzoom"><img jqimg="images/detail/detail (1).png" src="images/detail/detail (1).png" /></span>  </div>
+						<!--缩图开始9-->
+						<div class="spec-scroll"> <a class="prev">&lt;</a> <a class="next">&gt;</a>
+						  <div class="items">
+							<ul>
+							  <li><img alt="detail" bimg="images/detail/detail (1).png" src="images/detail/detail (1).png" onmousemove="preview(this);"/></li>
+							  <li><img alt="detail" bimg="images/detail/detail (2).png" src="images/detail/detail (2).png" onmousemove="preview(this);"/></li>
+							  <li><img alt="detail" bimg="images/detail/detail (3).png" src="images/detail/detail (3).png" onmousemove="preview(this);"/></li> 
+							  <li><img alt="detail" bimg="images/detail/detail (3).png" src="images/detail/detail (3).png" onmousemove="preview(this);"/></li> 
+							  <li><img alt="detail" bimg="images/detail/detail (3).png" src="images/detail/detail (3).png" onmousemove="preview(this);"/></li> 
+							  <li><img alt="detail" bimg="images/detail/detail (3).png" src="images/detail/detail (3).png" onmousemove="preview(this);"/></li> 
+							</ul>
+						  </div>
+						</div>
+						<!--缩图结束-->
+					  </div> 
+					</div> 
+				</div>
+			    <div class="md_imglr fl">
+				  <div class="md_imglrtitle font24 bold">
+				    中军创云易酒 白酒 （500ml/瓶）浓香型白酒				  
+				  </div>
+				  <div class="md_imglrbg"> 
+				     <p class="mdf_text font14"><span class="money_det font26">3888</span><span class="jua font14">劵</span> 易物券消费一个周期可能返还</p>
+				     <p class="cu_detaillp font14">累计已售：3888<span>库存：999</span></p> 
+				  </div> 
+				  <div class="md_address">
+				    <div class="md_adds clearfix">
+					  <div class="md_addsl fl">
+					    <button>支持</button>
+					  </div>
+					  <div class="md_addsr fl"> 
+					    <p class="md_text no_fans font16">在线支付：微信支付 | 支付宝支付 | 银联支付</p>
+					  </div> 
+					</div> 
+				   <div class="mdsf_one clearfix">
+					 <div class="mdsf_onel fl font14">配送至</div>
+					  <div class="mdsf_oner fl">
+						<input type="text" id="city" value="请选择" class="font16"/>   
+						<img src="images/add.png" class="jt_img"/> 
+					  </div> 
+				   </div>
+					<div class="md_textyou font14">邮费：10元</div> 
+				  </div>
+				  <div class="md_gk clearfix">
+				     <div class="md_gkl fl font16">
+					    规格
+					 </div> 
+				     <div class="md_gkr fl">
+					    <ul>
+						   <li class="click_hovers">水晶装 52度500ml 10年滘藏</li>
+						   <li>水晶装 52度500ml 10年滘藏</li> 
+						</ul>
+				        <div class="clear"></div>					 
+					 </div> 
+				  </div>
+				  <div class="md_gk_num clearfix">
+					  <div class="humg_side fl">
+					   <div class="gw_numl fl font16">
+						  <span>数量</span>
+					   </div>
+					   <div class="gw_num fl">
+								<em class="jian">-</em>
+								<input type="text" value="1" class="num"/>
+								<em class="add">+</em> 
+								<div class="clear"></div>
+							</div>
+						  <div class="clear"></div>	
+					  </div>			
+					<div class="humg_cont fl">
+					  <p class="font20">库存量:999</p>
+					</div> 
+				  </div>
+				  <div class="md_gk_cart clearfix">
+				      <div class="md_gk_cartl fl">
+					  <button class="go_carts font24">加入购物车</button> 
+					  </div>
+				      <div class="md_gk_cartr fr">
+					  <button class="go_buys font24">立即购买</button> 
+						</div> 
+				  </div>
+					<div class="de_ccc clearfix">
+					 <ul class="lisd_mds fl"> 
+					   <li>
+						<div class="feed_detal" id="feed1" rel="like_de"> 
+							<div class="heart_deta" id="like1" style="float:left;"></div> 
+							<div class="likeCount_de" id="likeCount_de" style="float:left;">							
+							 收藏商品
+						  </div> 
+						  <div style="clear:both;"></div>
+						</div> 
+						</li> 
+					   <li>
+						<div class="feed_detal" id="feed1" rel="like_de"> 
+							<div class="heart_deta" id="like1" style="float:left;"></div> 
+							<div class="likeCount_de" id="likeCount_de" style="float:left;">							
+							 收藏店铺							
+							</div> 
+							<div style="clear:both;"></div>
+						 </div>  
+						</li> 
+						<li>					   				
+							<a href="#"><span class="opeit"><img src="images/icon/te (2).png" class="praise-img" alt="进店逛逛" title="进店逛逛" width="21" height="20"> </span> <span class="opeit"> 进店逛逛</span> </a>
+						</li> 
+						<li> 				
+							<a href="#"><span class="opeit"><img src="images/icon/te (1).png" class="praise-img" alt="分享商品" title="分享商品" width="21" height="20"></span> <span class="opeit"> 分享商品</span> </a>
+						</li>  
+						<div class="clear"></div>
+					 </ul>
+					<p class="text_det font16 fr">
+						联系客服：400 017 1518 <span>举报</span> 
+					</p> 			 
+				</div> 
+			</div> 
+			</div> 
+		 <div class="detail_tree clearfix">
+		   <div class="detail_treel fl">
+		      <div class="deta_bord">
+			   <p class="color666 font16 center">店内搜索</p>
+			   <input type="text" class="border_input"/><br/>
+			   <p class="color666 font16 center">易物劵</p>
+			   <p class="te_detal_op color666 font16 center"><input type="text" class="dok_ins"> 至 <input type="text" class="dok_ins"></p>
+			    <button class="te_stbtn">搜索</button>
+			  </div>
+		   </div>
+		   <div class="detail_treer fr">
+		     		<div class="tabPanel_detail">
+					<div class="tabs_uldetail">
+						<ul>
+							<li class="hit_de">商品详情</li>
+							<li>商品评论(99+)</li> 
+						</ul>
+						<div class="clear"></div>
+					</div>
+					<div class="panes_detail">
+					<!-- 最新上架 -->
+						<div class="pane_detail" style="display:block;">
+					      <div class="pan_de_one">
+						      <ul>
+							     <li>
+								   <p class="pan_pin">品牌：邛崃酒</p>
+								   <p class="padn_der">
+								    <span>商品名称：中军创云易酒</span><br/>
+								    <span>包装：单瓶包装</span><br/>
+								    <span>储藏方法：密封、阴凉、干燥处保存</span>
+								   </p>
+								 </li>
+							     <li class="li_tr_de"> 
+								   <p class="padn_ders">
+								    <span>商品编号：20170401001</span><br/>
+								    <span>香型：浓香型白酒</span><br/>
+								    <span>联系电话：400 017 1518</span>
+								   </p>
+								 </li>
+							     <li class="li_tr_de"> 
+								   <p class="padn_ders">
+								    <span>净重：500ml</span><br/>
+								    <span>度数：52%Vol.</span><br/> 
+								   </p>
+								 </li>
+							     <li class="li_tr_de"> 
+								   <p class="padn_ders">
+								    <span>产地：中国 四川 邛崃</span><br/>
+								    <span>生产时间：2017年</span><br/> 
+								   </p>
+								 </li>
+							  </ul>
+						 <div class="clear"></div>						  
+						  </div>
+						  <div class="pan_de_two">
+						    <a href="#"><img src="images/detail/detail_de (2).png" alt="产品图" title="产品图" width="1226" height="1024"/></a>
+						  </div>
+						  <div class="pan_de_tree">
+						    <p class="padn_de"><img src="images/detail/detail_de (3).png" alt="产品图" title="产品图" width="1226" height="802"/></p>
+						    <p class="padn_de"><img src="images/detail/detail_de (4).png" alt="产品图" title="产品图" width="1226" height="761"/></p>
+						    </div>
+						  <div class="pan_de_four"> 
+							<img src="images/detail/detail_de (5).png" alt="产品图" title="产品图" width="1226" height="1058"/> 
+							<img src="images/detail/detail_de (6).png" alt="产品图" title="产品图" width="1226" height="1081"/>
+							<img src="images/detail/detail_de (7).png" alt="产品图" title="产品图" width="1226" height="647"/> 
+							<img src="images/detail/detail_de (8).png" alt="产品图" title="产品图" width="1226" height="722"/> 
+							<img src="images/detail/detail_de (9).png" alt="产品图" title="产品图" width="1226" height="685"/> 
+							<img src="images/detail/detail_de (10).png" alt="产品图" title="产品图" width="1226" height="787"/> 
+						  </div>
+						  <div class="pan_de_five">
+							<img src="images/detail/detail_de (11).png" alt="产品图" title="产品图" width="1226" height="773"/> 
+							<img src="images/detail/detail_de (12).png" alt="产品图" title="产品图" width="1226" height="477"/> 
+							<img src="images/detail/detail_de (13).png" alt="产品图" title="产品图" width="1226" height="884"/>
+							<img src="images/detail/detail_de (1).png" alt="产品图" title="产品图" width="1226" height="849"/> 
+						  </div>
+						</div>
+						<div class="pane_detail">
+				           评论
+						</div> 
+					</div>
+				</div> 
+		   </div> 
+		 </div> 
+			</div>
+		    <div class="md_imgr fr">  
+			    <div class="detail_treel_one font16 bold">
+			    店铺热销商品
+			  </div>
+			  <div class="detail_treel_two">
+			     <a href="#"><img src="images/detail/tree (1).png" width="242" height="242" alt="店铺" title="店铺"/></a>
+				 <div class="drt_text font14"><p>劵：3999</p>
+				 <p>本月热销数量：99</p></div>
+			  
+			  </div>
+			  <div class="detail_treel_two">
+			     <img src="images/detail/tree (2).png" width="242" height="242" alt="店铺" title="店铺"/>
+				 <div class="drt_text font14"><p>劵：3999</p>
+				 <p>本月热销数量：99</p></div>
+			  
+			  </div>
+			  <div class="detail_treel_two">
+			     <img src="images/detail/tree (3).png" width="242" height="242" alt="店铺" title="店铺"/>
+				 <div class="drt_text font14"><p>劵：3999</p>
+				 <p>本月热销数量：99</p></div> 
+			  </div>
+			</div> 
+		 </div> 
+	 </div>
+	 <!-- main end-->
+	  <!-- footer start -->
+	  <div class="footer">
+	    <div class="footer_top">
+		   <div class="footer_top_cen">
+		    <ul> 
+				<li class="foot_lione">
+					 <div class="zjxli_one clearfix">
+						<div class="zjxli_onel fl"><img src="images/icon/foot (1).png" alt="品质保证" title="品质保证" width="32" height="32"/></div>
+						<div class="zjxli_oner fr"><p class="pinz">品质保证</p><span class="foot_span">商品严格审查上架</span></div> 
+					 </div>
+				 </li>
+				<li class="foot_litwo">
+					 <div class="zjxli_one clearfix">
+						<div class="zjxli_onel fl"><img src="images/icon/foot (2).png" alt="担保交易" title="担保交易" width="32" height="32"/></div>
+						<div class="zjxli_oner fr"><p class="pinz">担保交易</p><span class="foot_span">10天平台担保交易</span></div>
+					 </div>
+				 </li>
+				<li class="foot_litree">
+					 <div class="zjxli_two clearfix">
+						<div class="zjxli_onel fl"><img src="images/icon/foot (3).png" alt="特色服务体验" title="特色服务体验" width="32" height="32"/></div>
+						<div class="zjxli_oner fr"><p class="pinz">特色服务体验</p><span class="foot_span">为你提供家一样的感觉</span></div>
+					  </div>
+				 </li>
+				<li class="foot_lifour">
+					 <div class="zjxli_two clearfix">
+						<div class="zjxli_onel fl"><img src="images/icon/foot (4).png" alt="帮助中心" title="帮助中心" width="32" height="32"/></div>
+						<div class="zjxli_oner fr"><p class="pinz">帮助中心</p><span class="foot_span"><a href="#">新手指南</a></span><span class="foot_span"><br/><a href="#">消费指示</a></span></div>
+					  </div>
+				 </li>
+				<li class="foot_lifour">
+					 <div class="zjxli_two">
+						<p class="pinz help_cen">微信订阅号</p>
+						<img src="images/icon/wei.png" alt="微信订阅号" title="微信订阅号" width="48" height="48"/>
+					 </div> 
+				 </li>
+				 <div class="clear"></div>
+			 </ul>
+			 </div>
+		   </div>
+		   <div class="footer_bottom">
+		     <div class="footer_bot_cen">
+			    <p class="text_p"><span class="span_one">增值电信业务经营许可证：京A8-888888</span>     |     <span class="span_two">京公网安备案号：88888888</span></p>
+			   <p class="text_p"><span class="spans_one">copyright © 2017</span><span class="spans_two">北京中军创云易物联网科技有限公司版权所有</span>     |     <span class="spans_tree">备案号：京icp备888888号</span></p>
+			  </div>		    
+		   </div>
+		</div>  
+	  <!-- footer end --> 	  
+	  </div>
+  <!-- container  end--> 
+<!-- 地址 -->
+<script type="text/javascript">
+$("#city").click(function (e) {
+	SelCity(this,e);
+	$(".jt_img").hide();
+});
+</script>
+</body>
+</html>

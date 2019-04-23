@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- wx_card_voucher[wx_card_voucher]SQL自动映射 -->
+<!--  注意:此文件由AOS平台自动生成-禁止手工修改 2018-05-30 17:00:05 -->
+<mapper namespace="com.store.wxCardVoucher.dao.WxCardVoucherDao">
+	
+	<!-- 插入一个数据持久化对象(插入字段为传入PO实体的非空属性) -->
+	<insert id="insert"  parameterType="WxCardVoucherPO">
+		INSERT INTO wx_card_voucher (
+		<if test="store_id != null">
+	         store_id, <!-- 店铺ID -->
+		</if>
+		<if test="add_time != null and add_time != ''">
+	         add_time, <!-- 添加时间 -->
+		</if>
+		<if test="card_type != null and card_type != ''">
+	         card_type, <!-- 卡券类型，代金券：CASH；折扣券：DISCOUNT；兑换券：GIFT；优惠券：GENERAL_COUPON -->
+		</if>
+		<if test="card_title != null and card_title != ''">
+	         card_title, <!-- 卡券名称 -->
+		</if>
+		<if test="quantity != null and quantity != ''">
+	         quantity, <!-- 卡券库存数量 -->
+		</if>
+		<if test="type != null and type != ''">
+	         type, <!-- 1表示固定日期区间，2表示固定时长 （自领取后按天算。) -->
+		</if>
+		<if test="start_time != null and start_time != ''">
+	         start_time, <!-- 固定日期有效期开始日期(type为0专用) -->
+		</if>
+		<if test="end_time != null and end_time != ''">
+	         end_time, <!-- 固定日期有效期结束日期(type为0专用) -->
+		</if>
+		<if test="fixed_term != null">
+	         fixed_term, <!-- 表示自领取后多少天内有效，不支持填写0。(type为1专用) -->
+		</if>
+		<if test="fixed_begin != null">
+	         fixed_begin, <!-- 表示自领取后多少天开始生效，领取后当天生效填写0。(type为1专用) -->
+		</if>
+		<if test="discount != null and discount != ''">
+	         discount, <!-- 折扣额度（折扣券专用，表示打折额度（百分比）。填30就是七折。） -->
+		</if>
+		<if test="show_qrcode_url != null and show_qrcode_url != ''">
+	         show_qrcode_url, <!-- 二维码地址 -->
+		</if>
+		<if test="logo_url != null and logo_url != ''">
+	         logo_url, <!-- 券logo地址 -->
+		</if>
+		<if test="card_id != null and card_id != ''">
+	          card_id  <!-- 微信卡券ID -->
+	   </if>
+		)VALUES(
+		<if test="store_id != null">
+	          #{store_id, jdbcType=INTEGER}, <!-- 店铺ID -->
+	    </if>
+		<if test="add_time != null and add_time != ''">
+	          #{add_time, jdbcType=VARCHAR}, <!-- 添加时间 -->
+	    </if>
+		<if test="card_type != null and card_type != ''">
+	          #{card_type, jdbcType=VARCHAR}, <!-- 卡券类型，代金券：CASH；折扣券：DISCOUNT；兑换券：GIFT；优惠券：GENERAL_COUPON -->
+	    </if>
+		<if test="card_title != null and card_title != ''">
+	          #{card_title, jdbcType=VARCHAR}, <!-- 卡券名称 -->
+	    </if>
+		<if test="quantity != null and quantity != ''">
+	          #{quantity, jdbcType=VARCHAR}, <!-- 卡券库存数量 -->
+	    </if>
+		<if test="type != null and type != ''">
+	          #{type, jdbcType=VARCHAR}, <!-- 1表示固定日期区间，2表示固定时长 （自领取后按天算。) -->
+	    </if>
+		<if test="start_time != null and start_time != ''">
+	          #{start_time, jdbcType=VARCHAR}, <!-- 固定日期有效期开始日期(type为0专用) -->
+	    </if>
+		<if test="end_time != null and end_time != ''">
+	          #{end_time, jdbcType=VARCHAR}, <!-- 固定日期有效期结束日期(type为0专用) -->
+	    </if>
+		<if test="fixed_term != null">
+	          #{fixed_term, jdbcType=INTEGER}, <!-- 表示自领取后多少天内有效，不支持填写0。(type为1专用) -->
+	    </if>
+		<if test="fixed_begin != null">
+	          #{fixed_begin, jdbcType=INTEGER}, <!-- 表示自领取后多少天开始生效，领取后当天生效填写0。(type为1专用) -->
+	    </if>
+		<if test="discount != null and discount != ''">
+	          #{discount, jdbcType=VARCHAR}, <!-- 折扣额度（折扣券专用，表示打折额度（百分比）。填30就是七折。） -->
+	    </if>
+		<if test="show_qrcode_url != null and show_qrcode_url != ''">
+	          #{show_qrcode_url, jdbcType=VARCHAR}, <!-- 二维码地址 -->
+	    </if>
+	    <if test="logo_url != null and logo_url != ''">
+	          #{logo_url, jdbcType=VARCHAR}, <!-- 券logo地址 -->
+	    </if>
+		<if test="card_id != null and card_id != ''">
+		     #{card_id, jdbcType=VARCHAR}  <!-- 微信卡券ID -->
+	    </if>
+		)
+	</insert>
+	
+	<!-- 插入一个数据持久化对象(含所有字段) -->
+	<insert id="insertAll"  parameterType="WxCardVoucherPO">
+		INSERT INTO wx_card_voucher (
+		    <include refid="column" />
+		)
+		VALUES (
+		    #{card_id, jdbcType=VARCHAR},  <!-- 微信卡券ID -->
+		    #{store_id, jdbcType=INTEGER},  <!-- 店铺ID -->
+		    #{add_time, jdbcType=VARCHAR},  <!-- 添加时间 -->
+		    #{card_type, jdbcType=VARCHAR},  <!-- 卡券类型，代金券：CASH；折扣券：DISCOUNT；兑换券：GIFT；优惠券：GENERAL_COUPON -->
+		    #{card_title, jdbcType=VARCHAR},  <!-- 卡券名称 -->
+		    #{quantity, jdbcType=VARCHAR},  <!-- 卡券库存数量 -->
+		    #{type, jdbcType=VARCHAR},  <!-- 1表示固定日期区间，2表示固定时长 （自领取后按天算。) -->
+		    #{start_time, jdbcType=VARCHAR},  <!-- 固定日期有效期开始日期(type为0专用) -->
+		    #{end_time, jdbcType=VARCHAR},  <!-- 固定日期有效期结束日期(type为0专用) -->
+		    #{fixed_term, jdbcType=INTEGER},  <!-- 表示自领取后多少天内有效，不支持填写0。(type为1专用) -->
+		    #{fixed_begin, jdbcType=INTEGER},  <!-- 表示自领取后多少天开始生效，领取后当天生效填写0。(type为1专用) -->
+		    #{discount, jdbcType=VARCHAR},  <!-- 折扣额度（折扣券专用，表示打折额度（百分比）。填30就是七折。） -->
+		    #{show_qrcode_url, jdbcType=VARCHAR},  <!-- 二维码地址 -->
+		    #{logo_url, jdbcType=VARCHAR}  <!-- 券logo地址 -->
+		)
+	</insert>
+
+	<!-- 根据主键修改数据持久化对象 -->
+	<update id="updateByKey" parameterType="WxCardVoucherPO">
+		UPDATE wx_card_voucher
+		<set>
+			<if test="card_id != null">
+		          card_id = #{card_id, jdbcType=VARCHAR},  <!-- 微信卡券ID -->
+			</if>
+			<if test="store_id != null">
+		          store_id = #{store_id, jdbcType=INTEGER},  <!-- 店铺ID -->
+			</if>
+			<if test="add_time != null">
+		          add_time = #{add_time, jdbcType=VARCHAR},  <!-- 添加时间 -->
+			</if>
+			<if test="card_type != null">
+		          card_type = #{card_type, jdbcType=VARCHAR},  <!-- 卡券类型，代金券：CASH；折扣券：DISCOUNT；兑换券：GIFT；优惠券：GENERAL_COUPON -->
+			</if>
+			<if test="card_title != null">
+		          card_title = #{card_title, jdbcType=VARCHAR},  <!-- 卡券名称 -->
+			</if>
+			<if test="quantity != null">
+		          quantity = #{quantity, jdbcType=VARCHAR},  <!-- 卡券库存数量 -->
+			</if>
+			<if test="type != null">
+		          type = #{type, jdbcType=VARCHAR},  <!-- 1表示固定日期区间，2表示固定时长 （自领取后按天算。) -->
+			</if>
+			<if test="start_time != null">
+		          start_time = #{start_time, jdbcType=VARCHAR},  <!-- 固定日期有效期开始日期(type为0专用) -->
+			</if>
+			<if test="end_time != null">
+		          end_time = #{end_time, jdbcType=VARCHAR},  <!-- 固定日期有效期结束日期(type为0专用) -->
+			</if>
+			<if test="fixed_term != null">
+		          fixed_term = #{fixed_term, jdbcType=INTEGER},  <!-- 表示自领取后多少天内有效，不支持填写0。(type为1专用) -->
+			</if>
+			<if test="fixed_begin != null">
+		          fixed_begin = #{fixed_begin, jdbcType=INTEGER},  <!-- 表示自领取后多少天开始生效，领取后当天生效填写0。(type为1专用) -->
+			</if>
+			<if test="discount != null">
+		          discount = #{discount, jdbcType=VARCHAR},  <!-- 折扣额度（折扣券专用，表示打折额度（百分比）。填30就是七折。） -->
+			</if>
+			<if test="show_qrcode_url != null">
+		          show_qrcode_url = #{show_qrcode_url, jdbcType=VARCHAR},  <!-- 二维码地址 -->
+			</if>
+			<if test="logo_url != null">
+		          logo_url = #{logo_url, jdbcType=VARCHAR},  <!-- 券logo地址 -->
+			</if>
+		</set>
+		WHERE  card_id = #{card_id}
+	</update>
+	
+	<!-- 根据主键删除数据持久化对象 -->
+	<delete id="deleteByKey">
+		DELETE FROM wx_card_voucher WHERE  card_id = #{card_id}
+	</delete>
+
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="selectByKey" resultType="WxCardVoucherPO">
+		SELECT
+		<include refid="column" />
+		FROM wx_card_voucher WHERE  card_id = #{card_id}
+	</select>
+
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="selectOne" parameterType="Dto" resultType="WxCardVoucherPO">
+		SELECT
+		    <include refid="column" />
+		FROM wx_card_voucher
+		<where>
+		    <include refid="equal" />
+		</where>		
+	</select>
+
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="list" parameterType="Dto" resultType="WxCardVoucherPO">
+		SELECT
+			<include refid="column" />	
+		FROM wx_card_voucher
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listPage" parameterType="Dto" resultType="WxCardVoucherPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM wx_card_voucher
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto模糊查询并返回数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="like" parameterType="Dto" resultType="WxCardVoucherPO">
+		SELECT
+			<include refid="column" />	
+		FROM wx_card_voucher
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto模糊查询并返回分页数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="likePage" parameterType="Dto" resultType="WxCardVoucherPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM wx_card_voucher
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto统计行数 -->
+	<select id="rows" resultType="Integer" parameterType="Dto">
+		SELECT COUNT(1) AS aos_rows_ FROM wx_card_voucher
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 根据数学表达式进行数学运算 -->
+	<select id="calc" parameterType="Dto" resultType="String">
+		SELECT
+			${_expr}
+		FROM wx_card_voucher
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 表字段 -->
+	<sql id="column">
+		  card_id,  <!-- 微信卡券ID -->
+		  store_id,  <!-- 店铺ID -->
+		  add_time,  <!-- 添加时间 -->
+		  card_type,  <!-- 卡券类型，代金券：CASH；折扣券：DISCOUNT；兑换券：GIFT；优惠券：GENERAL_COUPON -->
+		  card_title,  <!-- 卡券名称 -->
+		  quantity,  <!-- 卡券库存数量 -->
+		  type,  <!-- 1表示固定日期区间，2表示固定时长 （自领取后按天算。) -->
+		  start_time,  <!-- 固定日期有效期开始日期(type为0专用) -->
+		  end_time,  <!-- 固定日期有效期结束日期(type为0专用) -->
+		  fixed_term,  <!-- 表示自领取后多少天内有效，不支持填写0。(type为1专用) -->
+		  fixed_begin,  <!-- 表示自领取后多少天开始生效，领取后当天生效填写0。(type为1专用) -->
+		  discount,  <!-- 折扣额度（折扣券专用，表示打折额度（百分比）。填30就是七折。） -->
+		  show_qrcode_url,  <!-- 二维码地址 -->
+		  logo_url  <!-- 券logo地址 -->
+	</sql>
+	
+	<!-- 表字段(用于外表的关联时引用) -->
+	<sql id="column2">
+		  wx_card_voucher.card_id,  <!-- 微信卡券ID -->
+		  wx_card_voucher.store_id,  <!-- 店铺ID -->
+		  wx_card_voucher.add_time,  <!-- 添加时间 -->
+		  wx_card_voucher.card_type,  <!-- 卡券类型，代金券：CASH；折扣券：DISCOUNT；兑换券：GIFT；优惠券：GENERAL_COUPON -->
+		  wx_card_voucher.card_title,  <!-- 卡券名称 -->
+		  wx_card_voucher.quantity,  <!-- 卡券库存数量 -->
+		  wx_card_voucher.type,  <!-- 1表示固定日期区间，2表示固定时长 （自领取后按天算。) -->
+		  wx_card_voucher.start_time,  <!-- 固定日期有效期开始日期(type为0专用) -->
+		  wx_card_voucher.end_time,  <!-- 固定日期有效期结束日期(type为0专用) -->
+		  wx_card_voucher.fixed_term,  <!-- 表示自领取后多少天内有效，不支持填写0。(type为1专用) -->
+		  wx_card_voucher.fixed_begin,  <!-- 表示自领取后多少天开始生效，领取后当天生效填写0。(type为1专用) -->
+		  wx_card_voucher.discount,  <!-- 折扣额度（折扣券专用，表示打折额度（百分比）。填30就是七折。） -->
+		  wx_card_voucher.show_qrcode_url,  <!-- 二维码地址 -->
+		  wx_card_voucher.logo_url  <!-- 券logo地址 -->
+	</sql>
+
+	<!-- Where精确匹配字段 -->
+	<sql id="equal">
+	    <if test="card_id != null and card_id != ''">
+		      AND card_id = #{card_id}  <!-- 微信卡券ID -->
+		</if>
+	   <if test="store_id != null ">
+		      AND store_id = #{store_id}  <!-- 店铺ID -->
+		</if>
+	    <if test="add_time != null and add_time != ''">
+		      AND add_time = #{add_time}  <!-- 添加时间 -->
+		</if>
+	    <if test="card_type != null and card_type != ''">
+		      AND card_type = #{card_type}  <!-- 卡券类型，代金券：CASH；折扣券：DISCOUNT；兑换券：GIFT；优惠券：GENERAL_COUPON -->
+		</if>
+	    <if test="card_title != null and card_title != ''">
+		      AND card_title = #{card_title}  <!-- 卡券名称 -->
+		</if>
+	    <if test="quantity != null and quantity != ''">
+		      AND quantity = #{quantity}  <!-- 卡券库存数量 -->
+		</if>
+	    <if test="type != null and type != ''">
+		      AND type = #{type}  <!-- 1表示固定日期区间，2表示固定时长 （自领取后按天算。) -->
+		</if>
+	    <if test="start_time != null and start_time != ''">
+		      AND start_time = #{start_time}  <!-- 固定日期有效期开始日期(type为0专用) -->
+		</if>
+	    <if test="end_time != null and end_time != ''">
+		      AND end_time = #{end_time}  <!-- 固定日期有效期结束日期(type为0专用) -->
+		</if>
+	   <if test="fixed_term != null ">
+		      AND fixed_term = #{fixed_term}  <!-- 表示自领取后多少天内有效，不支持填写0。(type为1专用) -->
+		</if>
+	   <if test="fixed_begin != null ">
+		      AND fixed_begin = #{fixed_begin}  <!-- 表示自领取后多少天开始生效，领取后当天生效填写0。(type为1专用) -->
+		</if>
+	    <if test="discount != null and discount != ''">
+		      AND discount = #{discount}  <!-- 折扣额度（折扣券专用，表示打折额度（百分比）。填30就是七折。） -->
+		</if>
+	    <if test="show_qrcode_url != null and show_qrcode_url != ''">
+		      AND show_qrcode_url = #{show_qrcode_url}  <!-- 二维码地址 -->
+		</if>
+		 <if test="logo_url != null and logo_url != ''">
+		      AND logo_url = #{logo_url}  <!-- 券logo地址 -->
+		</if>
+	</sql>
+	
+	<!-- Where模糊匹配字段 -->
+	<sql id="like">
+	    <if test="card_id != null and card_id != ''">
+		      AND card_id like '${card_id}%'  <!-- 微信卡券ID -->
+		</if>
+	    <if test="add_time != null and add_time != ''">
+		      AND add_time like '${add_time}%'  <!-- 添加时间 -->
+		</if>
+	    <if test="card_type != null and card_type != ''">
+		      AND card_type like '${card_type}%'  <!-- 卡券类型，代金券：CASH；折扣券：DISCOUNT；兑换券：GIFT；优惠券：GENERAL_COUPON -->
+		</if>
+	    <if test="card_title != null and card_title != ''">
+		      AND card_title like '${card_title}%'  <!-- 卡券名称 -->
+		</if>
+	    <if test="quantity != null and quantity != ''">
+		      AND quantity like '${quantity}%'  <!-- 卡券库存数量 -->
+		</if>
+	    <if test="type != null and type != ''">
+		      AND type like '${type}%'  <!-- 1表示固定日期区间，2表示固定时长 （自领取后按天算。) -->
+		</if>
+	    <if test="start_time != null and start_time != ''">
+		      AND start_time like '${start_time}%'  <!-- 固定日期有效期开始日期(type为0专用) -->
+		</if>
+	    <if test="end_time != null and end_time != ''">
+		      AND end_time like '${end_time}%'  <!-- 固定日期有效期结束日期(type为0专用) -->
+		</if>
+	    <if test="discount != null and discount != ''">
+		      AND discount like '${discount}%'  <!-- 折扣额度（折扣券专用，表示打折额度（百分比）。填30就是七折。） -->
+		</if>
+	    <if test="show_qrcode_url != null and show_qrcode_url != ''">
+		      AND show_qrcode_url like '${show_qrcode_url}%'  <!-- 二维码地址 -->
+		</if>
+		 <if test="logo_url != null and logo_url != ''">
+		      AND logo_url like '${logo_url}%'  <!-- 券logo地址 -->
+		</if>
+	</sql>
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="listCardVoucherList" parameterType="Dto" resultType="WxCardVoucherPO">
+		SELECT
+			card_id, store_id, add_time, 
+			case card_type when 'CASH' then '代金券' 
+                when 'DISCOUNT' then  '折扣券' 
+                when 'GIFT' then '礼品券'
+			else '优惠券' end  as card_type,
+			card_type, card_title, quantity,type,start_time,
+		  end_time,fixed_term,fixed_begin,discount,show_qrcode_url
+		FROM wx_card_voucher
+		<where>
+		    <include refid="equal1" />
+		</where>	
+	</select>
+	
+	<!-- Where精确匹配字段 -->
+	<sql id="equal1">
+	    <if test="card_id != null and card_id != ''">
+		      AND card_id = #{card_id}  <!-- 微信卡券ID -->
+		</if>
+	   <if test="store_id != null ">
+		      AND store_id = #{store_id}  <!-- 店铺ID -->
+		</if>
+	    <if test="add_time != null and add_time != ''">
+		      AND add_time = #{add_time}  <!-- 添加时间 -->
+		</if>
+	    <if test="card_type != null and card_type != ''">
+		      AND card_type = #{card_type}  <!-- 卡券类型，代金券：CASH；折扣券：DISCOUNT；兑换券：GIFT；优惠券：GENERAL_COUPON -->
+		</if>
+	    <if test="card_title != null and card_title != ''">
+		       AND card_title like '%${card_title}%'  <!-- 卡券名称 -->
+		</if>
+	    <if test="quantity != null and quantity != ''">
+		      AND quantity = #{quantity}  <!-- 卡券库存数量 -->
+		</if>
+	    <if test="type != null and type != ''">
+		      AND type = #{type}  <!-- 0 表示固定日期区间，1表示固定时长 （自领取后按天算。) -->
+		</if>
+	   <if test="start_time != null ">
+		      AND start_time = #{start_time}  <!-- 固定日期有效期开始日期(type为0专用) -->
+		</if>
+	   <if test="end_time != null ">
+		      AND end_time = #{end_time}  <!-- 固定日期有效期结束日期(type为0专用) -->
+		</if>
+	   <if test="fixed_term != null ">
+		      AND fixed_term = #{fixed_term}  <!-- 表示自领取后多少天内有效，不支持填写0。(type为1专用) -->
+		</if>
+	   <if test="fixed_begin != null ">
+		      AND fixed_begin = #{fixed_begin}  <!-- 表示自领取后多少天开始生效，领取后当天生效填写0。(type为1专用) -->
+		</if>
+	    <if test="discount != null and discount != ''">
+		      AND discount = #{discount}  <!-- 折扣额度（折扣券专用，表示打折额度（百分比）。填30就是七折。） -->
+		</if>
+		 <if test="show_qrcode_url != null and show_qrcode_url != ''">
+		      AND show_qrcode_url = #{show_qrcode_url}  <!-- 二维码地址 -->
+		</if>
+		 <if test="logo_url != null and logo_url != ''">
+		      AND logo_url = #{logo_url}  <!-- 券logo地址 -->
+		</if>
+	</sql>
+	
+</mapper>

@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- zjc_finance_tool[zjc_finance_tool]SQL自动映射 -->
+<!--  注意:此文件由AOS平台自动生成-禁止手工修改 2017-07-14 14:54:37 -->
+<mapper namespace="com.api.find.dao.ZjcFinanceToolDao">
+	
+	<!-- 插入一个数据持久化对象(插入字段为传入PO实体的非空属性) -->
+	<insert id="insert"  parameterType="ZjcFinanceToolPO">
+		INSERT INTO zjc_finance_tool (
+		<if test="finance_icon != null and finance_icon != ''">
+	         finance_icon, <!-- finance_icon -->
+		</if>
+		<if test="finance_name != null and finance_name != ''">
+	         finance_name, <!-- 工具名称 -->
+		</if>
+		<if test="finance_desc != null and finance_desc != ''">
+	         finance_desc, <!-- 工具描述 -->
+		</if>
+		<if test="finance_type != null">
+	         finance_type, <!-- 链接类型 0-app下载路径 1-url地址 -->
+		</if>
+		<if test="finance_url != null and finance_url != ''">
+	         finance_url, <!-- 工具链接 -->
+		</if>
+		<if test="enable != null">
+	         enable, <!-- 是否启用 0-禁用 1-启用 -->
+		</if>
+		<if test="id != null">
+	          id  <!-- id -->
+	   </if>
+		)VALUES(
+		<if test="finance_icon != null and finance_icon != ''">
+	          #{finance_icon, jdbcType=VARCHAR}, <!-- finance_icon -->
+	    </if>
+		<if test="finance_name != null and finance_name != ''">
+	          #{finance_name, jdbcType=VARCHAR}, <!-- 工具名称 -->
+	    </if>
+		<if test="finance_desc != null and finance_desc != ''">
+	          #{finance_desc, jdbcType=VARCHAR}, <!-- 工具描述 -->
+	    </if>
+		<if test="finance_type != null">
+	          #{finance_type, jdbcType=INTEGER}, <!-- 链接类型 0-app下载路径 1-url地址 -->
+	    </if>
+		<if test="finance_url != null and finance_url != ''">
+	          #{finance_url, jdbcType=VARCHAR}, <!-- 工具链接 -->
+	    </if>
+		<if test="enable != null">
+	          #{enable, jdbcType=INTEGER}, <!-- 是否启用 0-禁用 1-启用 -->
+	    </if>
+		<if test="id != null">
+		     #{id, jdbcType=INTEGER}  <!-- id -->
+	    </if>
+		)
+	</insert>
+	
+	<!-- 插入一个数据持久化对象(含所有字段) -->
+	<insert id="insertAll"  parameterType="ZjcFinanceToolPO">
+		INSERT INTO zjc_finance_tool (
+		    <include refid="column" />
+		)
+		VALUES (
+		    #{id, jdbcType=INTEGER},  <!-- id -->
+		    #{finance_icon, jdbcType=VARCHAR},  <!-- finance_icon -->
+		    #{finance_name, jdbcType=VARCHAR},  <!-- 工具名称 -->
+		    #{finance_desc, jdbcType=VARCHAR},  <!-- 工具描述 -->
+		    #{finance_type, jdbcType=INTEGER},  <!-- 链接类型 0-app下载路径 1-url地址 -->
+		    #{finance_url, jdbcType=VARCHAR},  <!-- 工具链接 -->
+		    #{enable, jdbcType=INTEGER}  <!-- 是否启用 0-禁用 1-启用 -->
+		)
+	</insert>
+
+	<!-- 根据主键修改数据持久化对象 -->
+	<update id="updateByKey" parameterType="ZjcFinanceToolPO">
+		UPDATE zjc_finance_tool
+		<set>
+			<if test="id != null">
+		          id = #{id, jdbcType=INTEGER},  <!-- id -->
+			</if>
+			<if test="finance_icon != null">
+		          finance_icon = #{finance_icon, jdbcType=VARCHAR},  <!-- finance_icon -->
+			</if>
+			<if test="finance_name != null">
+		          finance_name = #{finance_name, jdbcType=VARCHAR},  <!-- 工具名称 -->
+			</if>
+			<if test="finance_desc != null">
+		          finance_desc = #{finance_desc, jdbcType=VARCHAR},  <!-- 工具描述 -->
+			</if>
+			<if test="finance_type != null">
+		          finance_type = #{finance_type, jdbcType=INTEGER},  <!-- 链接类型 0-app下载路径 1-url地址 -->
+			</if>
+			<if test="finance_url != null">
+		          finance_url = #{finance_url, jdbcType=VARCHAR},  <!-- 工具链接 -->
+			</if>
+			<if test="enable != null">
+		          enable = #{enable, jdbcType=INTEGER},  <!-- 是否启用 0-禁用 1-启用 -->
+			</if>
+		</set>
+		WHERE  id = #{id}
+	</update>
+	
+	<!-- 根据主键删除数据持久化对象 -->
+	<delete id="deleteByKey">
+		DELETE FROM zjc_finance_tool WHERE  id = #{id}
+	</delete>
+
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="selectByKey" resultType="ZjcFinanceToolPO">
+		SELECT
+		<include refid="column" />
+		FROM zjc_finance_tool WHERE  id = #{id}
+	</select>
+
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="selectOne" parameterType="Dto" resultType="ZjcFinanceToolPO">
+		SELECT
+		    <include refid="column" />
+		FROM zjc_finance_tool
+		<where>
+		    <include refid="equal" />
+		</where>		
+	</select>
+
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="list" parameterType="Dto" resultType="ZjcFinanceToolPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_finance_tool
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listPage" parameterType="Dto" resultType="ZjcFinanceToolPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_finance_tool
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto模糊查询并返回数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="like" parameterType="Dto" resultType="ZjcFinanceToolPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_finance_tool
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto模糊查询并返回分页数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="likePage" parameterType="Dto" resultType="ZjcFinanceToolPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_finance_tool
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto统计行数 -->
+	<select id="rows" resultType="Integer" parameterType="Dto">
+		SELECT COUNT(1) AS aos_rows_ FROM zjc_finance_tool
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 根据数学表达式进行数学运算 -->
+	<select id="calc" parameterType="Dto" resultType="String">
+		SELECT
+			${_expr}
+		FROM zjc_finance_tool
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 表字段 -->
+	<sql id="column">
+		  id,  <!-- id -->
+		  finance_icon,  <!-- finance_icon -->
+		  finance_name,  <!-- 工具名称 -->
+		  finance_desc,  <!-- 工具描述 -->
+		  finance_type,  <!-- 链接类型 0-app下载路径 1-url地址 -->
+		  finance_url,  <!-- 工具链接 -->
+		  enable  <!-- 是否启用 0-禁用 1-启用 -->
+	</sql>
+	
+	<!-- 表字段(用于外表的关联时引用) -->
+	<sql id="column2">
+		  zjc_finance_tool.id,  <!-- id -->
+		  zjc_finance_tool.finance_icon,  <!-- finance_icon -->
+		  zjc_finance_tool.finance_name,  <!-- 工具名称 -->
+		  zjc_finance_tool.finance_desc,  <!-- 工具描述 -->
+		  zjc_finance_tool.finance_type,  <!-- 链接类型 0-app下载路径 1-url地址 -->
+		  zjc_finance_tool.finance_url,  <!-- 工具链接 -->
+		  zjc_finance_tool.enable  <!-- 是否启用 0-禁用 1-启用 -->
+	</sql>
+
+	<!-- Where精确匹配字段 -->
+	<sql id="equal">
+	   <if test="id != null ">
+		      AND id = #{id}  <!-- id -->
+		</if>
+	    <if test="finance_icon != null and finance_icon != ''">
+		      AND finance_icon = #{finance_icon}  <!-- finance_icon -->
+		</if>
+	    <if test="finance_name != null and finance_name != ''">
+		      AND finance_name = #{finance_name}  <!-- 工具名称 -->
+		</if>
+	    <if test="finance_desc != null and finance_desc != ''">
+		      AND finance_desc = #{finance_desc}  <!-- 工具描述 -->
+		</if>
+	   <if test="finance_type != null ">
+		      AND finance_type = #{finance_type}  <!-- 链接类型 0-app下载路径 1-url地址 -->
+		</if>
+	    <if test="finance_url != null and finance_url != ''">
+		      AND finance_url = #{finance_url}  <!-- 工具链接 -->
+		</if>
+	   <if test="enable != null ">
+		      AND enable = #{enable}  <!-- 是否启用 0-禁用 1-启用 -->
+		</if>
+	</sql>
+	
+	<!-- Where模糊匹配字段 -->
+	<sql id="like">
+	    <if test="finance_icon != null and finance_icon != ''">
+		      AND finance_icon like '${finance_icon}%'  <!-- finance_icon -->
+		</if>
+	    <if test="finance_name != null and finance_name != ''">
+		      AND finance_name like '${finance_name}%'  <!-- 工具名称 -->
+		</if>
+	    <if test="finance_desc != null and finance_desc != ''">
+		      AND finance_desc like '${finance_desc}%'  <!-- 工具描述 -->
+		</if>
+	    <if test="finance_url != null and finance_url != ''">
+		      AND finance_url like '${finance_url}%'  <!-- 工具链接 -->
+		</if>
+	</sql>
+	
+</mapper>

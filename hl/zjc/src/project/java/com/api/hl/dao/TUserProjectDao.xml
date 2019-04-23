@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- t_user_project[t_user_project]SQL自动映射 -->
+<!--  注意:此文件由AOS平台自动生成-禁止手工修改 2019-03-05 10:01:12 -->
+<mapper namespace="com.api.hl.dao.TUserProjectDao">
+	<!-- 插入一个数据持久化对象(插入字段为传入PO实体的非空属性) -->
+	<insert id="insert"  parameterType="TUserProjectPO">
+		INSERT INTO t_user_project (
+		<if test="user_id != null and user_id != ''">
+	         user_id, 
+		</if>
+		<if test="project_id != null and project_id != ''">
+	         project_id, 
+		</if>
+		<if test="id != null and id != ''">
+	          id  <!-- id -->
+	   </if>
+		)VALUES(
+		<if test="user_id != null and user_id != ''">
+	          #{user_id, jdbcType=VARCHAR}, 
+	    </if>
+	    <if test="project_id != null and project_id != ''">
+	          #{project_id, jdbcType=VARCHAR}, 
+	    </if>
+		<if test="id != null and id != ''">
+		     #{id, jdbcType=VARCHAR}  <!-- id -->
+	    </if>
+		)
+	</insert>
+	
+	<!-- 插入一个数据持久化对象(含所有字段) -->
+	<insert id="insertAll"  parameterType="TUserProjectPO">
+		INSERT INTO t_user_project (
+		    <include refid="column" />
+		)
+		VALUES (
+		    #{id, jdbcType=VARCHAR},  <!-- id -->
+		    #{user_id, jdbcType=VARCHAR},
+		    #{project_id, jdbcType=VARCHAR}
+		)
+	</insert>
+
+	<!-- 根据主键修改数据持久化对象 -->
+	<update id="updateByKey" parameterType="TUserProjectPO">
+		UPDATE t_user_project
+		<set>
+			<if test="id != null">
+		          id = #{id, jdbcType=VARCHAR},  <!-- id -->
+			</if>
+			<if test="user_id != null">
+		          user_id = #{user_id, jdbcType=VARCHAR},
+			</if>
+			<if test="project_id != null">
+		          project_id = #{project_id, jdbcType=VARCHAR},
+			</if>
+		</set>
+		WHERE  id = #{id}
+	</update>
+	
+	<!-- 根据主键删除数据持久化对象 -->
+	<delete id="deleteByKey">
+		DELETE FROM t_user_project WHERE  id = #{id}
+	</delete>
+
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="selectByKey" resultType="TUserProjectPO">
+		SELECT
+		<include refid="column" />
+		FROM t_user_project WHERE  id = #{id}
+	</select>
+	
+	<select id="selectVOByKey" resultType="T_user_projectVO">
+		SELECT
+		<include refid="column2" />,p.project_name
+		FROM t_user_project t_user_project 
+		LEFT JOIN t_userhl u on u.id = t_user_project.user_id 
+		LEFT JOIN t_project p on p.id = t_user_project.project_id 
+		WHERE t_user_project.id = #{id}
+	</select>
+
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="selectOne" parameterType="Dto" resultType="TUserProjectPO">
+		SELECT
+		    <include refid="column" />
+		FROM t_user_project
+		<where>
+		    <include refid="equal" />
+		</where>		
+	</select>
+
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="list" parameterType="Dto" resultType="TUserProjectPO">
+		SELECT
+			<include refid="column" />	
+		FROM t_user_project
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+
+	<!-- 根据Dto模糊查询并返回分页数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="likePage" parameterType="Dto" resultType="T_user_projectVO" useCache="false">
+	    SELECT
+		<include refid="column2" />,p.project_name
+		FROM t_user_project t_user_project 
+		LEFT JOIN t_userhl u on u.id = t_user_project.user_id 
+		LEFT JOIN t_project p on p.id = t_user_project.project_id 
+		WHERE t_user_project.user_id = #{user_id} 
+	</select>
+	
+	
+	<!-- 表字段 -->
+	<sql id="column">
+		  id,  <!-- id -->
+		  user_id,
+		  project_id
+	</sql>
+	
+	<!-- 表字段(用于外表的关联时引用) -->
+	<sql id="column2">
+		  t_user_project.id,  <!-- id -->
+		  t_user_project.user_id,
+		  t_user_project.project_id
+	</sql>
+
+	<!-- Where精确匹配字段 -->
+	<sql id="equal">
+	    <if test="id != null and id != ''">
+		      AND id = #{id}  <!-- id -->
+		</if>
+	    <if test="user_id != null and user_id != ''">
+		      AND user_id = #{user_id}
+		</if>
+		<if test="project_id != null and project_id != ''">
+		      AND project_id = #{project_id}
+		</if>
+	</sql>
+	
+	
+</mapper>

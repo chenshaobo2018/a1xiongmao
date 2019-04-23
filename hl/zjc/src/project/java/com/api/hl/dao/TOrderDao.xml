@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- t_order[t_order]SQL自动映射 -->
+<!--  注意:此文件由AOS平台自动生成-禁止手工修改 2019-03-05 10:01:09 -->
+<mapper namespace="com.api.hl.dao.TOrderDao">
+	<!-- 插入一个数据持久化对象(插入字段为传入PO实体的非空属性) -->
+	<insert id="insert"  parameterType="TOrderPO">
+		INSERT INTO t_order (
+		<if test="goods_id != null and goods_id != ''">
+	         goods_id, <!-- 商品id -->
+		</if>
+		<if test="project_name != null and project_name != ''">
+	         project_name, <!-- 项目名称 -->
+		</if>
+		<if test="user_name != null and user_name != ''">
+	         user_name, <!-- 下单人姓名 -->
+		</if>
+		<if test="note != null and note != ''">
+	         note, <!-- 备注 -->
+		</if>
+		<if test="add_date != null and add_date != ''">
+	         add_date, <!-- 备注 -->
+		</if>
+		<if test="user_id != null and user_id != ''">
+	         user_id, <!-- 备注 -->
+		</if>
+		<if test="is_refer != null and is_refer != ''">
+	         is_refer, <!-- 备注 -->
+		</if>
+		<if test="status != null and status != ''">
+	         status,
+		</if>
+		<if test="sum_price != null and sum_price != ''">
+	         sum_price, <!-- 备注 -->
+		</if>
+		<if test="adjust_price != null and adjust_price != ''">
+	         adjust_price, <!-- 备注 -->
+		</if>
+		<if test="id != null and id != ''">
+	          id  <!-- id -->
+	   </if>
+		)VALUES(
+		<if test="goods_id != null and goods_id != ''">
+	          #{goods_id, jdbcType=VARCHAR}, <!-- 商品id -->
+	    </if>
+		<if test="project_name != null and project_name != ''">
+	          #{project_name, jdbcType=VARCHAR}, <!-- 项目名称 -->
+	    </if>
+		<if test="user_name != null and user_name != ''">
+	          #{user_name, jdbcType=VARCHAR}, <!-- 下单人姓名 -->
+	    </if>
+		<if test="note != null and note != ''">
+	          #{note, jdbcType=VARCHAR}, <!-- 备注 -->
+	    </if>
+	    <if test="add_date != null and add_date != ''">
+	         #{add_date, jdbcType=VARCHAR}, <!-- 备注 -->
+		</if>
+		<if test="user_id != null and user_id != ''">
+	         #{user_id, jdbcType=VARCHAR},
+		</if>
+		<if test="is_refer != null and is_refer != ''">
+	       #{is_refer, jdbcType=VARCHAR},
+		</if>
+		<if test="status != null and status != ''">
+	       #{status, jdbcType=VARCHAR},
+		</if>
+		<if test="sum_price != null and sum_price != ''">
+	         #{sum_price, jdbcType=VARCHAR}, <!-- 备注 -->
+		</if>
+		<if test="adjust_price != null and adjust_price != ''">
+	         #{adjust_price, jdbcType=VARCHAR}, <!-- 备注 -->
+		</if>
+		<if test="id != null and id != ''">
+		     #{id, jdbcType=VARCHAR}  <!-- id -->
+	    </if>
+		)
+	</insert>
+	
+	<!-- 插入一个数据持久化对象(含所有字段) -->
+	<insert id="insertAll"  parameterType="TOrderPO">
+		INSERT INTO t_order (
+		    <include refid="column" />
+		)
+		VALUES (
+		    #{goods_id, jdbcType=VARCHAR},  <!-- id -->
+		    #{id, jdbcType=VARCHAR},  <!-- id -->
+		    #{project_name, jdbcType=VARCHAR},  <!-- 项目名称 -->
+		    #{user_name, jdbcType=VARCHAR},  <!-- 下单人姓名 -->
+		    #{note, jdbcType=VARCHAR},  <!-- 备注 -->
+		    #{add_date, jdbcType=VARCHAR},
+		    #{user_id, jdbcType=VARCHAR},
+		    #{is_refer, jdbcType=VARCHAR},
+		    #{status, jdbcType=VARCHAR},
+		    #{sum_price, jdbcType=VARCHAR},
+		    #{adjust_price, jdbcType=VARCHAR}
+		)
+	</insert>
+
+	<!-- 根据主键修改数据持久化对象 -->
+	<update id="updateByKey" parameterType="TOrderPO">
+		UPDATE t_order
+		<set>
+			<if test="goods_id != null">
+		          goods_id = #{goods_id, jdbcType=VARCHAR},  <!-- goods_id -->
+			</if>
+			<if test="id != null">
+		          id = #{id, jdbcType=VARCHAR},  <!-- id -->
+			</if>
+			<if test="project_name != null">
+		          project_name = #{project_name, jdbcType=VARCHAR},  <!-- 项目名称 -->
+			</if>
+			<if test="user_name != null">
+		          user_name = #{user_name, jdbcType=VARCHAR},  <!-- 下单人姓名 -->
+			</if>
+			<if test="note != null">
+		          note = #{note, jdbcType=VARCHAR},  <!-- 备注 -->
+			</if>
+			<if test="add_date != null">
+		          add_date = #{add_date, jdbcType=VARCHAR},  <!-- 备注 -->
+			</if>
+			<if test="user_id != null">
+		         user_id=#{user_id, jdbcType=VARCHAR},  <!-- 备注 -->
+			</if>
+			<if test="is_refer != null">
+		         is_refer=#{is_refer, jdbcType=VARCHAR},  <!-- 备注 -->
+			</if>
+			<if test="status != null">
+		         status=#{status, jdbcType=VARCHAR}, 
+			</if>
+			<if test="sum_price != null">
+		         sum_price=#{sum_price, jdbcType=VARCHAR},  <!-- 备注 -->
+			</if>
+			<if test="adjust_price != null">
+		         adjust_price=  #{adjust_price, jdbcType=VARCHAR},  <!-- 备注 -->
+			</if>
+		</set>
+		WHERE  id = #{id}
+	</update>
+	
+	<!-- 根据主键删除数据持久化对象 -->
+	<delete id="deleteByKey">
+		DELETE FROM t_order WHERE  id = #{id}
+	</delete>
+
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="selectByKey" resultType="TOrderPO">
+		SELECT
+		<include refid="column" />
+		FROM t_order WHERE  id = #{id}
+	</select>
+
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="selectOne" parameterType="Dto" resultType="TOrderPO">
+		SELECT
+		    <include refid="column" />
+		FROM t_order
+		<where>
+		    <include refid="equal" />
+		</where>		
+	</select>
+
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="list" parameterType="Dto" resultType="TOrderPO">
+		SELECT
+			<include refid="column" />	
+		FROM t_order
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<select id="orderlist" parameterType="Dto" resultType="TOrderPO">
+		SELECT t.id,DATE_FORMAT(t.add_date,'%Y-%m-%d %H:%i:%s') as add_date,count(t1.id) as project_name,SUM(t1.number) as user_name,t.is_refer,t3.material_name,t3.price  
+		from t_order t
+		inner JOIN t_order_detailed t1 on t.id=t1.order_id
+        LEFT JOIN t_specifications t2 on t2.id=t1.specifications_id
+        LEFT JOIN t_goods t3 on t3.id=t2.goods_id
+		where t.user_id=#{user_id}
+		GROUP  BY t.id,t.add_date
+	</select>
+	
+	<select id="orderListCash" parameterType="Dto" resultType="Dto">
+	 SELECT * from (SELECT t.id,SUM(t.sum_price) as sum_price
+		from t_order t
+		where t.user_id=#{user_id}) a where a.id is not null  
+	</select>
+
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listPage" parameterType="Dto" resultType="TOrderPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FROM t_order
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto模糊查询并返回数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="like" parameterType="Dto" resultType="TOrderPO">
+		SELECT
+			<include refid="column" />	
+		FROM t_order
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto模糊查询并返回分页数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="likePage" parameterType="Dto" resultType="TOrderPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FROM t_order
+		<where>
+		    <include refid="like" />
+		</where>	
+		
+		
+	</select>
+	<!-- 新加  -->
+	<select id="qglikePage" parameterType="Dto" resultType="T_orderVO" useCache="false">
+	    SELECT
+			<include refid="column2" />,u.username 
+		FROM t_order t_order 
+		LEFT JOIN t_userhl u on u.id = t_order.user_id 
+		<where>
+		    <include refid="like2" />
+		</where>	
+		order by t_order.add_date desc 
+		
+	</select>
+	<!-- 根据Dto统计行数 -->
+	<select id="rows" resultType="Integer" parameterType="Dto">
+		SELECT COUNT(1) AS aos_rows_ FROM t_order
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 根据数学表达式进行数学运算 -->
+	<select id="calc" parameterType="Dto" resultType="String">
+		SELECT
+			${_expr}
+		FROM t_order
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 表字段 -->
+	<sql id="column">
+		  goods_id,  <!-- goods_id -->
+		  id,  <!-- id -->
+		  project_name,  <!-- 项目名称 -->
+		  user_name,  <!-- 下单人姓名 -->
+		  note,  <!-- 备注 -->
+		  add_date,
+		  user_id,
+		  is_refer,
+		  status,
+		  sum_price,
+		  adjust_price
+	</sql>
+	
+	<!-- 表字段(用于外表的关联时引用) -->
+	<sql id="column2">
+		  t_order.goods_id,  <!-- goods_id -->
+		  t_order.id,  <!-- id -->
+		  t_order.project_name,  <!-- 项目名称 -->
+		  t_order.user_name,  <!-- 下单人姓名 -->
+		  t_order.note,  <!-- 备注 -->
+		  t_order.add_date,
+		  t_order.user_id,
+		  t_order.is_refer,
+		  t_order.status,
+		  t_order.sum_price,
+		  t_order.adjust_price
+	</sql>
+
+	<!-- Where精确匹配字段 -->
+	<sql id="equal">
+	    <if test="goods_id != null and goods_id != ''">
+		      AND goods_id = #{goods_id}  <!-- goods_id -->
+		</if>
+	    <if test="id != null and id != ''">
+		      AND id = #{id}  <!-- id -->
+		</if>
+	    <if test="project_name != null and project_name != ''">
+		      AND project_name = #{project_name}  <!-- 项目名称 -->
+		</if>
+	    <if test="user_name != null and user_name != ''">
+		      AND user_name = #{user_name}  <!-- 下单人姓名 -->
+		</if>
+	    <if test="note != null and note != ''">
+		      AND note = #{note}  <!-- 备注 -->
+		</if>
+		 <if test="user_id != null and user_id != ''">
+		      AND user_id = #{user_id}  <!-- 备注 -->
+		</if>
+	</sql>
+	
+	<!-- Where模糊匹配字段 -->
+	<sql id="like">
+	    <if test="goods_id != null and goods_id != ''">
+		      AND goods_id like '%${goods_id}%'  <!-- goods_id -->
+		</if>
+	    <if test="id != null and id != ''">
+		      AND id like '%${id}%'  <!-- id -->
+		</if>
+	    <if test="project_name != null and project_name != ''">
+		      AND project_name like '%${project_name}%'  <!-- 项目名称 -->
+		</if>
+	    <if test="user_name != null and user_name != ''">
+		      AND user_name like '%${user_name}%'  <!-- 下单人姓名 -->
+		</if>
+	    <if test="note != null and note != ''">
+		      AND note like '%${note}%'  <!-- 备注 -->
+		</if>
+	</sql>
+	<sql id="like2">
+	    <![CDATA[t_order.status is null or t_order.status <> '0']]> 
+	    <if test="project_name != null and project_name != ''">
+		      AND t_order.project_name like concat('%',#{project_name},'%')  <!-- 项目名称 -->
+		</if>
+	    <if test="username != null and username != ''">
+		      AND u.username like concat('%',#{username},'%')  <!-- 下单人姓名 -->
+		</if>
+		<if test="is_refer != null and is_refer != ''">
+		      AND t_order.is_refer like concat('%',#{is_refer},'%')  <!-- 下单人姓名 -->
+		</if>
+		<if test="add_dateBegin != null and add_dateBegin != ''">
+		      AND <![CDATA[t_order.add_date >= #{add_dateBegin}]]>  <!-- 下单人姓名 -->
+		</if>
+		<if test="add_dateEnd != null and add_dateEnd != ''">
+		      AND <![CDATA[t_order.add_date <= #{add_dateEnd}]]>  <!-- 下单人姓名 -->
+		</if>
+	</sql>
+	
+</mapper>

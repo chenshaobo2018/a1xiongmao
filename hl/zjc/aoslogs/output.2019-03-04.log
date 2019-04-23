@@ -1,0 +1,5 @@
+2019-03-04 15:17:05 INFO [Class:o.e.j.s.Server->Thread:main] jetty-8.1.17.v20150415 
+2019-03-04 15:17:07 INFO [Class:o.e.j.s.h.ContextHandler$Context->Thread:main] Initializing Spring root WebApplicationContext 
+2019-03-04 15:17:38 INFO [Class:o.e.j.s.h.ContextHandler$Context->Thread:main] Initializing Spring FrameworkServlet 'springDispatcherServlet' 
+2019-03-04 15:17:39 INFO [Class:o.e.j.s.AbstractConnector->Thread:main] Started SelectChannelConnector@0.0.0.0:10010 
+2019-03-04 15:18:05 WARN [Class:a.f.w.f.HttpBackendFilter->Thread:qtp1597700807-25] 请求被重定向到登录页。【URL：/aosuite/http/do.jhtml】 

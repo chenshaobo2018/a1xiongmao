@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- zjc_provincial_generation[zjc_provincial_generation]SQL自动映射 -->
+<!--  注意:此文件由AOS平台自动生成-禁止手工修改 2019-01-30 09:56:27 -->
+<mapper namespace="com.zjc.users.dao.ZjcProvincialGenerationDao">
+	
+	<!-- 插入一个数据持久化对象(插入字段为传入PO实体的非空属性) -->
+	<insert id="insert"  parameterType="ZjcProvincialGenerationPO">
+		INSERT INTO zjc_provincial_generation (
+		<if test="total_amount != null">
+	         total_amount, <!-- 订单总额 -->
+		</if>
+		<if test="commission != null">
+	         commission, <!-- 提成 -->
+		</if>
+		<if test="user_id != null">
+	         user_id, <!-- user_id -->
+		</if>
+		<if test="is_commission != null">
+	         is_commission, <!-- 是否提成0未1提 -->
+		</if>
+		<if test="order_id != null">
+	          order_id  <!-- order_id -->
+	   </if>
+		)VALUES(
+		<if test="total_amount != null">
+	          #{total_amount, jdbcType=NUMERIC}, <!-- 订单总额 -->
+	    </if>
+		<if test="commission != null">
+	          #{commission, jdbcType=NUMERIC}, <!-- 提成 -->
+	    </if>
+		<if test="user_id != null">
+	          #{user_id, jdbcType=INTEGER}, <!-- user_id -->
+	    </if>
+		<if test="is_commission != null">
+	          #{is_commission, jdbcType=INTEGER}, <!-- 是否提成0未1提 -->
+	    </if>
+		<if test="order_id != null">
+		     #{order_id, jdbcType=INTEGER}  <!-- order_id -->
+	    </if>
+		)
+	</insert>
+	
+	<!-- 插入一个数据持久化对象(含所有字段) -->
+	<insert id="insertAll"  parameterType="ZjcProvincialGenerationPO">
+		INSERT INTO zjc_provincial_generation (
+		    <include refid="column" />
+		)
+		VALUES (
+		    #{order_id, jdbcType=INTEGER},  <!-- order_id -->
+		    #{total_amount, jdbcType=NUMERIC},  <!-- 订单总额 -->
+		    #{commission, jdbcType=NUMERIC},  <!-- 提成 -->
+		    #{user_id, jdbcType=INTEGER},  <!-- user_id -->
+		    #{is_commission, jdbcType=INTEGER}  <!-- 是否提成0未1提 -->
+		)
+	</insert>
+
+	<!-- 根据主键修改数据持久化对象 -->
+	<update id="updateByKey" parameterType="ZjcProvincialGenerationPO">
+		UPDATE zjc_provincial_generation
+		<set>
+			<if test="order_id != null">
+		          order_id = #{order_id, jdbcType=INTEGER},  <!-- order_id -->
+			</if>
+			<if test="total_amount != null">
+		          total_amount = #{total_amount, jdbcType=NUMERIC},  <!-- 订单总额 -->
+			</if>
+			<if test="commission != null">
+		          commission = #{commission, jdbcType=NUMERIC},  <!-- 提成 -->
+			</if>
+			<if test="user_id != null">
+		          user_id = #{user_id, jdbcType=INTEGER},  <!-- user_id -->
+			</if>
+			<if test="is_commission != null">
+		          is_commission = #{is_commission, jdbcType=INTEGER},  <!-- 是否提成0未1提 -->
+			</if>
+		</set>
+		WHERE  order_id = #{order_id}
+	</update>
+	
+	<!-- 根据主键删除数据持久化对象 -->
+	<delete id="deleteByKey">
+		DELETE FROM zjc_provincial_generation WHERE  order_id = #{order_id}
+	</delete>
+
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="selectByKey" resultType="ZjcProvincialGenerationPO">
+		SELECT
+		<include refid="column" />
+		FROM zjc_provincial_generation WHERE  order_id = #{order_id}
+	</select>
+
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="selectOne" parameterType="Dto" resultType="ZjcProvincialGenerationPO">
+		SELECT
+		    <include refid="column" />
+		FROM zjc_provincial_generation
+		<where>
+		    <include refid="equal" />
+		</where>		
+	</select>
+	
+	<select id="selectCount" parameterType="Dto" resultType="Dto">
+		SELECT sum(commission) as commission from zjc_provincial_generation where user_id=#{user_id}
+	</select>
+
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="list" parameterType="Dto" resultType="ZjcProvincialGenerationPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_provincial_generation
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listPage" parameterType="Dto" resultType="ZjcProvincialGenerationPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_provincial_generation
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto模糊查询并返回数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="like" parameterType="Dto" resultType="ZjcProvincialGenerationPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_provincial_generation
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto模糊查询并返回分页数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="likePage" parameterType="Dto" resultType="ZjcProvincialGenerationPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_provincial_generation
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto统计行数 -->
+	<select id="rows" resultType="Integer" parameterType="Dto">
+		SELECT COUNT(1) AS aos_rows_ FROM zjc_provincial_generation
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 根据数学表达式进行数学运算 -->
+	<select id="calc" parameterType="Dto" resultType="String">
+		SELECT
+			${_expr}
+		FROM zjc_provincial_generation
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 表字段 -->
+	<sql id="column">
+		  order_id,  <!-- order_id -->
+		  total_amount,  <!-- 订单总额 -->
+		  commission,  <!-- 提成 -->
+		  user_id,  <!-- user_id -->
+		  is_commission  <!-- 是否提成0未1提 -->
+	</sql>
+	
+	<!-- 表字段(用于外表的关联时引用) -->
+	<sql id="column2">
+		  zjc_provincial_generation.order_id,  <!-- order_id -->
+		  zjc_provincial_generation.total_amount,  <!-- 订单总额 -->
+		  zjc_provincial_generation.commission,  <!-- 提成 -->
+		  zjc_provincial_generation.user_id,  <!-- user_id -->
+		  zjc_provincial_generation.is_commission  <!-- 是否提成0未1提 -->
+	</sql>
+
+	<!-- Where精确匹配字段 -->
+	<sql id="equal">
+	   <if test="order_id != null ">
+		      AND order_id = #{order_id}  <!-- order_id -->
+		</if>
+	   <if test="total_amount != null ">
+		      AND total_amount = #{total_amount}  <!-- 订单总额 -->
+		</if>
+	   <if test="commission != null ">
+		      AND commission = #{commission}  <!-- 提成 -->
+		</if>
+	   <if test="user_id != null ">
+		      AND user_id = #{user_id}  <!-- user_id -->
+		</if>
+	   <if test="is_commission != null ">
+		      AND is_commission = #{is_commission}  <!-- 是否提成0未1提 -->
+		</if>
+	</sql>
+	
+	<!-- Where模糊匹配字段 -->
+	<sql id="like">
+	</sql>
+	
+</mapper>

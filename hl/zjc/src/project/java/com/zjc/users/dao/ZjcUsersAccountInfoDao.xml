@@ -1,0 +1,645 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- zjc_users_account_info[zjc_users_account_info]SQL自动映射 -->
+<!--  注意:此文件由AOS平台自动生成-禁止手工修改 2017-05-22 14:04:13 -->
+<mapper namespace="com.zjc.users.dao.ZjcUsersAccountInfoDao">
+	
+	<!-- 插入一个数据持久化对象(插入字段为传入PO实体的非空属性) -->
+	<insert id="insert"  parameterType="ZjcUsersAccountInfoPO">
+		INSERT INTO zjc_users_account_info (
+		<if test="user_money != null">
+	         user_money, <!-- 用户金额 -->
+		</if>
+		<if test="drops != null">
+	         drops, <!-- 用户金额 -->
+		</if>
+		<if test="frozen_money != null">
+	         frozen_money, <!-- 冻结金额 -->
+		</if>
+		<if test="distribut_money != null">
+	         distribut_money, <!-- 累积分佣金额 -->
+		</if>
+		<if test="pay_points != null">
+	         pay_points, <!-- 消费积分 -->
+		</if>
+		<if test="total_amount != null and total_amount != ''">
+	         total_amount, <!-- 消费累计额度(自然消费) -->
+		</if>
+		<if test="make_over_integral != null">
+	         make_over_integral, <!-- 用户可转积分 -->
+		</if>
+		<if test="wallet_quota != null and wallet_quota != ''">
+	         wallet_quota, <!-- 钱包额度 -->
+		</if>
+		<if test="settlement_center != null">
+	         settlement_center, <!-- 是否开通了结算中心(0-否，1-是) -->
+		</if>
+		<if test="settlement_center_tc != null">
+	         settlement_center_tc, <!-- 是否开通了结算提成(0-否，1-是) -->
+	    </if>
+		<if test="settlement_center_stime != null">
+	         settlement_center_stime, <!-- 结算中心开始时间 -->
+		</if>
+		<if test="settlement_center_etime != null">
+	         settlement_center_etime, <!-- 结算中心结束时间 -->
+		</if>
+		<if test="reg_giving_points != null and reg_giving_points != ''">
+	         reg_giving_points, <!-- 注册赠送积分 -->
+		</if>
+		<if test="return_points != null and return_points != ''">
+	         return_points, <!-- 领到易物卷(返给用户的积分) -->
+		</if>
+		<if test="due_tc_points != null and due_tc_points != ''">
+	         due_tc_points, <!-- 赠送易物卷(应得积分) -->
+		</if>
+		<if test="practical_tc_points != null and practical_tc_points != ''">
+	         practical_tc_points, <!-- 领到易物卷(实际提成) -->
+		</if>
+		<if test="count_wallet_quota != null">
+	         count_wallet_quota, <!-- 钱包总额度 -->
+		</if>
+		<if test="has_terminal != null">
+	         has_terminal, <!-- 0-未开通终端结算 1-开通终端结算 -->
+		</if>
+		<if test="sqvip != null">
+	         sqvip, <!-- 0-未开通终端结算 1-开通终端结算 -->
+		</if>
+		<if test="sqamount != null">
+	         sqamount, <!-- 0-未开通终端结算 1-开通终端结算 -->
+		</if>
+		<if test="sqpay != null">
+	         sqpay, <!-- 0-未开通终端结算 1-开通终端结算 -->
+		</if>
+		<if test="settlement_sum != null">
+	         settlement_sum, <!-- 0-未开通终端结算 1-开通终端结算 -->
+		</if>
+		<if test="jf_sum != null">
+	         jf_sum, <!-- 0-未开通终端结算 1-开通终端结算 -->
+		</if>
+		<if test="sum != null">
+	         sum, <!-- 0-未开通终端结算 1-开通终端结算 -->
+		</if>
+		<if test="update_time != null">
+	         update_time, <!-- 0-未开通终端结算 1-开通终端结算 -->
+		</if>
+		<if test="pending_transfer != null">
+	         pending_transfer, <!-- 用户待转账金额 -->
+		</if>
+		<if test="transferred != null">
+	         transferred, <!-- 用户已转账金额 -->
+		</if>
+		<if test="is_lock != null">
+	         is_lock, <!-- 是否冻结账户；0表示冻结，1表示启用 -->
+		</if>
+		<if test="is_sq != null">
+	         is_sq, <!-- 是否冻结账户；0表示冻结，1表示启用 -->
+		</if>
+		<if test="user_id != null">
+	          user_id  <!-- 用户id -->
+	   </if>
+		)VALUES(
+		<if test="user_money != null">
+	          #{user_money, jdbcType=NUMERIC}, <!-- 用户金额 -->
+	    </if>
+	    <if test="drops != null">
+	        #{drops, jdbcType=INTEGER}, <!-- 用户金额 -->
+		</if>
+		<if test="frozen_money != null">
+	          #{frozen_money, jdbcType=NUMERIC}, <!-- 冻结金额 -->
+	    </if>
+		<if test="distribut_money != null">
+	          #{distribut_money, jdbcType=NUMERIC}, <!-- 累积分佣金额 -->
+	    </if>
+		<if test="pay_points != null">
+	          #{pay_points, jdbcType=INTEGER}, <!-- 消费积分 -->
+	    </if>
+		<if test="total_amount != null and total_amount != ''">
+	          #{total_amount, jdbcType=VARCHAR}, <!-- 消费累计额度(自然消费) -->
+	    </if>
+		
+		<if test="make_over_integral != null">
+	          #{make_over_integral, jdbcType=INTEGER}, <!-- 用户可转积分 -->
+	    </if>
+		<if test="wallet_quota != null and wallet_quota != ''">
+	          #{wallet_quota, jdbcType=VARCHAR}, <!-- 钱包额度 -->
+	    </if>
+		<if test="settlement_center != null">
+	          #{settlement_center, jdbcType=INTEGER}, <!-- 是否开通了结算中心(0-否，1-是) -->
+	    </if>
+	    <if test="settlement_center_tc != null">
+	          #{settlement_center_tc, jdbcType=INTEGER}, <!-- 是否开通了结算提成(0-否，1-是) -->
+	    </if>
+		<if test="settlement_center_stime != null">
+	          #{settlement_center_stime, jdbcType=VARCHAR}, <!-- 结算中心开始时间 -->
+	    </if>
+		<if test="settlement_center_etime != null">
+	          #{settlement_center_etime, jdbcType=VARCHAR}, <!-- 结算中心结束时间 -->
+	    </if>
+		<if test="reg_giving_points != null and reg_giving_points != ''">
+	          #{reg_giving_points, jdbcType=VARCHAR}, <!-- 注册赠送积分 -->
+	    </if>
+		<if test="return_points != null and return_points != ''">
+	          #{return_points, jdbcType=VARCHAR}, <!-- 领到易物卷(返给用户的积分) -->
+	    </if>
+		<if test="due_tc_points != null and due_tc_points != ''">
+	          #{due_tc_points, jdbcType=VARCHAR}, <!-- 赠送易物卷(应得积分) -->
+	    </if>
+		<if test="practical_tc_points != null and practical_tc_points != ''">
+	          #{practical_tc_points, jdbcType=VARCHAR}, <!-- 领到易物卷(实际提成) -->
+	    </if>
+		<if test="count_wallet_quota != null">
+	          #{count_wallet_quota, jdbcType=INTEGER}, <!-- 钱包总额度 -->
+	    </if>
+		<if test="has_terminal != null">
+	          #{has_terminal, jdbcType=INTEGER}, <!-- 0-未开通终端结算 1-开通终端结算 -->
+	    </if>
+	    <if test="sqvip != null">
+	          #{sqvip, jdbcType=INTEGER}, <!-- 0-未开通终端结算 1-开通终端结算 -->
+	    </if>
+	    <if test="sqamount != null">
+	          #{sqamount, jdbcType=INTEGER}, <!-- 0-未开通终端结算 1-开通终端结算 -->
+	    </if>
+	    <if test="sqpay != null">
+	          #{sqpay, jdbcType=INTEGER}, <!-- 0-未开通终端结算 1-开通终端结算 -->
+	    </if>
+	    <if test="settlement_sum != null">
+	          #{settlement_sum, jdbcType=INTEGER}, <!-- 0-未开通终端结算 1-开通终端结算 -->
+	    </if>
+	    <if test="jf_sum != null">
+	          #{jf_sum, jdbcType=INTEGER}, <!-- 0-未开通终端结算 1-开通终端结算 -->
+	    </if>
+	    <if test="sum != null">
+	          #{sum, jdbcType=INTEGER}, <!-- 0-未开通终端结算 1-开通终端结算 -->
+	    </if>
+	    <if test="jf_sum != null">
+	          #{update_time, jdbcType=VARCHAR}, <!-- 0-未开通终端结算 1-开通终端结算 -->
+	    </if>
+	    <if test="pending_transfer != null">
+	          #{pending_transfer, jdbcType=NUMERIC}, <!-- 冻结金额 -->
+	    </if>
+	    <if test="transferred != null">
+	          #{transferred, jdbcType=NUMERIC}, <!-- 冻结金额 -->
+	    </if>
+	    <if test="is_lock != null">
+	         #{is_lock, jdbcType=NUMERIC}, <!-- 是否冻结账户；0表示冻结，1表示启用 -->
+		</if>
+		<if test="is_sq != null">
+	        #{is_sq, jdbcType=VARCHAR},
+		</if>
+		<if test="user_id != null">
+		     #{user_id, jdbcType=INTEGER}  <!-- 用户id -->
+	    </if>
+		)
+	</insert>
+	
+	<!-- 插入一个数据持久化对象(含所有字段) -->
+	<insert id="insertAll"  parameterType="ZjcUsersAccountInfoPO">
+		INSERT INTO zjc_users_account_info (
+		    <include refid="column" />
+		)
+		VALUES (
+		    #{user_id, jdbcType=INTEGER},  <!-- 用户id -->
+	        #{drops, jdbcType=INTEGER}, <!-- 用户金额 -->
+		    #{user_money, jdbcType=NUMERIC},  <!-- 用户金额 -->
+		    #{frozen_money, jdbcType=NUMERIC},  <!-- 冻结金额 -->
+		    #{distribut_money, jdbcType=NUMERIC},  <!-- 累积分佣金额 -->
+		    #{pay_points, jdbcType=INTEGER},  <!-- 消费积分 -->
+		    #{total_amount, jdbcType=VARCHAR},  <!-- 消费累计额度(自然消费) -->
+		    #{make_over_integral, jdbcType=INTEGER},  <!-- 用户可转积分 -->
+		    #{wallet_quota, jdbcType=VARCHAR},  <!-- 钱包额度 -->
+		    #{settlement_center, jdbcType=INTEGER},  <!-- 是否开通了结算中心(0-否，1-是) -->
+		     #{settlement_center_tc, jdbcType=INTEGER},  <!-- 是否开通了结算提成(0-否，1-是) -->
+		    #{settlement_center_stime, jdbcType=VARCHAR},  <!-- 结算中心开始时间 -->
+		    #{settlement_center_etime, jdbcType=VARCHAR},  <!-- 结算中心结束时间 -->
+		    #{reg_giving_points, jdbcType=VARCHAR},  <!-- 注册赠送积分 -->
+		    #{return_points, jdbcType=VARCHAR},  <!-- 领到易物卷(返给用户的积分) -->
+		    #{due_tc_points, jdbcType=VARCHAR},  <!-- 赠送易物卷(应得积分) -->
+		    #{practical_tc_points, jdbcType=VARCHAR},  <!-- 领到易物卷(实际提成) -->
+		    #{count_wallet_quota, jdbcType=INTEGER},  <!-- 钱包总额度 -->
+		    #{sqvip, jdbcType=INTEGER},  <!-- 钱包总额度 -->
+		    #{sqamount, jdbcType=INTEGER},  <!-- 钱包总额度 -->
+		    #{sqpay, jdbcType=INTEGER},  <!-- 钱包总额度 -->
+		    #{settlement_sum, jdbcType=INTEGER},  <!-- 钱包总额度 -->
+		    #{jf_sum, jdbcType=INTEGER},  <!-- 钱包总额度 -->
+		    #{sum, jdbcType=INTEGER},  <!-- 钱包总额度 -->
+		    #{update_time, jdbcType=VARCHAR},  <!-- 钱包总额度 -->
+		    #{has_terminal, jdbcType=INTEGER},  <!-- 0-未开通终端结算 1-开通终端结算 -->
+		    #{pending_transfer, jdbcType=NUMERIC},  <!-- 用户待转账金额 -->
+		    #{transferred, jdbcType=NUMERIC}, <!-- 用户已转账 -->
+		    #{is_lock, jdbcType=INTEGER}
+		)
+	</insert>
+
+	<!-- 根据主键修改数据持久化对象 -->
+	<update id="updateByKey" parameterType="ZjcUsersAccountInfoPO">
+		UPDATE zjc_users_account_info
+		<set>
+			<if test="user_id != null">
+		          user_id = #{user_id, jdbcType=INTEGER},  <!-- 用户id -->
+			</if>
+			<if test="user_money != null">
+		          user_money = #{user_money, jdbcType=NUMERIC},  <!-- 用户金额 -->
+			</if>
+			<if test="drops != null">
+		          drops=#{drops, jdbcType=INTEGER}, <!-- 用户金额 -->
+			</if>
+			<if test="frozen_money != null">
+		          frozen_money = #{frozen_money, jdbcType=NUMERIC},  <!-- 冻结金额 -->
+			</if>
+			<if test="distribut_money != null">
+		          distribut_money = #{distribut_money, jdbcType=NUMERIC},  <!-- 累积分佣金额 -->
+			</if>
+			<if test="pay_points != null">
+		          pay_points = #{pay_points, jdbcType=INTEGER},  <!-- 消费积分 -->
+			</if>
+			<if test="total_amount != null">
+		          total_amount = #{total_amount, jdbcType=VARCHAR},  <!-- 消费累计额度(自然消费) -->
+			</if>
+			<if test="make_over_integral != null">
+		          make_over_integral = #{make_over_integral, jdbcType=INTEGER},  <!-- 用户可转积分 -->
+			</if>
+			<if test="wallet_quota != null">
+		          wallet_quota = #{wallet_quota, jdbcType=VARCHAR},  <!-- 钱包额度 -->
+			</if>
+			<if test="settlement_center != null">
+		          settlement_center = #{settlement_center, jdbcType=INTEGER},  <!-- 是否开通了结算中心(0-否，1-是) -->
+			</if>
+			<if test="settlement_center_tc != null">
+		          settlement_center_tc = #{settlement_center_tc, jdbcType=INTEGER},  <!-- 是否开通了结算提成(0-否，1-是) -->
+			</if>
+			<if test="settlement_center_stime != null">
+		          settlement_center_stime = #{settlement_center_stime, jdbcType=VARCHAR},  <!-- 结算中心开始时间 -->
+			</if>
+			<if test="settlement_center_etime != null">
+		          settlement_center_etime = #{settlement_center_etime, jdbcType=VARCHAR},  <!-- 结算中心结束时间 -->
+			</if>
+			<if test="reg_giving_points != null">
+		          reg_giving_points = #{reg_giving_points, jdbcType=VARCHAR},  <!-- 注册赠送积分 -->
+			</if>
+			<if test="return_points != null">
+		          return_points = #{return_points, jdbcType=VARCHAR},  <!-- 领到易物卷(返给用户的积分) -->
+			</if>
+			<if test="due_tc_points != null">
+		          due_tc_points = #{due_tc_points, jdbcType=VARCHAR},  <!-- 赠送易物卷(应得积分) -->
+			</if>
+			<if test="practical_tc_points != null">
+		          practical_tc_points = #{practical_tc_points, jdbcType=VARCHAR},  <!-- 领到易物卷(实际提成) -->
+			</if>
+			<if test="count_wallet_quota != null">
+		          count_wallet_quota = #{count_wallet_quota, jdbcType=INTEGER},  <!-- 钱包总额度 -->
+			</if>
+			<if test="has_terminal != null">
+		          has_terminal = #{has_terminal, jdbcType=INTEGER},  <!-- 0-未开通终端结算 1-开通终端结算 -->
+			</if>
+			<if test="sqvip != null">
+		          sqvip = #{sqvip, jdbcType=INTEGER},  <!-- 0-未开通终端结算 1-开通终端结算 -->
+			</if>
+			<if test="sqamount != null">
+		          sqamount = #{sqamount, jdbcType=INTEGER},  <!-- 0-未开通终端结算 1-开通终端结算 -->
+			</if>
+			<if test="sqpay != null">
+		          sqpay = #{sqpay, jdbcType=INTEGER},  <!-- 0-未开通终端结算 1-开通终端结算 -->
+			</if>
+			<if test="settlement_sum != null">
+		          settlement_sum = #{settlement_sum, jdbcType=INTEGER},  <!-- 0-未开通终端结算 1-开通终端结算 -->
+			</if>
+			<if test="sum != null">
+		          sum = #{sum, jdbcType=INTEGER},  <!-- 0-未开通终端结算 1-开通终端结算 -->
+			</if>
+			<if test="settlement_sum != null">
+		          update_time = #{update_time, jdbcType=VARCHAR},  <!-- 0-未开通终端结算 1-开通终端结算 -->
+			</if>
+			<if test="jf_sum != null">
+		          jf_sum = #{jf_sum, jdbcType=INTEGER},  <!-- 0-未开通终端结算 1-开通终端结算 -->
+			</if>
+			<if test="pending_transfer != null">
+		          pending_transfer = #{pending_transfer, jdbcType=NUMERIC},  <!-- 用户金额 -->
+			</if>
+			<if test="transferred != null">
+		          transferred = #{transferred, jdbcType=NUMERIC},  <!-- 用户金额 -->
+			</if>
+			<if test="is_lock != null and is_lock != ''">
+		         is_lock = #{is_lock, jdbcType=INTEGER} <!-- 是否冻结账户；0表示冻结，1表示启用 -->
+			</if> 
+			<!-- <if test="is_sq != null and is_sq != ''">
+		         is_sq = #{is_sq, jdbcType=VARCHAR} 是否冻结账户；0表示冻结，1表示启用
+			</if> -->
+		</set>
+		WHERE  user_id = #{user_id}
+	</update>
+	
+	
+	<!-- 根据主键修改数据持久化对象 -->
+	<update id="addPayPoint" parameterType="Dto">
+		UPDATE zjc_users_account_info
+		SET pay_point = point + #{outPoint}
+		WHERE  user_id = #{user_id}
+	</update>
+	
+	<!-- 根据主键删除数据持久化对象 -->
+	<delete id="deleteByKey">
+		DELETE FROM zjc_users_account_info WHERE  user_id = #{user_id}
+	</delete>
+
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="selectByKey" resultType="ZjcUsersAccountInfoPO">
+		SELECT
+		<include refid="column" />
+		FROM zjc_users_account_info WHERE  user_id = #{user_id}
+	</select>
+	
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="users" parameterType="ZjcUsersAccountInfoPO" resultType="ZjcUsersAccountInfoPO">
+		SELECT
+		<include refid="column" />
+		FROM zjc_users_account_info WHERE  user_id = #{user_id}
+	</select>
+	
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="usersd" parameterType="ZjcUsersAccountInfoPO" resultType="ZjcUsersAccountInfoPO">
+		SELECT
+		<include refid="column" />
+		FROM zjc_users_account_info WHERE  user_id = #{user_id}
+	</select>
+   
+   
+   
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="selectOne" parameterType="Dto" resultType="ZjcUsersAccountInfoPO">
+		SELECT
+		    <include refid="column" />
+		FROM zjc_users_account_info
+		<where>
+		    <include refid="equal" />
+		</where>		
+	</select>
+
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="list" parameterType="Dto" resultType="ZjcUsersAccountInfoPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_users_account_info
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+
+	<!-- 查找用户的钱包上限额度 -->
+	<select id="wallet_quota" parameterType="Integer" resultType="Integer">
+		select wallet_quota from zjc_users_account_info where user_id =#{user_id}
+	</select>
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listPage" parameterType="Dto" resultType="ZjcUsersAccountInfoPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_users_account_info
+		<where>
+		    <include refid="equal" />
+		</where>	
+		order by user_id desc	
+	</select>
+	
+	<!-- 根据Dto模糊查询并返回数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="like" parameterType="Dto" resultType="ZjcUsersAccountInfoPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_users_account_info
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto模糊查询并返回分页数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="likePage" parameterType="Dto" resultType="ZjcUsersAccountInfoPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_users_account_info
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto统计行数 -->
+	<select id="rows" resultType="Integer" parameterType="Dto">
+		SELECT COUNT(1) AS aos_rows_ FROM zjc_users_account_info
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 根据数学表达式进行数学运算 -->
+	<select id="calc" parameterType="Dto" resultType="String">
+		SELECT
+			${_expr}
+		FROM zjc_users_account_info
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 表字段 -->
+	<sql id="column">
+		  user_id,  <!-- 用户id -->
+		  user_money,  <!-- 用户金额 -->
+		  drops,
+		  frozen_money,  <!-- 冻结金额 -->
+		  distribut_money,  <!-- 累积分佣金额 -->
+		  pay_points,  <!-- 消费积分 -->
+		  total_amount,  <!-- 消费累计额度(自然消费) -->
+		  make_over_integral,  <!-- 用户可转积分 -->
+		  wallet_quota,  <!-- 钱包额度 -->
+		  settlement_center,  <!-- 是否开通了结算中心(0-否，1-是) -->
+		  settlement_center_tc,  <!-- 是否开通了结算提成(0-否，1-是) -->
+		  settlement_center_stime,  <!-- 结算中心开始时间 -->
+		  settlement_center_etime,  <!-- 结算中心结束时间 -->
+		  reg_giving_points,  <!-- 注册赠送积分 -->
+		  return_points,  <!-- 领到易物卷(返给用户的积分) -->
+		  due_tc_points,  <!-- 赠送易物卷(应得积分) -->
+		  practical_tc_points,  <!-- 领到易物卷(实际提成) -->
+		  count_wallet_quota,  <!-- 钱包总额度 -->
+		  sqvip,  <!-- 钱包总额度 -->
+		  sqamount,  <!-- 钱包总额度 -->
+		  sqpay,  <!-- 钱包总额度 -->
+		  settlement_sum,  <!-- 钱包总额度 -->
+		  jf_sum,  <!-- 钱包总额度 -->
+		  sum,
+		  update_time,
+		  has_terminal,  <!-- 0-未开通终端结算 1-开通终端结算 -->
+		  pending_transfer, <!-- 用户待转账 -->
+		  transferred, <!-- 用户已转账 -->
+		  is_lock, <!-- 是否冻结账户；0表示冻结，1表示启用 -->
+		  is_sq
+	</sql>
+	
+	<!-- 表字段(用于外表的关联时引用) -->
+	<sql id="column2">
+		  zjc_users_account_info.user_id,  <!-- 用户id -->
+		  zjc_users_account_info.user_money,  <!-- 用户金额 -->
+		  zjc_users_account_info.drops,
+		  zjc_users_account_info.frozen_money,  <!-- 冻结金额 -->
+		  zjc_users_account_info.distribut_money,  <!-- 累积分佣金额 -->
+		  zjc_users_account_info.pay_points,  <!-- 消费积分 -->
+		  zjc_users_account_info.total_amount,  <!-- 消费累计额度(自然消费) -->
+		  zjc_users_account_info.make_over_integral,  <!-- 用户可转积分 -->
+		  zjc_users_account_info.wallet_quota,  <!-- 钱包额度 -->
+		  zjc_users_account_info.settlement_center,  <!-- 是否开通了结算中心(0-否，1-是) -->
+		  zjc_users_account_info.settlement_center_tc,  <!-- 是否开通了结算提成(0-否，1-是) -->
+		  zjc_users_account_info.settlement_center_stime,  <!-- 结算中心开始时间 -->
+		  zjc_users_account_info.settlement_center_etime,  <!-- 结算中心结束时间 -->
+		  zjc_users_account_info.reg_giving_points,  <!-- 注册赠送积分 -->
+		  zjc_users_account_info.return_points,  <!-- 领到易物卷(返给用户的积分) -->
+		  zjc_users_account_info.due_tc_points,  <!-- 赠送易物卷(应得积分) -->
+		  zjc_users_account_info.practical_tc_points,  <!-- 领到易物卷(实际提成) -->
+		  zjc_users_account_info.count_wallet_quota,  <!-- 钱包总额度 -->
+		  zjc_users_account_info.sqvip,  <!-- 钱包总额度 -->
+		  zjc_users_account_info.sqamount,  <!-- 钱包总额度 -->
+		  zjc_users_account_info.sqpay,  <!-- 钱包总额度 -->
+		  zjc_users_account_info.settlement_sum,  <!-- 钱包总额度 -->
+		  zjc_users_account_info.jf_sum,  <!-- 钱包总额度 -->
+		  zjc_users_account_info.sum,
+		  zjc_users_account_info.update_time,
+		  zjc_users_account_info.has_terminal,  <!-- 0-未开通终端结算 1-开通终端结算 -->
+		  zjc_users_account_info.pending_transfer, <!-- 用户待转账 -->
+		  zjc_users_account_info.transferred, <!-- 用户已转账 -->
+		  zjc_users_account_info.is_lock, <!-- 是否冻结账户；0表示冻结，1表示启用 -->
+		  zjc_users_account_info.is_sq
+	</sql>
+
+	<!-- Where精确匹配字段 -->
+	<sql id="equal">
+	   <if test="user_id != null ">
+		      AND user_id = #{user_id}  <!-- 用户id -->
+		</if>
+	   <if test="user_money != null ">
+		      AND user_money = #{user_money}  <!-- 用户金额 -->
+		</if>
+	   <if test="frozen_money != null ">
+		      AND frozen_money = #{frozen_money}  <!-- 冻结金额 -->
+		</if>
+	   <if test="distribut_money != null ">
+		      AND distribut_money = #{distribut_money}  <!-- 累积分佣金额 -->
+		</if>
+	   <if test="pay_points != null ">
+		      AND pay_points = #{pay_points}  <!-- 消费积分 -->
+		</if>
+	    <if test="total_amount != null and total_amount != ''">
+		      AND total_amount = #{total_amount}  <!-- 消费累计额度(自然消费) -->
+		</if>
+	   <if test="make_over_integral != null ">
+		      AND make_over_integral = #{make_over_integral}  <!-- 用户可转积分 -->
+		</if>
+	    <if test="wallet_quota != null and wallet_quota != ''">
+		      AND wallet_quota = #{wallet_quota}  <!-- 钱包额度 -->
+		</if>
+	   <if test="settlement_center != null ">
+		      AND settlement_center = #{settlement_center}  <!-- 是否开通了结算中心(0-否，1-是) -->
+		</if>
+		<if test="settlement_center_tc != null ">
+		      AND settlement_center_tc = #{settlement_center_tc}  <!-- 是否开通了结算提成(0-否，1-是) -->
+		</if>
+	   <if test="settlement_center_stime != null ">
+		      AND settlement_center_stime = #{settlement_center_stime}  <!-- 结算中心开始时间 -->
+		</if>
+	   <if test="settlement_center_etime != null ">
+		      AND settlement_center_etime = #{settlement_center_etime}  <!-- 结算中心结束时间 -->
+		</if>
+	    <if test="reg_giving_points != null and reg_giving_points != ''">
+		      AND reg_giving_points = #{reg_giving_points}  <!-- 注册赠送积分 -->
+		</if>
+	    <if test="return_points != null and return_points != ''">
+		      AND return_points = #{return_points}  <!-- 领到易物卷(返给用户的积分) -->
+		</if>
+	    <if test="due_tc_points != null and due_tc_points != ''">
+		      AND due_tc_points = #{due_tc_points}  <!-- 赠送易物卷(应得积分) -->
+		</if>
+	    <if test="practical_tc_points != null and practical_tc_points != ''">
+		      AND practical_tc_points = #{practical_tc_points}  <!-- 领到易物卷(实际提成) -->
+		</if>
+	   <if test="count_wallet_quota != null ">
+		      AND count_wallet_quota = #{count_wallet_quota}  <!-- 钱包总额度 -->
+		</if>
+	   <if test="has_terminal != null ">
+		      AND has_terminal = #{has_terminal}  <!-- 0-未开通终端结算 1-开通终端结算 -->
+		</if>
+		<if test="sqvip != null ">
+		      AND sqvip = #{sqvip}  <!-- 钱包总额度 -->
+		</if>
+		<if test="sqamount != null ">
+		      AND sqamount = #{sqamount}  <!-- 钱包总额度 -->
+		</if>
+		<if test="sqpay != null ">
+		      AND sqpay = #{sqpay}  <!-- 钱包总额度 -->
+		</if>
+		<if test="sqpay != null ">
+		      AND settlement_sum = #{settlement_sum}  <!-- 钱包总额度 -->
+		</if>
+		<if test="sqpay != null ">
+		      AND sum = #{sum}  <!-- 钱包总额度 -->
+		</if>
+		<if test="sqpay != null ">
+		      AND update_time = #{update_time}  <!-- 钱包总额度 -->
+		</if>
+		<if test="sqpay != null ">
+		      AND jf_sum = #{jf_sum}  <!-- 钱包总额度 -->
+		</if>
+		<if test="pending_transfer != null ">
+		      AND pending_transfer = #{pending_transfer}  <!-- 待转账 -->
+		</if>
+		<if test="transferred != null ">
+		      AND transferred = #{transferred}  <!-- 已转账 -->
+		</if>
+		<if test="is_lock != null">
+	         AND is_lock = #{is_lock} <!-- 是否冻结账户；0表示冻结，1表示启用 -->
+		</if>
+	</sql>
+	
+	<!-- Where模糊匹配字段 -->
+	<sql id="like">
+	    <if test="total_amount != null and total_amount != ''">
+		      AND total_amount like '${total_amount}%'  <!-- 消费累计额度(自然消费) -->
+		</if>
+	    <if test="wallet_quota != null and wallet_quota != ''">
+		      AND wallet_quota like '${wallet_quota}%'  <!-- 钱包额度 -->
+		</if>
+	    <if test="reg_giving_points != null and reg_giving_points != ''">
+		      AND reg_giving_points like '${reg_giving_points}%'  <!-- 注册赠送积分 -->
+		</if>
+	    <if test="return_points != null and return_points != ''">
+		      AND return_points like '${return_points}%'  <!-- 领到易物卷(返给用户的积分) -->
+		</if>
+	    <if test="due_tc_points != null and due_tc_points != ''">
+		      AND due_tc_points like '${due_tc_points}%'  <!-- 赠送易物卷(应得积分) -->
+		</if>
+	    <if test="practical_tc_points != null and practical_tc_points != ''">
+		      AND practical_tc_points like '${practical_tc_points}%'  <!-- 领到易物卷(实际提成) -->
+		</if>
+		<if test="is_lock != null">
+	         AND is_lock = #{is_lock} <!-- 是否冻结账户；0表示冻结，1表示启用 -->
+		</if>
+	</sql>
+	<!-- ========================api======== -->
+	<!-- 查找一级上级账户信息 -->
+	<select id="getFirstLeaderAccount" parameterType="ZjcUsersInfoPO" resultType="ZjcUsersAccountInfoPO" useCache="false">
+		select <include refid="column"></include>
+		from zjc_users_account_info 
+		where user_id = #{first_leader} 
+	</select>
+	<!-- 查找二级上级账户信息 -->
+	<select id="getSecondLeaderAccount" parameterType="ZjcUsersInfoPO" resultType="ZjcUsersAccountInfoPO" useCache="false">
+		select <include refid="column"></include>
+		from zjc_users_account_info 
+		where user_id = #{second_leader}
+	</select>
+	
+	<select id="selectByOrderId" parameterType="Dto" resultType="ZjcUsersAccountInfoPO">
+		select * from zjc_users_account_info 
+		where user_id = (select user_id from zjc_store where store_id = (select store_id from zjc_order where order_id = #{order_id}))
+	</select>
+	<!-- 查询商家账户的可用可转券额度 -->
+	<select id="selectStoreAccountInfo" parameterType="Dto" resultType="ZjcUsersAccountInfoPO">
+		select * from zjc_users_account_info 
+		where user_id = (select user_id from zjc_store where store_id = #{store_id})
+	</select>
+</mapper>

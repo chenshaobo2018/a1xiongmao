@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- zjc_bz_order[zjc_bz_order]SQL自动映射 -->
+<!--  注意:此文件由AOS平台自动生成-禁止手工修改 2017-06-06 17:27:43 -->
+<mapper namespace="com.zjc.order.dao.ZjcBzOrderDao">
+	
+	<!-- 插入一个数据持久化对象(插入字段为传入PO实体的非空属性) -->
+	<insert id="insert" useGeneratedKeys="true" keyProperty="bz_id" parameterType="ZjcBzOrderPO">
+		INSERT INTO zjc_bz_order (
+		<if test="bz_sn != null and bz_sn != ''">
+	         bz_sn, <!-- 订单编号 -->
+		</if>
+		<if test="user_id != null">
+	         user_id, <!-- 用户id -->
+		</if>
+		<if test="user_name != null and user_name != ''">
+	         user_name, <!-- 会员名称 -->
+		</if>
+		<if test="bz_price != null">
+	         bz_price, <!-- 结算中心价格 -->
+		</if>
+		<if test="bz_after_price != null">
+	         bz_after_price, <!-- 倍增金额 -->
+		</if>
+		<if test="recommended_code != null and recommended_code != ''">
+	         recommended_code, <!-- 会员编号(邀请码) -->
+		</if>
+		<if test="seller_name != null and seller_name != ''">
+	         seller_name, <!-- 结算中心拥有者名称 -->
+		</if>
+		<if test="seller_id != null">
+	         seller_id, <!-- 结算中心拥有人ID -->
+		</if>
+		<if test="add_time != null and add_time != ''">
+	         add_time, <!-- 购买时间 -->
+		</if>
+	          bz_id
+		)VALUES(
+		<if test="bz_sn != null and bz_sn != ''">
+	          #{bz_sn, jdbcType=VARCHAR}, <!-- 订单编号 -->
+	    </if>
+		<if test="user_id != null">
+	          #{user_id, jdbcType=INTEGER}, <!-- 用户id -->
+	    </if>
+		<if test="user_name != null and user_name != ''">
+	          #{user_name, jdbcType=VARCHAR}, <!-- 会员名称 -->
+	    </if>
+		<if test="bz_price != null">
+	          #{bz_price, jdbcType=NUMERIC}, <!-- 结算中心价格 -->
+	    </if>
+		<if test="bz_after_price != null">
+	          #{bz_after_price, jdbcType=NUMERIC}, <!-- 倍增金额 -->
+	    </if>
+		<if test="recommended_code != null and recommended_code != ''">
+	          #{recommended_code, jdbcType=VARCHAR}, <!-- 会员编号(邀请码) -->
+	    </if>
+		<if test="seller_name != null and seller_name != ''">
+	          #{seller_name, jdbcType=VARCHAR}, <!-- 结算中心拥有者名称 -->
+	    </if>
+		<if test="seller_id != null">
+	          #{seller_id, jdbcType=INTEGER}, <!-- 结算中心拥有人ID -->
+	    </if>
+		<if test="add_time != null and add_time != ''">
+	          #{add_time, jdbcType=VARCHAR}, <!-- 购买时间 -->
+	    </if>
+	          null
+		)
+	</insert>
+	
+	<!-- 插入一个数据持久化对象(含所有字段) -->
+	<insert id="insertAll" useGeneratedKeys="true" keyProperty="bz_id" parameterType="ZjcBzOrderPO">
+		INSERT INTO zjc_bz_order (
+		    <include refid="column" />
+		)
+		VALUES (
+		    #{bz_id, jdbcType=INTEGER},  <!-- 订单id -->
+		    #{bz_sn, jdbcType=VARCHAR},  <!-- 订单编号 -->
+		    #{user_id, jdbcType=INTEGER},  <!-- 用户id -->
+		    #{user_name, jdbcType=VARCHAR},  <!-- 会员名称 -->
+		    #{bz_price, jdbcType=NUMERIC},  <!-- 结算中心价格 -->
+		    #{bz_after_price, jdbcType=NUMERIC},  <!-- 倍增金额 -->
+		    #{recommended_code, jdbcType=VARCHAR},  <!-- 会员编号(邀请码) -->
+		    #{seller_name, jdbcType=VARCHAR},  <!-- 结算中心拥有者名称 -->
+		    #{seller_id, jdbcType=INTEGER},  <!-- 结算中心拥有人ID -->
+		    #{add_time, jdbcType=VARCHAR}  <!-- 购买时间 -->
+		)
+	</insert>
+
+	<!-- 根据主键修改数据持久化对象 -->
+	<update id="updateByKey" parameterType="ZjcBzOrderPO">
+		UPDATE zjc_bz_order
+		<set>
+			<if test="bz_id != null">
+		          bz_id = #{bz_id, jdbcType=INTEGER},  <!-- 订单id -->
+			</if>
+			<if test="bz_sn != null">
+		          bz_sn = #{bz_sn, jdbcType=VARCHAR},  <!-- 订单编号 -->
+			</if>
+			<if test="user_id != null">
+		          user_id = #{user_id, jdbcType=INTEGER},  <!-- 用户id -->
+			</if>
+			<if test="user_name != null">
+		          user_name = #{user_name, jdbcType=VARCHAR},  <!-- 会员名称 -->
+			</if>
+			<if test="bz_price != null">
+		          bz_price = #{bz_price, jdbcType=NUMERIC},  <!-- 结算中心价格 -->
+			</if>
+			<if test="bz_after_price != null">
+		          bz_after_price = #{bz_after_price, jdbcType=NUMERIC},  <!-- 倍增金额 -->
+			</if>
+			<if test="recommended_code != null">
+		          recommended_code = #{recommended_code, jdbcType=VARCHAR},  <!-- 会员编号(邀请码) -->
+			</if>
+			<if test="seller_name != null">
+		          seller_name = #{seller_name, jdbcType=VARCHAR},  <!-- 结算中心拥有者名称 -->
+			</if>
+			<if test="seller_id != null">
+		          seller_id = #{seller_id, jdbcType=INTEGER},  <!-- 结算中心拥有人ID -->
+			</if>
+			<if test="add_time != null">
+		          add_time = #{add_time, jdbcType=VARCHAR},  <!-- 购买时间 -->
+			</if>
+		</set>
+		WHERE  bz_id = #{bz_id}
+	</update>
+	
+	<!-- 根据主键删除数据持久化对象 -->
+	<delete id="deleteByKey">
+		DELETE FROM zjc_bz_order WHERE  bz_id = #{bz_id}
+	</delete>
+
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="selectByKey" resultType="ZjcBzOrderPO">
+		SELECT
+		<include refid="column" />
+		FROM zjc_bz_order WHERE  bz_id = #{bz_id}
+	</select>
+
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="selectOne" parameterType="Dto" resultType="ZjcBzOrderPO">
+		SELECT
+		    <include refid="column" />
+		FROM zjc_bz_order
+		<where>
+		    <include refid="equal" />
+		</where>		
+	</select>
+
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="list" parameterType="Dto" resultType="ZjcBzOrderPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_bz_order
+		<where>
+		    <include refid="equal" />
+		</where>
+		order by add_time desc	
+	</select>
+
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listPage" parameterType="Dto" resultType="ZjcBzOrderPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_bz_order
+		<where>
+		    <include refid="equal" />
+		</where>
+		order by add_time desc	
+	</select>
+	
+	<!-- 根据Dto模糊查询并返回数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="like" parameterType="Dto" resultType="ZjcBzOrderPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_bz_order
+		<where>
+		    <include refid="like" />
+		</where>
+		order by add_time desc	
+	</select>
+   
+   
+    
+	<!-- 根据Dto模糊查询并返回分页数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="likePage" parameterType="Dto" resultType="ZjcBzOrderPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_bz_order
+		<where>
+		    <include refid="like" />
+		</where>
+		order by add_time desc	
+	</select>
+	<!-- 系统后台查询倍增订单记录 -->
+	<select id="likeBzOrdersPage" parameterType="Dto" resultType="ZjcBzOrderPO" useCache="false">
+	    SELECT
+			 t.bz_id, t.bz_sn, t.user_id,t.user_name, t.bz_price, t.seller_name, t.seller_id, t.add_time, t2.is_send
+	   FRoM zjc_bz_order t 
+		<!-- left join zjc_users_info t1 on t.user_id = t1.user_id -->
+		inner JOIN zjc_queue t2 on (t.bz_id=t2.relation_id and t.user_id=t2.user_id)
+		<where>
+		    <include refid="like3" />
+		</where>
+		order by add_time desc	
+	</select>
+	
+	<!-- 根据Dto统计行数 -->
+	<select id="rows" resultType="Integer" parameterType="Dto">
+		SELECT COUNT(1) AS aos_rows_ FROM zjc_bz_order
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 根据数学表达式进行数学运算 -->
+	<select id="calc" parameterType="Dto" resultType="String">
+		SELECT
+			${_expr}
+		FROM zjc_bz_order
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 根据user_id查询当天该用户商城购物的额度 -->
+	<select id="getTodaySettleNum" parameterType="Dto" resultType="String">
+		SELECT
+			ifnull(sum(bz_after_price),0)
+		FROM zjc_bz_order 
+		<where>
+		   user_id  = #{user_id} and to_days(add_time) = to_days(NOW())
+		</where>
+	</select>
+	
+	<!-- 表字段 -->
+	<sql id="column">
+		  bz_id,  <!-- 订单id -->
+		  bz_sn,  <!-- 订单编号 -->
+		  user_id,  <!-- 用户id -->
+		  user_name,  <!-- 会员名称 -->
+		  bz_price,  <!-- 结算中心价格 -->
+		  bz_after_price,  <!-- 倍增金额 -->
+		  recommended_code,  <!-- 会员编号(邀请码) -->
+		  seller_name,  <!-- 结算中心拥有者名称 -->
+		  seller_id,  <!-- 结算中心拥有人ID -->
+		  add_time  <!-- 购买时间 -->
+	</sql>
+	
+	<!-- 表字段(用于外表的关联时引用) -->
+	<sql id="column2">
+		  zjc_bz_order.bz_id,  <!-- 订单id -->
+		  zjc_bz_order.bz_sn,  <!-- 订单编号 -->
+		  zjc_bz_order.user_id,  <!-- 用户id -->
+		  zjc_bz_order.user_name,  <!-- 会员名称 -->
+		  zjc_bz_order.bz_price,  <!-- 结算中心价格 -->
+		  zjc_bz_order.bz_after_price,  <!-- 倍增金额 -->
+		  zjc_bz_order.recommended_code,  <!-- 会员编号(邀请码) -->
+		  zjc_bz_order.seller_name,  <!-- 结算中心拥有者名称 -->
+		  zjc_bz_order.seller_id,  <!-- 结算中心拥有人ID -->
+		  zjc_bz_order.add_time  <!-- 购买时间 -->
+	</sql>
+	
+	<sql id="column3">
+	  t.bz_id,  <!-- 订单id -->
+	  t.bz_sn,  <!-- 订单编号 -->
+	  t.user_id,  <!-- 用户id -->
+	  t.user_name,  <!-- 会员名称 -->
+	  t.bz_price,  <!-- 结算中心价格 -->
+	  t.bz_after_price,  <!-- 倍增金额 -->
+	  t.recommended_code,  <!-- 会员编号(邀请码) -->
+	  t.seller_name,  <!-- 结算中心拥有者名称 -->
+	  t.seller_id,  <!-- 结算中心拥有人ID -->
+	  t.add_time,  <!-- 购买时间 -->
+	  t1.mobile  <!-- 会员电话 -->
+	</sql>
+
+	<!-- Where精确匹配字段 -->
+	<sql id="equal">
+	   <if test="bz_id != null ">
+		      AND bz_id = #{bz_id}  <!-- 订单id -->
+		</if>
+	    <if test="bz_sn != null and bz_sn != ''">
+		      AND bz_sn = #{bz_sn}  <!-- 订单编号 -->
+		</if>
+	   <if test="user_id != null ">
+		      AND user_id = #{user_id}  <!-- 用户id -->
+		</if>
+	    <if test="user_name != null and user_name != ''">
+		      AND user_name = #{user_name}  <!-- 会员名称 -->
+		</if>
+	   <if test="bz_price != null ">
+		      AND bz_price = #{bz_price}  <!-- 结算中心价格 -->
+		</if>
+	   <if test="bz_after_price != null ">
+		      AND bz_after_price = #{bz_after_price}  <!-- 倍增金额 -->
+		</if>
+	    <if test="recommended_code != null and recommended_code != ''">
+		      AND recommended_code = #{recommended_code}  <!-- 会员编号(邀请码) -->
+		</if>
+	    <if test="seller_name != null and seller_name != ''">
+		      AND seller_name = #{seller_name}  <!-- 结算中心拥有者名称 -->
+		</if>
+	   <if test="seller_id != null ">
+		      AND seller_id = #{seller_id}  <!-- 结算中心拥有人ID -->
+		</if>
+	   <if test="add_time != null ">
+		      AND add_time = #{add_time}  <!-- 购买时间 -->
+		</if>
+	</sql>
+	
+	<!-- Where模糊匹配字段 -->
+	<sql id="like">
+		<if test="add_time_start != null and add_time_start != ''">
+		      <![CDATA[AND add_time >= #{add_time_start}]]>  <!-- 倍增下单时间(起) -->
+		</if>
+		<if test="add_time_end != null and add_time_end != ''">
+		      <![CDATA[AND add_time <= #{add_time_end}]]>  <!-- 倍增下单时间(止) -->
+		</if>
+	    <if test="bz_sn != null and bz_sn != ''">
+		      AND bz_sn = #{bz_sn}  <!-- 订单编号 -->
+		</if>
+	    <if test="user_name != null and user_name != ''">
+		      AND user_name = #{user_name}  <!-- 会员名称 -->
+		</if>
+	    <if test="recommended_code != null and recommended_code != ''">
+		      AND recommended_code = #{recommended_code}  <!-- 邀请码 -->
+		</if>
+	    <if test="seller_name != null and seller_name != ''">
+		      AND seller_name like '${seller_name}%'  <!-- 结算中心拥有者名称 -->
+		</if>
+		 <if test="user_id != null and user_id != ''">
+		      AND user_id = #{user_id}  <!-- 会员编号) -->
+		</if>
+	</sql>
+	
+	<sql id="like3">
+		<if test="add_time_start != null and add_time_start != ''">
+		      <![CDATA[AND t.add_time >= #{add_time_start}]]>  <!-- 倍增下单时间(起) -->
+		</if>
+		<if test="add_time_end != null and add_time_end != ''">
+		      <![CDATA[AND t.add_time <= #{add_time_end}]]>  <!-- 倍增下单时间(止) -->
+		</if>
+	    <if test="bz_sn != null and bz_sn != ''">
+		      AND t.bz_sn = #{bz_sn}  <!-- 订单编号 -->
+		</if>
+	    <if test="user_name != null and user_name != ''">
+		      AND t.user_name like '${user_name}%'  <!-- 会员名称 -->
+		</if>
+	    <if test="recommended_code != null and recommended_code != ''">
+		      AND t.recommended_code = #{recommended_code}  <!-- 邀请码 -->
+		</if>
+	    <if test="seller_name != null and seller_name != ''">
+		      AND t.seller_name like '${seller_name}%'  <!-- 结算中心拥有者名称 -->
+		</if>
+		 <if test="seller_id != null and seller_id != ''">
+		      AND t.seller_id = #{seller_id}  <!-- 结算中心拥有者名称 -->
+		</if>
+		 <if test="user_id != null and user_id != ''">
+		      AND t.user_id = #{user_id}  <!-- 会员编号) -->
+		</if>
+		 <if test="mobile != null and mobile != ''">
+		      AND t1.mobile = #{mobile}  <!-- 会员电话) -->
+		</if>
+		<if test="is_send != null and is_send != ''">
+		      AND t2.is_send = #{is_send}  <!-- 会员电话) -->
+		</if>
+	</sql>
+	
+	<select id="listBzOrderRankPage" parameterType="Dto" resultType="Dto" useCache="false">
+		select 
+			user_id,
+			user_name,
+			sum(bz_price) as sum_price,
+			seller_id,
+			seller_name,
+			recommended_code
+		from zjc_bz_order 
+		<where>
+			<if test="bz_id != null and bz_id != ''">
+				bz_id = #{bz_id}
+			</if>
+			<if test="bz_sn != null and bz_sn != ''">
+				and bz_sn = #{bz_sn}
+			</if>
+			<if test="user_id != null and user_id != ''">
+				and user_id = #{user_id}
+			</if>
+			<if test="user_name != null and user_name != ''">
+				and user_name = #{user_name}
+			</if>
+			<if test="seller_id != null and seller_id != ''">
+				and seller_id = #{seller_id}
+			</if>
+			<if test="seller_name != null and seller_name != ''">
+				and seller_name = #{seller_name}
+			</if>
+			<if test="start_time != null and start_time != ''">
+				and add_time &gt;= #{start_time}
+			</if>
+			<if test="end_time != null and end_time != ''">
+				and add_time &lt;= #{end_time}
+			</if>
+		</where>
+		group by user_id order by sum_price desc
+	</select>
+	
+	<select id="getBzOrderListPage" parameterType="Dto" resultType="ZjcBzOrderPO" useCache="false">
+		select <include refid="column"></include> from zjc_bz_order 
+		<where>
+			user_id = #{user_id}
+			<if test="start_time != null and start_time != ''">
+				and add_time &gt;= #{start_time}
+			</if>
+			<if test="end_time != null and end_time != ''">
+				and add_time &lt;= #{end_time}
+			</if>
+		</where>
+		order by add_time desc
+	</select>
+	
+	<select id="selectByOrderSn" parameterType="Dto" resultType="ZjcBzOrderPO">
+		select * from zjc_bz_order where bz_sn = #{bz_sn}
+	</select>
+</mapper>

@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- zjc_store_collect[zjc_store_collect]SQL自动映射 -->
+<!--  注意:此文件由AOS平台自动生成-禁止手工修改 2017-07-06 17:59:56 -->
+<mapper namespace="com.api.store.dao.ZjcStoreCollectDao">
+	
+	<resultMap id="queryForListMap" type="com.api.store.dao.po.ZjcStoreCollectPO">  
+		 <id column="collect_id" property="collect_id" jdbcType="INTEGER" />
+	     <result column="user_id" property="user_id" jdbcType="INTEGER"/>
+	     <result column="store_id" property="store_id" jdbcType="INTEGER"/>
+	     <result column="add_time" property="add_time" jdbcType="VARCHAR"/>
+		 <collection property="zjcStorePO"  ofType="com.zjc.store.dao.po.ZjcStorePO">
+	        <id column="store_id" property="store_id" jdbcType="INTEGER"/>  
+	        <result column="store_name" property="store_name" jdbcType="VARCHAR"/>
+	        <result column="user_id" property="user_id" jdbcType="INTEGER"/>
+	        <result column="cat_id" property="cat_id" jdbcType="INTEGER"/>
+	        <result column="show_video" property="show_video" jdbcType="INTEGER"/>
+	        <result column="store_state" property="store_state" jdbcType="INTEGER"/>
+	        <result column="last_login_time" property="last_login_time" jdbcType="VARCHAR"/>
+	        <result column="last_login_ip" property="last_login_ip" jdbcType="VARCHAR"/>
+	        <result column="business_licence_number_elc" property="business_licence_number_elc" jdbcType="VARCHAR"/>
+	        <result column="province_id" property="province_id" jdbcType="INTEGER"/>
+	        <result column="city_id" property="city_id" jdbcType="INTEGER"/>
+	        <result column="area_id" property="area_id" jdbcType="INTEGER"/>
+	        <result column="twon_id" property="twon_id" jdbcType="INTEGER"/>
+	        <result column="area_info" property="area_info" jdbcType="VARCHAR"/>
+	        <result column="address_detail" property="address_detail" jdbcType="VARCHAR"/>
+	        <result column="office_phone" property="office_phone" jdbcType="VARCHAR"/>
+	        <result column="contacts_email" property="contacts_email" jdbcType="VARCHAR"/>
+	        <result column="contacts_name" property="contacts_name" jdbcType="VARCHAR"/>
+	        <result column="contacts_phone" property="contacts_phone" jdbcType="VARCHAR"/>
+	        <result column="bank_account_name" property="bank_account_name" jdbcType="VARCHAR"/>
+	        <result column="bank_account_number" property="bank_account_number" jdbcType="VARCHAR"/>
+	        <result column="enterprise_num" property="enterprise_num" jdbcType="VARCHAR"/>
+	        <result column="lng" property="lng" jdbcType="NUMERIC"/>
+	        <result column="lat" property="lat" jdbcType="NUMERIC"/>
+	        <result column="store_logo" property="store_logo" jdbcType="VARCHAR"/>
+	        <result column="add_time" property="add_time" jdbcType="VARCHAR"/>
+	        <result column="video_address" property="video_address" jdbcType="VARCHAR"/>
+	        <result column="store_info" property="store_info" jdbcType="VARCHAR"/>
+	        <result column="food_hygiene_img" property="food_hygiene_img" jdbcType="VARCHAR"/>
+	        <result column="attestation_reason" property="attestation_reason" jdbcType="VARCHAR"/>
+	     </collection>
+	</resultMap>
+	<!-- 插入一个数据持久化对象(插入字段为传入PO实体的非空属性) -->
+	<insert id="insert" useGeneratedKeys="true" keyProperty="collect_id" parameterType="ZjcStoreCollectPO">
+		INSERT INTO zjc_store_collect (
+		<if test="user_id != null">
+	         user_id, <!-- 用户id -->
+		</if>
+		<if test="store_id != null">
+	         store_id, <!-- 商家id -->
+		</if>
+		<if test="add_time != null and add_time != ''">
+	         add_time, <!-- 添加时间 -->
+		</if>
+	          collect_id
+		)VALUES(
+		<if test="user_id != null">
+	          #{user_id, jdbcType=INTEGER}, <!-- 用户id -->
+	    </if>
+		<if test="store_id != null">
+	          #{store_id, jdbcType=INTEGER}, <!-- 商家id -->
+	    </if>
+		<if test="add_time != null and add_time != ''">
+	          #{add_time, jdbcType=VARCHAR}, <!-- 添加时间 -->
+	    </if>
+	          null
+		)
+	</insert>
+	
+	<!-- 插入一个数据持久化对象(含所有字段) -->
+	<insert id="insertAll" useGeneratedKeys="true" keyProperty="collect_id" parameterType="ZjcStoreCollectPO">
+		INSERT INTO zjc_store_collect (
+		    <include refid="column" />
+		)
+		VALUES (
+		    #{collect_id, jdbcType=INTEGER},  <!-- 表id -->
+		    #{user_id, jdbcType=INTEGER},  <!-- 用户id -->
+		    #{store_id, jdbcType=INTEGER},  <!-- 商家id -->
+		    #{add_time, jdbcType=VARCHAR}  <!-- 添加时间 -->
+		)
+	</insert>
+
+	<!-- 根据主键修改数据持久化对象 -->
+	<update id="updateByKey" parameterType="ZjcStoreCollectPO">
+		UPDATE zjc_store_collect
+		<set>
+			<if test="collect_id != null">
+		          collect_id = #{collect_id, jdbcType=INTEGER},  <!-- 表id -->
+			</if>
+			<if test="user_id != null">
+		          user_id = #{user_id, jdbcType=INTEGER},  <!-- 用户id -->
+			</if>
+			<if test="store_id != null">
+		          store_id = #{store_id, jdbcType=INTEGER},  <!-- 商家id -->
+			</if>
+			<if test="add_time != null">
+		          add_time = #{add_time, jdbcType=VARCHAR},  <!-- 添加时间 -->
+			</if>
+		</set>
+		WHERE  collect_id = #{collect_id}
+	</update>
+	
+	<!-- 根据主键删除数据持久化对象 -->
+	<delete id="deleteByKey">
+		DELETE FROM zjc_store_collect WHERE  collect_id = #{collect_id}
+	</delete>
+
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="selectByKey" resultType="ZjcStoreCollectPO">
+		SELECT
+		<include refid="column" />
+		FROM zjc_store_collect WHERE  collect_id = #{collect_id}
+	</select>
+
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="selectOne" parameterType="Dto" resultType="ZjcStoreCollectPO">
+		SELECT
+		    <include refid="column" />
+		FROM zjc_store_collect
+		<where>
+		    <include refid="equal" />
+		</where>		
+	</select>
+
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="list" parameterType="Dto" resultType="ZjcStoreCollectPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_store_collect
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listPage" parameterType="Dto" resultType="ZjcStoreCollectPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_store_collect
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto模糊查询并返回数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="like" parameterType="Dto" resultType="ZjcStoreCollectPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_store_collect
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto模糊查询并返回分页数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="likePage" parameterType="Dto" resultType="ZjcStoreCollectPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_store_collect
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto统计行数 -->
+	<select id="rows" resultType="Integer" parameterType="Dto">
+		SELECT COUNT(1) AS aos_rows_ FROM zjc_store_collect
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 根据数学表达式进行数学运算 -->
+	<select id="calc" parameterType="Dto" resultType="String">
+		SELECT
+			${_expr}
+		FROM zjc_store_collect
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 表字段 -->
+	<sql id="column">
+		  collect_id,  <!-- 表id -->
+		  user_id,  <!-- 用户id -->
+		  store_id,  <!-- 商家id -->
+		  add_time  <!-- 添加时间 -->
+	</sql>
+	
+	<!-- 表字段(用于外表的关联时引用) -->
+	<sql id="column2">
+		  zjc_store_collect.collect_id,  <!-- 表id -->
+		  zjc_store_collect.user_id,  <!-- 用户id -->
+		  zjc_store_collect.store_id,  <!-- 商家id -->
+		  zjc_store_collect.add_time  <!-- 添加时间 -->
+	</sql>
+
+	<!-- Where精确匹配字段 -->
+	<sql id="equal">
+	   <if test="collect_id != null ">
+		      AND collect_id = #{collect_id}  <!-- 表id -->
+		</if>
+	   <if test="user_id != null ">
+		      AND user_id = #{user_id}  <!-- 用户id -->
+		</if>
+	   <if test="store_id != null ">
+		      AND store_id = #{store_id}  <!-- 商家id -->
+		</if>
+	    <if test="add_time != null and add_time != ''">
+		      AND add_time = #{add_time}  <!-- 添加时间 -->
+		</if>
+	</sql>
+	
+	<!-- Where模糊匹配字段 -->
+	<sql id="like">
+	    <if test="add_time != null and add_time != ''">
+		      AND add_time like '${add_time}%'  <!-- 添加时间 -->
+		</if>
+	</sql>
+	
+	<!-- =======================================================app接口==================================================== -->
+	<!-- 根据Dto查询并返回我的收藏商品对象集合 -->
+	<select id="listMyCollectStorePage" resultMap="queryForListMap" parameterType="Dto" useCache="false">
+		SELECT
+			t.collect_id,t.user_id,t.store_id,t.add_time,t1.store_name,t1.area_info,
+			t1.address_detail,t1.lng,t1.lat,t1.contacts_phone,t1.store_logo	
+		FROM zjc_store_collect t inner join zjc_store t1 on t.store_id = t1.store_id
+		<where>
+			1=1
+		   <if test="user_id != null ">
+		      AND t.user_id = #{user_id}  <!-- 用户id -->
+			</if>
+		</where>
+		order by t.add_time desc	
+	</select>
+</mapper>

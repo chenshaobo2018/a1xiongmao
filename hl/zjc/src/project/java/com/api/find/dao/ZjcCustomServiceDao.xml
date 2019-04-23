@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- zjc_custom_service[zjc_custom_service]SQL自动映射 -->
+<!--  注意:此文件由AOS平台自动生成-禁止手工修改 2017-07-16 09:50:30 -->
+<mapper namespace="com.api.find.dao.ZjcCustomServiceDao">
+	
+	<!-- 插入一个数据持久化对象(插入字段为传入PO实体的非空属性) -->
+	<insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="ZjcCustomServicePO">
+		INSERT INTO zjc_custom_service (
+		<if test="server_depart != null and server_depart != ''">
+	         server_depart, <!-- 部门 -->
+		</if>
+		<if test="server_tel != null and server_tel != ''">
+	         server_tel, <!-- 电话 -->
+		</if>
+		<if test="server_duration != null and server_duration != ''">
+	         server_duration, <!-- 服务时间 -->
+		</if>
+		<if test="server_district != null and server_district != ''">
+	         server_district, <!-- 区域 -->
+		</if>
+		<if test="server_contury != null and server_contury != ''">
+	         server_contury, <!-- 国家 -->
+		</if>
+		<if test="enable != null">
+	         enable, <!-- 是否启用 0-禁用 1-启用 -->
+		</if>
+		<if test="sort != null">
+	         sort, <!-- 排序 -->
+		</if>
+	          id
+		)VALUES(
+		<if test="server_depart != null and server_depart != ''">
+	          #{server_depart, jdbcType=VARCHAR}, <!-- 部门 -->
+	    </if>
+		<if test="server_tel != null and server_tel != ''">
+	          #{server_tel, jdbcType=VARCHAR}, <!-- 电话 -->
+	    </if>
+		<if test="server_duration != null and server_duration != ''">
+	          #{server_duration, jdbcType=VARCHAR}, <!-- 服务时间 -->
+	    </if>
+		<if test="server_district != null and server_district != ''">
+	          #{server_district, jdbcType=VARCHAR}, <!-- 区域 -->
+	    </if>
+		<if test="server_contury != null and server_contury != ''">
+	          #{server_contury, jdbcType=VARCHAR}, <!-- 国家 -->
+	    </if>
+		<if test="enable != null">
+	          #{enable, jdbcType=INTEGER}, <!-- 是否启用 0-禁用 1-启用 -->
+	    </if>
+		<if test="sort != null">
+	          #{sort, jdbcType=INTEGER}, <!-- 排序 -->
+	    </if>
+	          null
+		)
+	</insert>
+	
+	<!-- 插入一个数据持久化对象(含所有字段) -->
+	<insert id="insertAll" useGeneratedKeys="true" keyProperty="id" parameterType="ZjcCustomServicePO">
+		INSERT INTO zjc_custom_service (
+		    <include refid="column" />
+		)
+		VALUES (
+		    #{id, jdbcType=INTEGER},  <!-- 客服ID -->
+		    #{server_depart, jdbcType=VARCHAR},  <!-- 部门 -->
+		    #{server_tel, jdbcType=VARCHAR},  <!-- 电话 -->
+		    #{server_duration, jdbcType=VARCHAR},  <!-- 服务时间 -->
+		    #{server_district, jdbcType=VARCHAR},  <!-- 区域 -->
+		    #{server_contury, jdbcType=VARCHAR},  <!-- 国家 -->
+		    #{enable, jdbcType=INTEGER},  <!-- 是否启用 0-禁用 1-启用 -->
+		    #{sort, jdbcType=INTEGER}  <!-- 排序 -->
+		)
+	</insert>
+
+	<!-- 根据主键修改数据持久化对象 -->
+	<update id="updateByKey" parameterType="ZjcCustomServicePO">
+		UPDATE zjc_custom_service
+		<set>
+			<if test="id != null">
+		          id = #{id, jdbcType=INTEGER},  <!-- 客服ID -->
+			</if>
+			<if test="server_depart != null">
+		          server_depart = #{server_depart, jdbcType=VARCHAR},  <!-- 部门 -->
+			</if>
+			<if test="server_tel != null">
+		          server_tel = #{server_tel, jdbcType=VARCHAR},  <!-- 电话 -->
+			</if>
+			<if test="server_duration != null">
+		          server_duration = #{server_duration, jdbcType=VARCHAR},  <!-- 服务时间 -->
+			</if>
+			<if test="server_district != null">
+		          server_district = #{server_district, jdbcType=VARCHAR},  <!-- 区域 -->
+			</if>
+			<if test="server_contury != null">
+		          server_contury = #{server_contury, jdbcType=VARCHAR},  <!-- 国家 -->
+			</if>
+			<if test="enable != null">
+		          enable = #{enable, jdbcType=INTEGER},  <!-- 是否启用 0-禁用 1-启用 -->
+			</if>
+			<if test="sort != null">
+		          sort = #{sort, jdbcType=INTEGER},  <!-- 排序 -->
+			</if>
+		</set>
+		WHERE  id = #{id}
+	</update>
+	
+	<!-- 根据主键删除数据持久化对象 -->
+	<delete id="deleteByKey">
+		DELETE FROM zjc_custom_service WHERE  id = #{id}
+	</delete>
+
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="selectByKey" resultType="ZjcCustomServicePO">
+		SELECT
+		<include refid="column" />
+		FROM zjc_custom_service WHERE  id = #{id}
+	</select>
+
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="selectOne" parameterType="Dto" resultType="ZjcCustomServicePO">
+		SELECT
+		    <include refid="column" />
+		FROM zjc_custom_service
+		<where>
+		    <include refid="equal" />
+		</where>		
+	</select>
+
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="list" parameterType="Dto" resultType="ZjcCustomServicePO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_custom_service
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listPage" parameterType="Dto" resultType="ZjcCustomServicePO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_custom_service
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto模糊查询并返回数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="like" parameterType="Dto" resultType="ZjcCustomServicePO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_custom_service
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto模糊查询并返回分页数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="likePage" parameterType="Dto" resultType="ZjcCustomServicePO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_custom_service
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto统计行数 -->
+	<select id="rows" resultType="Integer" parameterType="Dto">
+		SELECT COUNT(1) AS aos_rows_ FROM zjc_custom_service
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 根据数学表达式进行数学运算 -->
+	<select id="calc" parameterType="Dto" resultType="String">
+		SELECT
+			${_expr}
+		FROM zjc_custom_service
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 表字段 -->
+	<sql id="column">
+		  id,  <!-- 客服ID -->
+		  server_depart,  <!-- 部门 -->
+		  server_tel,  <!-- 电话 -->
+		  server_duration,  <!-- 服务时间 -->
+		  server_district,  <!-- 区域 -->
+		  server_contury,  <!-- 国家 -->
+		  enable,  <!-- 是否启用 0-禁用 1-启用 -->
+		  sort  <!-- 排序 -->
+	</sql>
+	
+	<!-- 表字段(用于外表的关联时引用) -->
+	<sql id="column2">
+		  zjc_custom_service.id,  <!-- 客服ID -->
+		  zjc_custom_service.server_depart,  <!-- 部门 -->
+		  zjc_custom_service.server_tel,  <!-- 电话 -->
+		  zjc_custom_service.server_duration,  <!-- 服务时间 -->
+		  zjc_custom_service.server_district,  <!-- 区域 -->
+		  zjc_custom_service.server_contury,  <!-- 国家 -->
+		  zjc_custom_service.enable,  <!-- 是否启用 0-禁用 1-启用 -->
+		  zjc_custom_service.sort  <!-- 排序 -->
+	</sql>
+
+	<!-- Where精确匹配字段 -->
+	<sql id="equal">
+	   <if test="id != null ">
+		      AND id = #{id}  <!-- 客服ID -->
+		</if>
+	    <if test="server_depart != null and server_depart != ''">
+		      AND server_depart = #{server_depart}  <!-- 部门 -->
+		</if>
+	    <if test="server_tel != null and server_tel != ''">
+		      AND server_tel = #{server_tel}  <!-- 电话 -->
+		</if>
+	    <if test="server_duration != null and server_duration != ''">
+		      AND server_duration = #{server_duration}  <!-- 服务时间 -->
+		</if>
+	    <if test="server_district != null and server_district != ''">
+		      AND server_district = #{server_district}  <!-- 区域 -->
+		</if>
+	    <if test="server_contury != null and server_contury != ''">
+		      AND server_contury = #{server_contury}  <!-- 国家 -->
+		</if>
+	   <if test="enable != null ">
+		      AND enable = #{enable}  <!-- 是否启用 0-禁用 1-启用 -->
+		</if>
+	   <if test="sort != null ">
+		      AND sort = #{sort}  <!-- 排序 -->
+		</if>
+	</sql>
+	
+	<!-- Where模糊匹配字段 -->
+	<sql id="like">
+	    <if test="server_depart != null and server_depart != ''">
+		      AND server_depart like '${server_depart}%'  <!-- 部门 -->
+		</if>
+	    <if test="server_tel != null and server_tel != ''">
+		      AND server_tel like '${server_tel}%'  <!-- 电话 -->
+		</if>
+	    <if test="server_duration != null and server_duration != ''">
+		      AND server_duration like '${server_duration}%'  <!-- 服务时间 -->
+		</if>
+	    <if test="server_district != null and server_district != ''">
+		      AND server_district like '${server_district}%'  <!-- 区域 -->
+		</if>
+	    <if test="server_contury != null and server_contury != ''">
+		      AND server_contury like '${server_contury}%'  <!-- 国家 -->
+		</if>
+	</sql>
+	
+</mapper>

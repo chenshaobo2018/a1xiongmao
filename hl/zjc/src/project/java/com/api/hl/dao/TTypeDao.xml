@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- t_type[t_type]SQL自动映射 -->
+<!--  注意:此文件由AOS平台自动生成-禁止手工修改 2019-03-05 10:01:11 -->
+<mapper namespace="com.api.hl.dao.TTypeDao">
+	
+	<!-- 插入一个数据持久化对象(插入字段为传入PO实体的非空属性) -->
+	<insert id="insert"  parameterType="TTypePO">
+		INSERT INTO t_type (
+		<if test="type_name != null and type_name != ''">
+	         type_name, <!-- type_name -->
+		</if>
+		<if test="sorting != null and sorting != ''">
+	         sorting, <!-- sorting -->
+		</if>
+		<if test="id != null and id != ''">
+	          id  <!-- id -->
+	   </if>
+		)VALUES(
+		<if test="type_name != null and type_name != ''">
+	          #{type_name, jdbcType=VARCHAR}, <!-- type_name -->
+	    </if>
+		<if test="sorting != null and sorting != ''">
+	          #{sorting, jdbcType=VARCHAR}, <!-- sorting -->
+	    </if>
+		<if test="id != null and id != ''">
+		     #{id, jdbcType=VARCHAR}  <!-- id -->
+	    </if>
+		)
+	</insert>
+	
+	<!-- 插入一个数据持久化对象(含所有字段) -->
+	<insert id="insertAll"  parameterType="TTypePO">
+		INSERT INTO t_type (
+		    <include refid="column" />
+		)
+		VALUES (
+		    #{id, jdbcType=VARCHAR},  <!-- id -->
+		    #{type_name, jdbcType=VARCHAR},  <!-- type_name -->
+		    #{sorting, jdbcType=VARCHAR}  <!-- sorting -->
+		)
+	</insert>
+
+	<!-- 根据主键修改数据持久化对象 -->
+	<update id="updateByKey" parameterType="TTypePO">
+		UPDATE t_type
+		<set>
+			<if test="id != null">
+		          id = #{id, jdbcType=VARCHAR},  <!-- id -->
+			</if>
+			<if test="type_name != null">
+		          type_name = #{type_name, jdbcType=VARCHAR},  <!-- type_name -->
+			</if>
+			<if test="sorting != null">
+		          sorting = #{sorting, jdbcType=VARCHAR},  <!-- sorting -->
+			</if>
+		</set>
+		WHERE  id = #{id}
+	</update>
+	
+	<!-- 根据主键删除数据持久化对象 -->
+	<delete id="deleteByKey">
+		DELETE FROM t_type WHERE  id = #{id}
+	</delete>
+
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="selectByKey" resultType="TTypePO">
+		SELECT
+		<include refid="column" />
+		FROM t_type WHERE  id = #{id}
+	</select>
+
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="selectOne" parameterType="Dto" resultType="TTypePO">
+		SELECT
+		    <include refid="column" />
+		FROM t_type
+		<where>
+		    <include refid="equal" />
+		</where>		
+	</select>
+
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="list" parameterType="Dto" resultType="TTypePO">
+		SELECT
+			<include refid="column" />	
+		FROM t_type
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listPage" parameterType="Dto" resultType="TTypePO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM t_type
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto模糊查询并返回数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="like" parameterType="Dto" resultType="TTypePO">
+		SELECT
+			<include refid="column" />	
+		FROM t_type
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto模糊查询并返回分页数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="likePage" parameterType="Dto" resultType="TTypePO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM t_type
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto统计行数 -->
+	<select id="rows" resultType="Integer" parameterType="Dto">
+		SELECT COUNT(1) AS aos_rows_ FROM t_type
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 根据数学表达式进行数学运算 -->
+	<select id="calc" parameterType="Dto" resultType="String">
+		SELECT
+			${_expr}
+		FROM t_type
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 表字段 -->
+	<sql id="column">
+		  id,  <!-- id -->
+		  type_name,  <!-- type_name -->
+		  sorting  <!-- sorting -->
+	</sql>
+	
+	<!-- 表字段(用于外表的关联时引用) -->
+	<sql id="column2">
+		  t_type.id,  <!-- id -->
+		  t_type.type_name,  <!-- type_name -->
+		  t_type.sorting  <!-- sorting -->
+	</sql>
+
+	<!-- Where精确匹配字段 -->
+	<sql id="equal">
+	    <if test="id != null and id != ''">
+		      AND id = #{id}  <!-- id -->
+		</if>
+	    <if test="type_name != null and type_name != ''">
+		      AND type_name = #{type_name}  <!-- type_name -->
+		</if>
+	    <if test="sorting != null and sorting != ''">
+		      AND sorting = #{sorting}  <!-- sorting -->
+		</if>
+	</sql>
+	
+	<!-- Where模糊匹配字段 -->
+	<sql id="like">
+	    <if test="id != null and id != ''">
+		      AND id like '${id}%'  <!-- id -->
+		</if>
+	    <if test="type_name != null and type_name != ''">
+		      AND type_name like '${type_name}%'  <!-- type_name -->
+		</if>
+	    <if test="sorting != null and sorting != ''">
+		      AND sorting like '${sorting}%'  <!-- sorting -->
+		</if>
+	</sql>
+	
+</mapper>

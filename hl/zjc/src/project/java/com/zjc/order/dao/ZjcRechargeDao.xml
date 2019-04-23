@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- zjc_recharge[zjc_recharge]SQL自动映射 -->
+<!--  注意:此文件由AOS平台自动生成-禁止手工修改 2017-06-06 17:27:43 -->
+<mapper namespace="com.zjc.order.dao.ZjcRechargeDao">
+	
+	<!-- 插入一个数据持久化对象(插入字段为传入PO实体的非空属性) -->
+	<insert id="insert" useGeneratedKeys="true" keyProperty="order_id" parameterType="ZjcRechargePO">
+		INSERT INTO zjc_recharge (
+		<if test="user_id != null">
+	         user_id, <!-- 会员ID -->
+		</if>
+		<if test="nickname != null and nickname != ''">
+	         nickname, <!-- 会员昵称 -->
+		</if>
+		<if test="order_sn != null and order_sn != ''">
+	         order_sn, <!-- 充值单号 -->
+		</if>
+		<if test="account != null and account != ''">
+	         account, <!-- 充值金额 -->
+		</if>
+		<if test="ctime != null">
+	         ctime, <!-- 充值时间 -->
+		</if>
+		<if test="pay_time != null">
+	         pay_time, <!-- 支付时间 -->
+		</if>
+		<if test="pay_code != null and pay_code != ''">
+	         pay_code, <!-- pay_code -->
+		</if>
+		<if test="pay_name != null and pay_name != ''">
+	         pay_name, <!-- 支付方式 -->
+		</if>
+		<if test="pay_status != null">
+	         pay_status, <!-- 充值状态0:待支付 1:充值成功 2:交易关闭 -->
+		</if>
+		<if test="buy_points != null and buy_points != ''">
+	         buy_points, <!-- 购买积分 -->
+		</if>
+	          order_id
+		)VALUES(
+		<if test="user_id != null">
+	          #{user_id, jdbcType=INTEGER}, <!-- 会员ID -->
+	    </if>
+		<if test="nickname != null and nickname != ''">
+	          #{nickname, jdbcType=VARCHAR}, <!-- 会员昵称 -->
+	    </if>
+		<if test="order_sn != null and order_sn != ''">
+	          #{order_sn, jdbcType=VARCHAR}, <!-- 充值单号 -->
+	    </if>
+		<if test="account != null and account != ''">
+	          #{account, jdbcType=VARCHAR}, <!-- 充值金额 -->
+	    </if>
+		<if test="ctime != null">
+	          #{ctime, jdbcType=VARCHAR}, <!-- 充值时间 -->
+	    </if>
+		<if test="pay_time != null">
+	          #{pay_time, jdbcType=VARCHAR}, <!-- 支付时间 -->
+	    </if>
+		<if test="pay_code != null and pay_code != ''">
+	          #{pay_code, jdbcType=VARCHAR}, <!-- pay_code -->
+	    </if>
+		<if test="pay_name != null and pay_name != ''">
+	          #{pay_name, jdbcType=VARCHAR}, <!-- 支付方式 -->
+	    </if>
+		<if test="pay_status != null">
+	          #{pay_status, jdbcType=INTEGER}, <!-- 充值状态0:待支付 1:充值成功 2:交易关闭 -->
+	    </if>
+		<if test="buy_points != null and buy_points != ''">
+	          #{buy_points, jdbcType=VARCHAR}, <!-- 购买积分 -->
+	    </if>
+	          null
+		)
+	</insert>
+	
+	<!-- 插入一个数据持久化对象(含所有字段) -->
+	<insert id="insertAll" useGeneratedKeys="true" keyProperty="order_id" parameterType="ZjcRechargePO">
+		INSERT INTO zjc_recharge (
+		    <include refid="column" />
+		)
+		VALUES (
+		    #{order_id, jdbcType=INTEGER},  <!-- order_id -->
+		    #{user_id, jdbcType=INTEGER},  <!-- 会员ID -->
+		    #{nickname, jdbcType=VARCHAR},  <!-- 会员昵称 -->
+		    #{order_sn, jdbcType=VARCHAR},  <!-- 充值单号 -->
+		    #{account, jdbcType=VARCHAR},  <!-- 充值金额 -->
+		    #{ctime, jdbcType=VARCHAR},  <!-- 充值时间 -->
+		    #{pay_time, jdbcType=VARCHAR},  <!-- 支付时间 -->
+		    #{pay_code, jdbcType=VARCHAR},  <!-- pay_code -->
+		    #{pay_name, jdbcType=VARCHAR},  <!-- 支付方式 -->
+		    #{pay_status, jdbcType=INTEGER},  <!-- 充值状态0:待支付 1:充值成功 2:交易关闭 -->
+		    #{buy_points, jdbcType=VARCHAR}  <!-- 购买积分 -->
+		)
+	</insert>
+
+	<!-- 根据主键修改数据持久化对象 -->
+	<update id="updateByKey" parameterType="ZjcRechargePO">
+		UPDATE zjc_recharge
+		<set>
+			<if test="order_id != null">
+		          order_id = #{order_id, jdbcType=INTEGER},  <!-- order_id -->
+			</if>
+			<if test="user_id != null">
+		          user_id = #{user_id, jdbcType=INTEGER},  <!-- 会员ID -->
+			</if>
+			<if test="nickname != null">
+		          nickname = #{nickname, jdbcType=VARCHAR},  <!-- 会员昵称 -->
+			</if>
+			<if test="order_sn != null">
+		          order_sn = #{order_sn, jdbcType=VARCHAR},  <!-- 充值单号 -->
+			</if>
+			<if test="account != null">
+		          account = #{account, jdbcType=VARCHAR},  <!-- 充值金额 -->
+			</if>
+			<if test="ctime != null">
+		          ctime = #{ctime, jdbcType=VARCHAR},  <!-- 充值时间 -->
+			</if>
+			<if test="pay_time != null">
+		          pay_time = #{pay_time, jdbcType=VARCHAR},  <!-- 支付时间 -->
+			</if>
+			<if test="pay_code != null">
+		          pay_code = #{pay_code, jdbcType=VARCHAR},  <!-- pay_code -->
+			</if>
+			<if test="pay_name != null">
+		          pay_name = #{pay_name, jdbcType=VARCHAR},  <!-- 支付方式 -->
+			</if>
+			<if test="pay_status != null">
+		          pay_status = #{pay_status, jdbcType=INTEGER},  <!-- 充值状态0:待支付 1:充值成功 2:交易关闭 -->
+			</if>
+			<if test="buy_points != null">
+		          buy_points = #{buy_points, jdbcType=VARCHAR},  <!-- 购买积分 -->
+			</if>
+		</set>
+		WHERE  order_id = #{order_id}
+	</update>
+	
+	<!-- 根据主键删除数据持久化对象 -->
+	<delete id="deleteByKey">
+		DELETE FROM zjc_recharge WHERE  order_id = #{order_id}
+	</delete>
+
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="selectByKey" resultType="ZjcRechargePO">
+		SELECT
+		<include refid="column" />
+		FROM zjc_recharge WHERE  order_id = #{order_id}
+	</select>
+
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="selectOne" parameterType="Dto" resultType="ZjcRechargePO">
+		SELECT
+		    <include refid="column" />
+		FROM zjc_recharge
+		<where>
+		    <include refid="equal" />
+		</where>		
+	</select>
+
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="list" parameterType="Dto" resultType="ZjcRechargePO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_recharge
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listPage" parameterType="Dto" resultType="ZjcRechargePO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_recharge
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto模糊查询并返回数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="like" parameterType="Dto" resultType="ZjcRechargePO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_recharge
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto模糊查询并返回分页数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="likePage" parameterType="Dto" resultType="ZjcRechargePO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_recharge
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+	
+	<!-- 系统后台订单充值记录查询 -->
+	<select id="likeRechargesPage" parameterType="Dto" resultType="ZjcRechargePO" useCache="false">
+	    SELECT
+			<include refid="column3" />	
+		FRoM zjc_recharge t left join zjc_users_info t1 on t.user_id = t1.user_id
+		<where>
+		    <include refid="like3" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto统计行数 -->
+	<select id="rows" resultType="Integer" parameterType="Dto">
+		SELECT COUNT(1) AS aos_rows_ FROM zjc_recharge
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 根据数学表达式进行数学运算 -->
+	<select id="calc" parameterType="Dto" resultType="String">
+		SELECT
+			${_expr}
+		FROM zjc_recharge
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 表字段 -->
+	<sql id="column">
+		  order_id,  <!-- order_id -->
+		  user_id,  <!-- 会员ID -->
+		  nickname,  <!-- 会员昵称 -->
+		  order_sn,  <!-- 充值单号 -->
+		  account,  <!-- 充值金额 -->
+		  ctime,  <!-- 充值时间 -->
+		  pay_time,  <!-- 支付时间 -->
+		  pay_code,  <!-- pay_code -->
+		  pay_name,  <!-- 支付方式 -->
+		  pay_status,  <!-- 充值状态0:待支付 1:充值成功 2:交易关闭 -->
+		  buy_points  <!-- 购买积分 -->
+	</sql>
+	
+	<!-- 表字段(用于外表的关联时引用) -->
+	<sql id="column2">
+		  zjc_recharge.order_id,  <!-- order_id -->
+		  zjc_recharge.user_id,  <!-- 会员ID -->
+		  zjc_recharge.nickname,  <!-- 会员昵称 -->
+		  zjc_recharge.order_sn,  <!-- 充值单号 -->
+		  zjc_recharge.account,  <!-- 充值金额 -->
+		  zjc_recharge.ctime,  <!-- 充值时间 -->
+		  zjc_recharge.pay_time,  <!-- 支付时间 -->
+		  zjc_recharge.pay_code,  <!-- pay_code -->
+		  zjc_recharge.pay_name,  <!-- 支付方式 -->
+		  zjc_recharge.pay_status,  <!-- 充值状态0:待支付 1:充值成功 2:交易关闭 -->
+		  zjc_recharge.buy_points  <!-- 购买积分 -->
+	</sql>
+	
+	<!-- 用于后台系统查询积分充值记录集合 -->
+	<sql id="column3">
+		  t.order_id,  <!-- order_id -->
+		  t.user_id,  <!-- 会员ID -->
+		  t.nickname,  <!-- 会员昵称 -->
+		  t.order_sn,  <!-- 充值单号 -->
+		  t.account,  <!-- 充值金额 -->
+		  t.ctime,  <!-- 充值时间 -->
+		  t.pay_time,  <!-- 支付时间 -->
+		  t.pay_code,  <!-- pay_code -->
+		  t.pay_name,  <!-- 支付方式 -->
+		  t.pay_status,  <!-- 充值状态0:待支付 1:充值成功 2:交易关闭 -->
+		  t.buy_points,  <!-- 购买积分 -->
+		  t1.mobile  <!-- 联系电话-->
+	</sql>
+
+	<!-- Where精确匹配字段 -->
+	<sql id="equal">
+	   <if test="order_id != null ">
+		      AND order_id = #{order_id}  <!-- order_id -->
+		</if>
+	   <if test="user_id != null ">
+		      AND user_id = #{user_id}  <!-- 会员ID -->
+		</if>
+	    <if test="nickname != null and nickname != ''">
+		      AND nickname = #{nickname}  <!-- 会员昵称 -->
+		</if>
+	    <if test="order_sn != null and order_sn != ''">
+		      AND order_sn = #{order_sn}  <!-- 充值单号 -->
+		</if>
+	    <if test="account != null and account != ''">
+		      AND account = #{account}  <!-- 充值金额 -->
+		</if>
+	   <if test="ctime != null ">
+		      AND ctime = #{ctime}  <!-- 充值时间 -->
+		</if>
+	   <if test="pay_time != null ">
+		      AND pay_time = #{pay_time}  <!-- 支付时间 -->
+		</if>
+	    <if test="pay_code != null and pay_code != ''">
+		      AND pay_code = #{pay_code}  <!-- pay_code -->
+		</if>
+	    <if test="pay_name != null and pay_name != ''">
+		      AND pay_name = #{pay_name}  <!-- 支付方式 -->
+		</if>
+	   <if test="pay_status != null ">
+		      AND pay_status = #{pay_status}  <!-- 充值状态0:待支付 1:充值成功 2:交易关闭 -->
+		</if>
+	    <if test="buy_points != null and buy_points != ''">
+		      AND buy_points = #{buy_points}  <!-- 购买积分 -->
+		</if>
+	</sql>
+	
+	<!-- Where模糊匹配字段 -->
+	<sql id="like">
+		<if test="ctime_start != null and ctime_start != ''">
+		      <![CDATA[AND ctime >= #{ctime_start}]]>  <!-- 充值时间(起) -->
+		</if>
+		<if test="ctime_end != null and ctime_end != ''">
+		      <![CDATA[AND ctime <= #{ctime_end}]]>  <!-- 充值时间(止) -->
+		</if>
+	 	<if test="user_id != null and user_id != '' ">
+		      AND user_id = #{user_id}  <!-- 会员ID -->
+		</if>
+		<if test="pay_status != null and pay_status != '' ">
+		      AND pay_status = #{pay_status}  <!-- 充值状态0:待支付 1:充值成功 2:交易关闭 -->
+		</if>
+	    <if test="nickname != null and nickname != ''">
+		      AND nickname = #{nickname}  <!-- 会员昵称 -->
+		</if>
+	    <if test="order_sn != null and order_sn != ''">
+		      AND order_sn = #{order_sn}  <!-- 充值单号 -->
+		</if>
+	    <if test="account != null and account != ''">
+		      AND account = #{account}  <!-- 充值金额 -->
+		</if>
+	    <if test="pay_code != null and pay_code != ''">
+		      AND pay_code = #{pay_code}  <!-- pay_code -->
+		</if>
+	    <if test="pay_name != null and pay_name != ''">
+		      AND pay_name like '${pay_name}%'  <!-- 支付方式 -->
+		</if>
+	    <if test="buy_points != null and buy_points != ''">
+		      AND buy_points like '${buy_points}%'  <!-- 购买积分 -->
+		</if>
+	</sql>
+	
+	<!-- 系统后台查询充值积分列表查询条件 -->
+	<sql id="like3">
+		<if test="ctime_start != null and ctime_start != ''">
+		      <![CDATA[AND t.ctime >= #{ctime_start}]]>  <!-- 充值时间(起) -->
+		</if>
+		<if test="ctime_end != null and ctime_end != ''">
+		      <![CDATA[AND t.ctime <= #{ctime_end}]]>  <!-- 充值时间(止) -->
+		</if>
+	 	<if test="user_id != null and user_id != '' ">
+		      AND t.user_id = #{user_id}  <!-- 会员ID -->
+		</if>
+		<if test="pay_status != null and pay_status != '' ">
+		      AND t.pay_status = #{pay_status}  <!-- 充值状态0:待支付 1:充值成功 2:交易关闭 -->
+		</if>
+	    <if test="nickname != null and nickname != ''">
+		      AND t.nickname = #{nickname}  <!-- 会员昵称 -->
+		</if>
+	    <if test="order_sn != null and order_sn != ''">
+		      AND t.order_sn = #{order_sn}  <!-- 充值单号 -->
+		</if>
+	    <if test="account != null and account != ''">
+		      AND t.account = #{account}  <!-- 充值金额 -->
+		</if>
+	    <if test="pay_code != null and pay_code != ''">
+		      AND t.pay_code = #{pay_code}  <!-- pay_code -->
+		</if>
+	    <if test="pay_name != null and pay_name != ''">
+		      AND t.pay_name like '${pay_name}%'  <!-- 支付方式 -->
+		</if>
+	    <if test="buy_points != null and buy_points != ''">
+		      AND t.buy_points like '${buy_points}%'  <!-- 购买积分 -->
+		</if>
+		 <if test="mobile != null and mobile != ''">
+		      AND t1.mobile like '${mobile}%'  <!-- 联系电话 -->
+		</if>
+	</sql>
+	<!-- ===============================api==================================== -->
+	<select id="getRechargeByStatusPage" parameterType="Dto" resultType="ZjcRechargePO">
+		select 
+			order_sn, account, ctime, pay_name, pay_status, buy_points
+		from zjc_recharge
+		where pay_status = #{status} and user_id = #{user_id}
+		order by ctime desc
+	</select>
+</mapper>

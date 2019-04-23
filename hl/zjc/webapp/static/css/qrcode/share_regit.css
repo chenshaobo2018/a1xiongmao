@@ -1,0 +1,82 @@
+*,div,p,ul,li,table,tr,td,a,span,img,label,input,button{margin:0;padding:0;}  
+html,body{height: 100%;width: 100%;margin:0;padding:0;font-size:62.5%;font-family:'Microsoft YaHei','微软雅黑';} 
+.fl{float:left;}
+.fr{float:right;}
+.clear{clear:both;}
+.color0c{color:#0c0307;}
+input[type=button], input[type=submit], input[type=file], button { cursor: pointer; -webkit-appearance: none;} 
+/* 注册 */
+.container{ width:100%;min-height:100%; background:#f8f8f8; }  
+.share_head{height:2.5rem;background:url(../../../static/qrcode/img/sh_head.png) no-repeat; width:100%;padding:1.5rem 0;background-size:100% 100%; }
+.share_h_side{width:10%;text-align:right;}
+.share_h_cont{width:80%;text-align:center;color:#fff;font-size:2rem;}
+.share_main{background:#f8f8f8;}
+.sha_one{width:100%;}
+.sha_one_cen{width:30%;margin:0 auto;padding:2rem 0;}
+.sha_one_cen img,.we_img img,.we_foot img,.we_m_text img{width:100%;}
+.sha_two,.sha_mobile{width:95%;margin:0 auto;}
+.sha_mobile{background:#fff;padding:0.8rem 0;border-radius:5px;margin-bottom:0.5rem;}
+.sh_te_mob{font-size:1.5rem;margin-top:0.2rem;margin-left:7%;}
+.sh_m_side{width:30%;padding-left:5%;border-right:1px solid #ccc;margin-top:0.1rem;}
+.sh_m_side{width:30%;padding-left:5%;border-right:1px solid #ccc;margin-top:0.1rem;}
+.sh_m_cont{width:62%;}
+.sh_input{border:none;height:2.5rem;line-height:2.5rem;width:100%;font-size:1.375rem;}
+.flsh_in_tex{width:55%;border:none;height:2.5rem;line-height:2.5rem;font-size:1.375rem;}
+.flsh_in_texs{width:80%;border:none;height:2.5rem;line-height:2.5rem;font-size:1.375rem;}
+.sh_hq{width:40%;background:#cd251f;color:#fff;font-size:0.875rem;border:1px solid #cd251f;padding:0.25rem;border-radius:10px;}
+.sh_eye{position:relative;top:3px;}
+.sh_side_img{margin-top:0.2rem;}
+.sha_tree{width:95%;margin:0 auto;text-align:center;padding-bottom:7rem;margin-top:5rem;}
+.sha_tree button{background:#cd251f;border:1px solid #cd251f;color:#fff;padding:1rem 0;border-radius:5px;width:100%;font-size:2rem;}
+#qrcodeCanvas canvas{width:100%;}
+
+
+/* 微信商城绑定账号样式 */
+.sha_account{text-align:right;margin-top:1rem;font-size:0.35rem;}
+.sha_account a{color:red;text-decoration:none;font-size:0.35rem;}
+.sha_account a:hover{color:#cd251f;text-decoration:underline;}
+
+/* 分享二维码 */
+.container_we{background:url(../../../static/qrcode/img/bg.png) no-repeat;width:100%;min-height:100%;background-size:100% 100%;}
+.we_main{padding-top:23rem;width:100%;}
+.we_m_text{width:85%;margin:0 auto;margin-bottom:1.5rem;}
+.we_img{width:50%;margin:0 auto;margin-top:1rem;text-align:center;} 
+.con_bg{background:#fff;padding:1rem;}
+.we_text{text-align:center;color:#fff;margin:1rem 0;font-size:1rem;}
+.we_foot{width:90%;margin:0 auto;} 
+
+/* copy */
+ /* newyear */
+.container_newyear{background:url(../../../static/qrcode/img/newye.png) no-repeat;width:100%;min-height:100%;background-size:100% 100%;}
+.ny_main{padding-top:23rem;width:100%;} 
+.ny_img img,.my_img,.my_img img{width:100%;} 
+.ny_text{text-align:center;color:#fff;margin-top:0.5rem;font-size:1.2rem;margin-bottom:1.5rem;} 
+
+@media screen and (max-width: 1920px){.we_main{padding-top:71rem;}}
+@media screen and (max-width: 1080px){.we_main{padding-top:53rem;}}
+@media screen and (max-width: 1024px){.we_main{padding-top:46.5em;}}
+@media screen and (max-width: 800px){.we_main{padding-top:45.5rem;}}
+@media screen and (max-width: 768px){.we_main{padding-top:36.5rem;}}
+@media screen and (max-width: 750px){.we_main{padding-top:31.5rem;}}
+@media screen and (max-width: 736px){.we_main{padding-top:31.5rem;}}  
+@media screen and (max-width:600px){.we_main{padding-top:31.5rem;}}  
+@media screen and (max-width:414px){.we_main{padding-top:23.5rem;}}  
+@media screen and (max-width:412px){.we_main{padding-top:21.5rem;}}  
+@media screen and (max-width:375px){.we_main{padding-top:21.5rem;}}  
+@media screen and (max-width: 360px){.we_main{padding-top:20.5rem;}}  
+@media screen and (max-width: 320px){.we_main{padding-top:18.5rem;}}
+
+@media screen and (max-width: 1920px){.ny_main{padding-top:111rem;}}
+@media screen and (max-width: 1080px){.ny_main{padding-top:72rem;}}
+@media screen and (max-width: 1024px){.ny_main{padding-top:61rem;}}
+@media screen and (max-width: 800px){.ny_main{padding-top:51rem;}}
+@media screen and (max-width: 768px){.ny_main{padding-top:47rem;}}
+@media screen and (max-width: 750px){.ny_main{padding-top:45rem;}}
+@media screen and (max-width: 736px){.ny_main{padding-top:35rem;}}  
+@media screen and (max-width:600px){.ny_main{padding-top:37rem;}}  
+@media screen and (max-width:414px){.ny_main{padding-top:26rem;}}  
+@media screen and (max-width:412px){.ny_main{padding-top:26rem;}}  
+@media screen and (max-width:375px){.ny_main{padding-top:23rem;}}  
+@media screen and (max-width: 360px){.ny_main{padding-top:23rem;}}  
+@media screen and (max-width: 320px){.ny_main{padding-top:21rem;}} 
+

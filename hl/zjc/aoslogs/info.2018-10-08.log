@@ -1,0 +1,4 @@
+2018-10-08 11:19:57 INFO [Class:o.e.j.s.Server->Thread:main] jetty-8.1.17.v20150415 
+2018-10-08 11:19:58 INFO [Class:o.e.j.s.h.ContextHandler$Context->Thread:main] Initializing Spring root WebApplicationContext 
+2018-10-08 11:20:37 INFO [Class:o.e.j.s.h.ContextHandler$Context->Thread:main] Initializing Spring FrameworkServlet 'springDispatcherServlet' 
+2018-10-08 11:20:40 INFO [Class:o.e.j.s.AbstractConnector->Thread:main] Started SelectChannelConnector@0.0.0.0:10010 

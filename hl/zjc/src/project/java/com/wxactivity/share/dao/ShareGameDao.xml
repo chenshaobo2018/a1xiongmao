@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- share_game[share_game]SQL自动映射 -->
+<!--  注意:此文件由AOS平台自动生成-禁止手工修改 2018-02-06 16:32:13 -->
+<mapper namespace="com.wxactivity.share.dao.ShareGameDao">
+	
+	<!-- 插入一个数据持久化对象(插入字段为传入PO实体的非空属性) -->
+	<insert id="insert"  parameterType="ShareGamePO">
+		INSERT INTO share_game (
+		<if test="game_account != null and game_account != ''">
+	         game_account, <!-- 激活码 -->
+		</if>
+		<if test="game_name != null and game_name != ''">
+	         game_name, <!-- 游戏激活码名称 -->
+		</if>
+		<if test="type != null and type != ''">
+	         type, <!-- 是否抽奖0未抽 1已抽 -->
+		</if>
+		<if test="game_id != null and game_id != ''">
+	          game_id  <!-- game_id -->
+	   </if>
+		)VALUES(
+		<if test="game_account != null and game_account != ''">
+	          #{game_account, jdbcType=VARCHAR}, <!-- 激活码 -->
+	    </if>
+		<if test="game_name != null and game_name != ''">
+	          #{game_name, jdbcType=VARCHAR}, <!-- 游戏激活码名称 -->
+	    </if>
+		<if test="type != null and type != ''">
+	          #{type, jdbcType=VARCHAR}, <!-- 是否抽奖0未抽 1已抽 -->
+	    </if>
+		<if test="game_id != null and game_id != ''">
+		     #{game_id, jdbcType=VARCHAR}  <!-- game_id -->
+	    </if>
+		)
+	</insert>
+	
+	<!-- 插入一个数据持久化对象(含所有字段) -->
+	<insert id="insertAll"  parameterType="ShareGamePO">
+		INSERT INTO share_game (
+		    <include refid="column" />
+		)
+		VALUES (
+		    #{game_id, jdbcType=VARCHAR},  <!-- game_id -->
+		    #{game_account, jdbcType=VARCHAR},  <!-- 激活码 -->
+		    #{game_name, jdbcType=VARCHAR},  <!-- 游戏激活码名称 -->
+		    #{type, jdbcType=VARCHAR}  <!-- 是否抽奖0未抽 1已抽 -->
+		)
+	</insert>
+
+	<!-- 根据主键修改数据持久化对象 -->
+	<update id="updateByKey" parameterType="ShareGamePO">
+		UPDATE share_game
+		<set>
+			<if test="game_id != null">
+		          game_id = #{game_id, jdbcType=VARCHAR},  <!-- game_id -->
+			</if>
+			<if test="game_account != null">
+		          game_account = #{game_account, jdbcType=VARCHAR},  <!-- 激活码 -->
+			</if>
+			<if test="game_name != null">
+		          game_name = #{game_name, jdbcType=VARCHAR},  <!-- 游戏激活码名称 -->
+			</if>
+			<if test="type != null">
+		          type = #{type, jdbcType=VARCHAR},  <!-- 是否抽奖0未抽 1已抽 -->
+			</if>
+		</set>
+		WHERE  game_id = #{game_id}
+	</update>
+	
+	<!-- 根据主键删除数据持久化对象 -->
+	<delete id="deleteByKey">
+		DELETE FROM share_game WHERE  game_id = #{game_id}
+	</delete>
+
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="selectByKey" resultType="ShareGamePO">
+		SELECT
+		<include refid="column" />
+		FROM share_game WHERE  game_id = #{game_id}
+	</select>
+
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="selectOne" parameterType="Dto" resultType="ShareGamePO">
+		SELECT
+		    <include refid="column" />
+		FROM share_game
+		<where>
+		    <include refid="equal" />
+		</where>		
+	</select>
+
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="list" parameterType="Dto" resultType="ShareGamePO">
+		SELECT
+			<include refid="column" />	
+		FROM share_game
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="selectByMaxGameId" parameterType="Dto" resultType="ShareGamePO">
+		SELECT
+			<include refid="column" />	
+		FROM share_game WHERE type='0' 
+		ORDER BY game_id DESC
+		LIMIT 0,1
+	</select>
+
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listPage" parameterType="Dto" resultType="ShareGamePO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM share_game
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto模糊查询并返回数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="like" parameterType="Dto" resultType="ShareGamePO">
+		SELECT
+			<include refid="column" />	
+		FROM share_game
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto模糊查询并返回分页数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="likePage" parameterType="Dto" resultType="ShareGamePO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM share_game
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto统计行数 -->
+	<select id="rows" resultType="Integer" parameterType="Dto">
+		SELECT COUNT(1) AS aos_rows_ FROM share_game
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 根据数学表达式进行数学运算 -->
+	<select id="calc" parameterType="Dto" resultType="String">
+		SELECT
+			${_expr}
+		FROM share_game
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 表字段 -->
+	<sql id="column">
+		  game_id,  <!-- game_id -->
+		  game_account,  <!-- 激活码 -->
+		  game_name,  <!-- 游戏激活码名称 -->
+		  type  <!-- 是否抽奖0未抽 1已抽 -->
+	</sql>
+	
+	<!-- 表字段(用于外表的关联时引用) -->
+	<sql id="column2">
+		  share_game.game_id,  <!-- game_id -->
+		  share_game.game_account,  <!-- 激活码 -->
+		  share_game.game_name,  <!-- 游戏激活码名称 -->
+		  share_game.type  <!-- 是否抽奖0未抽 1已抽 -->
+	</sql>
+
+	<!-- Where精确匹配字段 -->
+	<sql id="equal">
+	    <if test="game_id != null and game_id != ''">
+		      AND game_id = #{game_id}  <!-- game_id -->
+		</if>
+	    <if test="game_account != null and game_account != ''">
+		      AND game_account = #{game_account}  <!-- 激活码 -->
+		</if>
+	    <if test="game_name != null and game_name != ''">
+		      AND game_name = #{game_name}  <!-- 游戏激活码名称 -->
+		</if>
+	    <if test="type != null and type != ''">
+		      AND type = #{type}  <!-- 是否抽奖0未抽 1已抽 -->
+		</if>
+	</sql>
+	
+	<!-- Where模糊匹配字段 -->
+	<sql id="like">
+	    <if test="game_id != null and game_id != ''">
+		      AND game_id like '${game_id}%'  <!-- game_id -->
+		</if>
+	    <if test="game_account != null and game_account != ''">
+		      AND game_account like '${game_account}%'  <!-- 激活码 -->
+		</if>
+	    <if test="game_name != null and game_name != ''">
+		      AND game_name like '${game_name}%'  <!-- 游戏激活码名称 -->
+		</if>
+	    <if test="type != null and type != ''">
+		      AND type like '${type}%'  <!-- 是否抽奖0未抽 1已抽 -->
+		</if>
+	</sql>
+	
+</mapper>

@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- zjc_spec_goods_price[zjc_spec_goods_price]SQL自动映射 -->
+<!--  注意:此文件由AOS平台自动生成-禁止手工修改 2017-06-14 09:18:09 -->
+<mapper namespace="com.zjc.goods.dao.ZjcSpecGoodsPriceDao">
+	
+	<!-- 插入一个数据持久化对象(插入字段为传入PO实体的非空属性) -->
+	<insert id="insert"  parameterType="ZjcSpecGoodsPricePO">
+		INSERT INTO zjc_spec_goods_price (
+		<if test="goods_id != null">
+	         goods_id, <!-- 商品id -->
+		</if>
+		<if test="key != null and key != ''">
+	         `key`, <!-- 规格键名 -->
+		</if>
+		<if test="key_name != null and key_name != ''">
+	         key_name, <!-- 规格键名中文 -->
+		</if>
+		<if test="price != null">
+	         price, <!-- 价格 -->
+		</if>
+		<if test="store_count != null">
+	         store_count, <!-- 库存数量 -->
+		</if>
+		<if test="bar_code != null and bar_code != ''">
+	         bar_code, <!-- 商品条形码 -->
+		</if>
+		<if test="sku != null and sku != ''">
+	         sku, <!-- SKU -->
+		</if>
+		<if test="market_price != null">
+	         market_price, <!-- 积分比例价 -->
+		</if>
+		<if test="cost_price != null">
+	         cost_price, <!-- 等额积分价 -->
+		</if>
+		)VALUES(
+		<if test="goods_id != null">
+	          #{goods_id, jdbcType=INTEGER}, <!-- 商品id -->
+	    </if>
+		<if test="key != null and key != ''">
+	          #{key, jdbcType=VARCHAR}, <!-- 规格键名 -->
+	    </if>
+		<if test="key_name != null and key_name != ''">
+	          #{key_name, jdbcType=VARCHAR}, <!-- 规格键名中文 -->
+	    </if>
+		<if test="price != null">
+	          #{price, jdbcType=NUMERIC}, <!-- 价格 -->
+	    </if>
+		<if test="store_count != null">
+	          #{store_count, jdbcType=INTEGER}, <!-- 库存数量 -->
+	    </if>
+		<if test="bar_code != null and bar_code != ''">
+	          #{bar_code, jdbcType=VARCHAR}, <!-- 商品条形码 -->
+	    </if>
+		<if test="sku != null and sku != ''">
+	          #{sku, jdbcType=VARCHAR}, <!-- SKU -->
+	    </if>
+		<if test="market_price != null">
+	          #{market_price, jdbcType=NUMERIC}, <!-- 积分比例价 -->
+	    </if>
+		<if test="cost_price != null">
+	          #{cost_price, jdbcType=NUMERIC}, <!-- 等额积分价 -->
+	    </if>
+		)
+	</insert>
+	
+	<!-- 插入一个数据持久化对象(含所有字段) -->
+	<insert id="insertAll"  parameterType="ZjcSpecGoodsPricePO">
+		INSERT INTO zjc_spec_goods_price (
+		    <include refid="column" />
+		)
+		VALUES (
+		    #{goods_id, jdbcType=INTEGER},  <!-- 商品id -->
+		    #{key, jdbcType=VARCHAR},  <!-- 规格键名 -->
+		    #{key_name, jdbcType=VARCHAR},  <!-- 规格键名中文 -->
+		    #{price, jdbcType=NUMERIC},  <!-- 价格 -->
+		    #{store_count, jdbcType=INTEGER},  <!-- 库存数量 -->
+		    #{bar_code, jdbcType=VARCHAR},  <!-- 商品条形码 -->
+		    #{sku, jdbcType=VARCHAR},  <!-- SKU -->
+		    #{market_price, jdbcType=NUMERIC},  <!-- 积分比例价 -->
+		    #{cost_price, jdbcType=NUMERIC}  <!-- 等额积分价 -->
+		)
+	</insert>
+
+	<!-- 根据主键修改数据持久化对象 -->
+	<update id="updateByKey" parameterType="ZjcSpecGoodsPricePO">
+		UPDATE zjc_spec_goods_price
+		<set>
+			<if test="goods_id != null">
+		          goods_id = #{goods_id, jdbcType=INTEGER},  <!-- 商品id -->
+			</if>
+			<if test="key != null">
+		          key = #{key, jdbcType=VARCHAR},  <!-- 规格键名 -->
+			</if>
+			<if test="key_name != null">
+		          key_name = #{key_name, jdbcType=VARCHAR},  <!-- 规格键名中文 -->
+			</if>
+			<if test="price != null">
+		          price = #{price, jdbcType=NUMERIC},  <!-- 价格 -->
+			</if>
+			<if test="store_count != null">
+		          store_count = #{store_count, jdbcType=INTEGER},  <!-- 库存数量 -->
+			</if>
+			<if test="bar_code != null">
+		          bar_code = #{bar_code, jdbcType=VARCHAR},  <!-- 商品条形码 -->
+			</if>
+			<if test="sku != null">
+		          sku = #{sku, jdbcType=VARCHAR},  <!-- SKU -->
+			</if>
+			<if test="market_price != null">
+		          market_price = #{market_price, jdbcType=NUMERIC},  <!-- 积分比例价 -->
+			</if>
+			<if test="cost_price != null">
+		          cost_price = #{cost_price, jdbcType=NUMERIC},  <!-- 等额积分价 -->
+			</if>
+		</set>
+	</update>
+	
+	<!-- 根据主键删除数据持久化对象 -->
+	<delete id="deleteByKey">
+		DELETE FROM zjc_spec_goods_price WHERE goods_id=#{goods_id}
+	</delete>
+
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="selectByKey" resultType="ZjcSpecGoodsPricePO">
+		SELECT
+		<include refid="column" />
+		FROM zjc_spec_goods_price WHERE goods_id=#{goods_id}
+	</select>
+	
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="ProductSpecifications" parameterType="Dto" resultType="ZjcSpecGoodsPricePO">
+		SELECT
+		  t.goods_id, 
+		  t.key,  
+		  t.key_name,  
+		  t.price,  
+		  t.store_count, 
+		  t.bar_code, 
+		  t.sku, 
+		  t.market_price,  
+		  t.cost_price 
+		FROM zjc_spec_goods_price t WHERE t.goods_id=#{goods_id}
+	</select>
+
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="selectOne" parameterType="Dto" resultType="ZjcSpecGoodsPricePO">
+		SELECT
+		    <include refid="column" />
+		FROM zjc_spec_goods_price
+		<where>
+		    <include refid="equal" />
+		</where>		
+	</select>
+
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="list" parameterType="Dto" resultType="ZjcSpecGoodsPricePO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_spec_goods_price
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listPage" parameterType="Dto" resultType="ZjcSpecGoodsPricePO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_spec_goods_price
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto模糊查询并返回数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="like" parameterType="Dto" resultType="ZjcSpecGoodsPricePO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_spec_goods_price
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto模糊查询并返回分页数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="likePage" parameterType="Dto" resultType="ZjcSpecGoodsPricePO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_spec_goods_price
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto统计行数 -->
+	<select id="rows" resultType="Integer" parameterType="Dto">
+		SELECT COUNT(1) AS aos_rows_ FROM zjc_spec_goods_price
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 根据数学表达式进行数学运算 -->
+	<select id="calc" parameterType="Dto" resultType="String">
+		SELECT
+			${_expr}
+		FROM zjc_spec_goods_price
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 表字段 -->
+	<sql id="column">
+		  goods_id,  <!-- 商品id -->
+		  `key`,  <!-- 规格键名 -->
+		  key_name,  <!-- 规格键名中文 -->
+		  price,  <!-- 价格 -->
+		  store_count,  <!-- 库存数量 -->
+		  bar_code,  <!-- 商品条形码 -->
+		  sku,  <!-- SKU -->
+		  market_price,  <!-- 积分比例价 -->
+		  cost_price  <!-- 等额积分价 -->
+	</sql>
+	
+	<!-- 表字段(用于外表的关联时引用) -->
+	<sql id="column2">
+		  zjc_spec_goods_price.goods_id,  <!-- 商品id -->
+		  zjc_spec_goods_price.key,  <!-- 规格键名 -->
+		  zjc_spec_goods_price.key_name,  <!-- 规格键名中文 -->
+		  zjc_spec_goods_price.price,  <!-- 价格 -->
+		  zjc_spec_goods_price.store_count,  <!-- 库存数量 -->
+		  zjc_spec_goods_price.bar_code,  <!-- 商品条形码 -->
+		  zjc_spec_goods_price.sku,  <!-- SKU -->
+		  zjc_spec_goods_price.market_price,  <!-- 积分比例价 -->
+		  zjc_spec_goods_price.cost_price  <!-- 等额积分价 -->
+	</sql>
+
+	<!-- Where精确匹配字段 -->
+	<sql id="equal">
+	   <if test="goods_id != null ">
+		      AND goods_id = #{goods_id}  <!-- 商品id -->
+		</if>
+	    <if test="key != null and key != ''">
+		      AND key = #{key}  <!-- 规格键名 -->
+		</if>
+	    <if test="key_name != null and key_name != ''">
+		      AND key_name = #{key_name}  <!-- 规格键名中文 -->
+		</if>
+	   <if test="price != null ">
+		      AND price = #{price}  <!-- 价格 -->
+		</if>
+	   <if test="store_count != null ">
+		      AND store_count = #{store_count}  <!-- 库存数量 -->
+		</if>
+	    <if test="bar_code != null and bar_code != ''">
+		      AND bar_code = #{bar_code}  <!-- 商品条形码 -->
+		</if>
+	    <if test="sku != null and sku != ''">
+		      AND sku = #{sku}  <!-- SKU -->
+		</if>
+	   <if test="market_price != null ">
+		      AND market_price = #{market_price}  <!-- 积分比例价 -->
+		</if>
+	   <if test="cost_price != null ">
+		      AND cost_price = #{cost_price}  <!-- 等额积分价 -->
+		</if>
+	</sql>
+	
+	<!-- Where模糊匹配字段 -->
+	<sql id="like">
+	    <if test="key != null and key != ''">
+		      AND key like '${key}%'  <!-- 规格键名 -->
+		</if>
+	    <if test="key_name != null and key_name != ''">
+		      AND key_name like '${key_name}%'  <!-- 规格键名中文 -->
+		</if>
+	    <if test="bar_code != null and bar_code != ''">
+		      AND bar_code like '${bar_code}%'  <!-- 商品条形码 -->
+		</if>
+	    <if test="sku != null and sku != ''">
+		      AND sku like '${sku}%'  <!-- SKU -->
+		</if>
+	</sql>
+	<!-- ===========================================app接口============================================ -->
+	<!-- 根据goods_id查询规格项ID -->
+	<select id="getSpecStr" resultType="String" parameterType="Dto">
+		SELECT GROUP_CONCAT(`key` SEPARATOR '_') as keyString FROM zjc_spec_goods_price
+		<where>
+		    <if test="goods_id != null ">
+		      goods_id = #{goods_id}  <!-- 商品id -->
+			</if>
+		</where>
+	</select>
+	
+	<insert id="insertSub" parameterType="ZjcSpecGoodsPricePO">
+		insert into zjc_spec_goods_price set goods_id= #{goods_id}, `key` = #{key}, key_name = #{key_name}
+	</insert>
+	
+	<select id="selectByGoodsId" parameterType="Dto" resultType="ZjcSpecGoodsPricePO">
+		select * from zjc_spec_goods_price where goods_id = #{goods_id}
+	</select>	
+	
+	<update id="updateByGoodsId" parameterType="ZjcSpecGoodsPricePO">
+		update zjc_spec_goods_price 
+		<set>
+			<if test="key != null">
+				`key` = #{key, jdbcType=VARCHAR},
+			</if>
+			<if test="key_name != null">
+				key_name = #{key_name, jdbcType=VARCHAR}
+			</if>
+		</set>
+		where goods_id = #{goods_id}
+	</update>
+</mapper>

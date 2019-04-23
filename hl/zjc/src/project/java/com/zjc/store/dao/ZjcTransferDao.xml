@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- zjc_transfer[zjc_transfer]SQL自动映射 -->
+<!--  注意:此文件由AOS平台自动生成-禁止手工修改 2017-09-02 11:23:39 -->
+<mapper namespace="com.zjc.store.dao.ZjcTransferDao">
+	
+	<!-- 插入一个数据持久化对象(插入字段为传入PO实体的非空属性) -->
+	<insert id="insert"  parameterType="ZjcTransferPO">
+		INSERT INTO zjc_transfer (
+		<if test="order_id != null">
+	         order_id, <!-- 订单ID -->
+		</if>
+		<if test="add_time != null and add_time != ''">
+	         add_time, <!-- 申请转账时间 -->
+		</if>
+		<if test="transit_time != null and transit_time != ''">
+	         transit_time, <!-- 通过时间 -->
+		</if>
+		<if test="cash != null">
+	         cash, <!-- 转账金额 -->
+		</if>
+		<if test="approval_id != null">
+	         approval_id, <!-- 审批员ID -->
+		</if>
+		<if test="operator_id != null">
+	         operator_id, <!-- 操作员ID -->
+		</if>
+		<if test="id != null">
+	          id  <!-- 表ID -->
+	   </if>
+		)VALUES(
+		<if test="order_id != null">
+	          #{order_id, jdbcType=INTEGER}, <!-- 订单ID -->
+	    </if>
+		<if test="add_time != null and add_time != ''">
+	          #{add_time, jdbcType=VARCHAR}, <!-- 申请转账时间 -->
+	    </if>
+		<if test="transit_time != null and transit_time != ''">
+	          #{transit_time, jdbcType=VARCHAR}, <!-- 通过时间 -->
+	    </if>
+		<if test="cash != null">
+	          #{cash, jdbcType=NUMERIC}, <!-- 转账金额 -->
+	    </if>
+		<if test="approval_id != null">
+	          #{approval_id, jdbcType=INTEGER}, <!-- 审批员ID -->
+	    </if>
+		<if test="operator_id != null">
+	          #{operator_id, jdbcType=INTEGER}, <!-- 操作员ID -->
+	    </if>
+		<if test="id != null">
+		     #{id, jdbcType=INTEGER}  <!-- 表ID -->
+	    </if>
+		)
+	</insert>
+	
+	<!-- 插入一个数据持久化对象(含所有字段) -->
+	<insert id="insertAll"  parameterType="ZjcTransferPO">
+		INSERT INTO zjc_transfer (
+		    <include refid="column" />
+		)
+		VALUES (
+		    #{id, jdbcType=INTEGER},  <!-- 表ID -->
+		    #{order_id, jdbcType=INTEGER},  <!-- 订单ID -->
+		    #{add_time, jdbcType=VARCHAR},  <!-- 申请转账时间 -->
+		    #{transit_time, jdbcType=VARCHAR},  <!-- 通过时间 -->
+		    #{cash, jdbcType=NUMERIC},  <!-- 转账金额 -->
+		    #{approval_id, jdbcType=INTEGER},  <!-- 审批员ID -->
+		    #{operator_id, jdbcType=INTEGER}  <!-- 操作员ID -->
+		)
+	</insert>
+
+	<!-- 根据主键修改数据持久化对象 -->
+	<update id="updateByKey" parameterType="ZjcTransferPO">
+		UPDATE zjc_transfer
+		<set>
+			<if test="id != null">
+		          id = #{id, jdbcType=INTEGER},  <!-- 表ID -->
+			</if>
+			<if test="order_id != null">
+		          order_id = #{order_id, jdbcType=INTEGER},  <!-- 订单ID -->
+			</if>
+			<if test="add_time != null">
+		          add_time = #{add_time, jdbcType=VARCHAR},  <!-- 申请转账时间 -->
+			</if>
+			<if test="transit_time != null">
+		          transit_time = #{transit_time, jdbcType=VARCHAR},  <!-- 通过时间 -->
+			</if>
+			<if test="cash != null">
+		          cash = #{cash, jdbcType=NUMERIC},  <!-- 转账金额 -->
+			</if>
+			<if test="approval_id != null">
+		          approval_id = #{approval_id, jdbcType=INTEGER},  <!-- 审批员ID -->
+			</if>
+			<if test="operator_id != null">
+		          operator_id = #{operator_id, jdbcType=INTEGER},  <!-- 操作员ID -->
+			</if>
+		</set>
+		WHERE  id = #{id}
+	</update>
+	
+	<!-- 根据主键删除数据持久化对象 -->
+	<delete id="deleteByKey">
+		DELETE FROM zjc_transfer WHERE  id = #{id}
+	</delete>
+
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="selectByKey" resultType="ZjcTransferPO">
+		SELECT
+		<include refid="column" />
+		FROM zjc_transfer WHERE  id = #{id}
+	</select>
+
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="selectOne" parameterType="Dto" resultType="ZjcTransferPO">
+		SELECT
+		    <include refid="column" />
+		FROM zjc_transfer
+		<where>
+		    <include refid="equal" />
+		</where>		
+	</select>
+
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="list" parameterType="Dto" resultType="ZjcTransferPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_transfer
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listPage" parameterType="Dto" resultType="ZjcTransferPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_transfer
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto模糊查询并返回数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="like" parameterType="Dto" resultType="ZjcTransferPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_transfer
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto模糊查询并返回分页数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="likePage" parameterType="Dto" resultType="ZjcTransferPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_transfer
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto统计行数 -->
+	<select id="rows" resultType="Integer" parameterType="Dto">
+		SELECT COUNT(1) AS aos_rows_ FROM zjc_transfer
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 根据数学表达式进行数学运算 -->
+	<select id="calc" parameterType="Dto" resultType="String">
+		SELECT
+			${_expr}
+		FROM zjc_transfer
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 表字段 -->
+	<sql id="column">
+		  id,  <!-- 表ID -->
+		  order_id,  <!-- 订单ID -->
+		  add_time,  <!-- 申请转账时间 -->
+		  transit_time,  <!-- 通过时间 -->
+		  cash,  <!-- 转账金额 -->
+		  approval_id,  <!-- 审批员ID -->
+		  operator_id  <!-- 操作员ID -->
+	</sql>
+	
+	<!-- 表字段(用于外表的关联时引用) -->
+	<sql id="column2">
+		  zjc_transfer.id,  <!-- 表ID -->
+		  zjc_transfer.order_id,  <!-- 订单ID -->
+		  zjc_transfer.add_time,  <!-- 申请转账时间 -->
+		  zjc_transfer.transit_time,  <!-- 通过时间 -->
+		  zjc_transfer.cash,  <!-- 转账金额 -->
+		  zjc_transfer.approval_id,  <!-- 审批员ID -->
+		  zjc_transfer.operator_id  <!-- 操作员ID -->
+	</sql>
+
+	<!-- Where精确匹配字段 -->
+	<sql id="equal">
+	   <if test="id != null ">
+		      AND id = #{id}  <!-- 表ID -->
+		</if>
+	   <if test="order_id != null ">
+		      AND order_id = #{order_id}  <!-- 订单ID -->
+		</if>
+	    <if test="add_time != null and add_time != ''">
+		      AND add_time = #{add_time}  <!-- 申请转账时间 -->
+		</if>
+	    <if test="transit_time != null and transit_time != ''">
+		      AND transit_time = #{transit_time}  <!-- 通过时间 -->
+		</if>
+	   <if test="cash != null ">
+		      AND cash = #{cash}  <!-- 转账金额 -->
+		</if>
+	   <if test="approval_id != null ">
+		      AND approval_id = #{approval_id}  <!-- 审批员ID -->
+		</if>
+	   <if test="operator_id != null ">
+		      AND operator_id = #{operator_id}  <!-- 操作员ID -->
+		</if>
+	</sql>
+	
+	<!-- Where模糊匹配字段 -->
+	<sql id="like">
+	    <if test="add_time != null and add_time != ''">
+		      AND add_time = #{add_time}  <!-- 申请转账时间 -->
+		</if>
+	    <if test="transit_time != null and transit_time != ''">
+		      AND transit_time = #{transit_time}  <!-- 通过时间 -->
+		</if>
+	</sql>
+	
+	<insert id="insert1" parameterType="ZjcTransferPO">
+		insert into zjc_transfer set order_id = #{order_id}, cash = #{cash}, operator_id = #{operator_id}, add_time=#{add_time}
+	</insert>
+	
+	<update id="via_for_transfer" parameterType="Dto">
+		update zjc_transfer set approval_id = #{approval_id}
+		where order_id in     
+        <foreach collection="ids" index="index" item="item" open="(" separator="," close=")">    
+            #{item}    
+        </foreach> 
+	</update>
+	<update id="confirm_transfer" parameterType="Dto">
+		update zjc_transfer 
+			set transit_time = now()
+		where order_id in     
+        <foreach collection="orders" index="index" item="item" open="(" separator="," close=")">    
+            #{item.order_id}    
+        </foreach>
+	</update>
+	<select id="query_transfer_record" parameterType="Dto" resultType="Dto">
+		select 
+			t2.store_name,
+			t2.add_time, 
+			t2.confirm_time,
+			t1.transit_time, 
+			t1.cash, 
+			t1.operator_id, 
+			t1.approval_id,
+			t3.name as operator_name,
+			t4.name as approval_name
+		from zjc_transfer t1 left join zjc_order t2 on t1.order_id = t2.order_id
+		left join aos_user t3 on t3.id = t1.operator_id
+		left join aos_user t4 on t4.id = t1.approval_id
+		where t2.store_id = #{store_id} and t2.add_time &gt; '2017-10-05' 
+		order by t2.add_time desc	
+	</select>
+</mapper>

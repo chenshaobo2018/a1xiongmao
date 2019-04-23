@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- zjc_win_prize[zjc_win_prize]SQL自动映射 -->
+<!--  注意:此文件由AOS平台自动生成-禁止手工修改 2018-01-09 14:21:15 -->
+<mapper namespace="com.zjc.prize.dao.ZjcWinPrizeDao">
+	
+	<!-- 插入一个数据持久化对象(插入字段为传入PO实体的非空属性) -->
+	<insert id="insert" useGeneratedKeys="true" keyProperty="win_prize_id" parameterType="ZjcWinPrizePO">
+		INSERT INTO zjc_win_prize (
+		<if test="user_id != null and user_id != ''">
+	         user_id, <!-- 中奖人id -->
+		</if>
+		<if test="phone_num != null and phone_num != ''">
+	         phone_num, <!-- 电话号码 -->
+		</if>
+		<if test="win_time != null and win_time != ''">
+	         win_time, <!-- 中奖时间 -->
+		</if>
+		<if test="prize_id != null">
+	         prize_id, <!-- 奖品id -->
+		</if>
+		<if test="prize_name != null">
+	         prize_name, <!-- 奖品名称 -->
+		</if>
+		<if test="open_id != null">
+	         open_id, <!-- open_id-->
+		</if>
+		<if test="is_use != null">
+	         is_use, <!-- 是否使用 -->
+		</if>
+		
+	          win_prize_id
+		)VALUES(
+		<if test="user_id != null and user_id != ''">
+	          #{user_id, jdbcType=VARCHAR}, <!-- 中奖人id -->
+	    </if>
+		<if test="phone_num != null and phone_num != ''">
+	          #{phone_num, jdbcType=VARCHAR}, <!-- 电话号码 -->
+	    </if>
+		<if test="win_time != null and win_time != ''">
+	          #{win_time, jdbcType=VARCHAR}, <!-- 中奖时间 -->
+	    </if>
+		<if test="prize_id != null">
+	          #{prize_id, jdbcType=INTEGER}, <!-- 奖品id -->
+	    </if>
+	    <if test="prize_name != null and prize_name != ''">
+	          #{prize_name, jdbcType=VARCHAR}, <!-- 奖品名称 -->
+	    </if>
+	    <if test="open_id != null and open_id != ''">
+	          #{open_id, jdbcType=VARCHAR}, <!-- 奖品名称 -->
+	    </if>
+	    <if test="is_use != null and is_use != ''">
+	          #{is_use, jdbcType=VARCHAR}, <!-- 奖品名称 -->
+	    </if>
+	          null
+		)
+	</insert>
+	
+	<!-- 插入一个数据持久化对象(含所有字段) -->
+	<insert id="insertAll" useGeneratedKeys="true" keyProperty="win_prize_id" parameterType="ZjcWinPrizePO">
+		INSERT INTO zjc_win_prize (
+		    <include refid="column" />
+		)
+		VALUES (
+		    #{win_prize_id, jdbcType=INTEGER},  <!-- 中奖id -->
+		    #{user_id, jdbcType=VARCHAR},  <!-- 中奖人id -->
+		    #{phone_num, jdbcType=VARCHAR},  <!-- 电话号码 -->
+		    #{win_time, jdbcType=VARCHAR},  <!-- 中奖时间 -->
+		    #{prize_id, jdbcType=INTEGER},  <!-- 奖品id -->
+		    #{prize_name, jdbcType=VARCHAR}, <!-- 奖品名称 -->
+	        #{open_id, jdbcType=VARCHAR}, <!-- 奖品名称 -->
+	        #{is_use, jdbcType=VARCHAR} <!-- 奖品名称 -->
+		)
+	</insert>
+
+	<!-- 根据主键修改数据持久化对象 -->
+	<update id="updateByKey" parameterType="ZjcWinPrizePO">
+		UPDATE zjc_win_prize
+		<set>
+			<if test="win_prize_id != null">
+		          win_prize_id = #{win_prize_id, jdbcType=INTEGER},  <!-- 中奖id -->
+			</if>
+			<if test="user_id != null">
+		          user_id = #{user_id, jdbcType=VARCHAR},  <!-- 中奖人id -->
+			</if>
+			<if test="phone_num != null">
+		          phone_num = #{phone_num, jdbcType=VARCHAR},  <!-- 电话号码 -->
+			</if>
+			<if test="win_time != null">
+		          win_time = #{win_time, jdbcType=VARCHAR},  <!-- 中奖时间 -->
+			</if>
+			<if test="prize_id != null">
+		          prize_id = #{prize_id, jdbcType=INTEGER},  <!-- 奖品id -->
+			</if>
+			<if test="prize_name != null and prize_name != ''">
+	        	 prize_name = #{prize_name, jdbcType=VARCHAR},   <!-- 奖品名称 -->
+	   		</if>
+	   		<if test="open_id != null and open_id != ''">
+	        	 open_id = #{open_id, jdbcType=VARCHAR},   <!-- 奖品名称 -->
+	   		</if>
+	   		<if test="is_use != null and is_use != ''">
+	        	 is_use = #{is_use, jdbcType=VARCHAR},   <!-- 奖品名称 -->
+	   		</if>
+		</set>
+		WHERE  win_prize_id = #{win_prize_id}
+	</update>
+	
+	<!-- 根据主键删除数据持久化对象 -->
+	<delete id="deleteByKey">
+		DELETE FROM zjc_win_prize WHERE  win_prize_id = #{win_prize_id}
+	</delete>
+
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="selectByKey" resultType="ZjcWinPrizePO">
+		SELECT
+		<include refid="column" />
+		FROM zjc_win_prize WHERE  win_prize_id = #{win_prize_id}
+	</select>
+
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="selectOne" parameterType="Dto" resultType="ZjcWinPrizePO">
+		SELECT
+		    <include refid="column" />
+		FROM zjc_win_prize
+		<where>
+		    <include refid="equal" />
+		</where>		
+	</select>
+
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="list" parameterType="ZjcWinPrizePO" resultType="ZjcWinPrizePO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_win_prize
+		<where>
+		    <include refid="equal" />
+		</where>	
+		order by win_time desc
+	</select>
+	
+		<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="XcxList" parameterType="ZjcWinPrizePO" resultType="ZjcWinPrizePO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_win_prize
+		where is_use=1 and open_id = #{open_id}
+	</select>
+
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listPage" parameterType="Dto" resultType="ZjcWinPrizePO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_win_prize
+		<where>
+		    <include refid="equal" />
+		</where>	
+		order by win_time desc
+	</select>
+	
+	<!-- 根据Dto模糊查询并返回数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="like" parameterType="Dto" resultType="ZjcWinPrizePO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_win_prize
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto模糊查询并返回分页数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="likePage" parameterType="Dto" resultType="ZjcWinPrizePO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_win_prize
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto统计行数 -->
+	<select id="rows" resultType="Integer" parameterType="Dto">
+		SELECT COUNT(1) AS aos_rows_ FROM zjc_win_prize
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 根据数学表达式进行数学运算 -->
+	<select id="calc" parameterType="Dto" resultType="String">
+		SELECT
+			${_expr}
+		FROM zjc_win_prize
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 表字段 -->
+	<sql id="column">
+		  win_prize_id,  <!-- 中奖id -->
+		  user_id,  <!-- 中奖人id -->
+		  phone_num,  <!-- 电话号码 -->
+		  win_time,  <!-- 中奖时间 -->
+		  prize_id,  <!-- 奖品id -->
+		  prize_name,  <!-- 奖品名称 -->
+		  open_id,
+		  is_use
+	</sql>
+	
+	<!-- 表字段(用于外表的关联时引用) -->
+	<sql id="column2">
+		  zjc_win_prize.win_prize_id,  <!-- 中奖id -->
+		  zjc_win_prize.user_id,  <!-- 中奖人id -->
+		  zjc_win_prize.phone_num,  <!-- 电话号码 -->
+		  zjc_win_prize.win_time,  <!-- 中奖时间 -->
+		  zjc_win_prize.prize_id,  <!-- 奖品id -->
+		  zjc_win_prize.prize_name,  <!-- 奖品名称 -->
+		  zjc_win_prize.open_id,
+		  zjc_win_prize.is_use
+	</sql>
+
+	<!-- Where精确匹配字段 -->
+	<sql id="equal">
+	   <if test="win_prize_id != null ">
+		      AND win_prize_id = #{win_prize_id}  <!-- 中奖id -->
+		</if>
+	    <if test="user_id != null and user_id != ''">
+		      AND user_id = #{user_id}  <!-- 中奖人id -->
+		</if>
+	    <if test="phone_num != null and phone_num != ''">
+		      AND phone_num = #{phone_num}  <!-- 电话号码 -->
+		</if>
+	    <if test="win_time != null and win_time != ''">
+		      AND win_time = #{win_time}  <!-- 中奖时间 -->
+		</if>
+	   <if test="prize_id != null ">
+		      AND prize_id = #{prize_id}  <!-- 奖品id -->
+		</if>
+		<if test="prize_name != null and prize_name != ''">
+		      AND prize_name = #{prize_name}  <!-- 奖品名称 -->
+		</if>
+		<if test="open_id != null and open_id != ''">
+		      AND open_id = #{open_id}  <!-- 奖品名称 -->
+		</if>
+		<if test="is_use != null and is_use != ''">
+		      AND is_use = #{is_use}  <!-- 奖品名称 -->
+		</if>
+	</sql>
+	
+	<!-- Where模糊匹配字段 -->
+	<sql id="like">
+	    <if test="user_id != null and user_id != ''">
+		      AND user_id like '${user_id}%'  <!-- 中奖人id -->
+		</if>
+	    <if test="phone_num != null and phone_num != ''">
+		      AND phone_num like '${phone_num}%'  <!-- 电话号码 -->
+		</if>
+	    <if test="win_time != null and win_time != ''">
+		      AND win_time like '${win_time}%'  <!-- 中奖时间 -->
+		</if>
+		<if test="prize_name != null and prize_name != ''">
+		      AND prize_name like '${prize_name}%'  <!-- 奖品名称 -->
+		</if>
+	</sql>
+	
+</mapper>

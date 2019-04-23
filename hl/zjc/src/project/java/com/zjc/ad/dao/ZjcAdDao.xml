@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- zjc_ad[zjc_ad]SQL自动映射 -->
+<!--  注意:此文件由AOS平台自动生成-禁止手工修改 2017-05-04 17:47:35 -->
+<mapper namespace="com.zjc.ad.dao.ZjcAdDao">
+	
+	<!-- 插入一个数据持久化对象(插入字段为传入PO实体的非空属性) -->
+	<insert id="insert" useGeneratedKeys="true" keyProperty="ad_id" parameterType="ZjcAdPO">
+		INSERT INTO zjc_ad (
+		<if test="pid != null">
+	         pid, <!-- 广告位置ID -->
+		</if>
+		<if test="jump_type != null">
+	         jump_type, <!-- 跳转方式 0不跳转 1商品详情 2跳转文章详情 3跳转链接 -->
+		</if>
+		<if test="relation_id != null">
+	         relation_id, <!-- 关联ID -->
+		</if>
+		<if test="ad_name != null and ad_name != ''">
+	         ad_name, <!-- 广告名称 -->
+		</if>
+		<if test="ad_link != null and ad_link != ''">
+	         ad_link, <!-- 链接地址 -->
+		</if>
+		<if test="ad_code != null and ad_code != ''">
+	         ad_code, <!-- 图片地址 -->
+		</if>
+		<if test="start_time != null">
+	         start_time, <!-- 投放时间 -->
+		</if>
+		<if test="end_time != null">
+	         end_time, <!-- 结束时间 -->
+		</if>
+		<if test="link_man != null and link_man != ''">
+	         link_man, <!-- 添加人 -->
+		</if>
+		<if test="link_email != null and link_email != ''">
+	         link_email, <!-- 添加人邮箱 -->
+		</if>
+		<if test="link_phone != null and link_phone != ''">
+	         link_phone, <!-- 添加人联系电话 -->
+		</if>
+		<if test="click_count != null">
+	         click_count, <!-- 点击量 -->
+		</if>
+		<if test="enabled != null">
+	         enabled, <!-- 是否显示 -->
+		</if>
+		<if test="orderby != null">
+	         orderby, <!-- 排序 -->
+		</if>
+		<if test="target != null">
+	         target, <!-- 是否开启浏览器新窗口 -->
+		</if>
+		<if test="bgcolor != null and bgcolor != ''">
+	         bgcolor, <!-- 背景颜色 -->
+		</if>
+	          ad_id
+		)VALUES(
+		<if test="pid != null">
+	          #{pid, jdbcType=INTEGER}, <!-- 广告位置ID -->
+	    </if>
+		<if test="jump_type != null">
+	          #{jump_type, jdbcType=INTEGER}, <!-- 跳转方式 0不跳转 1商品详情 2跳转文章详情 3跳转链接 -->
+	    </if>
+		<if test="relation_id != null">
+	          #{relation_id, jdbcType=INTEGER}, <!-- 关联ID -->
+	    </if>
+		<if test="ad_name != null and ad_name != ''">
+	          #{ad_name, jdbcType=VARCHAR}, <!-- 广告名称 -->
+	    </if>
+		<if test="ad_link != null and ad_link != ''">
+	          #{ad_link, jdbcType=VARCHAR}, <!-- 链接地址 -->
+	    </if>
+		<if test="ad_code != null and ad_code != ''">
+	          #{ad_code, jdbcType=VARCHAR}, <!-- 图片地址 -->
+	    </if>
+		<if test="start_time != null">
+	          #{start_time, jdbcType=VARCHAR}, <!-- 投放时间 -->
+	    </if>
+		<if test="end_time != null">
+	          #{end_time, jdbcType=VARCHAR}, <!-- 结束时间 -->
+	    </if>
+		<if test="link_man != null and link_man != ''">
+	          #{link_man, jdbcType=VARCHAR}, <!-- 添加人 -->
+	    </if>
+		<if test="link_email != null and link_email != ''">
+	          #{link_email, jdbcType=VARCHAR}, <!-- 添加人邮箱 -->
+	    </if>
+		<if test="link_phone != null and link_phone != ''">
+	          #{link_phone, jdbcType=VARCHAR}, <!-- 添加人联系电话 -->
+	    </if>
+		<if test="click_count != null">
+	          #{click_count, jdbcType=INTEGER}, <!-- 点击量 -->
+	    </if>
+		<if test="enabled != null">
+	          #{enabled, jdbcType=INTEGER}, <!-- 是否显示 -->
+	    </if>
+		<if test="orderby != null">
+	          #{orderby, jdbcType=INTEGER}, <!-- 排序 -->
+	    </if>
+		<if test="target != null">
+	          #{target, jdbcType=INTEGER}, <!-- 是否开启浏览器新窗口 -->
+	    </if>
+		<if test="bgcolor != null and bgcolor != ''">
+	          #{bgcolor, jdbcType=VARCHAR}, <!-- 背景颜色 -->
+	    </if>
+	          null
+		)
+	</insert>
+	
+	<!-- 插入一个数据持久化对象(含所有字段) -->
+	<insert id="insertAll" useGeneratedKeys="true" keyProperty="ad_id" parameterType="ZjcAdPO">
+		INSERT INTO zjc_ad (
+		    <include refid="column" />
+		)
+		VALUES (
+		    #{ad_id, jdbcType=INTEGER},  <!-- 广告id -->
+		    #{pid, jdbcType=INTEGER},  <!-- 广告位置ID -->
+		    #{jump_type, jdbcType=INTEGER},  <!-- 跳转方式 0不跳转 1商品详情 2跳转文章详情 3跳转链接 -->
+		    #{relation_id, jdbcType=INTEGER},  <!-- 关联ID -->
+		    #{ad_name, jdbcType=VARCHAR},  <!-- 广告名称 -->
+		    #{ad_link, jdbcType=VARCHAR},  <!-- 链接地址 -->
+		    #{ad_code, jdbcType=VARCHAR},  <!-- 图片地址 -->
+		    #{start_time, jdbcType=VARCHAR},  <!-- 投放时间 -->
+		    #{end_time, jdbcType=VARCHAR},  <!-- 结束时间 -->
+		    #{link_man, jdbcType=VARCHAR},  <!-- 添加人 -->
+		    #{link_email, jdbcType=VARCHAR},  <!-- 添加人邮箱 -->
+		    #{link_phone, jdbcType=VARCHAR},  <!-- 添加人联系电话 -->
+		    #{click_count, jdbcType=INTEGER},  <!-- 点击量 -->
+		    #{enabled, jdbcType=INTEGER},  <!-- 是否显示 -->
+		    #{orderby, jdbcType=INTEGER},  <!-- 排序 -->
+		    #{target, jdbcType=INTEGER},  <!-- 是否开启浏览器新窗口 -->
+		    #{bgcolor, jdbcType=VARCHAR}  <!-- 背景颜色 -->
+		)
+	</insert>
+
+	<!-- 根据主键修改数据持久化对象 -->
+	<update id="updateByKey" parameterType="ZjcAdPO">
+		UPDATE zjc_ad
+		<set>
+			<if test="ad_id != null">
+		          ad_id = #{ad_id, jdbcType=INTEGER},  <!-- 广告id -->
+			</if>
+			<if test="pid != null">
+		          pid = #{pid, jdbcType=INTEGER},  <!-- 广告位置ID -->
+			</if>
+			<if test="jump_type != null">
+		          jump_type = #{jump_type, jdbcType=INTEGER},  <!-- 跳转方式 0不跳转 1商品详情 2跳转文章详情 3跳转链接 -->
+			</if>
+			<if test="relation_id != null">
+		          relation_id = #{relation_id, jdbcType=INTEGER},  <!-- 关联ID -->
+			</if>
+			<if test="ad_name != null">
+		          ad_name = #{ad_name, jdbcType=VARCHAR},  <!-- 广告名称 -->
+			</if>
+			<if test="ad_link != null">
+		          ad_link = #{ad_link, jdbcType=VARCHAR},  <!-- 链接地址 -->
+			</if>
+			<if test="ad_code != null">
+		          ad_code = #{ad_code, jdbcType=VARCHAR},  <!-- 图片地址 -->
+			</if>
+			<if test="start_time != null">
+		          start_time = #{start_time, jdbcType=VARCHAR},  <!-- 投放时间 -->
+			</if>
+			<if test="end_time != null">
+		          end_time = #{end_time, jdbcType=VARCHAR},  <!-- 结束时间 -->
+			</if>
+			<if test="link_man != null">
+		          link_man = #{link_man, jdbcType=VARCHAR},  <!-- 添加人 -->
+			</if>
+			<if test="link_email != null">
+		          link_email = #{link_email, jdbcType=VARCHAR},  <!-- 添加人邮箱 -->
+			</if>
+			<if test="link_phone != null">
+		          link_phone = #{link_phone, jdbcType=VARCHAR},  <!-- 添加人联系电话 -->
+			</if>
+			<if test="click_count != null">
+		          click_count = #{click_count, jdbcType=INTEGER},  <!-- 点击量 -->
+			</if>
+			<if test="enabled != null">
+		          enabled = #{enabled, jdbcType=INTEGER},  <!-- 是否显示 -->
+			</if>
+			<if test="orderby != null">
+		          orderby = #{orderby, jdbcType=INTEGER},  <!-- 排序 -->
+			</if>
+			<if test="target != null">
+		          target = #{target, jdbcType=INTEGER},  <!-- 是否开启浏览器新窗口 -->
+			</if>
+			<if test="bgcolor != null">
+		          bgcolor = #{bgcolor, jdbcType=VARCHAR},  <!-- 背景颜色 -->
+			</if>
+		</set>
+		WHERE  ad_id = #{ad_id}
+	</update>
+	
+	<!-- 根据主键删除数据持久化对象 -->
+	<delete id="deleteByKey">
+		DELETE FROM zjc_ad WHERE  ad_id = #{ad_id}
+	</delete>
+
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="selectByKey" resultType="ZjcAdPO">
+		SELECT
+		<include refid="column" />
+		FROM zjc_ad WHERE  ad_id = #{ad_id}
+	</select>
+
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="selectOne" parameterType="Dto" resultType="ZjcAdPO">
+		SELECT
+		    <include refid="column" />
+		FROM zjc_ad
+		<where>
+		    <include refid="equal" />
+		</where>		
+	</select>
+
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="list" parameterType="Dto" resultType="ZjcAdPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_ad
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="list1" parameterType="Dto" resultType="Dto">
+		SELECT
+			*	
+		FROM zjc_ad
+		where enabled = 1
+		order by orderby , 	ad_id desc
+	</select>
+	
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="listStartDiag" parameterType="Dto" resultType="Dto">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_ad
+		where start_time &lt; NOW() and end_time &gt; NOW() and jump_type = 6
+		order by orderby , ad_id desc
+	</select>
+
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listPage" parameterType="Dto" resultType="ZjcAdPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_ad
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto模糊查询并返回数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="like" parameterType="Dto" resultType="ZjcAdPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_ad
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto模糊查询并返回分页数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="likePage" parameterType="Dto" resultType="ZjcAdPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_ad
+		<where>
+		    <include refid="like" />
+		</where>
+		order by ad_id desc	
+	</select>
+	
+	<!-- 根据Dto统计行数 -->
+	<select id="rows" resultType="Integer" parameterType="Dto">
+		SELECT COUNT(1) AS aos_rows_ FROM zjc_ad
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 根据数学表达式进行数学运算 -->
+	<select id="calc" parameterType="Dto" resultType="String">
+		SELECT
+			${_expr}
+		FROM zjc_ad
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 表字段 -->
+	<sql id="column">
+		  ad_id,  <!-- 广告id -->
+		  pid,  <!-- 广告位置ID -->
+		  jump_type,  <!-- 跳转方式 0不跳转 1商品详情 2跳转文章详情 3跳转链接 -->
+		  relation_id,  <!-- 关联ID -->
+		  ad_name,  <!-- 广告名称 -->
+		  ad_link,  <!-- 链接地址 -->
+		  ad_code,  <!-- 图片地址 -->
+		  start_time,  <!-- 投放时间 -->
+		  end_time,  <!-- 结束时间 -->
+		  link_man,  <!-- 添加人 -->
+		  link_email,  <!-- 添加人邮箱 -->
+		  link_phone,  <!-- 添加人联系电话 -->
+		  click_count,  <!-- 点击量 -->
+		  enabled,  <!-- 是否显示 -->
+		  orderby,  <!-- 排序 -->
+		  target,  <!-- 是否开启浏览器新窗口 -->
+		  bgcolor  <!-- 背景颜色 -->
+	</sql>
+	
+	<!-- 表字段(用于外表的关联时引用) -->
+	<sql id="column2">
+		  zjc_ad.ad_id,  <!-- 广告id -->
+		  zjc_ad.pid,  <!-- 广告位置ID -->
+		  zjc_ad.jump_type,  <!-- 跳转方式 0不跳转 1商品详情 2跳转文章详情 3跳转链接 -->
+		  zjc_ad.relation_id,  <!-- 关联ID -->
+		  zjc_ad.ad_name,  <!-- 广告名称 -->
+		  zjc_ad.ad_link,  <!-- 链接地址 -->
+		  zjc_ad.ad_code,  <!-- 图片地址 -->
+		  zjc_ad.start_time,  <!-- 投放时间 -->
+		  zjc_ad.end_time,  <!-- 结束时间 -->
+		  zjc_ad.link_man,  <!-- 添加人 -->
+		  zjc_ad.link_email,  <!-- 添加人邮箱 -->
+		  zjc_ad.link_phone,  <!-- 添加人联系电话 -->
+		  zjc_ad.click_count,  <!-- 点击量 -->
+		  zjc_ad.enabled,  <!-- 是否显示 -->
+		  zjc_ad.orderby,  <!-- 排序 -->
+		  zjc_ad.target,  <!-- 是否开启浏览器新窗口 -->
+		  zjc_ad.bgcolor  <!-- 背景颜色 -->
+	</sql>
+
+	<!-- Where精确匹配字段 -->
+	<sql id="equal">
+	   <if test="ad_id != null ">
+		      AND ad_id = #{ad_id}  <!-- 广告id -->
+		</if>
+	   <if test="pid != null ">
+		      AND pid = #{pid}  <!-- 广告位置ID -->
+		</if>
+	   <if test="jump_type != null ">
+		      AND jump_type = #{jump_type}  <!-- 跳转方式 0不跳转 1商品详情 2跳转文章详情 3跳转链接 -->
+		</if>
+	   <if test="relation_id != null ">
+		      AND relation_id = #{relation_id}  <!-- 关联ID -->
+		</if>
+	    <if test="ad_name != null and ad_name != ''">
+		      AND ad_name = #{ad_name}  <!-- 广告名称 -->
+		</if>
+	    <if test="ad_link != null and ad_link != ''">
+		      AND ad_link = #{ad_link}  <!-- 链接地址 -->
+		</if>
+	    <if test="ad_code != null and ad_code != ''">
+		      AND ad_code = #{ad_code}  <!-- 图片地址 -->
+		</if>
+	   <if test="start_time != null ">
+		      AND start_time = #{start_time}  <!-- 投放时间 -->
+		</if>
+	   <if test="end_time != null ">
+		      AND end_time = #{end_time}  <!-- 结束时间 -->
+		</if>
+	    <if test="link_man != null and link_man != ''">
+		      AND link_man = #{link_man}  <!-- 添加人 -->
+		</if>
+	    <if test="link_email != null and link_email != ''">
+		      AND link_email = #{link_email}  <!-- 添加人邮箱 -->
+		</if>
+	    <if test="link_phone != null and link_phone != ''">
+		      AND link_phone = #{link_phone}  <!-- 添加人联系电话 -->
+		</if>
+	   <if test="click_count != null ">
+		      AND click_count = #{click_count}  <!-- 点击量 -->
+		</if>
+	   <if test="enabled != null ">
+		      AND enabled = #{enabled}  <!-- 是否显示 -->
+		</if>
+	   <if test="orderby != null ">
+		      AND orderby = #{orderby}  <!-- 排序 -->
+		</if>
+	   <if test="target != null ">
+		      AND target = #{target}  <!-- 是否开启浏览器新窗口 -->
+		</if>
+	    <if test="bgcolor != null and bgcolor != ''">
+		      AND bgcolor = #{bgcolor}  <!-- 背景颜色 -->
+		</if>
+	</sql>
+	
+	<!-- Where模糊匹配字段 -->
+	<sql id="like">
+	    <if test="ad_name != null and ad_name != ''">
+		      AND ad_name like '${ad_name}%'  <!-- 广告名称 -->
+		</if>
+	    <if test="ad_link != null and ad_link != ''">
+		      AND ad_link like '${ad_link}%'  <!-- 链接地址 -->
+		</if>
+	    <if test="ad_code != null and ad_code != ''">
+		      AND ad_code like '${ad_code}%'  <!-- 图片地址 -->
+		</if>
+	    <if test="link_man != null and link_man != ''">
+		      AND link_man like '${link_man}%'  <!-- 添加人 -->
+		</if>
+	    <if test="link_email != null and link_email != ''">
+		      AND link_email like '${link_email}%'  <!-- 添加人邮箱 -->
+		</if>
+	    <if test="link_phone != null and link_phone != ''">
+		      AND link_phone like '${link_phone}%'  <!-- 添加人联系电话 -->
+		</if>
+	    <if test="bgcolor != null and bgcolor != ''">
+		      AND bgcolor like '${bgcolor}%'  <!-- 背景颜色 -->
+		</if>
+	</sql>
+	
+	<!-- 列表查询 -->
+	<select id="listAdPage" parameterType="Dto" resultType="Dto">
+		select *
+		from zjc_ad t1 left join zjc_ad_position t2 on t1.pid = t2.position_id 
+		<where>
+			<if test="ad_name != null and ad_name != ''">
+			and ad_name like '%${ad_name}%'
+			</if>
+		</where>
+	</select>
+</mapper>

@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- zjc_lottery_draw[zjc_lottery_draw]SQL自动映射 -->
+<!--  注意:此文件由AOS平台自动生成-禁止手工修改 2018-01-09 14:21:39 -->
+<mapper namespace="com.zjc.prize.dao.ZjcLotteryDrawDao">
+	
+	<!-- 插入一个数据持久化对象(插入字段为传入PO实体的非空属性) -->
+	<insert id="insert" useGeneratedKeys="true" keyProperty="lottery_draw_id" parameterType="ZjcLotteryDrawPO">
+		INSERT INTO zjc_lottery_draw (
+		<if test="lottery_number != null">
+	         lottery_number, <!-- 剩余抽奖次数 -->
+		</if>
+		<if test="user_id != null and user_id != ''">
+	         user_id, <!-- 会员id号 -->
+		</if>
+		<if test="open_id != null and open_id != ''">
+	         open_id, <!-- 微信openid -->
+		</if>
+	          lottery_draw_id
+		)VALUES(
+		<if test="lottery_number != null">
+	          #{lottery_number, jdbcType=INTEGER}, <!-- 剩余抽奖次数 -->
+	    </if>
+		<if test="user_id != null and user_id != ''">
+	          #{user_id, jdbcType=VARCHAR}, <!-- 会员id号 -->
+	    </if>
+		<if test="open_id != null and open_id != ''">
+	          #{open_id, jdbcType=VARCHAR}, <!-- 微信openid -->
+	    </if>
+	          null
+		)
+	</insert>
+	
+	<!-- 插入一个数据持久化对象(含所有字段) -->
+	<insert id="insertAll" useGeneratedKeys="true" keyProperty="lottery_draw_id" parameterType="ZjcLotteryDrawPO">
+		INSERT INTO zjc_lottery_draw (
+		    <include refid="column" />
+		)
+		VALUES (
+		    #{lottery_draw_id, jdbcType=INTEGER},  <!-- 抽奖表id -->
+		    #{lottery_number, jdbcType=INTEGER},  <!-- 剩余抽奖次数 -->
+		    #{user_id, jdbcType=VARCHAR},  <!-- 会员id号 -->
+		    #{open_id, jdbcType=VARCHAR}  <!-- 微信openid -->
+		)
+	</insert>
+
+	<!-- 根据主键修改数据持久化对象 -->
+	<update id="updateByKey" parameterType="ZjcLotteryDrawPO">
+		UPDATE zjc_lottery_draw
+		<set>
+			<if test="lottery_draw_id != null">
+		          lottery_draw_id = #{lottery_draw_id, jdbcType=INTEGER},  <!-- 抽奖表id -->
+			</if>
+			<if test="lottery_number != null">
+		          lottery_number = #{lottery_number, jdbcType=INTEGER},  <!-- 剩余抽奖次数 -->
+			</if>
+			<if test="user_id != null">
+		          user_id = #{user_id, jdbcType=VARCHAR},  <!-- 会员id号 -->
+			</if>
+			<if test="open_id != null">
+		          open_id = #{open_id, jdbcType=VARCHAR},  <!-- 微信openid -->
+			</if>
+		</set>
+		WHERE  lottery_draw_id = #{lottery_draw_id}
+	</update>
+	
+	<!-- 根据主键删除数据持久化对象 -->
+	<delete id="deleteByKey">
+		DELETE FROM zjc_lottery_draw WHERE  lottery_draw_id = #{lottery_draw_id}
+	</delete>
+
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="selectByKey" resultType="ZjcLotteryDrawPO">
+		SELECT
+		<include refid="column" />
+		FROM zjc_lottery_draw WHERE  lottery_draw_id = #{lottery_draw_id}
+	</select>
+
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="selectOne" parameterType="Dto" resultType="ZjcLotteryDrawPO">
+		SELECT
+		    <include refid="column" />
+		FROM zjc_lottery_draw
+		<where>
+		    <include refid="equal" />
+		</where>		
+	</select>
+
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="list" parameterType="Dto" resultType="ZjcLotteryDrawPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_lottery_draw
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listPage" parameterType="Dto" resultType="ZjcLotteryDrawPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_lottery_draw
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto模糊查询并返回数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="like" parameterType="Dto" resultType="ZjcLotteryDrawPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_lottery_draw
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto模糊查询并返回分页数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="likePage" parameterType="Dto" resultType="ZjcLotteryDrawPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_lottery_draw
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto统计行数 -->
+	<select id="rows" resultType="Integer" parameterType="Dto">
+		SELECT COUNT(1) AS aos_rows_ FROM zjc_lottery_draw
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 根据数学表达式进行数学运算 -->
+	<select id="calc" parameterType="Dto" resultType="String">
+		SELECT
+			${_expr}
+		FROM zjc_lottery_draw
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 表字段 -->
+	<sql id="column">
+		  lottery_draw_id,  <!-- 抽奖表id -->
+		  lottery_number,  <!-- 剩余抽奖次数 -->
+		  user_id,  <!-- 会员id号 -->
+		  open_id  <!-- 微信openid -->
+	</sql>
+	
+	<!-- 表字段(用于外表的关联时引用) -->
+	<sql id="column2">
+		  zjc_lottery_draw.lottery_draw_id,  <!-- 抽奖表id -->
+		  zjc_lottery_draw.lottery_number,  <!-- 剩余抽奖次数 -->
+		  zjc_lottery_draw.user_id,  <!-- 会员id号 -->
+		  zjc_lottery_draw.open_id  <!-- 微信openid -->
+	</sql>
+
+	<!-- Where精确匹配字段 -->
+	<sql id="equal">
+	   <if test="lottery_draw_id != null ">
+		      AND lottery_draw_id = #{lottery_draw_id}  <!-- 抽奖表id -->
+		</if>
+	   <if test="lottery_number != null ">
+		      AND lottery_number = #{lottery_number}  <!-- 剩余抽奖次数 -->
+		</if>
+	    <if test="user_id != null and user_id != ''">
+		      AND user_id = #{user_id}  <!-- 会员id号 -->
+		</if>
+	    <if test="open_id != null and open_id != ''">
+		      AND open_id = #{open_id}  <!-- 微信openid -->
+		</if>
+	</sql>
+	
+	<!-- Where模糊匹配字段 -->
+	<sql id="like">
+	    <if test="user_id != null and user_id != ''">
+		      AND user_id like '${user_id}%'  <!-- 会员id号 -->
+		</if>
+	    <if test="open_id != null and open_id != ''">
+		      AND open_id like '${open_id}%'  <!-- 微信openid -->
+		</if>
+	</sql>
+	
+</mapper>

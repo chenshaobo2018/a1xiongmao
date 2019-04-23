@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- zjc_region[zjc_region]SQL自动映射 -->
+<!--  注意:此文件由AOS平台自动生成-禁止手工修改 2017-05-10 15:13:48 -->
+<mapper namespace="com.zjc.region.dao.ZjcRegionDao">
+	
+	<!-- 插入一个数据持久化对象(插入字段为传入PO实体的非空属性) -->
+	<insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="ZjcRegionPO">
+		INSERT INTO zjc_region (
+		<if test="name != null and name != ''">
+	         name, <!-- 地区名称 -->
+		</if>
+		<if test="parent_id != null">
+	         parent_id, <!-- 地区父ID -->
+		</if>
+		<if test="area_sort != null">
+	         area_sort, <!-- 排序 -->
+		</if>
+		<if test="level != null">
+	         level, <!-- 地区深度，从1开始 -->
+		</if>
+	          id
+		)VALUES(
+		<if test="name != null and name != ''">
+	          #{name, jdbcType=VARCHAR}, <!-- 地区名称 -->
+	    </if>
+		<if test="parent_id != null">
+	          #{parent_id, jdbcType=INTEGER}, <!-- 地区父ID -->
+	    </if>
+		<if test="area_sort != null">
+	          #{area_sort, jdbcType=INTEGER}, <!-- 排序 -->
+	    </if>
+		<if test="level != null">
+	          #{level, jdbcType=INTEGER}, <!-- 地区深度，从1开始 -->
+	    </if>
+	          null
+		)
+	</insert>
+	
+	<!-- 插入一个数据持久化对象(含所有字段) -->
+	<insert id="insertAll" useGeneratedKeys="true" keyProperty="id" parameterType="ZjcRegionPO">
+		INSERT INTO zjc_region (
+		    <include refid="column" />
+		)
+		VALUES (
+		    #{id, jdbcType=INTEGER},  <!-- 索引ID -->
+		    #{name, jdbcType=VARCHAR},  <!-- 地区名称 -->
+		    #{parent_id, jdbcType=INTEGER},  <!-- 地区父ID -->
+		    #{area_sort, jdbcType=INTEGER},  <!-- 排序 -->
+		    #{level, jdbcType=INTEGER}  <!-- 地区深度，从1开始 -->
+		)
+	</insert>
+
+	<!-- 根据主键修改数据持久化对象 -->
+	<update id="updateByKey" parameterType="ZjcRegionPO">
+		UPDATE zjc_region
+		<set>
+			<if test="id != null">
+		          id = #{id, jdbcType=INTEGER},  <!-- 索引ID -->
+			</if>
+			<if test="name != null">
+		          name = #{name, jdbcType=VARCHAR},  <!-- 地区名称 -->
+			</if>
+			<if test="parent_id != null">
+		          parent_id = #{parent_id, jdbcType=INTEGER},  <!-- 地区父ID -->
+			</if>
+			<if test="area_sort != null">
+		          area_sort = #{area_sort, jdbcType=INTEGER},  <!-- 排序 -->
+			</if>
+			<if test="level != null">
+		          level = #{level, jdbcType=INTEGER},  <!-- 地区深度，从1开始 -->
+			</if>
+		</set>
+		WHERE  id = #{id}
+	</update>
+	
+	<!-- 根据主键删除数据持久化对象 -->
+	<delete id="deleteByKey">
+		DELETE FROM zjc_region WHERE  id = #{id}
+	</delete>
+
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="selectByKey" resultType="ZjcRegionPO">
+		SELECT
+		<include refid="column" />
+		FROM zjc_region WHERE  id = #{id}
+	</select>
+
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="selectOne" parameterType="Dto" resultType="ZjcRegionPO">
+		SELECT
+		    <include refid="column" />
+		FROM zjc_region
+		<where>
+		    <include refid="equal" />
+		</where>		
+	</select>
+
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="list" parameterType="Dto" resultType="ZjcRegionPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_region
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listPage" parameterType="Dto" resultType="ZjcRegionPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_region
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto模糊查询并返回数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="like" parameterType="Dto" resultType="ZjcRegionPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_region
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto模糊查询并返回分页数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="likePage" parameterType="Dto" resultType="ZjcRegionPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_region
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto统计行数 -->
+	<select id="rows" resultType="Integer" parameterType="Dto">
+		SELECT COUNT(1) AS aos_rows_ FROM zjc_region
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 根据数学表达式进行数学运算 -->
+	<select id="calc" parameterType="Dto" resultType="String">
+		SELECT
+			${_expr}
+		FROM zjc_region
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 根据地区ID查询并返回数据持久化对象集合 -->
+	<select id="getProvince" resultType="Dto">
+		SELECT
+			id AS value, name AS display	
+		FROM zjc_region  WHERE parent_id = 0
+	</select>
+	
+	<!-- 根据地区父ID查询并返回数据持久化对象集合 -->
+	<select id="getAddr" resultType="Dto">
+		SELECT
+			id AS value, name AS display
+		FROM zjc_region 
+		<where>
+			<if test="parent_id != null ">
+				parent_id = #{parent_id}  <!-- 地区父ID -->
+			</if>
+		</where>	
+	</select>
+	
+	<!-- 表字段 -->
+	<sql id="column">
+		  id,  <!-- 索引ID -->
+		  name,  <!-- 地区名称 -->
+		  parent_id,  <!-- 地区父ID -->
+		  area_sort,  <!-- 排序 -->
+		  level  <!-- 地区深度，从1开始 -->
+	</sql>
+	
+	<!-- 表字段(用于外表的关联时引用) -->
+	<sql id="column2">
+		  zjc_region.id,  <!-- 索引ID -->
+		  zjc_region.name,  <!-- 地区名称 -->
+		  zjc_region.parent_id,  <!-- 地区父ID -->
+		  zjc_region.area_sort,  <!-- 排序 -->
+		  zjc_region.level  <!-- 地区深度，从1开始 -->
+	</sql>
+
+	<!-- Where精确匹配字段 -->
+	<sql id="equal">
+	   <if test="id != null ">
+		      AND id = #{id}  <!-- 索引ID -->
+		</if>
+	    <if test="name != null and name != ''">
+		      AND name = #{name}  <!-- 地区名称 -->
+		</if>
+	   <if test="parent_id != null ">
+		      AND parent_id = #{parent_id}  <!-- 地区父ID -->
+		</if>
+	   <if test="area_sort != null ">
+		      AND area_sort = #{area_sort}  <!-- 排序 -->
+		</if>
+	   <if test="level != null ">
+		      AND level = #{level}  <!-- 地区深度，从1开始 -->
+		</if>
+	</sql>
+	
+	<!-- Where模糊匹配字段 -->
+	<sql id="like">
+	    <if test="name != null and name != ''">
+		      AND name like '${name}%'  <!-- 地区名称 -->
+		</if>
+	</sql>
+	
+</mapper>

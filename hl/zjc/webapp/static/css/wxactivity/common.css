@@ -1,0 +1,15 @@
+*,div,p,ul,li,table,tr,td,a,span,img,label,input,button{margin:0;padding:0;}  
+html,body{height: 100%;width: 100%;margin:0;padding:0;font-size:62.5%;font-family:'Microsoft YaHei','微软雅黑';}
+a{text-decoration: none;color: #333;}
+ul li{list-style: none;}
+.fl{float:left;}
+.fr{float:right;}
+.clear{clear:both;}
+/* clear */
+.clearfix:before,.clearfix:after {display: table;content: " ";}
+.clearfix:after {clear: both;}
+.clearfix{*zoom: 1;} 
+.bold{font-weight:bold;}
+.colorde1a00{color:#de1a00;}
+.center{text-align:center;}
+input[type=button], input[type=submit], input[type=file], button { cursor: pointer; -webkit-appearance: none; } 

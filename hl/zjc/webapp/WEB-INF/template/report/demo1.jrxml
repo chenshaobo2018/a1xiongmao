@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.0.final using JasperReports Library version 6.4.1  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="demo1" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="93b726b1-5fa6-4478-aa56-b51fbc462441">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="test"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT user_id, time, type, descs
+FROM zjc_user_log where user_id = 10025]]>
+	</queryString>
+	<field name="user_id" class="java.math.BigInteger"/>
+	<field name="time" class="java.sql.Timestamp"/>
+	<field name="type" class="java.lang.String"/>
+	<field name="descs" class="java.lang.String"/>
+	<group name="type">
+		<groupExpression><![CDATA[$F{type}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="190" y="10" width="180" height="59" uuid="ecc667a3-ca69-49d9-8a46-5f89564e4729"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="41" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DEMO1]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement stretchType="RelativeToTallestObject" x="0" y="10" width="100" height="30" forecolor="#E06360" backcolor="#0F0706" uuid="d69fda36-d52e-4f04-a212-deb517e4bb87"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[用户ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="" positionType="Float" x="120" y="10" width="100" height="30" uuid="90565cb7-dfc4-4535-bc58-9b20624ce298"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[操作时间]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="250" y="10" width="100" height="30" uuid="6eae02a7-c765-4e74-899e-15e19ed29cac"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[操作类型]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="380" y="10" width="180" height="30" uuid="4601ef7f-82d4-413d-b352-397539b7d32a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[操作描述]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="20" width="100" height="30" uuid="3cbd43f8-c993-4824-af17-e9e7a72ca8f8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{user_id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="120" y="20" width="100" height="30" uuid="3cef7f68-eadb-4be5-adc6-c797f76c56c3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{time}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="240" y="20" width="100" height="30" uuid="1ee341d9-7eb6-471f-a9ce-a0342090e84f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{type}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="380" y="20" width="190" height="30" uuid="187d0375-ad76-4577-b82d-07e9241bc10d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{descs}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

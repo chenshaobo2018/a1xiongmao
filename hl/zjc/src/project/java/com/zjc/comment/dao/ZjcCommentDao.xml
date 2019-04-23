@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- zjc_comment[zjc_comment]SQL自动映射 -->
+<!--  注意:此文件由AOS平台自动生成-禁止手工修改 2017-05-31 09:46:01 -->
+<mapper namespace="com.zjc.comment.dao.ZjcCommentDao">
+	
+	<!-- 插入一个数据持久化对象(插入字段为传入PO实体的非空属性) -->
+	<insert id="insert" useGeneratedKeys="true" keyProperty="comment_id" parameterType="ZjcCommentPO">
+		INSERT INTO zjc_comment (
+		<if test="goods_id != null">
+	         goods_id, <!-- 商品id -->
+		</if>
+		<if test="email != null and email != ''">
+	         email, <!-- email邮箱 -->
+		</if>
+		<if test="username != null and username != ''">
+	         username, <!-- 用户名 -->
+		</if>
+		<if test="content != null and content != ''">
+	         content, <!-- 评论内容 -->
+		</if>
+		<if test="deliver_rank != null">
+	         deliver_rank, <!-- 物流评价等级 -->
+		</if>
+		<if test="add_time != null">
+	         add_time, <!-- 添加时间 -->
+		</if>
+		<if test="ip_address != null and ip_address != ''">
+	         ip_address, <!-- ip地址 -->
+		</if>
+		<if test="is_show != null">
+	         is_show, <!-- 是否显示 -->
+		</if>
+		<if test="parent_id != null">
+	         parent_id, <!-- 父id -->
+		</if>
+		<if test="user_id != null">
+	         user_id, <!-- 评论用户 -->
+		</if>
+		<if test="img != null and img != ''">
+	         img, <!-- 晒单图片 -->
+		</if>
+		<if test="order_id != null">
+	         order_id, <!-- 订单id -->
+		</if>
+		<if test="goods_rank != null">
+	         goods_rank, <!-- 商品评价等级 -->
+		</if>
+		<if test="service_rank != null">
+	         service_rank, <!-- 商家服务态度评价等级 -->
+		</if>
+		<if test="again_content != null and again_content != ''">
+	         again_content, <!-- again_content -->
+		</if>
+		<if test="logistics_rank != null">
+	         logistics_rank, <!-- 物流评价等级 -->
+		</if>
+		<if test="quality_rank != null">
+	         quality_rank, <!-- 产品质量等级 -->
+		</if>
+		<if test="again_time != null">
+	         again_time, <!-- 追加评论时间 -->
+		</if>
+	          comment_id
+		)VALUES(
+		<if test="goods_id != null">
+	          #{goods_id, jdbcType=INTEGER}, <!-- 商品id -->
+	    </if>
+		<if test="email != null and email != ''">
+	          #{email, jdbcType=VARCHAR}, <!-- email邮箱 -->
+	    </if>
+		<if test="username != null and username != ''">
+	          #{username, jdbcType=VARCHAR}, <!-- 用户名 -->
+	    </if>
+		<if test="content != null and content != ''">
+	          #{content, jdbcType=VARCHAR}, <!-- 评论内容 -->
+	    </if>
+		<if test="deliver_rank != null">
+	          #{deliver_rank, jdbcType=INTEGER}, <!-- 物流评价等级 -->
+	    </if>
+		<if test="add_time != null">
+	          #{add_time, jdbcType=VARCHAR}, <!-- 添加时间 -->
+	    </if>
+		<if test="ip_address != null and ip_address != ''">
+	          #{ip_address, jdbcType=VARCHAR}, <!-- ip地址 -->
+	    </if>
+		<if test="is_show != null">
+	          #{is_show, jdbcType=INTEGER}, <!-- 是否显示 -->
+	    </if>
+		<if test="parent_id != null">
+	          #{parent_id, jdbcType=INTEGER}, <!-- 父id -->
+	    </if>
+		<if test="user_id != null">
+	          #{user_id, jdbcType=INTEGER}, <!-- 评论用户 -->
+	    </if>
+		<if test="img != null and img != ''">
+	          #{img, jdbcType=VARCHAR}, <!-- 晒单图片 -->
+	    </if>
+		<if test="order_id != null">
+	          #{order_id, jdbcType=INTEGER}, <!-- 订单id -->
+	    </if>
+		<if test="goods_rank != null">
+	          #{goods_rank, jdbcType=INTEGER}, <!-- 商品评价等级 -->
+	    </if>
+		<if test="service_rank != null">
+	          #{service_rank, jdbcType=INTEGER}, <!-- 商家服务态度评价等级 -->
+	    </if>
+		<if test="again_content != null and again_content != ''">
+	          #{again_content, jdbcType=VARCHAR}, <!-- again_content -->
+	    </if>
+		<if test="logistics_rank != null">
+	          #{logistics_rank, jdbcType=INTEGER}, <!-- 物流评价等级 -->
+	    </if>
+		<if test="quality_rank != null">
+	          #{quality_rank, jdbcType=INTEGER}, <!-- 产品质量等级 -->
+	    </if>
+		<if test="again_time != null">
+	          #{again_time, jdbcType=VARCHAR}, <!-- 追加评论时间 -->
+	    </if>
+	          null
+		)
+	</insert>
+	
+	<!-- 插入一个数据持久化对象(含所有字段) -->
+	<insert id="insertAll" useGeneratedKeys="true" keyProperty="comment_id" parameterType="ZjcCommentPO">
+		INSERT INTO zjc_comment (
+		    <include refid="column" />
+		)
+		VALUES (
+		    #{comment_id, jdbcType=INTEGER},  <!-- 评论id -->
+		    #{goods_id, jdbcType=INTEGER},  <!-- 商品id -->
+		    #{email, jdbcType=VARCHAR},  <!-- email邮箱 -->
+		    #{username, jdbcType=VARCHAR},  <!-- 用户名 -->
+		    #{content, jdbcType=VARCHAR},  <!-- 评论内容 -->
+		    #{deliver_rank, jdbcType=INTEGER},  <!-- 物流评价等级 -->
+		    #{add_time, jdbcType=VARCHAR},  <!-- 添加时间 -->
+		    #{ip_address, jdbcType=VARCHAR},  <!-- ip地址 -->
+		    #{is_show, jdbcType=INTEGER},  <!-- 是否显示 -->
+		    #{parent_id, jdbcType=INTEGER},  <!-- 父id -->
+		    #{user_id, jdbcType=INTEGER},  <!-- 评论用户 -->
+		    #{img, jdbcType=VARCHAR},  <!-- 晒单图片 -->
+		    #{order_id, jdbcType=INTEGER},  <!-- 订单id -->
+		    #{goods_rank, jdbcType=INTEGER},  <!-- 商品评价等级 -->
+		    #{service_rank, jdbcType=INTEGER},  <!-- 商家服务态度评价等级 -->
+		    #{again_content, jdbcType=VARCHAR},  <!-- again_content -->
+		    #{logistics_rank, jdbcType=INTEGER},  <!-- 物流评价等级 -->
+		    #{quality_rank, jdbcType=INTEGER},  <!-- 产品质量等级 -->
+		    #{again_time, jdbcType=VARCHAR}  <!-- 追加评论时间 -->
+		)
+	</insert>
+
+	<!-- 根据主键修改数据持久化对象 -->
+	<update id="updateByKey" parameterType="ZjcCommentPO">
+		UPDATE zjc_comment
+		<set>
+			<if test="comment_id != null">
+		          comment_id = #{comment_id, jdbcType=INTEGER},  <!-- 评论id -->
+			</if>
+			<if test="goods_id != null">
+		          goods_id = #{goods_id, jdbcType=INTEGER},  <!-- 商品id -->
+			</if>
+			<if test="email != null">
+		          email = #{email, jdbcType=VARCHAR},  <!-- email邮箱 -->
+			</if>
+			<if test="username != null">
+		          username = #{username, jdbcType=VARCHAR},  <!-- 用户名 -->
+			</if>
+			<if test="content != null">
+		          content = #{content, jdbcType=VARCHAR},  <!-- 评论内容 -->
+			</if>
+			<if test="deliver_rank != null">
+		          deliver_rank = #{deliver_rank, jdbcType=INTEGER},  <!-- 物流评价等级 -->
+			</if>
+			<if test="add_time != null">
+		          add_time = #{add_time, jdbcType=VARCHAR},  <!-- 添加时间 -->
+			</if>
+			<if test="ip_address != null">
+		          ip_address = #{ip_address, jdbcType=VARCHAR},  <!-- ip地址 -->
+			</if>
+			<if test="is_show != null">
+		          is_show = #{is_show, jdbcType=INTEGER},  <!-- 是否显示 -->
+			</if>
+			<if test="parent_id != null">
+		          parent_id = #{parent_id, jdbcType=INTEGER},  <!-- 父id -->
+			</if>
+			<if test="user_id != null">
+		          user_id = #{user_id, jdbcType=INTEGER},  <!-- 评论用户 -->
+			</if>
+			<if test="img != null">
+		          img = #{img, jdbcType=VARCHAR},  <!-- 晒单图片 -->
+			</if>
+			<if test="order_id != null">
+		          order_id = #{order_id, jdbcType=INTEGER},  <!-- 订单id -->
+			</if>
+			<if test="goods_rank != null">
+		          goods_rank = #{goods_rank, jdbcType=INTEGER},  <!-- 商品评价等级 -->
+			</if>
+			<if test="service_rank != null">
+		          service_rank = #{service_rank, jdbcType=INTEGER},  <!-- 商家服务态度评价等级 -->
+			</if>
+			<if test="again_content != null">
+		          again_content = #{again_content, jdbcType=VARCHAR},  <!-- again_content -->
+			</if>
+			<if test="logistics_rank != null">
+		          logistics_rank = #{logistics_rank, jdbcType=INTEGER},  <!-- 物流评价等级 -->
+			</if>
+			<if test="quality_rank != null">
+		          quality_rank = #{quality_rank, jdbcType=INTEGER},  <!-- 产品质量等级 -->
+			</if>
+			<if test="again_time != null">
+		          again_time = #{again_time, jdbcType=VARCHAR},  <!-- 追加评论时间 -->
+			</if>
+		</set>
+		WHERE  comment_id = #{comment_id}
+	</update>
+	
+	<!-- 根据主键删除数据持久化对象 -->
+	<delete id="deleteByKey">
+		DELETE FROM zjc_comment WHERE  comment_id = #{comment_id}
+	</delete>
+
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="selectByKey" resultType="ZjcCommentPO">
+		SELECT
+		<include refid="column" />
+		FROM zjc_comment WHERE  comment_id = #{comment_id} 
+	</select>
+
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="selectOne" parameterType="Dto" resultType="ZjcCommentPO">
+		SELECT
+		    <include refid="column" />
+		FROM zjc_comment
+		<where>
+		    <include refid="equal" />
+		</where>		
+	</select>
+
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="list" parameterType="Dto" resultType="ZjcCommentPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_comment
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listPage" parameterType="Dto" resultType="ZjcCommentPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_comment
+		<where>
+		    <include refid="equal" />
+		</where>
+		order by add_time desc	
+	</select>
+	
+	<!-- 根据Dto模糊查询并返回数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="like" parameterType="Dto" resultType="ZjcCommentPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_comment
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto模糊查询并返回分页数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="likePage" parameterType="Dto" resultType="ZjcCommentPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_comment
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto统计行数 -->
+	<select id="rows" resultType="Integer" parameterType="Dto">
+		SELECT COUNT(1) AS aos_rows_ FROM zjc_comment
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 根据数学表达式进行数学运算 -->
+	<select id="calc" parameterType="Dto" resultType="String">
+		SELECT
+			${_expr}
+		FROM zjc_comment
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 表字段 -->
+	<sql id="column">
+		  comment_id,  <!-- 评论id -->
+		  goods_id,  <!-- 商品id -->
+		  email,  <!-- email邮箱 -->
+		  username,  <!-- 用户名 -->
+		  content,  <!-- 评论内容 -->
+		  deliver_rank,  <!-- 物流评价等级 -->
+		  add_time,  <!-- 添加时间 -->
+		  ip_address,  <!-- ip地址 -->
+		  is_show,  <!-- 是否显示 -->
+		  parent_id,  <!-- 父id -->
+		  user_id,  <!-- 评论用户 -->
+		  img,  <!-- 晒单图片 -->
+		  order_id,  <!-- 订单id -->
+		  goods_rank,  <!-- 商品评价等级 -->
+		  service_rank,  <!-- 商家服务态度评价等级 -->
+		  again_content,  <!-- again_content -->
+		  logistics_rank,  <!-- 物流评价等级 -->
+		  quality_rank,  <!-- 产品质量等级 -->
+		  again_time  <!-- 追加评论时间 -->
+	</sql>
+	
+	<!-- 表字段(用于外表的关联时引用) -->
+	<sql id="column2">
+		  zjc_comment.comment_id,  <!-- 评论id -->
+		  zjc_comment.goods_id,  <!-- 商品id -->
+		  zjc_comment.email,  <!-- email邮箱 -->
+		  zjc_comment.username,  <!-- 用户名 -->
+		  zjc_comment.content,  <!-- 评论内容 -->
+		  zjc_comment.deliver_rank,  <!-- 物流评价等级 -->
+		  zjc_comment.add_time,  <!-- 添加时间 -->
+		  zjc_comment.ip_address,  <!-- ip地址 -->
+		  zjc_comment.is_show,  <!-- 是否显示 -->
+		  zjc_comment.parent_id,  <!-- 父id -->
+		  zjc_comment.user_id,  <!-- 评论用户 -->
+		  zjc_comment.img,  <!-- 晒单图片 -->
+		  zjc_comment.order_id,  <!-- 订单id -->
+		  zjc_comment.goods_rank,  <!-- 商品评价等级 -->
+		  zjc_comment.service_rank,  <!-- 商家服务态度评价等级 -->
+		  zjc_comment.again_content,  <!-- again_content -->
+		  zjc_comment.logistics_rank,  <!-- 物流评价等级 -->
+		  zjc_comment.quality_rank,  <!-- 产品质量等级 -->
+		  zjc_comment.again_time  <!-- 追加评论时间 -->
+	</sql>
+
+	<!-- Where精确匹配字段 -->
+	<sql id="equal">
+	   <if test="comment_id != null ">
+		      AND comment_id = #{comment_id}  <!-- 评论id -->
+		</if>
+	   <if test="goods_id != null ">
+		      AND goods_id = #{goods_id}  <!-- 商品id -->
+		</if>
+	    <if test="email != null and email != ''">
+		      AND email = #{email}  <!-- email邮箱 -->
+		</if>
+	    <if test="username != null and username != ''">
+		      AND username = #{username}  <!-- 用户名 -->
+		</if>
+	    <if test="content != null and content != ''">
+		      AND content = #{content}  <!-- 评论内容 -->
+		</if>
+	   <if test="deliver_rank != null ">
+		      AND deliver_rank = #{deliver_rank}  <!-- 物流评价等级 -->
+		</if>
+	   <if test="add_time != null ">
+		      AND add_time = #{add_time}  <!-- 添加时间 -->
+		</if>
+	    <if test="ip_address != null and ip_address != ''">
+		      AND ip_address = #{ip_address}  <!-- ip地址 -->
+		</if>
+	   <if test="is_show != null ">
+		      AND is_show = #{is_show}  <!-- 是否显示 -->
+		</if>
+	   <if test="parent_id != null ">
+		      AND parent_id = #{parent_id}  <!-- 父id -->
+		</if>
+	   <if test="user_id != null ">
+		      AND user_id = #{user_id}  <!-- 评论用户 -->
+		</if>
+	    <if test="img != null and img != ''">
+		      AND img = #{img}  <!-- 晒单图片 -->
+		</if>
+	   <if test="order_id != null ">
+		      AND order_id = #{order_id}  <!-- 订单id -->
+		</if>
+	   <if test="goods_rank != null ">
+		      AND goods_rank = #{goods_rank}  <!-- 商品评价等级 -->
+		</if>
+	   <if test="service_rank != null ">
+		      AND service_rank = #{service_rank}  <!-- 商家服务态度评价等级 -->
+		</if>
+	    <if test="again_content != null and again_content != ''">
+		      AND again_content = #{again_content}  <!-- again_content -->
+		</if>
+	   <if test="logistics_rank != null ">
+		      AND logistics_rank = #{logistics_rank}  <!-- 物流评价等级 -->
+		</if>
+	   <if test="quality_rank != null ">
+		      AND quality_rank = #{quality_rank}  <!-- 产品质量等级 -->
+		</if>
+	   <if test="again_time != null ">
+		      AND again_time = #{again_time}  <!-- 追加评论时间 -->
+		</if>
+	</sql>
+	
+	<!-- Where模糊匹配字段 -->
+	<sql id="like">
+	    <if test="email != null and email != ''">
+		      AND email like '${email}%'  <!-- email邮箱 -->
+		</if>
+	    <if test="username != null and username != ''">
+		      AND username like '${username}%'  <!-- 用户名 -->
+		</if>
+	    <if test="content != null and content != ''">
+		      AND content like '${content}%'  <!-- 评论内容 -->
+		</if>
+	    <if test="ip_address != null and ip_address != ''">
+		      AND ip_address like '${ip_address}%'  <!-- ip地址 -->
+		</if>
+	    <if test="img != null and img != ''">
+		      AND img like '${img}%'  <!-- 晒单图片 -->
+		</if>
+	    <if test="again_content != null and again_content != ''">
+		      AND again_content like '${again_content}%'  <!-- again_content -->
+		</if>
+		 <if test="goods_id != null and goods_id != ''">
+		      AND goods_id = #{goods_id}  <!-- again_content -->
+		</if>
+	</sql>
+	
+	<!-- 后台评论列表 -->
+	<select id="listCommentPage" parameterType="Dto" resultType="Dto" useCache="false">
+	    select 
+	    	t1.user_id,
+			t1.username, 
+			t1.content, 
+			t1.is_show, 
+			t1.add_time, 
+			t1.again_content, 
+			t1.img,
+			t1.service_rank,  <!-- 商家服务态度评价等级 -->
+		  	t1.logistics_rank,  <!-- 物流评价等级 -->
+		  	t1.quality_rank,  <!-- 产品质量等级 -->
+		    t1.again_time,  <!-- 追加评论时间 -->
+			t1.comment_id 
+		from zjc_comment t1 left join zjc_goods t2 on t1.goods_id = t2.goods_id 
+		left join zjc_store t3 on t2.store_id = t3.store_id	
+		<where>
+	    <if test="username != null and username != ''">
+		      t1.username like '%${username}%'  <!-- 用户名 -->
+		</if>
+	    <if test="content != null and content != ''">
+		      AND t1.content like '%${content}%'  <!-- 评论内容 -->
+		</if>
+		<if test="goods_id != null and goods_id != ''">
+		      AND t1.goods_id = #{goods_id}  <!-- again_content -->
+		</if>
+		<if test="goods_name != null and goods_name != ''">
+		      AND t2.goods_name like '%${goods_name}%'  <!-- again_content -->
+		</if>
+		<if test="store_name != null and store_name != ''">
+		      AND t3.store_name like '%${store_name}%'   <!-- again_content -->
+		</if>
+		</where>
+		order by t1.add_time desc
+	</select>
+	
+	<!-- app接口================================================================================================================ -->
+	
+	<!-- 商品评论 -->
+	<select id="goodsidPage" parameterType="Dto" resultType="ZjcCommentPO" useCache="false">
+	    select goods_id, username, add_time, content from zjc_comment
+	    <where>
+	    	<if test="goods_id != null and goods_id !=''">
+		      	AND goods_id = #{goods_id}  <!-- 商品id -->
+			</if>
+	    </where>
+		order by add_time desc
+	</select>
+	
+	 
+</mapper>

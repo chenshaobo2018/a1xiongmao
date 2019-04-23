@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- zjc_xx_order[zjc_xx_order]SQL自动映射 -->
+<!--  注意:此文件由AOS平台自动生成-禁止手工修改 2017-07-20 15:44:25 -->
+<mapper namespace="com.api.order.dao.ZjcXxOrderDao">
+	
+	<!-- 插入一个数据持久化对象(插入字段为传入PO实体的非空属性) -->
+	<insert id="insert" useGeneratedKeys="true" keyProperty="xx_id" parameterType="ZjcXxOrderPO">
+		INSERT INTO zjc_xx_order (
+		<if test="order_sn != null and order_sn != ''">
+	         order_sn, <!-- 订单编号 -->
+		</if>
+		<if test="user_id != null">
+	         user_id, <!-- 用户ID -->
+		</if>
+		<if test="seller_user_id != null">
+	         seller_user_id, <!-- 超市商家会员ID -->
+		</if>
+		<if test="total_amount != null">
+	         total_amount, <!-- 订单总额 -->
+		</if>
+		<if test="seller_amount != null">
+	         seller_amount, <!-- 商家得到的金额 -->
+		</if>
+		<if test="add_time != null and add_time != ''">
+	         add_time, <!-- 下单支付时间 -->
+		</if>
+	          xx_id
+		)VALUES(
+		<if test="order_sn != null and order_sn != ''">
+	          #{order_sn, jdbcType=VARCHAR}, <!-- 订单编号 -->
+	    </if>
+		<if test="user_id != null">
+	          #{user_id, jdbcType=INTEGER}, <!-- 用户ID -->
+	    </if>
+		<if test="seller_user_id != null">
+	          #{seller_user_id, jdbcType=INTEGER}, <!-- 超市商家会员ID -->
+	    </if>
+		<if test="total_amount != null">
+	          #{total_amount, jdbcType=NUMERIC}, <!-- 订单总额 -->
+	    </if>
+		<if test="seller_amount != null">
+	          #{seller_amount, jdbcType=NUMERIC}, <!-- 商家得到的金额 -->
+	    </if>
+		<if test="add_time != null and add_time != ''">
+	          #{add_time, jdbcType=VARCHAR}, <!-- 下单支付时间 -->
+	    </if>
+	          null
+		)
+	</insert>
+	
+	<!-- 插入一个数据持久化对象(含所有字段) -->
+	<insert id="insertAll" useGeneratedKeys="true" keyProperty="xx_id" parameterType="ZjcXxOrderPO">
+		INSERT INTO zjc_xx_order (
+		    <include refid="column" />
+		)
+		VALUES (
+		    #{xx_id, jdbcType=INTEGER},  <!-- 线下购物ID -->
+		    #{order_sn, jdbcType=VARCHAR},  <!-- 订单编号 -->
+		    #{user_id, jdbcType=INTEGER},  <!-- 用户ID -->
+		    #{seller_user_id, jdbcType=INTEGER},  <!-- 超市商家会员ID -->
+		    #{total_amount, jdbcType=NUMERIC},  <!-- 订单总额 -->
+		    #{seller_amount, jdbcType=NUMERIC},  <!-- 商家得到的金额 -->
+		    #{add_time, jdbcType=VARCHAR}  <!-- 下单支付时间 -->
+		)
+	</insert>
+
+	<!-- 根据主键修改数据持久化对象 -->
+	<update id="updateByKey" parameterType="ZjcXxOrderPO">
+		UPDATE zjc_xx_order
+		<set>
+			<if test="xx_id != null">
+		          xx_id = #{xx_id, jdbcType=INTEGER},  <!-- 线下购物ID -->
+			</if>
+			<if test="order_sn != null">
+		          order_sn = #{order_sn, jdbcType=VARCHAR},  <!-- 订单编号 -->
+			</if>
+			<if test="user_id != null">
+		          user_id = #{user_id, jdbcType=INTEGER},  <!-- 用户ID -->
+			</if>
+			<if test="seller_user_id != null">
+		          seller_user_id = #{seller_user_id, jdbcType=INTEGER},  <!-- 超市商家会员ID -->
+			</if>
+			<if test="total_amount != null">
+		          total_amount = #{total_amount, jdbcType=NUMERIC},  <!-- 订单总额 -->
+			</if>
+			<if test="seller_amount != null">
+		          seller_amount = #{seller_amount, jdbcType=NUMERIC},  <!-- 商家得到的金额 -->
+			</if>
+			<if test="add_time != null">
+		          add_time = #{add_time, jdbcType=VARCHAR},  <!-- 下单支付时间 -->
+			</if>
+		</set>
+		WHERE  xx_id = #{xx_id}
+	</update>
+	
+	<!-- 根据主键删除数据持久化对象 -->
+	<delete id="deleteByKey">
+		DELETE FROM zjc_xx_order WHERE  xx_id = #{xx_id}
+	</delete>
+
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="selectByKey" resultType="ZjcXxOrderPO">
+		SELECT
+		<include refid="column" />
+		FROM zjc_xx_order WHERE  xx_id = #{xx_id}
+	</select>
+
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="selectOne" parameterType="Dto" resultType="ZjcXxOrderPO">
+		SELECT
+		    <include refid="column" />
+		FROM zjc_xx_order
+		<where>
+		    <include refid="equal" />
+		</where>		
+	</select>
+
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="list" parameterType="Dto" resultType="ZjcXxOrderPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_xx_order
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listPage" parameterType="Dto" resultType="ZjcXxOrderPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_xx_order
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto模糊查询并返回数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="like" parameterType="Dto" resultType="ZjcXxOrderPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_xx_order
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto模糊查询并返回分页数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="likePage" parameterType="Dto" resultType="ZjcXxOrderPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_xx_order
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto统计行数 -->
+	<select id="rows" resultType="Integer" parameterType="Dto">
+		SELECT COUNT(1) AS aos_rows_ FROM zjc_xx_order
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 根据数学表达式进行数学运算 -->
+	<select id="calc" parameterType="Dto" resultType="String">
+		SELECT
+			${_expr}
+		FROM zjc_xx_order
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 根据user_id查询当天该用户转账的额度 -->
+	<select id="getTodayLineTransferNum" parameterType="Dto" resultType="String">
+		SELECT
+			ifnull(sum(total_amount),0)
+		FROM zjc_xx_order 
+		<where>
+		   user_id  = #{user_id} and to_days(add_time) = to_days(NOW())
+		</where>
+	</select>
+	
+	<!-- 表字段 -->
+	<sql id="column">
+		  xx_id,  <!-- 线下购物ID -->
+		  order_sn,  <!-- 订单编号 -->
+		  user_id,  <!-- 用户ID -->
+		  seller_user_id,  <!-- 超市商家会员ID -->
+		  total_amount,  <!-- 订单总额 -->
+		  seller_amount,  <!-- 商家得到的金额 -->
+		  add_time  <!-- 下单支付时间 -->
+	</sql>
+	
+	<!-- 表字段(用于外表的关联时引用) -->
+	<sql id="column2">
+		  zjc_xx_order.xx_id,  <!-- 线下购物ID -->
+		  zjc_xx_order.order_sn,  <!-- 订单编号 -->
+		  zjc_xx_order.user_id,  <!-- 用户ID -->
+		  zjc_xx_order.seller_user_id,  <!-- 超市商家会员ID -->
+		  zjc_xx_order.total_amount,  <!-- 订单总额 -->
+		  zjc_xx_order.seller_amount,  <!-- 商家得到的金额 -->
+		  zjc_xx_order.add_time  <!-- 下单支付时间 -->
+	</sql>
+
+	<!-- Where精确匹配字段 -->
+	<sql id="equal">
+	   <if test="xx_id != null ">
+		      AND xx_id = #{xx_id}  <!-- 线下购物ID -->
+		</if>
+	    <if test="order_sn != null and order_sn != ''">
+		      AND order_sn = #{order_sn}  <!-- 订单编号 -->
+		</if>
+	   <if test="user_id != null ">
+		      AND user_id = #{user_id}  <!-- 用户ID -->
+		</if>
+	   <if test="seller_user_id != null ">
+		      AND seller_user_id = #{seller_user_id}  <!-- 超市商家会员ID -->
+		</if>
+	   <if test="total_amount != null ">
+		      AND total_amount = #{total_amount}  <!-- 订单总额 -->
+		</if>
+	   <if test="seller_amount != null ">
+		      AND seller_amount = #{seller_amount}  <!-- 商家得到的金额 -->
+		</if>
+	    <if test="add_time != null and add_time != ''">
+		      AND add_time = #{add_time}  <!-- 下单支付时间 -->
+		</if>
+	</sql>
+	
+	<!-- Where模糊匹配字段 -->
+	<sql id="like">
+	    <if test="order_sn != null and order_sn != ''">
+		      AND order_sn like '${order_sn}%'  <!-- 订单编号 -->
+		</if>
+	    <if test="add_time != null and add_time != ''">
+		      AND add_time like '${add_time}%'  <!-- 下单支付时间 -->
+		</if>
+	</sql>
+	
+	<select id="getListPage" parameterType="Dto" resultType="ZjcXxOrderPO" useCache="false">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_xx_order
+		<where>
+			<if test="order_sn != null and order_sn != ''">
+				and order_sn = #{order_sn}
+			</if>
+			<if test="user_id != null and user_id != ''">
+				and user_id = #{user_id}
+			</if>
+			<if test="seller_user_id != null and seller_user_id != ''">
+				and seller_user_id = #{seller_user_id}
+			</if>
+			<if test="start_time != null and start_time != ''">
+				and add_time &gt;= #{start_time}
+			</if>
+			<if test="end_time != null and end_time != ''">
+				and add_time &lt;= #{end_time}
+			</if>
+		</where>
+		order by add_time desc
+	</select>
+	
+	<select id="getXXOrderRankPage" parameterType="Dto" resultType="Dto">
+		select 
+			t1.xx_id, 
+			 t2.real_name,
+           sum(t1.total_amount) as sum_total_amount,
+           	t1.user_id
+		from zjc_xx_order t1
+		left join zjc_users_info t2 on t1.user_id = t2.user_id
+		<where>
+			<if test="user_id != null and user_id != ''">
+				and t1.user_id = #{user_id}
+			</if>
+			<if test="start_time != null and start_time != ''">
+				and t1.add_time &gt;= #{start_time}
+			</if>
+			<if test="end_time != null and end_time != ''">
+				and t1.add_time &lt;= #{end_time}
+			</if>
+		</where>
+		group by t1.user_id order by sum_total_amount desc
+	</select>
+	
+	<select id="getOrderList" parameterType="Dto" resultType="ZjcXxOrderPO">
+		select <include refid="column"></include> from zjc_xx_order
+		<where>
+			user_id = #{user_id}
+			<if test="start_time != null and start_time != ''">
+				and add_time &gt;= #{start_time}
+			</if>
+			<if test="end_time != null and end_time != ''">
+				and add_time &lt;= #{end_time}
+			</if>
+		</where>
+		order by add_time desc
+	</select>
+	
+	<select id="selectByOrderSn" parameterType="Dto" resultType="ZjcXxOrderPO">
+		select * from zjc_xx_order where order_sn = #{order_sn}
+	</select>
+</mapper>

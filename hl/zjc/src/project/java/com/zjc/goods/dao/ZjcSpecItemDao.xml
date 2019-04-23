@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- zjc_spec_item[zjc_spec_item]SQL自动映射 -->
+<!--  注意:此文件由AOS平台自动生成-禁止手工修改 2017-06-14 09:18:10 -->
+<mapper namespace="com.zjc.goods.dao.ZjcSpecItemDao">
+	
+	<!-- 插入一个数据持久化对象(插入字段为传入PO实体的非空属性) -->
+	<insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="ZjcSpecItemPO">
+		INSERT INTO zjc_spec_item (
+		<if test="spec_id != null">
+	         spec_id, <!-- 规格id -->
+		</if>
+		<if test="item != null and item != ''">
+	         item, <!-- 规格项 -->
+		</if>
+	          id
+		)VALUES(
+		<if test="spec_id != null">
+	          #{spec_id, jdbcType=INTEGER}, <!-- 规格id -->
+	    </if>
+		<if test="item != null and item != ''">
+	          #{item, jdbcType=VARCHAR}, <!-- 规格项 -->
+	    </if>
+	          null
+		)
+	</insert>
+	
+	<!-- 插入一个数据持久化对象(含所有字段) -->
+	<insert id="insertAll" useGeneratedKeys="true" keyProperty="id" parameterType="ZjcSpecItemPO">
+		INSERT INTO zjc_spec_item (
+		    <include refid="column" />
+		)
+		VALUES (
+		    #{id, jdbcType=INTEGER},  <!-- 规格项id -->
+		    #{spec_id, jdbcType=INTEGER},  <!-- 规格id -->
+		    #{item, jdbcType=VARCHAR}  <!-- 规格项 -->
+		)
+	</insert>
+
+	<!-- 根据主键修改数据持久化对象 -->
+	<update id="updateByKey" parameterType="ZjcSpecItemPO">
+		UPDATE zjc_spec_item
+		<set>
+			<if test="id != null">
+		          id = #{id, jdbcType=INTEGER},  <!-- 规格项id -->
+			</if>
+			<if test="spec_id != null">
+		          spec_id = #{spec_id, jdbcType=INTEGER},  <!-- 规格id -->
+			</if>
+			<if test="item != null">
+		          item = #{item, jdbcType=VARCHAR},  <!-- 规格项 -->
+			</if>
+		</set>
+		WHERE  id = #{id}
+	</update>
+	
+	<select id="selectBySpecID" resultType="ZjcSpecItemPO">
+		SELECT
+		<include refid="column" />
+		FROM zjc_spec_item WHERE  spec_id = #{spec_id}
+	</select>
+	
+	<!-- 根据主键删除数据持久化对象 -->
+	<delete id="deleteByKey">
+		DELETE FROM zjc_spec_item WHERE  id = #{id}
+	</delete>
+
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="selectByKey" resultType="ZjcSpecItemPO">
+		SELECT
+		<include refid="column" />
+		FROM zjc_spec_item WHERE  id = #{id}
+	</select>
+
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="selectOne" parameterType="Dto" resultType="ZjcSpecItemPO">
+		SELECT
+		    <include refid="column" />
+		FROM zjc_spec_item
+		<where>
+		    <include refid="equal" />
+		</where>		
+	</select>
+
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="list" parameterType="Dto" resultType="ZjcSpecItemPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_spec_item
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listPage" parameterType="Dto" resultType="ZjcSpecItemPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_spec_item
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto模糊查询并返回数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="like" parameterType="Dto" resultType="ZjcSpecItemPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_spec_item
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto模糊查询并返回分页数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="likePage" parameterType="Dto" resultType="ZjcSpecItemPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_spec_item
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto统计行数 -->
+	<select id="rows" resultType="Integer" parameterType="Dto">
+		SELECT COUNT(1) AS aos_rows_ FROM zjc_spec_item
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 根据数学表达式进行数学运算 -->
+	<select id="calc" parameterType="Dto" resultType="String">
+		SELECT
+			${_expr}
+		FROM zjc_spec_item
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 表字段 -->
+	<sql id="column">
+		  id,  <!-- 规格项id -->
+		  spec_id,  <!-- 规格id -->
+		  item  <!-- 规格项 -->
+	</sql>
+	
+	<!-- 表字段(用于外表的关联时引用) -->
+	<sql id="column2">
+		  zjc_spec_item.id,  <!-- 规格项id -->
+		  zjc_spec_item.spec_id,  <!-- 规格id -->
+		  zjc_spec_item.item  <!-- 规格项 -->
+	</sql>
+
+	<!-- Where精确匹配字段 -->
+	<sql id="equal">
+	   <if test="id != null ">
+		      AND id = #{id}  <!-- 规格项id -->
+		</if>
+	   <if test="spec_id != null ">
+		      AND spec_id = #{spec_id}  <!-- 规格id -->
+		</if>
+	    <if test="item != null and item != ''">
+		      AND item = #{item}  <!-- 规格项 -->
+		</if>
+	</sql>
+	
+	<!-- Where模糊匹配字段 -->
+	<sql id="like">
+	    <if test="item != null and item != ''">
+		      AND item like '${item}%'  <!-- 规格项 -->
+		</if>
+	</sql>
+	
+	<!-- ====================================================app接口============================================ -->
+	<!-- 根据主键ID返回规格项集合 -->
+	<select id="getSpecItem" parameterType="Dto" resultType="ZjcSpecItemPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_spec_item
+		<where>
+			1=1
+		</where>	
+		${strSql}
+	</select>
+	
+</mapper>

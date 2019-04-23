@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- zjc_activitiy[zjc_activitiy]SQL自动映射 -->
+<!--  注意:此文件由AOS平台自动生成-禁止手工修改 2018-02-07 15:43:09 -->
+<mapper namespace="com.api.goods.dao.ZjcActivitiyDao">
+	
+	<!-- 插入一个数据持久化对象(插入字段为传入PO实体的非空属性) -->
+	<insert id="insert"  parameterType="ZjcActivitiyPO">
+		INSERT INTO zjc_activitiy (
+		<if test="activities_began != null and activities_began != ''">
+	         activities_began, <!-- activities_began -->
+		</if>
+		<if test="activities_end != null and activities_end != ''">
+	         activities_end, <!-- activities_end -->
+		</if>
+		<if test="activities_name != null and activities_name != ''">
+	         activities_name, <!-- activities_name -->
+		</if>
+		<if test="time_id != null and time_id != ''">
+	          time_id  <!-- time_id -->
+	   </if>
+		)VALUES(
+		<if test="activities_began != null and activities_began != ''">
+	          #{activities_began, jdbcType=VARCHAR}, <!-- activities_began -->
+	    </if>
+		<if test="activities_end != null and activities_end != ''">
+	          #{activities_end, jdbcType=VARCHAR}, <!-- activities_end -->
+	    </if>
+		<if test="activities_name != null and activities_name != ''">
+	          #{activities_name, jdbcType=VARCHAR}, <!-- activities_name -->
+	    </if>
+		<if test="time_id != null and time_id != ''">
+		     #{time_id, jdbcType=VARCHAR}  <!-- time_id -->
+	    </if>
+		)
+	</insert>
+	
+	<!-- 插入一个数据持久化对象(含所有字段) -->
+	<insert id="insertAll"  parameterType="ZjcActivitiyPO">
+		INSERT INTO zjc_activitiy (
+		    <include refid="column" />
+		)
+		VALUES (
+		    #{time_id, jdbcType=VARCHAR},  <!-- time_id -->
+		    #{activities_began, jdbcType=VARCHAR},  <!-- activities_began -->
+		    #{activities_end, jdbcType=VARCHAR},  <!-- activities_end -->
+		    #{activities_name, jdbcType=VARCHAR}  <!-- activities_name -->
+		)
+	</insert>
+
+	<!-- 根据主键修改数据持久化对象 -->
+	<update id="updateByKey" parameterType="ZjcActivitiyPO">
+		UPDATE zjc_activitiy
+		<set>
+			<if test="time_id != null">
+		          time_id = #{time_id, jdbcType=VARCHAR},  <!-- time_id -->
+			</if>
+			<if test="activities_began != null">
+		          activities_began = #{activities_began, jdbcType=VARCHAR},  <!-- activities_began -->
+			</if>
+			<if test="activities_end != null">
+		          activities_end = #{activities_end, jdbcType=VARCHAR},  <!-- activities_end -->
+			</if>
+			<if test="activities_name != null">
+		          activities_name = #{activities_name, jdbcType=VARCHAR},  <!-- activities_name -->
+			</if>
+		</set>
+		WHERE  time_id = #{time_id}
+	</update>
+	
+	<!-- 根据主键删除数据持久化对象 -->
+	<delete id="deleteByKey">
+		DELETE FROM zjc_activitiy WHERE  time_id = #{time_id}
+	</delete>
+
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="selectByKey" resultType="ZjcActivitiyPO">
+		SELECT
+		<include refid="column" />
+		FROM zjc_activitiy WHERE  time_id = #{time_id}
+	</select>
+
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="selectOne" parameterType="Dto" resultType="ZjcActivitiyPO">
+		SELECT
+		    <include refid="column" />
+		FROM zjc_activitiy
+		<where>
+		    <include refid="equal" />
+		</where>		
+	</select>
+
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="list" parameterType="Dto" resultType="ZjcActivitiyPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_activitiy
+		<where>
+		    <include refid="equal" />
+		</where>
+		order by activities_began	
+	</select>
+
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listPage" parameterType="Dto" resultType="ZjcActivitiyPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_activitiy
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto查询并返回分页数据持久化对象集合DATE_FORMAT(activities_began,'%Y-%m-%d') = DATE_FORMAT(NOW(),'%Y-%m-%d') -->
+	<select id="listActivities" parameterType="Dto" resultType="ZjcActivitiyPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_activitiy
+		where 
+		unix_timestamp(activities_end) &gt; unix_timestamp(#{time})
+		order by activities_began	
+	</select>
+	
+	<!-- 根据Dto模糊查询并返回数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="like" parameterType="Dto" resultType="ZjcActivitiyPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_activitiy
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto模糊查询并返回分页数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="likePage" parameterType="Dto" resultType="ZjcActivitiyPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_activitiy
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto统计行数 -->
+	<select id="rows" resultType="Integer" parameterType="Dto">
+		SELECT COUNT(1) AS aos_rows_ FROM zjc_activitiy
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 根据数学表达式进行数学运算 -->
+	<select id="calc" parameterType="Dto" resultType="String">
+		SELECT
+			${_expr}
+		FROM zjc_activitiy
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 表字段 -->
+	<sql id="column">
+		  time_id,  <!-- time_id -->
+		  activities_began,  <!-- activities_began -->
+		  activities_end,  <!-- activities_end -->
+		  activities_name  <!-- activities_name -->
+	</sql>
+	
+	<!-- 表字段(用于外表的关联时引用) -->
+	<sql id="column2">
+		  zjc_activitiy.time_id,  <!-- time_id -->
+		  zjc_activitiy.activities_began,  <!-- activities_began -->
+		  zjc_activitiy.activities_end,  <!-- activities_end -->
+		  zjc_activitiy.activities_name  <!-- activities_name -->
+	</sql>
+
+	<!-- Where精确匹配字段 -->
+	<sql id="equal">
+	    <if test="time_id != null and time_id != ''">
+		      AND time_id = #{time_id}  <!-- time_id -->
+		</if>
+	    <if test="activities_began != null and activities_began != ''">
+		      AND activities_began = #{activities_began}  <!-- activities_began -->
+		</if>
+	    <if test="activities_end != null and activities_end != ''">
+		      AND activities_end = #{activities_end}  <!-- activities_end -->
+		</if>
+	    <if test="activities_name != null and activities_name != ''">
+		      AND activities_name = #{activities_name}  <!-- activities_name -->
+		</if>
+	</sql>
+	
+	<!-- Where模糊匹配字段 -->
+	<sql id="like">
+	    <if test="time_id != null and time_id != ''">
+		      AND time_id like '${time_id}%'  <!-- time_id -->
+		</if>
+	    <if test="activities_began != null and activities_began != ''">
+		      AND activities_began like '${activities_began}%'  <!-- activities_began -->
+		</if>
+	    <if test="activities_end != null and activities_end != ''">
+		      AND activities_end like '${activities_end}%'  <!-- activities_end -->
+		</if>
+	    <if test="activities_name != null and activities_name != ''">
+		      AND activities_name like '${activities_name}%'  <!-- activities_name -->
+		</if>
+	</sql>
+	
+</mapper>

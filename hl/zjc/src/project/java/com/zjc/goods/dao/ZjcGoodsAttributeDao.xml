@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- zjc_goods_attribute[zjc_goods_attribute]SQL自动映射 -->
+<!--  注意:此文件由AOS平台自动生成-禁止手工修改 2017-06-02 11:50:20 -->
+<mapper namespace="com.zjc.goods.dao.ZjcGoodsAttributeDao">
+	
+	<!-- 插入一个数据持久化对象(插入字段为传入PO实体的非空属性) -->
+	<insert id="insert" useGeneratedKeys="true" keyProperty="attr_id" parameterType="ZjcGoodsAttributePO">
+		INSERT INTO zjc_goods_attribute (
+		<if test="attr_name != null and attr_name != ''">
+	         attr_name, <!-- 属性名称 -->
+		</if>
+		<if test="type_id != null">
+	         type_id, <!-- 属性分类id -->
+		</if>
+		<if test="attr_index != null">
+	         attr_index, <!-- 0不需要检索 1关键字检索 2范围检索 -->
+		</if>
+		<if test="attr_type != null">
+	         attr_type, <!-- 0唯一属性 1单选属性 2复选属性 -->
+		</if>
+		<if test="attr_input_type != null">
+	         attr_input_type, <!--  0 手工录入 1从列表中选择 2多行文本框 -->
+		</if>
+		<if test="attr_values != null and attr_values != ''">
+	         attr_values, <!-- 可选值列表 -->
+		</if>
+		<if test="order != null">
+	         `order`, <!-- 属性排序 -->
+		</if>
+	          attr_id
+		)VALUES(
+		<if test="attr_name != null and attr_name != ''">
+	          #{attr_name, jdbcType=VARCHAR}, <!-- 属性名称 -->
+	    </if>
+		<if test="type_id != null">
+	          #{type_id, jdbcType=INTEGER}, <!-- 属性分类id -->
+	    </if>
+		<if test="attr_index != null">
+	          #{attr_index, jdbcType=INTEGER}, <!-- 0不需要检索 1关键字检索 2范围检索 -->
+	    </if>
+		<if test="attr_type != null">
+	          #{attr_type, jdbcType=INTEGER}, <!-- 0唯一属性 1单选属性 2复选属性 -->
+	    </if>
+		<if test="attr_input_type != null">
+	          #{attr_input_type, jdbcType=INTEGER}, <!--  0 手工录入 1从列表中选择 2多行文本框 -->
+	    </if>
+		<if test="attr_values != null and attr_values != ''">
+	          #{attr_values, jdbcType=VARCHAR}, <!-- 可选值列表 -->
+	    </if>
+		<if test="order != null">
+	          #{order, jdbcType=INTEGER}, <!-- 属性排序 -->
+	    </if>
+	          null
+		)
+	</insert>
+	
+	<!-- 插入一个数据持久化对象(含所有字段) -->
+	<insert id="insertAll" useGeneratedKeys="true" keyProperty="attr_id" parameterType="ZjcGoodsAttributePO">
+		INSERT INTO zjc_goods_attribute (
+		    <include refid="column" />
+		)
+		VALUES (
+		    #{attr_id, jdbcType=INTEGER},  <!-- 属性id -->
+		    #{attr_name, jdbcType=VARCHAR},  <!-- 属性名称 -->
+		    #{type_id, jdbcType=INTEGER},  <!-- 属性分类id -->
+		    #{attr_index, jdbcType=INTEGER},  <!-- 0不需要检索 1关键字检索 2范围检索 -->
+		    #{attr_type, jdbcType=INTEGER},  <!-- 0唯一属性 1单选属性 2复选属性 -->
+		    #{attr_input_type, jdbcType=INTEGER},  <!--  0 手工录入 1从列表中选择 2多行文本框 -->
+		    #{attr_values, jdbcType=VARCHAR},  <!-- 可选值列表 -->
+		    #{order, jdbcType=INTEGER}  <!-- 属性排序 -->
+		)
+	</insert>
+
+	<!-- 根据主键修改数据持久化对象 -->
+	<update id="updateByKey" parameterType="ZjcGoodsAttributePO">
+		UPDATE zjc_goods_attribute
+		<set>
+			<if test="attr_id != null">
+		          attr_id = #{attr_id, jdbcType=INTEGER},  <!-- 属性id -->
+			</if>
+			<if test="attr_name != null">
+		          attr_name = #{attr_name, jdbcType=VARCHAR},  <!-- 属性名称 -->
+			</if>
+			<if test="type_id != null">
+		          type_id = #{type_id, jdbcType=INTEGER},  <!-- 属性分类id -->
+			</if>
+			<if test="attr_index != null">
+		          attr_index = #{attr_index, jdbcType=INTEGER},  <!-- 0不需要检索 1关键字检索 2范围检索 -->
+			</if>
+			<if test="attr_type != null">
+		          attr_type = #{attr_type, jdbcType=INTEGER},  <!-- 0唯一属性 1单选属性 2复选属性 -->
+			</if>
+			<if test="attr_input_type != null">
+		          attr_input_type = #{attr_input_type, jdbcType=INTEGER},  <!--  0 手工录入 1从列表中选择 2多行文本框 -->
+			</if>
+			<if test="attr_values != null">
+		          attr_values = #{attr_values, jdbcType=VARCHAR},  <!-- 可选值列表 -->
+			</if>
+			<if test="order != null">
+		          `order` = #{order, jdbcType=INTEGER},  <!-- 属性排序 -->
+			</if>
+		</set>
+		WHERE  attr_id = #{attr_id}
+	</update>
+	
+	<!-- 根据主键删除数据持久化对象 -->
+	<delete id="deleteByKey">
+		DELETE FROM zjc_goods_attribute WHERE  attr_id = #{attr_id}
+	</delete>
+
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="selectByKey" resultType="ZjcGoodsAttributePO">
+		SELECT
+		<include refid="column" />
+		FROM zjc_goods_attribute WHERE  attr_id = #{attr_id}
+	</select>
+
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="selectOne" parameterType="Dto" resultType="ZjcGoodsAttributePO">
+		SELECT
+		    <include refid="column" />
+		FROM zjc_goods_attribute
+		<where>
+		    <include refid="equal" />
+		</where>		
+	</select>
+
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="list" parameterType="Dto" resultType="ZjcGoodsAttributePO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_goods_attribute
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listPage" parameterType="Dto" resultType="ZjcGoodsAttributePO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_goods_attribute
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto关联type表查询并返回分页数据持久化对象集合 -->
+	<select id="listAndTypePage" parameterType="Dto" resultType="ZjcGoodsAttributePO" useCache="false">
+	    SELECT
+			<include refid="column2" />	
+		FRoM zjc_goods_attribute,zjc_goods_type
+		<where>
+			zjc_goods_attribute.type_id = zjc_goods_type.id 
+		    <include refid="equal" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto模糊查询并返回数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="like" parameterType="Dto" resultType="ZjcGoodsAttributePO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_goods_attribute
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto模糊查询并返回分页数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="likePage" parameterType="Dto" resultType="ZjcGoodsAttributePO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_goods_attribute
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto统计行数 -->
+	<select id="rows" resultType="Integer" parameterType="Dto">
+		SELECT COUNT(1) AS aos_rows_ FROM zjc_goods_attribute
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 根据数学表达式进行数学运算 -->
+	<select id="calc" parameterType="Dto" resultType="String">
+		SELECT
+			${_expr}
+		FROM zjc_goods_attribute
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 表字段 -->
+	<sql id="column">
+		  attr_id,  <!-- 属性id -->
+		  attr_name,  <!-- 属性名称 -->
+		  type_id,  <!-- 属性分类id -->
+		  attr_index,  <!-- 0不需要检索 1关键字检索 2范围检索 -->
+		  attr_type,  <!-- 0唯一属性 1单选属性 2复选属性 -->
+		  attr_input_type,  <!--  0 手工录入 1从列表中选择 2多行文本框 -->
+		  attr_values,  <!-- 可选值列表 -->
+		  `order`  <!-- 属性排序 -->
+	</sql>
+	
+	<!-- 表字段(用于外表的关联时引用) -->
+	<sql id="column2">
+		  zjc_goods_attribute.attr_id,  <!-- 属性id -->
+		  zjc_goods_attribute.attr_name,  <!-- 属性名称 -->
+		  zjc_goods_attribute.type_id,  <!-- 属性分类id -->
+		  zjc_goods_attribute.attr_index,  <!-- 0不需要检索 1关键字检索 2范围检索 -->
+		  zjc_goods_attribute.attr_type,  <!-- 0唯一属性 1单选属性 2复选属性 -->
+		  zjc_goods_attribute.attr_input_type,  <!--  0 手工录入 1从列表中选择 2多行文本框 -->
+		  zjc_goods_attribute.attr_values,  <!-- 可选值列表 -->
+		  zjc_goods_attribute.`order`,  <!-- 属性排序 -->
+		  zjc_goods_type.name
+	</sql>
+
+	<!-- Where精确匹配字段 -->
+	<sql id="equal">
+	   <if test="attr_id != null ">
+		      AND attr_id = #{attr_id}  <!-- 属性id -->
+		</if>
+	    <if test="attr_name != null and attr_name != ''">
+		      AND attr_name = #{attr_name}  <!-- 属性名称 -->
+		</if>
+	   <if test="type_id != null ">
+		      AND type_id = #{type_id}  <!-- 属性分类id -->
+		</if>
+	   <if test="attr_index != null ">
+		      AND attr_index = #{attr_index}  <!-- 0不需要检索 1关键字检索 2范围检索 -->
+		</if>
+	   <if test="attr_type != null ">
+		      AND attr_type = #{attr_type}  <!-- 0唯一属性 1单选属性 2复选属性 -->
+		</if>
+	   <if test="attr_input_type != null ">
+		      AND attr_input_type = #{attr_input_type}  <!--  0 手工录入 1从列表中选择 2多行文本框 -->
+		</if>
+	    <if test="attr_values != null and attr_values != ''">
+		      AND attr_values = #{attr_values}  <!-- 可选值列表 -->
+		</if>
+	   <if test="order != null ">
+		      AND `order` = #{order}  <!-- 属性排序 -->
+		</if>
+	</sql>
+	
+	<!-- Where模糊匹配字段 -->
+	<sql id="like">
+	    <if test="attr_name != null and attr_name != ''">
+		      AND attr_name like '${attr_name}%'  <!-- 属性名称 -->
+		</if>
+	    <if test="attr_values != null and attr_values != ''">
+		      AND attr_values like '${attr_values}%'  <!-- 可选值列表 -->
+		</if>
+	</sql>
+	
+</mapper>

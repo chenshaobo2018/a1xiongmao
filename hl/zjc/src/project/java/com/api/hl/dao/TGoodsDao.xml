@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- t_goods[t_goods]SQL自动映射 -->
+<!--  注意:此文件由AOS平台自动生成-禁止手工修改 2019-03-05 10:01:09 -->
+<mapper namespace="com.api.hl.dao.TGoodsDao">
+	
+	<!-- 插入一个数据持久化对象(插入字段为传入PO实体的非空属性) -->
+	<insert id="insert"  parameterType="TGoodsPO">
+		INSERT INTO t_goods (
+		<if test="type_id != null and type_id != ''">
+	         type_id, <!-- 材料类型id -->
+		</if>
+		<if test="material_name != null and material_name != ''">
+	         material_name, <!-- 材料名称 -->
+		</if>
+		<if test="unit != null and unit != ''">
+	         unit, <!-- 单位 -->
+		</if>
+		<if test="brand != null and brand != ''">
+	         brand, <!-- 品牌 -->
+		</if>
+		<if test="note != null and note != ''">
+	         note, <!-- 备注 -->
+		</if>
+		<if test="price != null and price != ''">
+	         price, <!-- 备注 -->
+		</if>
+		<if test="img_src != null and img_src != ''">
+	         img_src, 
+		</if>
+		<if test="project_id != null and project_id != ''">
+	         project_id, 
+		</if>
+		<if test="supplier_id != null and supplier_id != ''">
+	         supplier_id, 
+		</if>
+		<if test="createTime != null and createTime != ''">
+	         createTime, 
+		</if>
+		<if test="id != null and id != ''">
+	          id  <!-- id -->
+	   </if>
+		)VALUES(
+		<if test="type_id != null and type_id != ''">
+	          #{type_id, jdbcType=VARCHAR}, <!-- 材料类型id -->
+	    </if>
+		<if test="material_name != null and material_name != ''">
+	          #{material_name, jdbcType=VARCHAR}, <!-- 材料名称 -->
+	    </if>
+		<if test="unit != null and unit != ''">
+	          #{unit, jdbcType=VARCHAR}, <!-- 单位 -->
+	    </if>
+		<if test="brand != null and brand != ''">
+	          #{brand, jdbcType=VARCHAR}, <!-- 品牌 -->
+	    </if>
+		<if test="note != null and note != ''">
+	          #{note, jdbcType=VARCHAR}, <!-- 备注 -->
+	    </if>
+     	<if test="price != null and price != ''">
+	        #{price, jdbcType=VARCHAR},
+		</if>
+		<if test="img_src != null and img_src != ''">
+	        #{img_src, jdbcType=VARCHAR},
+		</if>
+	    <if test="project_id != null and project_id != ''">
+	          #{project_id, jdbcType=VARCHAR}, 
+	    </if>
+	    <if test="supplier_id != null and supplier_id != ''">
+	          #{supplier_id, jdbcType=VARCHAR}, 
+	    </if>
+	    <if test="createTime != null and createTime != ''">
+	          #{createTime, jdbcType=TIMESTAMP}, 
+	    </if>
+		<if test="id != null and id != ''">
+		     #{id, jdbcType=VARCHAR}  <!-- id -->
+	    </if>
+		)
+	</insert>
+	
+	<!-- 插入一个数据持久化对象(含所有字段) -->
+	<insert id="insertAll"  parameterType="TGoodsPO">
+		INSERT INTO t_goods (
+		    <include refid="column" />
+		)
+		VALUES (
+		    #{id, jdbcType=VARCHAR},  <!-- id -->
+		    #{type_id, jdbcType=VARCHAR},  <!-- 材料类型id -->
+		    #{material_name, jdbcType=VARCHAR},  <!-- 材料名称 -->
+		    #{unit, jdbcType=VARCHAR},  <!-- 单位 -->
+		    #{brand, jdbcType=VARCHAR},  <!-- 品牌 -->
+		    #{note, jdbcType=VARCHAR},  <!-- 备注 -->
+		    #{price,jdbcType=NUMERIC},
+		    #{img_src,jdbcType=VARCHAR},
+		    #{createTime,jdbcType=TIMESTAMP},
+		    #{project_id, jdbcType=VARCHAR},
+		    #{supplier_id, jdbcType=VARCHAR},
+		    #{createTime, jdbcType=TIMESTAMP}
+		)
+	</insert>
+
+	<!-- 根据主键修改数据持久化对象 -->
+	<update id="updateByKey" parameterType="TGoodsPO">
+		UPDATE t_goods
+		<set>
+			<if test="id != null">
+		          id = #{id, jdbcType=VARCHAR},  <!-- id -->
+			</if>
+			<if test="type_id != null">
+		          type_id = #{type_id, jdbcType=VARCHAR},  <!-- 材料类型id -->
+			</if>
+			<if test="material_name != null">
+		          material_name = #{material_name, jdbcType=VARCHAR},  <!-- 材料名称 -->
+			</if>
+			<if test="unit != null">
+		          unit = #{unit, jdbcType=VARCHAR},  <!-- 单位 -->
+			</if>
+			<if test="brand != null">
+		          brand = #{brand, jdbcType=VARCHAR},  <!-- 品牌 -->
+			</if>
+			<if test="note != null">
+		          note = #{note, jdbcType=VARCHAR},  <!-- 备注 -->
+			</if>
+			<if test="price != null">
+		          price = #{price, jdbcType=VARCHAR},  <!-- 备注 -->
+			</if>
+			<if test="img_src != null">
+		          img_src = #{img_src, jdbcType=VARCHAR},
+			</if>
+			<if test="project_id != null">
+		          project_id = #{project_id, jdbcType=VARCHAR}, 
+			</if>
+			<if test="supplier_id != null">
+		          supplier_id = #{supplier_id, jdbcType=VARCHAR},
+			</if>
+		</set>
+		WHERE  id = #{id}
+	</update>
+	
+	<!-- 根据主键删除数据持久化对象 -->
+	<delete id="deleteByKey">
+		DELETE FROM t_goods WHERE  id = #{id}
+	</delete>
+
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="selectByKey" resultType="TGoodsPO">
+		SELECT
+		<include refid="column" />
+		FROM t_goods WHERE  id = #{id}
+	</select>
+	
+	<select id="selectVOByKey" resultType="T_goodsVO">
+		SELECT 
+		<include refid="column2" />,tp.type_name,p.project_name,s.supplier_name 
+		FROM t_goods t_goods 
+		LEFT JOIN t_project p on p.id = t_goods.project_id 
+		LEFT JOIN t_supplier s on s.id = t_goods.supplier_id 
+		LEFT JOIN t_type tp on tp.id = t_goods.type_id 
+		WHERE  t_goods.id = #{id}
+	</select>
+
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="selectOne" parameterType="Dto" resultType="TGoodsPO">
+		SELECT
+		    <include refid="column" />
+		FROM t_goods
+		<where>
+		    <include refid="equal" />
+		</where>		
+	</select>
+
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="list" parameterType="Dto" resultType="TGoodsPO">
+		SELECT
+			<include refid="column" />	
+		FROM t_goods
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 根据Dto查询并返回数据VO对象集合 -->
+	<select id="listVO" parameterType="Dto" resultType="T_goodsVO">
+		SELECT
+			<include refid="column2" />,t2.specifications_name  
+		FROM t_goods t_goods LEFT JOIN t_specifications t2 ON t_goods.id = t2.goods_id 
+		
+		<where>
+		    <include refid="equal2" />
+		</where>
+	</select>
+	
+	<!-- 根据Dto查询并返回不重复材料名称数据持久化对象集合 -->
+	<select id="noRepeatList" parameterType="Dto" resultType="TGoodsPO">
+		SELECT
+			<include refid="column2" />	
+		FROM t_goods t_goods 
+		<where>
+		    <include refid="equal3" />
+		</where>
+	</select>
+	
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listPage" parameterType="Dto" resultType="TGoodsPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FROM t_goods
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto模糊查询并返回数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="like" parameterType="Dto" resultType="TGoodsPO">
+		SELECT
+			<include refid="column" />	
+		FROM t_goods
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto模糊查询并返回分页数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="likePage" parameterType="Dto" resultType="T_goodsVO" useCache="false">
+	    SELECT 
+		<include refid="column2" />,tp.type_name,p.project_name,s.supplier_name 
+		FROM t_goods t_goods 
+		LEFT JOIN t_project p on p.id = t_goods.project_id 
+		LEFT JOIN t_supplier s on s.id = t_goods.supplier_id 
+		LEFT JOIN t_type tp on tp.id = t_goods.type_id 
+		<where>
+		    <include refid="like2" />
+		</where>	
+		order by t_goods.createTime desc 
+		
+	</select>
+	<select id="likelist" parameterType="Dto" resultType="T_goodsVO" useCache="false">
+	    SELECT 
+		<include refid="column2" />,tp.type_name,p.project_name,s.supplier_name 
+		FROM t_goods t_goods 
+		LEFT JOIN t_project p on p.id = t_goods.project_id 
+		LEFT JOIN t_supplier s on s.id = t_goods.supplier_id 
+		LEFT JOIN t_type tp on tp.id = t_goods.type_id 
+		<where>
+		    <include refid="like2" />
+		</where>	
+		order by t_goods.createTime desc 
+		
+	</select>
+	<!-- 根据Dto统计行数 -->
+	<select id="rows" resultType="Integer" parameterType="Dto">
+		SELECT COUNT(1) AS aos_rows_ FROM t_goods
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 根据数学表达式进行数学运算 -->
+	<select id="calc" parameterType="Dto" resultType="String">
+		SELECT
+			${_expr}
+		FROM t_goods
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 表字段 -->
+	<sql id="column">
+		  id,  <!-- id -->
+		  type_id,  <!-- 材料类型id -->
+		  material_name,  <!-- 材料名称 -->
+		  unit,  <!-- 单位 -->
+		  brand,  <!-- 品牌 -->
+		  note,  <!-- 备注 -->
+		  price, <!-- 价格 -->
+		  img_src, <!-- 图片路径 -->
+		  createTime, <!-- 创建时间 -->
+		  project_id,
+		  price, <!-- 价格 -->
+		  supplier_id,
+		  createTime
+	</sql>
+	
+	<!-- 表字段(用于外表的关联时引用) -->
+	<sql id="column2">
+		  t_goods.id,  <!-- id -->
+		  t_goods.type_id,  <!-- 材料类型id -->
+		  t_goods.material_name,  <!-- 材料名称 -->
+		  t_goods.unit,  <!-- 单位 -->
+		  t_goods.brand,  <!-- 品牌 -->
+		  t_goods.note,  <!-- 备注 -->
+		  t_goods.price, <!-- 价格 -->
+		  t_goods.img_src, <!-- 图片路径 -->
+		  t_goods.createTime, <!-- 创建时间 -->
+		  t_goods.project_id,
+		  t_goods.supplier_id
+	</sql>
+
+	<!-- Where精确匹配字段 -->
+	<sql id="equal">
+	    <if test="id != null and id != ''">
+		      AND id = #{id}  <!-- id -->
+		</if>
+	    <if test="type_id != null and type_id != ''">
+		      AND type_id = #{type_id}  <!-- 材料类型id -->
+		</if>
+	    <if test="material_name != null and material_name != ''">
+		      AND material_name = #{material_name}  <!-- 材料名称 -->
+		</if>
+	    <if test="unit != null and unit != ''">
+		      AND unit = #{unit}  <!-- 单位 -->
+		</if>
+	    <if test="brand != null and brand != ''">
+		      AND brand = #{brand}  <!-- 品牌 -->
+		</if>
+	    <if test="note != null and note != ''">
+		      AND note = #{note}  <!-- 备注 -->
+		</if>
+	</sql>
+	
+	<sql id="equal2">
+	    <if test="id != null and id != ''">
+		      AND t_goods.id = #{id}  <!-- id -->
+		</if>
+	    <if test="type_id != null and type_id != ''">
+		      AND t_goods.type_id = #{type_id}  <!-- 材料类型id -->
+		</if>
+	    <if test="material_name != null and material_name != ''">
+		      AND t_goods.material_name = #{material_name}  <!-- 材料名称 -->
+		</if>
+	    <if test="unit != null and unit != ''">
+		      AND t_goods.unit = #{unit}  <!-- 单位 -->
+		</if>
+	    <if test="brand != null and brand != ''">
+		      AND t_goods.brand = #{brand}  <!-- 品牌 -->
+		</if>
+	    <if test="note != null and note != ''">
+		      AND t_goods.note = #{note}  <!-- 备注 -->
+		</if>
+	</sql>
+	<sql id="equal3">
+		t_goods.id in (SELECT MIN(t1.id) from t_goods t1 GROUP BY t1.material_name) 
+	    <if test="id != null and id != ''">
+		      AND t_goods.id = #{id}  <!-- id -->
+		</if>
+	    <if test="type_id != null and type_id != ''">
+		      AND t_goods.type_id = #{type_id}  <!-- 材料类型id -->
+		</if>
+	    <if test="material_name != null and material_name != ''">
+		      AND t_goods.material_name = #{material_name}  <!-- 材料名称 -->
+		</if>
+	    <if test="unit != null and unit != ''">
+		      AND t_goods.unit = #{unit}  <!-- 单位 -->
+		</if>
+	    <if test="brand != null and brand != ''">
+		      AND t_goods.brand = #{brand}  <!-- 品牌 -->
+		</if>
+	    <if test="note != null and note != ''">
+		      AND t_goods.note = #{note}  <!-- 备注 -->
+		</if>
+	</sql>
+	<!-- Where模糊匹配字段 -->
+	<sql id="like">
+	    <if test="id != null and id != ''">
+		      AND id like '%${id}%'  <!-- id -->
+		</if>
+	    <if test="type_id != null and type_id != ''">
+		      AND type_id like '%${type_id}%'  <!-- 材料类型id -->
+		</if>
+	    <if test="material_name != null and material_name != ''">
+		      AND material_name like '%${material_name}%'  <!-- 材料名称 -->
+		</if>
+	    <if test="unit != null and unit != ''">
+		      AND unit like '%${unit}%'  <!-- 单位 -->
+		</if>
+	    <if test="brand != null and brand != ''">
+		      AND brand like '%${brand}%'  <!-- 品牌 -->
+		</if>
+	    <if test="note != null and note != ''">
+		      AND note like '%${note}%'  <!-- 备注 -->
+		</if>
+	</sql>
+	<sql id="like2">
+	    <if test="id != null and id != ''">
+		      AND t_goods.id like concat('%',#{id},'%');  <!-- id -->
+		</if>
+	    <if test="type_id != null and type_id != ''">
+		      AND t_goods.type_id like concat('%',#{type_id},'%')  <!-- 材料类型id -->
+		</if>
+	    <if test="material_name != null and material_name != ''">
+		      AND t_goods.material_name like concat('%',#{material_name},'%')  <!-- 材料名称 -->
+		</if>
+	    <if test="unit != null and unit != ''">
+		      AND t_goods.unit like concat('%',#{unit},'%')  <!-- 单位 -->
+		</if>
+	    <if test="brand != null and brand != ''">
+		      AND t_goods.brand like concat('%',#{brand},'%')  <!-- 品牌 -->
+		</if>
+	    <if test="note != null and note != ''">
+		      AND t_goods.note like concat('%',#{note},'%')  <!-- 备注 -->
+		</if>
+	</sql>
+</mapper>

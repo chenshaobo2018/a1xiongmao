@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- zjc_share_prize[zjc_share_prize]SQL自动映射 -->
+<!--  注意:此文件由AOS平台自动生成-禁止手工修改 2018-02-06 16:32:13 -->
+<mapper namespace="com.wxactivity.share.dao.ZjcSharePrizeDao">
+	
+	<!-- 插入一个数据持久化对象(插入字段为传入PO实体的非空属性) -->
+	<insert id="insert" useGeneratedKeys="true" keyProperty="share_prize_id" parameterType="ZjcSharePrizePO">
+		INSERT INTO zjc_share_prize (
+		<if test="share_prize_name != null and share_prize_name != ''">
+	         share_prize_name, <!-- 奖品名称 -->
+		</if>
+		<if test="share_prize_amount != null">
+	         share_prize_amount, <!-- 奖品（剩余）数量 -->
+		</if>
+		<if test="share_prize_weight != null">
+	         share_prize_weight, <!-- 奖品权重 -->
+		</if>
+	          share_prize_id
+		)VALUES(
+		<if test="share_prize_name != null and share_prize_name != ''">
+	          #{share_prize_name, jdbcType=VARCHAR}, <!-- 奖品名称 -->
+	    </if>
+		<if test="share_prize_amount != null">
+	          #{share_prize_amount, jdbcType=INTEGER}, <!-- 奖品（剩余）数量 -->
+	    </if>
+		<if test="share_prize_weight != null">
+	          #{share_prize_weight, jdbcType=INTEGER}, <!-- 奖品权重 -->
+	    </if>
+	          null
+		)
+	</insert>
+	
+	<!-- 插入一个数据持久化对象(含所有字段) -->
+	<insert id="insertAll" useGeneratedKeys="true" keyProperty="share_prize_id" parameterType="ZjcSharePrizePO">
+		INSERT INTO zjc_share_prize (
+		    <include refid="column" />
+		)
+		VALUES (
+		    #{share_prize_id, jdbcType=INTEGER},  <!-- 奖品ID -->
+		    #{share_prize_name, jdbcType=VARCHAR},  <!-- 奖品名称 -->
+		    #{share_prize_amount, jdbcType=INTEGER},  <!-- 奖品（剩余）数量 -->
+		    #{share_prize_weight, jdbcType=INTEGER}  <!-- 奖品权重 -->
+		)
+	</insert>
+
+	<!-- 根据主键修改数据持久化对象 -->
+	<update id="updateByKey" parameterType="ZjcSharePrizePO">
+		UPDATE zjc_share_prize
+		<set>
+			<if test="share_prize_id != null">
+		          share_prize_id = #{share_prize_id, jdbcType=INTEGER},  <!-- 奖品ID -->
+			</if>
+			<if test="share_prize_name != null">
+		          share_prize_name = #{share_prize_name, jdbcType=VARCHAR},  <!-- 奖品名称 -->
+			</if>
+			<if test="share_prize_amount != null">
+		          share_prize_amount = #{share_prize_amount, jdbcType=INTEGER},  <!-- 奖品（剩余）数量 -->
+			</if>
+			<if test="share_prize_weight != null">
+		          share_prize_weight = #{share_prize_weight, jdbcType=INTEGER},  <!-- 奖品权重 -->
+			</if>
+		</set>
+		WHERE  share_prize_id = #{share_prize_id}
+	</update>
+	
+	<!-- 根据主键删除数据持久化对象 -->
+	<delete id="deleteByKey">
+		DELETE FROM zjc_share_prize WHERE  share_prize_id = #{share_prize_id}
+	</delete>
+
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="selectByKey" resultType="ZjcSharePrizePO">
+		SELECT
+		<include refid="column" />
+		FROM zjc_share_prize WHERE  share_prize_id = #{share_prize_id}
+	</select>
+
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="selectOne" parameterType="Dto" resultType="ZjcSharePrizePO">
+		SELECT
+		    <include refid="column" />
+		FROM zjc_share_prize
+		<where>
+		    <include refid="equal" />
+		</where>		
+	</select>
+
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="list" parameterType="Dto" resultType="ZjcSharePrizePO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_share_prize
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listPage" parameterType="Dto" resultType="ZjcSharePrizePO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_share_prize
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto模糊查询并返回数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="like" parameterType="Dto" resultType="ZjcSharePrizePO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_share_prize
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto模糊查询并返回分页数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="likePage" parameterType="Dto" resultType="ZjcSharePrizePO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_share_prize
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto统计行数 -->
+	<select id="rows" resultType="Integer" parameterType="Dto">
+		SELECT COUNT(1) AS aos_rows_ FROM zjc_share_prize
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 根据数学表达式进行数学运算 -->
+	<select id="calc" parameterType="Dto" resultType="String">
+		SELECT
+			${_expr}
+		FROM zjc_share_prize
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 表字段 -->
+	<sql id="column">
+		  share_prize_id,  <!-- 奖品ID -->
+		  share_prize_name,  <!-- 奖品名称 -->
+		  share_prize_amount,  <!-- 奖品（剩余）数量 -->
+		  share_prize_weight  <!-- 奖品权重 -->
+	</sql>
+	
+	<!-- 表字段(用于外表的关联时引用) -->
+	<sql id="column2">
+		  zjc_share_prize.share_prize_id,  <!-- 奖品ID -->
+		  zjc_share_prize.share_prize_name,  <!-- 奖品名称 -->
+		  zjc_share_prize.share_prize_amount,  <!-- 奖品（剩余）数量 -->
+		  zjc_share_prize.share_prize_weight  <!-- 奖品权重 -->
+	</sql>
+
+	<!-- Where精确匹配字段 -->
+	<sql id="equal">
+	   <if test="share_prize_id != null ">
+		      AND share_prize_id = #{share_prize_id}  <!-- 奖品ID -->
+		</if>
+	    <if test="share_prize_name != null and share_prize_name != ''">
+		      AND share_prize_name = #{share_prize_name}  <!-- 奖品名称 -->
+		</if>
+	   <if test="share_prize_amount != null ">
+		      AND share_prize_amount = #{share_prize_amount}  <!-- 奖品（剩余）数量 -->
+		</if>
+	   <if test="share_prize_weight != null ">
+		      AND share_prize_weight = #{share_prize_weight}  <!-- 奖品权重 -->
+		</if>
+	</sql>
+	
+	<!-- Where模糊匹配字段 -->
+	<sql id="like">
+	    <if test="share_prize_name != null and share_prize_name != ''">
+		      AND share_prize_name like '${share_prize_name}%'  <!-- 奖品名称 -->
+		</if>
+	</sql>
+	
+	<select id="listWinPricePage" parameterType="Dto" resultType="Dto">
+		select  t1.prize_name, t1.win_time 
+		from zjc_win_prize t1 left join zjc_share_prize t2 on t1.prize_id = t2.share_prize_id
+		where user_id = #{user_id} order by t1.win_time desc
+	</select>
+</mapper>

@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- t_specifications[t_specifications]SQL自动映射 -->
+<!--  注意:此文件由AOS平台自动生成-禁止手工修改 2019-03-05 10:01:10 -->
+<mapper namespace="com.api.hl.dao.TSpecificationsDao">
+	<!-- 插入一个数据持久化对象(插入字段为传入PO实体的非空属性) -->
+	<insert id="insert"  parameterType="TSpecificationsPO">
+		INSERT INTO t_specifications (
+		<if test="repertory_number != null">
+	         repertory_number, <!-- 仓库数量 -->
+		</if>
+		<if test="goods_id != null and goods_id != ''">
+	         goods_id, <!-- 产品id -->
+		</if>
+		<if test="specifications_name != null and specifications_name != ''">
+	         specifications_name, <!-- 规格名称 -->
+		</if>
+		<if test="price != null and price != ''">
+	         price, 
+		</if>
+		<if test="brand != null and brand != ''">
+	         brand, 
+		</if>
+		<if test="id != null and id != ''">
+	          id  <!-- id -->
+	   </if>
+		)VALUES(
+		<if test="repertory_number != null">
+	          #{repertory_number, jdbcType=INTEGER}, <!-- 库存数量 -->
+	    </if>
+		<if test="goods_id != null and goods_id != ''">
+	          #{goods_id, jdbcType=VARCHAR}, <!-- 产品id -->
+	    </if>
+		<if test="specifications_name != null and specifications_name != ''">
+	          #{specifications_name, jdbcType=VARCHAR}, <!-- 规格名称 -->
+	    </if>
+	    <if test="price != null and price != ''">
+	          #{price, jdbcType=VARCHAR}, 
+	    </if>
+	    <if test="brand != null and brand != ''">
+	          #{brand, jdbcType=VARCHAR}, 
+	    </if>
+		<if test="id != null and id != ''">
+		     #{id, jdbcType=VARCHAR}  <!-- id -->
+	    </if>
+		)
+	</insert>
+	
+	<!-- 插入一个数据持久化对象(含所有字段) -->
+	<insert id="insertAll"  parameterType="TSpecificationsPO">
+		INSERT INTO t_specifications (
+		    <include refid="column" />
+		)
+		VALUES (
+			#{repertory_number, jdbcType=INTEGER},  <!-- 库存数量 -->
+		    #{id, jdbcType=VARCHAR},  <!-- id -->
+		    #{goods_id, jdbcType=VARCHAR},  <!-- 产品id -->
+		    #{specifications_name, jdbcType=VARCHAR},  <!-- 规格名称 -->
+		    #{price, jdbcType=VARCHAR},
+		    #{brand, jdbcType=VARCHAR}
+		)
+	</insert>
+
+	<!-- 根据主键修改数据持久化对象 -->
+	<update id="updateByKey" parameterType="TSpecificationsPO">
+		UPDATE t_specifications
+		<set>
+			<if test="repertory_number != null">
+		          repertory_number = #{repertory_number, jdbcType=INTEGER},  <!-- 库存数量 -->
+			</if>
+			<if test="id != null">
+		          id = #{id, jdbcType=VARCHAR},  <!-- id -->
+			</if>
+			<if test="goods_id != null">
+		          goods_id = #{goods_id, jdbcType=VARCHAR},  <!-- 产品id -->
+			</if>
+			<if test="specifications_name != null">
+		          specifications_name = #{specifications_name, jdbcType=VARCHAR},  <!-- 规格名称 -->
+			</if>
+			<if test="price != null and price != ''">
+		          price = #{price, jdbcType=VARCHAR},  
+			</if>
+			<if test="brand != null">
+		          brand = #{brand, jdbcType=VARCHAR},  
+			</if>
+		</set>
+		WHERE  id = #{id}
+	</update>
+	
+	<!-- 根据主键删除数据持久化对象 -->
+	<delete id="deleteByKey">
+		DELETE FROM t_specifications WHERE  id = #{id}
+	</delete>
+	
+	<delete id="deleteByFKey">
+		DELETE FROM t_specifications WHERE  goods_id = #{fid}
+	</delete>
+
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="selectByKey" resultType="TSpecificationsPO">
+		SELECT
+		<include refid="column" />
+		FROM t_specifications WHERE  id = #{id}
+	</select>
+
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="selectOne" parameterType="Dto" resultType="TSpecificationsPO">
+		SELECT
+		    <include refid="column" />
+		FROM t_specifications
+		<where>
+		    <include refid="equal" />
+		</where>		
+	</select>
+   <!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="listbrand" parameterType="Dto" resultType="TSpecificationsPO">
+		SELECT <include refid="column" />	
+		 from t_specifications 
+		  where goods_id= #{goods_id}
+	</select>
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="list" parameterType="Dto" resultType="TSpecificationsPO">
+		SELECT
+			<include refid="column" />	
+		FROM t_specifications
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listPage" parameterType="Dto" resultType="TSpecificationsPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FROM t_specifications
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto模糊查询并返回数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="like" parameterType="Dto" resultType="TSpecificationsPO">
+		SELECT
+			<include refid="column" />	
+		FROM t_specifications
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto模糊查询并返回分页数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="likePage" parameterType="Dto" resultType="TSpecificationsPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FROM t_specifications
+		<where>
+		    <include refid="like" />
+		</where>	
+		
+		
+	</select>
+	
+	<!-- 根据Dto统计行数 -->
+	<select id="rows" resultType="Integer" parameterType="Dto">
+		SELECT COUNT(1) AS aos_rows_ FROM t_specifications
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 根据数学表达式进行数学运算 -->
+	<select id="calc" parameterType="Dto" resultType="String">
+		SELECT
+			${_expr}
+		FROM t_specifications
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 表字段 -->
+	<sql id="column">
+		  repertory_number,  <!-- 收货数量 -->
+		  id,  <!-- id -->
+		  goods_id,  <!-- 产品id -->
+		  specifications_name,  <!-- 规格名称 -->
+		  price,
+		  brand
+	</sql>
+	
+	<!-- 表字段(用于外表的关联时引用) -->
+	<sql id="column2">
+		  t_specifications.repertory_number,
+		  t_specifications.id,  <!-- id -->
+		  t_specifications.goods_id,  <!-- 产品id -->
+		  t_specifications.specifications_name,  <!-- 规格名称 -->
+		  t_specifications.price,
+		  t_specifications.brand
+	</sql>
+
+	<!-- Where精确匹配字段 -->
+	<sql id="equal">
+		<if test="repertory_number != null ">
+		      AND repertory_number = #{repertory_number}  <!-- 库存数量 -->
+		</if>
+	    <if test="id != null and id != ''">
+		      AND id = #{id}  <!-- id -->
+		</if>
+	    <if test="goods_id != null and goods_id != ''">
+		      AND goods_id = #{goods_id}  <!-- 产品id -->
+		</if>
+	    <if test="specifications_name != null and specifications_name != ''">
+		      AND specifications_name = #{specifications_name}  <!-- 规格名称 -->
+		</if>
+	</sql>
+	
+	<!-- Where模糊匹配字段 -->
+	<sql id="like">
+	    <if test="id != null and id != ''">
+		      AND id like '%${id}%'  <!-- id -->
+		</if>
+	    <if test="goods_id != null and goods_id != ''">
+		      AND goods_id like '%${goods_id}%'  <!-- 产品id -->
+		</if>
+	    <if test="specifications_name != null and specifications_name != ''">
+		      AND specifications_name like '%${specifications_name}%'  <!-- 规格名称 -->
+		</if>
+	</sql>
+</mapper>

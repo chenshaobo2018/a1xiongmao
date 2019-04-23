@@ -1,0 +1,844 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- zjc_seller_info[zjc_seller_info]SQL自动映射 -->
+<!--  注意:此文件由AOS平台自动生成-禁止手工修改 2017-06-08 17:56:19 -->
+<mapper namespace="com.zjc.store.dao.ZjcSellerInfoDao">
+	
+	<resultMap id="queryForListMap" type="com.zjc.store.dao.po.ZjcSellerInfoPO">  
+        <id column="user_id" property="user_id" jdbcType="INTEGER"/>  
+        <result column="email" property="email" jdbcType="VARCHAR"/>
+        <result column="password" property="password" jdbcType="VARCHAR"/>
+        <result column="pay_password" property="pay_password" jdbcType="VARCHAR"/>
+        <result column="sex" property="sex" jdbcType="VARCHAR"/>
+        <result column="birthday" property="birthday" jdbcType="VARCHAR"/>
+        <result column="reg_time" property="reg_time" jdbcType="VARCHAR"/>
+        <result column="last_login" property="last_login" jdbcType="VARCHAR"/>
+        <result column="last_ip" property="last_ip" jdbcType="VARCHAR"/>
+        <result column="qq" property="qq" jdbcType="VARCHAR"/>
+        <result column="mobile" property="mobile" jdbcType="VARCHAR"/>
+        <result column="mobile_validated" property="mobile_validated" jdbcType="VARCHAR"/>
+        <result column="oauth" property="oauth" jdbcType="VARCHAR"/>
+        <result column="openid" property="openid" jdbcType="VARCHAR"/>
+        <result column="head_pic" property="head_pic" jdbcType="VARCHAR"/>
+        <result column="email_validated" property="email_validated" jdbcType="VARCHAR"/>
+        <result column="nickname" property="nickname" jdbcType="VARCHAR"/>
+        <result column="level" property="level" jdbcType="VARCHAR"/>
+        <result column="is_distribut" property="is_distribut" jdbcType="VARCHAR"/>
+        <result column="first_leader" property="first_leader" jdbcType="VARCHAR"/>
+        <result column="second_leader" property="second_leader" jdbcType="VARCHAR"/>
+        <result column="third_leader" property="third_leader" jdbcType="VARCHAR"/>
+        <result column="token" property="token" jdbcType="VARCHAR"/>
+        <result column="token_validate_time" property="token_validate_time" jdbcType="VARCHAR"/>
+        <result column="recommended_code" property="recommended_code" jdbcType="VARCHAR"/>
+        <result column="is_qualified_member" property="is_qualified_member" jdbcType="VARCHAR"/>
+        <result column="id_card" property="id_card" jdbcType="VARCHAR"/>
+        <result column="real_name" property="real_name" jdbcType="VARCHAR"/>
+        <result column="qualified_member" property="qualified_member" jdbcType="VARCHAR"/>
+        <result column="store_id" property="store_id" jdbcType="VARCHAR"/>
+        <result column="is_open_min_pay" property="is_open_min_pay" jdbcType="VARCHAR"/>
+       	<result column="authentication" property="authentication" jdbcType="VARCHAR"/>
+       	<result column="is_lock" property="is_lock" jdbcType="VARCHAR"/>
+       	<result column="clientid" property="clientid" jdbcType="VARCHAR"/>
+        <result column="src_client" property="src_client" jdbcType="VARCHAR"/>
+        <collection property="zjcUsersAccountInfoPO"  ofType="com.zjc.users.dao.po.ZjcUsersAccountInfoPO">  
+            <id column="user_id" property="user_id" jdbcType="INTEGER" />
+            <result column="user_money" property="user_money" jdbcType="VARCHAR"/>
+            <result column="frozen_money" property="frozen_money" jdbcType="VARCHAR"/>
+            <result column="distribut_money" property="distribut_money" jdbcType="VARCHAR"/>
+            <result column="pay_points" property="pay_points" jdbcType="VARCHAR"/>
+            <result column="total_amount" property="total_amount" jdbcType="VARCHAR"/>
+            <result column="make_over_integral" property="make_over_integral" jdbcType="VARCHAR"/>
+            <result column="wallet_quota" property="wallet_quota" jdbcType="VARCHAR"/>
+            <result column="settlement_center" property="settlement_center" jdbcType="VARCHAR"/>
+            <result column="settlement_center_stime" property="settlement_center_stime" jdbcType="VARCHAR"/>
+            <result column="settlement_center_etime" property="settlement_center_etime" jdbcType="VARCHAR"/>
+            <result column="reg_giving_points" property="reg_giving_points" jdbcType="VARCHAR"/>
+            <result column="return_points" property="return_points" jdbcType="VARCHAR"/>
+            <result column="due_tc_points" property="due_tc_points" jdbcType="VARCHAR"/>
+            <result column="practical_tc_points" property="practical_tc_points" jdbcType="VARCHAR"/>
+            <result column="count_wallet_quota" property="count_wallet_quota" jdbcType="VARCHAR"/>
+            <result column="has_terminal" property="has_terminal" jdbcType="VARCHAR"/>
+        </collection>  
+    </resultMap>  
+	
+	<!-- 插入一个数据持久化对象(插入字段为传入PO实体的非空属性) -->
+	<insert id="insert" parameterType="ZjcSellerInfoPO">
+		INSERT INTO zjc_seller_info (
+		<if test="email != null and email != ''">
+	         email, <!-- 邮件 -->
+		</if>
+		<if test="password != null and password != ''">
+	         password, <!-- 密码 -->
+		</if>
+		<if test="pay_password != null and pay_password != ''">
+	         pay_password, <!-- 支付密码 -->
+		</if>
+		<if test="sex != null">
+	         sex, <!-- 0 保密 1 男 2 女 -->
+		</if>
+		<if test="birthday != null">
+	         birthday, <!-- 生日 -->
+		</if>
+		<if test="reg_time != null and reg_time != ''">
+	         reg_time, <!-- 注册时间 -->
+		</if>
+		<if test="last_login != null and last_login != ''">
+	         last_login, <!-- 最后登录时间 -->
+		</if>
+		<if test="last_ip != null and last_ip != ''">
+	         last_ip, <!-- 最后登录ip -->
+		</if>
+		<if test="qq != null and qq != ''">
+	         qq, <!-- QQ -->
+		</if>
+		<if test="mobile != null and mobile != ''">
+	         mobile, <!-- 手机号码 -->
+		</if>
+		<if test="mobile_validated != null">
+	         mobile_validated, <!-- 是否验证手机 -->
+		</if>
+		<if test="oauth != null and oauth != ''">
+	         oauth, <!-- 第三方来源 wx weibo alipay -->
+		</if>
+		<if test="openid != null and openid != ''">
+	         openid, <!-- 微信openID -->
+		</if>
+		<if test="head_pic != null and head_pic != ''">
+	         head_pic, <!-- 头像 -->
+		</if>
+		<if test="email_validated != null">
+	         email_validated, <!-- 是否验证电子邮箱 -->
+		</if>
+		<if test="nickname != null and nickname != ''">
+	         nickname, <!-- 第三方返回昵称 -->
+		</if>
+		<if test="level != null">
+	         level, <!-- 会员等级 -->
+		</if>
+		<if test="discount != null">
+	         discount, <!-- 会员折扣，默认1不享受 -->
+		</if>
+		<if test="is_distribut != null">
+	         is_distribut, <!-- 是否为分销商 0 否 1 是 -->
+		</if>
+		<if test="first_leader != null">
+	         first_leader, <!-- 上级 -->
+		</if>
+		<if test="second_leader != null">
+	         second_leader, <!-- 上上级 -->
+		</if>
+		<if test="third_leader != null">
+	         third_leader, <!-- 第三个上级 -->
+		</if>
+		<if test="token != null and token != ''">
+	         token, <!-- 用于app 授权类似于session_id -->
+		</if>
+		<if test="token_validate_time != null">
+	         token_validate_time, <!-- token有效期 -->
+		</if>
+		<if test="recommended_code != null and recommended_code != ''">
+	         recommended_code, <!-- 会员推荐码 -->
+		</if>
+		<if test="is_qualified_member != null">
+	         is_qualified_member, <!-- 是否合格会员(0-否，1-是) -->
+		</if>
+		<if test="id_card != null and id_card != ''">
+	         id_card, <!-- 身份证号码 -->
+		</if>
+		<if test="real_name != null and real_name != ''">
+	         real_name, <!-- 真实姓名 -->
+		</if>
+		<if test="qualified_member != null">
+	         qualified_member, <!-- 合格会员数 -->
+		</if>
+		<if test="store_id != null">
+	         store_id, <!-- 店铺ID -->
+		</if>
+		<if test="is_open_min_pay != null">
+	         is_open_min_pay, <!-- 是否打开小额免密支付 -->
+		</if>
+		<if test="authentication != null">
+	         authentication, <!-- 是否实名认证 -->
+		</if>
+		<if test="is_lock != null">
+	         is_lock, <!-- 是否被冻结锁定（0-冻结锁定，1-启用 ）-->
+		</if>
+		<if test="clientid != null and clientid != ''">
+	         clientid, <!-- 会员登录时的设备号 -->
+		</if>
+		<if test="src_client != null">
+	         src_client, <!-- 会员登录时的设备类型：android 1 ,IOS 2,weixin 3 -->
+		</if>
+	          user_id
+		)VALUES(
+		<if test="email != null and email != ''">
+	          #{email, jdbcType=VARCHAR}, <!-- 邮件 -->
+	    </if>
+		<if test="password != null and password != ''">
+	          #{password, jdbcType=VARCHAR}, <!-- 密码 -->
+	    </if>
+		<if test="pay_password != null and pay_password != ''">
+	          #{pay_password, jdbcType=VARCHAR}, <!-- 支付密码 -->
+	    </if>
+		<if test="sex != null">
+	          #{sex, jdbcType=INTEGER}, <!-- 0 保密 1 男 2 女 -->
+	    </if>
+		<if test="birthday != null">
+	          #{birthday, jdbcType=INTEGER}, <!-- 生日 -->
+	    </if>
+		<if test="reg_time != null and reg_time != ''">
+	          #{reg_time, jdbcType=VARCHAR}, <!-- 注册时间 -->
+	    </if>
+		<if test="last_login != null and last_login != ''">
+	          #{last_login, jdbcType=VARCHAR}, <!-- 最后登录时间 -->
+	    </if>
+		<if test="last_ip != null and last_ip != ''">
+	          #{last_ip, jdbcType=VARCHAR}, <!-- 最后登录ip -->
+	    </if>
+		<if test="qq != null and qq != ''">
+	          #{qq, jdbcType=VARCHAR}, <!-- QQ -->
+	    </if>
+		<if test="mobile != null and mobile != ''">
+	          #{mobile, jdbcType=VARCHAR}, <!-- 手机号码 -->
+	    </if>
+		<if test="mobile_validated != null">
+	          #{mobile_validated, jdbcType=INTEGER}, <!-- 是否验证手机 -->
+	    </if>
+		<if test="oauth != null and oauth != ''">
+	          #{oauth, jdbcType=VARCHAR}, <!-- 第三方来源 wx weibo alipay -->
+	    </if>
+		<if test="openid != null and openid != ''">
+	          #{openid, jdbcType=VARCHAR}, <!-- 微信openID -->
+	    </if>
+		<if test="head_pic != null and head_pic != ''">
+	          #{head_pic, jdbcType=VARCHAR}, <!-- 头像 -->
+	    </if>
+		<if test="email_validated != null">
+	          #{email_validated, jdbcType=INTEGER}, <!-- 是否验证电子邮箱 -->
+	    </if>
+		<if test="nickname != null and nickname != ''">
+	          #{nickname, jdbcType=VARCHAR}, <!-- 第三方返回昵称 -->
+	    </if>
+		<if test="level != null">
+	          #{level, jdbcType=INTEGER}, <!-- 会员等级 -->
+	    </if>
+		<if test="discount != null">
+	          #{discount, jdbcType=NUMERIC}, <!-- 会员折扣，默认1不享受 -->
+	    </if>
+		<if test="is_distribut != null">
+	          #{is_distribut, jdbcType=INTEGER}, <!-- 是否为分销商 0 否 1 是 -->
+	    </if>
+		<if test="first_leader != null">
+	          #{first_leader, jdbcType=INTEGER}, <!-- 上级 -->
+	    </if>
+		<if test="second_leader != null">
+	          #{second_leader, jdbcType=INTEGER}, <!-- 上上级 -->
+	    </if>
+		<if test="third_leader != null">
+	          #{third_leader, jdbcType=INTEGER}, <!-- 第三个上级 -->
+	    </if>
+		<if test="token != null and token != ''">
+	          #{token, jdbcType=VARCHAR}, <!-- 用于app 授权类似于session_id -->
+	    </if>
+		<if test="token_validate_time != null">
+	          #{token_validate_time, jdbcType=INTEGER}, <!-- token有效期 -->
+	    </if>
+		<if test="recommended_code != null and recommended_code != ''">
+	          #{recommended_code, jdbcType=VARCHAR}, <!-- 会员推荐码 -->
+	    </if>
+		<if test="is_qualified_member != null">
+	          #{is_qualified_member, jdbcType=INTEGER}, <!-- 是否合格会员(0-否，1-是) -->
+	    </if>
+		<if test="id_card != null and id_card != ''">
+	          #{id_card, jdbcType=VARCHAR}, <!-- 身份证号码 -->
+	    </if>
+		<if test="real_name != null and real_name != ''">
+	          #{real_name, jdbcType=VARCHAR}, <!-- 真实姓名 -->
+	    </if>
+		<if test="qualified_member != null">
+	          #{qualified_member, jdbcType=INTEGER}, <!-- 合格会员数 -->
+	    </if>
+		<if test="store_id != null">
+	          #{store_id, jdbcType=INTEGER}, <!-- 店铺ID -->
+	    </if>
+		<if test="is_open_min_pay != null">
+	          #{is_open_min_pay, jdbcType=INTEGER}, <!-- 是否打开小额免密支付 -->
+	    </if>
+		<if test="authentication != null">
+	          #{authentication, jdbcType=INTEGER}, <!-- 是否实名认证 -->
+	    </if>
+	    <if test="is_lock != null">
+	          #{is_lock, jdbcType=INTEGER}, <!-- 是否被冻结锁定（0-冻结锁定，1-启用 ） -->
+	    </if>
+	    <if test="clientid != null and clientid != ''">
+	          #{clientid, jdbcType=VARCHAR}, <!-- 会员登录时的设备号 -->
+		</if>
+		<if test="src_client != null">
+	          #{src_client, jdbcType=INTEGER}, <!-- 会员登录时的设备类型：android 1 ,IOS 2,weixin 3 -->
+		</if>
+	    <if test="user_id != null">
+	         #{user_id, jdbcType=INTEGER} <!-- user_id -->
+	    </if>
+		)
+	</insert>
+	
+	<!-- 插入一个数据持久化对象(含所有字段) -->
+	<insert id="insertAll" useGeneratedKeys="true" keyProperty="user_id" parameterType="ZjcSellerInfoPO">
+		INSERT INTO zjc_seller_info (
+		    <include refid="column" />
+		)
+		VALUES (
+		    #{user_id, jdbcType=INTEGER},  <!-- 表id -->
+		    #{email, jdbcType=VARCHAR},  <!-- 邮件 -->
+		    #{password, jdbcType=VARCHAR},  <!-- 密码 -->
+		    #{pay_password, jdbcType=VARCHAR},  <!-- 支付密码 -->
+		    #{sex, jdbcType=INTEGER},  <!-- 0 保密 1 男 2 女 -->
+		    #{birthday, jdbcType=INTEGER},  <!-- 生日 -->
+		    #{reg_time, jdbcType=VARCHAR},  <!-- 注册时间 -->
+		    #{last_login, jdbcType=VARCHAR},  <!-- 最后登录时间 -->
+		    #{last_ip, jdbcType=VARCHAR},  <!-- 最后登录ip -->
+		    #{qq, jdbcType=VARCHAR},  <!-- QQ -->
+		    #{mobile, jdbcType=VARCHAR},  <!-- 手机号码 -->
+		    #{mobile_validated, jdbcType=INTEGER},  <!-- 是否验证手机 -->
+		    #{oauth, jdbcType=VARCHAR},  <!-- 第三方来源 wx weibo alipay -->
+		    #{openid, jdbcType=VARCHAR},  <!-- 微信openID -->
+		    #{head_pic, jdbcType=VARCHAR},  <!-- 头像 -->
+		    #{email_validated, jdbcType=INTEGER},  <!-- 是否验证电子邮箱 -->
+		    #{nickname, jdbcType=VARCHAR},  <!-- 第三方返回昵称 -->
+		    #{level, jdbcType=INTEGER},  <!-- 会员等级 -->
+		    #{discount, jdbcType=NUMERIC},  <!-- 会员折扣，默认1不享受 -->
+		    #{is_distribut, jdbcType=INTEGER},  <!-- 是否为分销商 0 否 1 是 -->
+		    #{first_leader, jdbcType=INTEGER},  <!-- 上级 -->
+		    #{second_leader, jdbcType=INTEGER},  <!-- 上上级 -->
+		    #{third_leader, jdbcType=INTEGER},  <!-- 第三个上级 -->
+		    #{token, jdbcType=VARCHAR},  <!-- 用于app 授权类似于session_id -->
+		    #{token_validate_time, jdbcType=INTEGER},  <!-- token有效期 -->
+		    #{recommended_code, jdbcType=VARCHAR},  <!-- 会员推荐码 -->
+		    #{is_qualified_member, jdbcType=INTEGER},  <!-- 是否合格会员(0-否，1-是) -->
+		    #{id_card, jdbcType=VARCHAR},  <!-- 身份证号码 -->
+		    #{real_name, jdbcType=VARCHAR},  <!-- 真实姓名 -->
+		    #{qualified_member, jdbcType=INTEGER},  <!-- 合格会员数 -->
+		    #{store_id, jdbcType=INTEGER},  <!-- 店铺ID -->
+		    #{is_open_min_pay, jdbcType=INTEGER},  <!-- 是否打开小额免密支付 -->
+		    #{authentication, jdbcType=INTEGER},  <!-- 是否实名认证 -->
+		    #{is_lock, jdbcType=INTEGER},  <!-- 是否被冻结锁定（0-冻结锁定，1-启用 ） -->
+		    #{clientid, jdbcType=VARCHAR},  <!-- 会员登录时的设备号 -->
+		    #{src_client, jdbcType=INTEGER}  <!-- 会员登录时的设备类型：android 1 ,IOS 2,weixin 3 -->
+		)
+	</insert>
+
+	<!-- 根据主键修改数据持久化对象 -->
+	<update id="updateByKey" parameterType="ZjcSellerInfoPO">
+		UPDATE zjc_seller_info
+		<set>
+			<if test="user_id != null">
+		          user_id = #{user_id, jdbcType=INTEGER},  <!-- 表id -->
+			</if>
+			<if test="email != null">
+		          email = #{email, jdbcType=VARCHAR},  <!-- 邮件 -->
+			</if>
+			<if test="password != null">
+		          password = #{password, jdbcType=VARCHAR},  <!-- 密码 -->
+			</if>
+			<if test="pay_password != null">
+		          pay_password = #{pay_password, jdbcType=VARCHAR},  <!-- 支付密码 -->
+			</if>
+			<if test="sex != null">
+		          sex = #{sex, jdbcType=INTEGER},  <!-- 0 保密 1 男 2 女 -->
+			</if>
+			<if test="birthday != null">
+		          birthday = #{birthday, jdbcType=INTEGER},  <!-- 生日 -->
+			</if>
+			<if test="reg_time != null">
+		          reg_time = #{reg_time, jdbcType=VARCHAR},  <!-- 注册时间 -->
+			</if>
+			<if test="last_login != null">
+		          last_login = #{last_login, jdbcType=VARCHAR},  <!-- 最后登录时间 -->
+			</if>
+			<if test="last_ip != null">
+		          last_ip = #{last_ip, jdbcType=VARCHAR},  <!-- 最后登录ip -->
+			</if>
+			<if test="qq != null">
+		          qq = #{qq, jdbcType=VARCHAR},  <!-- QQ -->
+			</if>
+			<if test="mobile != null">
+		          mobile = #{mobile, jdbcType=VARCHAR},  <!-- 手机号码 -->
+			</if>
+			<if test="mobile_validated != null">
+		          mobile_validated = #{mobile_validated, jdbcType=INTEGER},  <!-- 是否验证手机 -->
+			</if>
+			<if test="oauth != null">
+		          oauth = #{oauth, jdbcType=VARCHAR},  <!-- 第三方来源 wx weibo alipay -->
+			</if>
+			<if test="openid != null">
+		          openid = #{openid, jdbcType=VARCHAR},  <!-- 微信openID -->
+			</if>
+			<if test="head_pic != null">
+		          head_pic = #{head_pic, jdbcType=VARCHAR},  <!-- 头像 -->
+			</if>
+			<if test="email_validated != null">
+		          email_validated = #{email_validated, jdbcType=INTEGER},  <!-- 是否验证电子邮箱 -->
+			</if>
+			<if test="nickname != null">
+		          nickname = #{nickname, jdbcType=VARCHAR},  <!-- 第三方返回昵称 -->
+			</if>
+			<if test="level != null">
+		          level = #{level, jdbcType=INTEGER},  <!-- 会员等级 -->
+			</if>
+			<if test="discount != null">
+		          discount = #{discount, jdbcType=NUMERIC},  <!-- 会员折扣，默认1不享受 -->
+			</if>
+			<if test="is_distribut != null">
+		          is_distribut = #{is_distribut, jdbcType=INTEGER},  <!-- 是否为分销商 0 否 1 是 -->
+			</if>
+			<if test="first_leader != null">
+		          first_leader = #{first_leader, jdbcType=INTEGER},  <!-- 上级 -->
+			</if>
+			<if test="second_leader != null">
+		          second_leader = #{second_leader, jdbcType=INTEGER},  <!-- 上上级 -->
+			</if>
+			<if test="third_leader != null">
+		          third_leader = #{third_leader, jdbcType=INTEGER},  <!-- 第三个上级 -->
+			</if>
+			<if test="token != null">
+		          token = #{token, jdbcType=VARCHAR},  <!-- 用于app 授权类似于session_id -->
+			</if>
+			<if test="token_validate_time != null">
+		          token_validate_time = #{token_validate_time, jdbcType=INTEGER},  <!-- token有效期 -->
+			</if>
+			<if test="recommended_code != null">
+		          recommended_code = #{recommended_code, jdbcType=VARCHAR},  <!-- 会员推荐码 -->
+			</if>
+			<if test="is_qualified_member != null">
+		          is_qualified_member = #{is_qualified_member, jdbcType=INTEGER},  <!-- 是否合格会员(0-否，1-是) -->
+			</if>
+			<if test="id_card != null">
+		          id_card = #{id_card, jdbcType=VARCHAR},  <!-- 身份证号码 -->
+			</if>
+			<if test="real_name != null">
+		          real_name = #{real_name, jdbcType=VARCHAR},  <!-- 真实姓名 -->
+			</if>
+			<if test="qualified_member != null">
+		          qualified_member = #{qualified_member, jdbcType=INTEGER},  <!-- 合格会员数 -->
+			</if>
+			<if test="store_id != null">
+		          store_id = #{store_id, jdbcType=INTEGER},  <!-- 店铺ID -->
+			</if>
+			<if test="is_open_min_pay != null">
+		          is_open_min_pay = #{is_open_min_pay, jdbcType=INTEGER},  <!-- 是否打开小额免密支付 -->
+			</if>
+			<if test="authentication != null">
+		          authentication = #{authentication, jdbcType=INTEGER},  <!-- 是否实名认证 -->
+			</if>
+			<if test="is_lock != null">
+		          is_lock = #{is_lock, jdbcType=INTEGER},  <!-- 是否被冻结锁定（1-冻结锁定，0-启用 ）-->
+			</if>
+			<if test="clientid != null and clientid != ''">
+		          clientid = #{clientid, jdbcType=VARCHAR},  <!-- 会员登录时的设备号 -->
+			</if>
+			<if test="src_client != null">
+		          src_client = #{src_client, jdbcType=INTEGER}  <!-- 会员登录时的设备类型：android 1 ,IOS 2,weixin 3 -->
+			</if>
+			
+		</set>
+		WHERE  user_id = #{user_id}
+	</update>
+	
+	<!-- 根据主键删除数据持久化对象 -->
+	<delete id="deleteByKey">
+		DELETE FROM zjc_seller_info WHERE  user_id = #{user_id}
+	</delete>
+
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="selectByKey" resultType="ZjcSellerInfoPO">
+		SELECT
+		<include refid="column" />
+		FROM zjc_seller_info WHERE  user_id = #{user_id}
+	</select>
+	
+	<!-- 根据user_id查询并返回数据持久化对象(新增) -->
+	<select id="selectByUserId" resultMap="queryForListMap" parameterType="Dto" useCache="false">
+		SELECT
+			t.user_id,t.nickname,t.real_name,t1.total_amount
+      ,t1.user_money,t1.wallet_quota,t1.count_wallet_quota
+      ,t.mobile,t.is_qualified_member,t.recommended_code,t.head_pic,
+       t1.distribut_money,t1.make_over_integral,t.head_pic,t.id_card,
+       t1.is_lock,t1.has_terminal,t.password,t2.level,t1.settlement_center
+		FROM zjc_seller_info t 
+		left join zjc_users_account_info t1 on t.user_id=t1.user_id 
+		left join zjc_users_info t2 on t.user_id=t2.recommended_code
+		WHERE  t.user_id = #{user_id}
+	</select>
+
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="selectOne" parameterType="Dto" resultType="ZjcSellerInfoPO">
+		SELECT
+		    <include refid="column" />
+		FROM zjc_seller_info
+		<where>
+		    <include refid="equal" />
+		</where>		
+	</select>
+	
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="selectByUseriInfoPO" parameterType="ZjcSellerInfoPO" resultType="ZjcSellerInfoPO">
+		SELECT
+		    <include refid="column" />
+		FROM zjc_seller_info
+		<where>
+		    <include refid="equal" />
+		</where>		
+	</select>
+
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="list" parameterType="Dto" resultType="ZjcSellerInfoPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_seller_info
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listPage" parameterType="Dto" resultType="ZjcSellerInfoPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_seller_info
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto模糊查询并返回数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="like" parameterType="Dto" resultType="ZjcSellerInfoPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_seller_info
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto模糊查询并返回分页数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="likePage" parameterType="Dto" resultType="ZjcSellerInfoPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_seller_info
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+	
+	<!-- 查询用户积分日志信息 -->
+	<select id="queryLog" parameterType="Dto"  resultMap="queryForListMap" useCache="false">
+	    select 
+           t1.real_name,t1.mobile,t1.last_login,t2.pay_points
+        FROM zjc_seller_info t1 
+		LEFT JOIN zjc_users_account_info t2 on t1.user_id=t2.user_id
+         <where>
+		  t1.user_id = #{user_id}
+		</where>	
+	</select>
+	
+	<!-- 根据Dto统计行数 -->
+	<select id="rows" resultType="Integer" parameterType="Dto">
+		SELECT COUNT(1) AS aos_rows_ FROM zjc_seller_info
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 根据数学表达式进行数学运算 -->
+	<select id="calc" parameterType="Dto" resultType="String">
+		SELECT
+			${_expr}
+		FROM zjc_seller_info
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 表字段 -->
+	<sql id="column">
+		  user_id,  <!-- 表id -->
+		  email,  <!-- 邮件 -->
+		  password,  <!-- 密码 -->
+		  pay_password,  <!-- 支付密码 -->
+		  sex,  <!-- 0 保密 1 男 2 女 -->
+		  birthday,  <!-- 生日 -->
+		  reg_time,  <!-- 注册时间 -->
+		  last_login,  <!-- 最后登录时间 -->
+		  last_ip,  <!-- 最后登录ip -->
+		  qq,  <!-- QQ -->
+		  mobile,  <!-- 手机号码 -->
+		  mobile_validated,  <!-- 是否验证手机 -->
+		  oauth,  <!-- 第三方来源 wx weibo alipay -->
+		  openid,  <!-- 微信openID -->
+		  head_pic,  <!-- 头像 -->
+		  email_validated,  <!-- 是否验证电子邮箱 -->
+		  nickname,  <!-- 第三方返回昵称 -->
+		  level,  <!-- 会员等级 -->
+		  discount,  <!-- 会员折扣，默认1不享受 -->
+		  is_distribut,  <!-- 是否为分销商 0 否 1 是 -->
+		  first_leader,  <!-- 上级 -->
+		  second_leader,  <!-- 上上级 -->
+		  third_leader,  <!-- 第三个上级 -->
+		  token,  <!-- 用于app 授权类似于session_id -->
+		  token_validate_time,  <!-- token有效期 -->
+		  recommended_code,  <!-- 会员推荐码 -->
+		  is_qualified_member,  <!-- 是否合格会员(0-否，1-是) -->
+		  id_card,  <!-- 身份证号码 -->
+		  real_name,  <!-- 真实姓名 -->
+		  qualified_member,  <!-- 合格会员数 -->
+		  store_id,  <!-- 店铺ID -->
+		  is_open_min_pay,  <!-- 是否打开小额免密支付 -->
+		  authentication,  <!-- 是否实名认证 -->
+		  is_lock,  <!-- 是否被冻结锁定（1-冻结锁定，0-启用 ） -->
+		  clientid,  <!-- 会员登录时的设备号 -->
+		  src_client  <!-- 会员登录时的设备类型：android 1 ,IOS 2,weixin 3 -->
+	</sql>
+	
+	<!-- 表字段(用于外表的关联时引用) -->
+	<sql id="column2">
+		  zjc_seller_info.user_id,  <!-- 表id -->
+		  zjc_seller_info.email,  <!-- 邮件 -->
+		  zjc_seller_info.password,  <!-- 密码 -->
+		  zjc_seller_info.pay_password,  <!-- 支付密码 -->
+		  zjc_seller_info.sex,  <!-- 0 保密 1 男 2 女 -->
+		  zjc_seller_info.birthday,  <!-- 生日 -->
+		  zjc_seller_info.reg_time,  <!-- 注册时间 -->
+		  zjc_seller_info.last_login,  <!-- 最后登录时间 -->
+		  zjc_seller_info.last_ip,  <!-- 最后登录ip -->
+		  zjc_seller_info.qq,  <!-- QQ -->
+		  zjc_seller_info.mobile,  <!-- 手机号码 -->
+		  zjc_seller_info.mobile_validated,  <!-- 是否验证手机 -->
+		  zjc_seller_info.oauth,  <!-- 第三方来源 wx weibo alipay -->
+		  zjc_seller_info.openid,  <!-- 微信openID -->
+		  zjc_seller_info.head_pic,  <!-- 头像 -->
+		  zjc_seller_info.email_validated,  <!-- 是否验证电子邮箱 -->
+		  zjc_seller_info.nickname,  <!-- 第三方返回昵称 -->
+		  zjc_seller_info.level,  <!-- 会员等级 -->
+		  zjc_seller_info.discount,  <!-- 会员折扣，默认1不享受 -->
+		  zjc_seller_info.is_distribut,  <!-- 是否为分销商 0 否 1 是 -->
+		  zjc_seller_info.first_leader,  <!-- 上级 -->
+		  zjc_seller_info.second_leader,  <!-- 上上级 -->
+		  zjc_seller_info.third_leader,  <!-- 第三个上级 -->
+		  zjc_seller_info.token,  <!-- 用于app 授权类似于session_id -->
+		  zjc_seller_info.token_validate_time,  <!-- token有效期 -->
+		  zjc_seller_info.recommended_code,  <!-- 会员推荐码 -->
+		  zjc_seller_info.is_qualified_member,  <!-- 是否合格会员(0-否，1-是) -->
+		  zjc_seller_info.id_card,  <!-- 身份证号码 -->
+		  zjc_seller_info.real_name,  <!-- 真实姓名 -->
+		  zjc_seller_info.qualified_member,  <!-- 合格会员数 -->
+		  zjc_seller_info.store_id,  <!-- 店铺ID -->
+		  zjc_seller_info.is_open_min_pay,  <!-- 是否打开小额免密支付 -->
+		  zjc_seller_info.authentication,  <!-- 是否实名认证 -->
+		  zjc_seller_info.is_lock,  <!-- 是否被冻结锁定（0-冻结锁定，1-启用 ） -->
+		  zjc_seller_info.clientid,  <!-- 会员登录时的设备号 -->
+		  zjc_seller_info.src_client  <!-- 会员登录时的设备类型：android 1 ,IOS 2,weixin 3 -->
+	</sql>
+
+	<!-- Where精确匹配字段 -->
+	<sql id="equal">
+	   <if test="user_id != null ">
+		      AND user_id = #{user_id}  <!-- 表id -->
+		</if>
+	    <if test="email != null and email != ''">
+		      AND email = #{email}  <!-- 邮件 -->
+		</if>
+	    <if test="password != null and password != ''">
+		      AND password = #{password}  <!-- 密码 -->
+		</if>
+	    <if test="pay_password != null and pay_password != ''">
+		      AND pay_password = #{pay_password}  <!-- 支付密码 -->
+		</if>
+	   <if test="sex != null ">
+		      AND sex = #{sex}  <!-- 0 保密 1 男 2 女 -->
+		</if>
+	   <if test="birthday != null ">
+		      AND birthday = #{birthday}  <!-- 生日 -->
+		</if>
+	    <if test="reg_time != null and reg_time != ''">
+		      AND reg_time = #{reg_time}  <!-- 注册时间 -->
+		</if>
+	    <if test="last_login != null and last_login != ''">
+		      AND last_login = #{last_login}  <!-- 最后登录时间 -->
+		</if>
+	    <if test="last_ip != null and last_ip != ''">
+		      AND last_ip = #{last_ip}  <!-- 最后登录ip -->
+		</if>
+	    <if test="qq != null and qq != ''">
+		      AND qq = #{qq}  <!-- QQ -->
+		</if>
+	    <if test="mobile != null and mobile != ''">
+		      AND mobile = #{mobile}  <!-- 手机号码 -->
+		</if>
+	   <if test="mobile_validated != null ">
+		      AND mobile_validated = #{mobile_validated}  <!-- 是否验证手机 -->
+		</if>
+	    <if test="oauth != null and oauth != ''">
+		      AND oauth = #{oauth}  <!-- 第三方来源 wx weibo alipay -->
+		</if>
+	    <if test="openid != null and openid != ''">
+		      AND openid = #{openid}  <!-- 微信openID -->
+		</if>
+	    <if test="head_pic != null and head_pic != ''">
+		      AND head_pic = #{head_pic}  <!-- 头像 -->
+		</if>
+	   <if test="email_validated != null ">
+		      AND email_validated = #{email_validated}  <!-- 是否验证电子邮箱 -->
+		</if>
+	    <if test="nickname != null and nickname != ''">
+		      AND nickname = #{nickname}  <!-- 第三方返回昵称 -->
+		</if>
+	   <if test="level != null ">
+		      AND level = #{level}  <!-- 会员等级 -->
+		</if>
+	   <if test="discount != null ">
+		      AND discount = #{discount}  <!-- 会员折扣，默认1不享受 -->
+		</if>
+	   <if test="is_distribut != null ">
+		      AND is_distribut = #{is_distribut}  <!-- 是否为分销商 0 否 1 是 -->
+		</if>
+	   <if test="first_leader != null ">
+		      AND first_leader = #{first_leader}  <!-- 上级 -->
+		</if>
+	   <if test="second_leader != null ">
+		      AND second_leader = #{second_leader}  <!-- 上上级 -->
+		</if>
+	   <if test="third_leader != null ">
+		      AND third_leader = #{third_leader}  <!-- 第三个上级 -->
+		</if>
+	    <if test="token != null and token != ''">
+		      AND token = #{token}  <!-- 用于app 授权类似于session_id -->
+		</if>
+	   <if test="token_validate_time != null ">
+		      AND token_validate_time = #{token_validate_time}  <!-- token有效期 -->
+		</if>
+	    <if test="recommended_code != null and recommended_code != ''">
+		      AND recommended_code = #{recommended_code}  <!-- 会员推荐码 -->
+		</if>
+	   <if test="is_qualified_member != null ">
+		      AND is_qualified_member = #{is_qualified_member}  <!-- 是否合格会员(0-否，1-是) -->
+		</if>
+	    <if test="id_card != null and id_card != ''">
+		      AND id_card = #{id_card}  <!-- 身份证号码 -->
+		</if>
+	    <if test="real_name != null and real_name != ''">
+		      AND real_name = #{real_name}  <!-- 真实姓名 -->
+		</if>
+	   <if test="qualified_member != null ">
+		      AND qualified_member = #{qualified_member}  <!-- 合格会员数 -->
+		</if>
+	   <if test="store_id != null ">
+		      AND store_id = #{store_id}  <!-- 店铺ID -->
+		</if>
+	   <if test="is_open_min_pay != null ">
+		      AND is_open_min_pay = #{is_open_min_pay}  <!-- 是否打开小额免密支付 -->
+		</if>
+	   <if test="authentication != null ">
+		      AND authentication = #{authentication}  <!-- 是否实名认证 -->
+		</if>
+		 <if test="is_lock != null ">
+		      AND is_lock = #{is_lock}  <!-- 是否被冻结锁定（0-冻结锁定，1-启用 ） -->
+		</if>
+		<if test="clientid != null and clientid != '' ">
+		      AND clientid = #{clientid}  <!-- 会员登录时的设备号 -->
+		</if>
+	    <if test="src_client != null ">
+		      AND src_client = #{src_client}  <!-- 会员登录时的设备类型：android 1 ,IOS 2,weixin 3 -->
+		</if>
+	</sql>
+	
+	<!-- Where模糊匹配字段 -->
+	<sql id="like">
+	    <if test="email != null and email != ''">
+		      AND email like '${email}%'  <!-- 邮件 -->
+		</if>
+	    <if test="password != null and password != ''">
+		      AND password like '${password}%'  <!-- 密码 -->
+		</if>
+	    <if test="pay_password != null and pay_password != ''">
+		      AND pay_password like '${pay_password}%'  <!-- 支付密码 -->
+		</if>
+	    <if test="reg_time != null and reg_time != ''">
+		      AND reg_time like '${reg_time}%'  <!-- 注册时间 -->
+		</if>
+	    <if test="last_login != null and last_login != ''">
+		      AND last_login like '${last_login}%'  <!-- 最后登录时间 -->
+		</if>
+	    <if test="last_ip != null and last_ip != ''">
+		      AND last_ip like '${last_ip}%'  <!-- 最后登录ip -->
+		</if>
+	    <if test="qq != null and qq != ''">
+		      AND qq like '${qq}%'  <!-- QQ -->
+		</if>
+	    <if test="mobile != null and mobile != ''">
+		      AND mobile = #{mobile}  <!-- 手机号码 -->
+		</if>
+	    <if test="oauth != null and oauth != ''">
+		      AND oauth like '${oauth}%'  <!-- 第三方来源 wx weibo alipay -->
+		</if>
+	    <if test="openid != null and openid != ''">
+		      AND openid like '${openid}%'  <!-- 微信openID -->
+		</if>
+	    <if test="head_pic != null and head_pic != ''">
+		      AND head_pic like '${head_pic}%'  <!-- 头像 -->
+		</if>
+	    <if test="nickname != null and nickname != ''">
+		      AND nickname like '${nickname}%'  <!-- 第三方返回昵称 -->
+		</if>
+	    <if test="token != null and token != ''">
+		      AND token like '${token}%'  <!-- 用于app 授权类似于session_id -->
+		</if>
+	    <if test="recommended_code != null and recommended_code != ''">
+		      AND recommended_code like '${recommended_code}%'  <!-- 会员推荐码 -->
+		</if>
+	    <if test="id_card != null and id_card != ''">
+		      AND id_card = #{id_card}  <!-- 身份证号码 -->
+		</if>
+	    <if test="real_name != null and real_name != ''">
+		      AND real_name = #{real_name}  <!-- 真实姓名 -->
+		</if>
+	</sql>
+	<!-- ===================api========================= -->
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="selectByMobile" resultType="ZjcSellerInfoPO">
+		SELECT
+		<include refid="column" />
+		FROM zjc_seller_info WHERE  mobile = #{mobile}
+	</select>
+	<select id="selectByStoreId" parameterType="Dto" resultType="ZjcSellerInfoPO">
+		select * from zjc_seller_info where store_id = #{store_id}
+	</select>
+	<!-- ========================商家app接口 ====================================================-->
+	<select id="queryUserInfo" parameterType="Dto"  resultMap="queryForListMap" useCache="false">
+	    select 
+           t1.user_id,t1.real_name,t1.nickname,t1.level,t1.email,t1.mobile,t1.last_login,t1.id_card,t1.password,t1.is_lock,
+           t1.token,t1.head_pic,t1.first_leader,t1.authentication,t2.pay_points,t2.make_over_integral,
+           t2.total_amount,t2.return_points,t2.count_wallet_quota,t2.due_tc_points,t2.practical_tc_points,
+           t2.sqvip,t2.sqamount,t2.sqpay,t1.store_id
+        FROM zjc_seller_info t1 
+		INNER JOIN zjc_users_account_info t2 on t1.user_id=t2.user_id
+         <where>
+         	1=1
+           <if test="user_id != null and user_id != '' ">
+		  	and t1.user_id = #{user_id} 
+		  </if>
+		  <if test="mobile != null and mobile != '' ">
+		  	and t1.mobile = #{mobile}
+		  </if>
+		</where>	
+	</select>
+	
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="isExitStore" parameterType="Dto" resultType="Dto">
+		SELECT
+		    t1.*
+		FROM zjc_seller_info t left join zjc_store t1 on t.store_id = t1.store_id  
+		where t.mobile = #{mobile}	
+	</select>
+</mapper>

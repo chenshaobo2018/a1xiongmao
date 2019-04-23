@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- zjc_complaints[zjc_complaints]SQL自动映射 -->
+<!--  注意:此文件由AOS平台自动生成-禁止手工修改 2017-06-05 15:44:07 -->
+<mapper namespace="com.zjc.users.dao.ZjcComplaintsDao">
+	
+	<!-- 插入一个数据持久化对象(插入字段为传入PO实体的非空属性) -->
+	<insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="ZjcComplaintsPO">
+		INSERT INTO zjc_complaints (
+		<if test="from_user_id != null">
+	         from_user_id, <!-- 投诉用户ID -->
+		</if>
+		<if test="to_user_id != null">
+	         to_user_id, <!-- 被投诉ID -->
+		</if>
+		<if test="phone != null and phone != ''">
+	         phone, <!-- 投诉人联系电话 -->
+		</if>
+		<if test="info != null and info != ''">
+	         info, <!-- 投诉理由 -->
+		</if>
+		<if test="status != null">
+	         status, <!-- 投诉状态 1：提交投诉待处理 2：已处理 -->
+		</if>
+		<if test="note != null and note != ''">
+	         note, <!-- 管理员备注 -->
+		</if>
+		<if test="admin_id != null">
+	         admin_id, <!-- 处理管理员ID -->
+		</if>
+		<if test="admin_name != null and admin_name != ''">
+	         admin_name, <!-- 管理员名 -->
+		</if>
+		<if test="add_time != null">
+	         add_time, <!-- 投诉时间 -->
+		</if>
+		<if test="handle_time != null">
+	         handle_time, <!-- 处理时间 -->
+		</if>
+		<if test="order_id != null">
+	         order_id, <!-- 被诉的订单ID -->
+		</if>
+		<if test="img != null and img != ''">
+	         img, <!-- 图片，多张图片以都好隔开 -->
+		</if>
+	          id
+		)VALUES(
+		<if test="from_user_id != null">
+	          #{from_user_id, jdbcType=VARCHAR}, <!-- 投诉用户ID -->
+	    </if>
+		<if test="to_user_id != null">
+	          #{to_user_id, jdbcType=VARCHAR}, <!-- 被投诉ID -->
+	    </if>
+		<if test="phone != null and phone != ''">
+	          #{phone, jdbcType=VARCHAR}, <!-- 投诉人联系电话 -->
+	    </if>
+		<if test="info != null and info != ''">
+	          #{info, jdbcType=VARCHAR}, <!-- 投诉理由 -->
+	    </if>
+		<if test="status != null">
+	          #{status, jdbcType=INTEGER}, <!-- 投诉状态 1：提交投诉待处理 2：已处理 -->
+	    </if>
+		<if test="note != null and note != ''">
+	          #{note, jdbcType=VARCHAR}, <!-- 管理员备注 -->
+	    </if>
+		<if test="admin_id != null">
+	          #{admin_id, jdbcType=INTEGER}, <!-- 处理管理员ID -->
+	    </if>
+		<if test="admin_name != null and admin_name != ''">
+	          #{admin_name, jdbcType=VARCHAR}, <!-- 管理员名 -->
+	    </if>
+		<if test="add_time != null">
+	          #{add_time, jdbcType=VARCHAR}, <!-- 投诉时间 -->
+	    </if>
+		<if test="handle_time != null">
+	          #{handle_time, jdbcType=VARCHAR}, <!-- 处理时间 -->
+	    </if>
+	    <if test="order_id != null">
+	          #{order_id, jdbcType=INTEGER}, <!-- 被投诉订单ID -->
+	    </if>
+	    <if test="img != null and img != ''">
+	          #{img, jdbcType=VARCHAR}, <!-- 图片，多张图片以都好隔开 -->
+	    </if>
+	          null
+		)
+	</insert>
+	
+	<!-- 插入一个数据持久化对象(含所有字段) -->
+	<insert id="insertAll" useGeneratedKeys="true" keyProperty="id" parameterType="ZjcComplaintsPO">
+		INSERT INTO zjc_complaints (
+		    <include refid="column" />
+		)
+		VALUES (
+		    #{id, jdbcType=INTEGER},  <!-- 投诉ID -->
+		    #{from_user_id, jdbcType=VARCHAR},  <!-- 投诉用户ID -->
+		    #{to_user_id, jdbcType=VARCHAR},  <!-- 被投诉ID -->
+		    #{phone, jdbcType=VARCHAR},  <!-- 投诉人联系电话 -->
+		    #{info, jdbcType=VARCHAR},  <!-- 投诉理由 -->
+		    #{status, jdbcType=INTEGER},  <!-- 投诉状态 1：提交投诉待处理 2：已处理 -->
+		    #{note, jdbcType=VARCHAR},  <!-- 管理员备注 -->
+		    #{admin_id, jdbcType=INTEGER},  <!-- 处理管理员ID -->
+		    #{admin_name, jdbcType=VARCHAR},  <!-- 管理员名 -->
+		    #{add_time, jdbcType=VARCHAR},  <!-- 投诉时间 -->
+		    #{handle_time, jdbcType=VARCHAR},  <!-- 处理时间 -->
+		    #{order_id, jdbcType=INTEGER},  <!-- 被投诉订单ID -->
+		    #{img, jdbcType=VARCHAR}   <!-- 图片，多张图片以都好隔开 -->
+		)
+	</insert>
+
+	<!-- 根据主键修改数据持久化对象 -->
+	<update id="updateByKey" parameterType="ZjcComplaintsPO">
+		UPDATE zjc_complaints
+		<set>
+			<if test="id != null">
+		          id = #{id, jdbcType=INTEGER},  <!-- 投诉ID -->
+			</if>
+			<!-- <if test="from_user_id != null">
+		          from_user_id = #{from_user_id, jdbcType=VARCHAR},  投诉用户ID
+			</if>
+			<if test="to_user_id != null">
+		          to_user_id = #{to_user_id, jdbcType=VARCHAR},  被投诉ID
+			</if> -->
+			<if test="phone != null">
+		          phone = #{phone, jdbcType=VARCHAR},  <!-- 投诉人联系电话 -->
+			</if>
+			<if test="info != null">
+		          info = #{info, jdbcType=VARCHAR},  <!-- 投诉理由 -->
+			</if>
+			<if test="status != null">
+		          status = #{status, jdbcType=INTEGER},  <!-- 投诉状态 1：提交投诉待处理 2：已处理 -->
+			</if>
+			<if test="note != null">
+		          note = #{note, jdbcType=VARCHAR},  <!-- 管理员备注 -->
+			</if>
+			<if test="admin_id != null">
+		          admin_id = #{admin_id, jdbcType=INTEGER},  <!-- 处理管理员ID -->
+			</if>
+			<if test="admin_name != null">
+		          admin_name = #{admin_name, jdbcType=VARCHAR},  <!-- 管理员名 -->
+			</if>
+			<if test="add_time != null">
+		          add_time = #{add_time, jdbcType=VARCHAR},  <!-- 投诉时间 -->
+			</if>
+			<if test="handle_time != null">
+		          handle_time = #{handle_time, jdbcType=VARCHAR},  <!-- 处理时间 -->
+			</if>
+			<if test="order_id != null">
+		          order_id = #{order_id, jdbcType=INTEGER},  <!-- 被投诉订单ID -->
+			</if>
+			<if test="img != null">
+		          img = #{img, jdbcType=VARCHAR},  <!-- 图片，多张图片以都好隔开 -->
+			</if>
+		</set>
+		WHERE  id = #{id}
+	</update>
+	
+	<!-- 根据主键删除数据持久化对象 -->
+	<delete id="deleteByKey">
+		DELETE FROM zjc_complaints WHERE  id = #{id}
+	</delete>
+
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="selectByKey" resultType="ZjcComplaintsPO">
+		SELECT
+		<include refid="column" />
+		FROM zjc_complaints WHERE  id = #{id}
+	</select>
+
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="selectOne" parameterType="Dto" resultType="ZjcComplaintsPO">
+		SELECT
+		    <include refid="column" />
+		FROM zjc_complaints
+		<where>
+		    <include refid="equal" />
+		</where>		
+	</select>
+
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="list" parameterType="Dto" resultType="ZjcComplaintsPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_complaints t1
+		LEFT JOIN zjc_users_info t2  on t1.from_user_id=t2.user_id
+		<where>
+		   1=1
+		   <if test="id != null and id !=''">
+		      AND t1.id = #{id}  <!-- 投诉ID -->
+	    	</if>
+		    <if test="nickname != null and  nickname != ''">
+		      AND t2.nickname = #{nickname}  <!-- 投诉用户ID -->
+		   </if>
+		   
+		    <if test="from_user_id != null and  from_user_id != ''">
+		      AND t1.from_user_id = #{from_user_id}  <!-- 投诉用户ID -->
+		   </if>
+	   <if test="to_user_id != null and  to_user_id != ''">
+		      AND t1.to_user_id = #{to_user_id}  <!-- 被投诉ID -->
+		</if>
+		 <if test="status != null  and status !=''">
+		      AND t1.status = #{status}  <!-- 投诉状态 1：提交投诉待处理 2：已处理 -->
+		</if>
+		</where>	
+		order by add_time desc
+	</select>
+
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listPage" parameterType="Dto" resultType="ZjcComplaintsPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_complaints t1
+			LEFT JOIN zjc_users_info t2  on t1.from_user_id=t2.user_id
+		<where>
+		   1=1
+		    <if test="id != null and id !=''">
+		      AND t1.id = #{id}  <!-- 投诉ID -->
+	    	</if>
+	    	  <if test="nickname != null and  nickname != ''">
+		      AND t2.nickname = #{nickname}  <!-- 投诉用户ID -->
+		   </if>
+		    <if test="from_user_id != null and  from_user_id != ''">
+		      AND t1.from_user_id = #{from_user_id}  <!-- 投诉用户ID -->
+		</if>
+	   <if test="to_user_id != null and  to_user_id != ''">
+		      AND t1.to_user_id = #{to_user_id}  <!-- 被投诉ID -->
+		</if>
+		 <if test="status != null  and status !=''">
+		      AND t1.status = #{status}  <!-- 投诉状态 1：提交投诉待处理 2：已处理 -->
+		</if>
+		 <if test="phone != null and phone != ''">
+		      AND t1.phone = #{phone}  <!-- 投诉人联系电话 -->
+		</if>
+		</where>
+		order by add_time desc	
+	</select>
+	
+	<!-- 根据Dto模糊查询并返回数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="like" parameterType="Dto" resultType="ZjcComplaintsPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_complaints
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto模糊查询并返回分页数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="likePage" parameterType="Dto" resultType="ZjcComplaintsPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_complaints
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto统计行数 -->
+	<select id="rows" resultType="Integer" parameterType="Dto">
+		SELECT COUNT(1) AS aos_rows_ FROM zjc_complaints
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 根据数学表达式进行数学运算 -->
+	<select id="calc" parameterType="Dto" resultType="String">
+		SELECT
+			${_expr}
+		FROM zjc_complaints
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 表字段 -->
+	<sql id="column">
+		  id,  <!-- 投诉ID -->
+		  from_user_id,  <!-- 投诉用户ID -->
+		  to_user_id,  <!-- 被投诉ID -->
+		  phone,  <!-- 投诉人联系电话 -->
+		  info,  <!-- 投诉理由 -->
+		  status,  <!-- 投诉状态 1：提交投诉待处理 2：已处理 -->
+		  note,  <!-- 管理员备注 -->
+		  admin_id,  <!-- 处理管理员ID -->
+		  admin_name,  <!-- 管理员名 -->
+		  add_time,  <!-- 投诉时间 -->
+		  handle_time,  <!-- 处理时间 -->
+		  order_id, <!-- 被投诉订单ID -->
+		  img, <!-- 图片，多张图片以都好隔开 -->
+		  t2.nickname
+	</sql>
+	
+	<!-- 表字段(用于外表的关联时引用) -->
+	<sql id="column2">
+		  zjc_complaints.id,  <!-- 投诉ID -->
+		  zjc_complaints.from_user_id,  <!-- 投诉用户ID -->
+		  zjc_complaints.to_user_id,  <!-- 被投诉ID -->
+		  zjc_complaints.phone,  <!-- 投诉人联系电话 -->
+		  zjc_complaints.info,  <!-- 投诉理由 -->
+		  zjc_complaints.status,  <!-- 投诉状态 1：提交投诉待处理 2：已处理 -->
+		  zjc_complaints.note,  <!-- 管理员备注 -->
+		  zjc_complaints.admin_id,  <!-- 处理管理员ID -->
+		  zjc_complaints.admin_name,  <!-- 管理员名 -->
+		  zjc_complaints.add_time,  <!-- 投诉时间 -->
+		  zjc_complaints.handle_time,  <!-- 处理时间 -->
+		  zjc_complaints.order_id,  <!-- 被投诉订单ID -->
+		  zjc_complaints.img <!-- 图片，多张图片以都好隔开 -->
+	</sql>
+
+	<!-- Where精确匹配字段 -->
+	<sql id="equal">
+	   <if test="id != null ">
+		      AND id = #{id}  <!-- 投诉ID -->
+		</if>
+	   <if test="from_user_id != null and from_user_id != ''">
+		      AND from_user_id = #{from_user_id}  <!-- 投诉用户ID -->
+		</if>
+	   <if test="to_user_id != null and to_user_id != ''">
+		      AND to_user_id = #{to_user_id}  <!-- 被投诉ID -->
+		</if>
+	    <if test="phone != null and phone != ''">
+		      AND phone = #{phone}  <!-- 投诉人联系电话 -->
+		</if>
+	    <if test="info != null and info != ''">
+		      AND info = #{info}  <!-- 投诉理由 -->
+		</if>
+	   <if test="status != null and status != ''">
+		      AND status = #{status}  <!-- 投诉状态 1：提交投诉待处理 2：已处理 -->
+		</if>
+	    <if test="note != null and note != ''">
+		      AND note = #{note}  <!-- 管理员备注 -->
+		</if>
+	   <if test="admin_id != null and admin_id != ''">
+		      AND admin_id = #{admin_id}  <!-- 处理管理员ID -->
+		</if>
+	    <if test="admin_name != null and admin_name != ''">
+		      AND admin_name = #{admin_name}  <!-- 管理员名 -->
+		</if>
+	   <if test="add_time != null and add_time != ''">
+		      AND add_time = #{add_time}  <!-- 投诉时间 -->
+		</if>
+	   <if test="handle_time != null and handle_time != ''">
+		      AND handle_time = #{handle_time}  <!-- 处理时间 -->
+		</if>
+		 <if test="order_id != null and order_id != ''">
+		      AND order_id = #{order_id}  <!-- 被投诉订单ID -->
+		</if>
+		<if test="img != null and img != ''">
+		      AND img = #{img}  <!-- 图片，多张图片以都好隔开 -->
+		</if>
+	</sql>
+	
+	<!-- Where模糊匹配字段 -->
+	<sql id="like">
+	    <if test="phone != null and phone != ''">
+		      AND phone like '${phone}%'  <!-- 投诉人联系电话 -->
+		</if>
+	    <if test="info != null and info != ''">
+		      AND info like '${info}%'  <!-- 投诉理由 -->
+		</if>
+	    <if test="note != null and note != ''">
+		      AND note like '${note}%'  <!-- 管理员备注 -->
+		</if>
+	    <if test="admin_name != null and admin_name != ''">
+		      AND admin_name like '${admin_name}%'  <!-- 管理员名 -->
+		</if>
+	</sql>
+	
+</mapper>

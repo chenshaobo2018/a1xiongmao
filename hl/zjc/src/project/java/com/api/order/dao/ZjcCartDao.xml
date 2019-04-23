@@ -1,0 +1,502 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- zjc_cart[zjc_cart]SQL自动映射 -->
+<!--  注意:此文件由AOS平台自动生成-禁止手工修改 2017-07-04 17:12:04 -->
+<mapper namespace="com.api.order.dao.ZjcCartDao">
+	
+	<!-- 插入一个数据持久化对象(插入字段为传入PO实体的非空属性) -->
+	<insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="ZjcCartPO">
+		INSERT INTO zjc_cart (
+		<if test="user_id != null">
+	         user_id, <!-- 用户id -->
+		</if>
+		<if test="session_id != null and session_id != ''">
+	         session_id, <!-- session -->
+		</if>
+		<if test="goods_id != null">
+	         goods_id, <!-- 商品id -->
+		</if>
+		<if test="goods_sn != null and goods_sn != ''">
+	         goods_sn, <!-- 商品货号 -->
+		</if>
+		<if test="goods_name != null and goods_name != ''">
+	         goods_name, <!-- 商品名称 -->
+		</if>
+		<if test="market_price != null">
+	         market_price, <!-- 积分比例价 -->
+		</if>
+		<if test="shop_price != null">
+	         shop_price, <!-- 本店价(现金) -->
+		</if>
+		<if test="cost_price != null">
+	         cost_price, <!-- 等额积分价 -->
+		</if>
+		<if test="goods_num != null">
+	         goods_num, <!-- 购买数量 -->
+		</if>
+		<if test="spec_key != null and spec_key != ''">
+	         spec_key, <!-- 商品规格key 对应zjc_spec_goods_price 表 -->
+		</if>
+		<if test="spec_key_name != null and spec_key_name != ''">
+	         spec_key_name, <!-- 商品规格组合名称 -->
+		</if>
+		<if test="bar_code != null and bar_code != ''">
+	         bar_code, <!-- 商品条码 -->
+		</if>
+		<if test="selected != null">
+	         selected, <!-- 购物车选中状态 -->
+		</if>
+		<if test="add_time != null">
+	         add_time, <!-- 加入购物车的时间 -->
+		</if>
+		<if test="prom_type != null">
+	         prom_type, <!-- 0 普通订单,1 限时抢购, 2 团购 , 3 促销优惠 -->
+		</if>
+		<if test="prom_id != null">
+	         prom_id, <!-- 活动id -->
+		</if>
+		<if test="sku != null and sku != ''">
+	         sku, <!-- sku -->
+		</if>
+		<if test="store_id != null">
+	         store_id, <!-- 商家ID -->
+		</if>
+		<if test="store_name != null and store_name != ''">
+	         store_name, <!-- 商家名称 -->
+		</if>
+		<if test="img != null and img != ''">
+	         img, <!-- 商家名称 -->
+		</if>
+	          id
+		)VALUES(
+		<if test="user_id != null">
+	          #{user_id, jdbcType=INTEGER}, <!-- 用户id -->
+	    </if>
+		<if test="session_id != null and session_id != ''">
+	          #{session_id, jdbcType=VARCHAR}, <!-- session -->
+	    </if>
+		<if test="goods_id != null">
+	          #{goods_id, jdbcType=INTEGER}, <!-- 商品id -->
+	    </if>
+		<if test="goods_sn != null and goods_sn != ''">
+	          #{goods_sn, jdbcType=VARCHAR}, <!-- 商品货号 -->
+	    </if>
+		<if test="goods_name != null and goods_name != ''">
+	          #{goods_name, jdbcType=VARCHAR}, <!-- 商品名称 -->
+	    </if>
+		<if test="market_price != null">
+	          #{market_price, jdbcType=NUMERIC}, <!-- 积分比例价 -->
+	    </if>
+		<if test="shop_price != null">
+	          #{shop_price, jdbcType=NUMERIC}, <!-- 本店价(现金) -->
+	    </if>
+		<if test="cost_price != null">
+	          #{cost_price, jdbcType=NUMERIC}, <!-- 等额积分价 -->
+	    </if>
+		<if test="goods_num != null">
+	          #{goods_num, jdbcType=INTEGER}, <!-- 购买数量 -->
+	    </if>
+		<if test="spec_key != null and spec_key != ''">
+	          #{spec_key, jdbcType=VARCHAR}, <!-- 商品规格key 对应zjc_spec_goods_price 表 -->
+	    </if>
+		<if test="spec_key_name != null and spec_key_name != ''">
+	          #{spec_key_name, jdbcType=VARCHAR}, <!-- 商品规格组合名称 -->
+	    </if>
+		<if test="bar_code != null and bar_code != ''">
+	          #{bar_code, jdbcType=VARCHAR}, <!-- 商品条码 -->
+	    </if>
+		<if test="selected != null">
+	          #{selected, jdbcType=INTEGER}, <!-- 购物车选中状态 -->
+	    </if>
+		<if test="add_time != null">
+	          #{add_time, jdbcType=VARCHAR}, <!-- 加入购物车的时间 -->
+	    </if>
+		<if test="prom_type != null">
+	          #{prom_type, jdbcType=INTEGER}, <!-- 0 普通订单,1 限时抢购, 2 团购 , 3 促销优惠 -->
+	    </if>
+		<if test="prom_id != null">
+	          #{prom_id, jdbcType=INTEGER}, <!-- 活动id -->
+	    </if>
+		<if test="sku != null and sku != ''">
+	          #{sku, jdbcType=VARCHAR}, <!-- sku -->
+	    </if>
+		<if test="store_id != null">
+	          #{store_id, jdbcType=INTEGER}, <!-- 商家ID -->
+	    </if>
+		<if test="store_name != null and store_name != ''">
+	          #{store_name, jdbcType=VARCHAR}, <!-- 商家名称 -->
+	    </if>
+	    <if test="img != null and img != ''">
+	          #{img, jdbcType=VARCHAR}, <!-- 商家名称 -->
+	    </if>
+	          null
+		)
+	</insert>
+	
+	<!-- 插入一个数据持久化对象(含所有字段) -->
+	<insert id="insertAll" useGeneratedKeys="true" keyProperty="id" parameterType="ZjcCartPO">
+		INSERT INTO zjc_cart (
+		    <include refid="column" />
+		)
+		VALUES (
+		    #{id, jdbcType=INTEGER},  <!-- 购物车表 -->
+		    #{user_id, jdbcType=INTEGER},  <!-- 用户id -->
+		    #{session_id, jdbcType=VARCHAR},  <!-- session -->
+		    #{goods_id, jdbcType=INTEGER},  <!-- 商品id -->
+		    #{goods_sn, jdbcType=VARCHAR},  <!-- 商品货号 -->
+		    #{goods_name, jdbcType=VARCHAR},  <!-- 商品名称 -->
+		    #{market_price, jdbcType=NUMERIC},  <!-- 积分比例价 -->
+		    #{shop_price, jdbcType=NUMERIC},  <!-- 本店价(现金) -->
+		    #{cost_price, jdbcType=NUMERIC},  <!-- 等额积分价 -->
+		    #{goods_num, jdbcType=INTEGER},  <!-- 购买数量 -->
+		    #{spec_key, jdbcType=VARCHAR},  <!-- 商品规格key 对应zjc_spec_goods_price 表 -->
+		    #{spec_key_name, jdbcType=VARCHAR},  <!-- 商品规格组合名称 -->
+		    #{bar_code, jdbcType=VARCHAR},  <!-- 商品条码 -->
+		    #{selected, jdbcType=INTEGER},  <!-- 购物车选中状态 -->
+		    #{add_time, jdbcType=VARCHAR},  <!-- 加入购物车的时间 -->
+		    #{prom_type, jdbcType=INTEGER},  <!-- 0 普通订单,1 限时抢购, 2 团购 , 3 促销优惠 -->
+		    #{prom_id, jdbcType=INTEGER},  <!-- 活动id -->
+		    #{sku, jdbcType=VARCHAR},  <!-- sku -->
+		    #{store_id, jdbcType=INTEGER},  <!-- 商家ID -->
+		    #{img, jdbcType=VARCHAR}, 
+		    #{store_name, jdbcType=VARCHAR}  <!-- 商家名称 -->
+		)
+	</insert>
+
+	<!-- 根据主键修改数据持久化对象 -->
+	<update id="updateByKey" parameterType="ZjcCartPO">
+		UPDATE zjc_cart
+		<set>
+			<if test="id != null">
+		          id = #{id, jdbcType=INTEGER},  <!-- 购物车表 -->
+			</if>
+			<if test="user_id != null">
+		          user_id = #{user_id, jdbcType=INTEGER},  <!-- 用户id -->
+			</if>
+			<if test="session_id != null">
+		          session_id = #{session_id, jdbcType=VARCHAR},  <!-- session -->
+			</if>
+			<if test="goods_id != null">
+		          goods_id = #{goods_id, jdbcType=INTEGER},  <!-- 商品id -->
+			</if>
+			<if test="goods_sn != null">
+		          goods_sn = #{goods_sn, jdbcType=VARCHAR},  <!-- 商品货号 -->
+			</if>
+			<if test="goods_name != null">
+		          goods_name = #{goods_name, jdbcType=VARCHAR},  <!-- 商品名称 -->
+			</if>
+			<if test="market_price != null">
+		          market_price = #{market_price, jdbcType=NUMERIC},  <!-- 积分比例价 -->
+			</if>
+			<if test="shop_price != null">
+		          shop_price = #{shop_price, jdbcType=NUMERIC},  <!-- 本店价(现金) -->
+			</if>
+			<if test="cost_price != null">
+		          cost_price = #{cost_price, jdbcType=NUMERIC},  <!-- 等额积分价 -->
+			</if>
+			<if test="goods_num != null">
+		          goods_num = #{goods_num, jdbcType=INTEGER},  <!-- 购买数量 -->
+			</if>
+			<if test="spec_key != null">
+		          spec_key = #{spec_key, jdbcType=VARCHAR},  <!-- 商品规格key 对应zjc_spec_goods_price 表 -->
+			</if>
+			<if test="spec_key_name != null">
+		          spec_key_name = #{spec_key_name, jdbcType=VARCHAR},  <!-- 商品规格组合名称 -->
+			</if>
+			<if test="bar_code != null">
+		          bar_code = #{bar_code, jdbcType=VARCHAR},  <!-- 商品条码 -->
+			</if>
+			<if test="selected != null">
+		          selected = #{selected, jdbcType=INTEGER},  <!-- 购物车选中状态 -->
+			</if>
+			<if test="add_time != null">
+		          add_time = #{add_time, jdbcType=VARCHAR},  <!-- 加入购物车的时间 -->
+			</if>
+			<if test="prom_type != null">
+		          prom_type = #{prom_type, jdbcType=INTEGER},  <!-- 0 普通订单,1 限时抢购, 2 团购 , 3 促销优惠 -->
+			</if>
+			<if test="prom_id != null">
+		          prom_id = #{prom_id, jdbcType=INTEGER},  <!-- 活动id -->
+			</if>
+			<if test="sku != null">
+		          sku = #{sku, jdbcType=VARCHAR},  <!-- sku -->
+			</if>
+			<if test="store_id != null">
+		          store_id = #{store_id, jdbcType=INTEGER},  <!-- 商家ID -->
+			</if>
+			<if test="store_name != null">
+		          store_name = #{store_name, jdbcType=VARCHAR},  <!-- 商家名称 -->
+			</if>
+			<if test="img != null">
+		          img = #{img, jdbcType=VARCHAR},  <!-- 商家名称 -->
+			</if>
+		</set>
+		WHERE  id = #{id}
+	</update>
+	
+	<!-- 根据主键删除数据持久化对象 -->
+	<select id="deleteByKey" parameterType="ZjcCartPO" resultType="ZjcCartPO">
+		DELETE FROM zjc_cart WHERE  id = #{id}
+	</select>
+	
+	<select id="deleteByuserid"  parameterType="ZjcCartPO" resultType="ZjcCartPO">
+		DELETE FROM zjc_cart WHERE  user_id = #{user_id}  and goods_id = #{goods_id}
+	</select>
+<!-- 根据用户ID查询选中的商品 -->
+	<select id="Carstore_id" parameterType="ZjcCartPO" resultType="ZjcCartPO">
+		SELECT 
+		<include refid="column" />
+		FROM zjc_cart where user_id = #{user_id} and store_id = #{store_id}
+	</select>
+
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="selectByKey" resultType="ZjcCartPO">
+		SELECT
+		<include refid="column" />
+		FROM zjc_cart WHERE  id = #{id}
+	</select>
+	
+	<!-- 选中购物车中的商品 -->
+	<select id="selectedGoods" parameterType="Dto" resultType="ZjcCartPO">
+		UPDATE zjc_cart t SET t.selected=1
+		 where t.id in (select id zjc_cart where id in(#{id}))
+	</select>
+	<!-- 选中购物车中的商品 -->
+	<select id="selectedGoodsAll" parameterType="Dto" resultType="ZjcCartPO">
+		UPDATE zjc_cart t SET t.selected=1
+		 where t.user_id =#{user_id}
+	</select>
+    
+    
+    <!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="selectOne" parameterType="Dto" resultType="ZjcCartPO">
+		SELECT
+		    <include refid="column" />
+		FROM zjc_cart
+		where
+		  selected=1  and user_id =#{user_id} 
+			
+	</select> 
+    
+	
+
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="list" parameterType="Dto" resultType="ZjcCartPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_cart
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listPage" parameterType="Dto" resultType="ZjcCartPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_cart
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+	
+	<!-- 根据用户ID查询选中的商品 -->
+	<select id="queryCartList" parameterType="ZjcCartPO" resultType="ZjcCartPO">
+		SELECT 
+		goods_id, goods_sn, goods_name, market_price, shop_price, goods_num, img,store_id,user_id
+		FROM zjc_cart where user_id = #{user_id}
+	</select>
+	
+	<!-- 根据用户ID查询选中的商品 -->
+	<select id="queryCartgoods" parameterType="ZjcCartPO" resultType="ZjcCartPO">
+		SELECT 
+		<include refid="column" />
+		FROM zjc_cart where user_id = #{user_id} and goods_id = #{goods_id}
+	</select>
+	
+	<!-- 根据Dto模糊查询并返回数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="like" parameterType="Dto" resultType="ZjcCartPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_cart
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto模糊查询并返回分页数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="likePage" parameterType="Dto" resultType="ZjcCartPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_cart
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto统计行数 -->
+	<select id="rows" resultType="Integer" parameterType="Dto">
+		SELECT COUNT(1) AS aos_rows_ FROM zjc_cart
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 根据数学表达式进行数学运算 -->
+	<select id="calc" parameterType="Dto" resultType="String">
+		SELECT
+			${_expr}
+		FROM zjc_cart
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 表字段 -->
+	<sql id="column">
+		  id,  <!-- 购物车表 -->
+		  user_id,  <!-- 用户id -->
+		  session_id,  <!-- session -->
+		  goods_id,  <!-- 商品id -->
+		  goods_sn,  <!-- 商品货号 -->
+		  goods_name,  <!-- 商品名称 -->
+		  market_price,  <!-- 积分比例价 -->
+		  shop_price,  <!-- 本店价(现金) -->
+		  cost_price,  <!-- 等额积分价 -->
+		  goods_num,  <!-- 购买数量 -->
+		  spec_key,  <!-- 商品规格key 对应zjc_spec_goods_price 表 -->
+		  spec_key_name,  <!-- 商品规格组合名称 -->
+		  bar_code,  <!-- 商品条码 -->
+		  selected,  <!-- 购物车选中状态 -->
+		  add_time,  <!-- 加入购物车的时间 -->
+		  prom_type,  <!-- 0 普通订单,1 限时抢购, 2 团购 , 3 促销优惠 -->
+		  prom_id,  <!-- 活动id -->
+		  sku,  <!-- sku -->
+		  store_id, <!-- 商家ID -->
+		  img, 
+		  store_name  <!-- 商家名称 -->
+	</sql>
+	
+	<!-- 表字段(用于外表的关联时引用) -->
+	<sql id="column2">
+		  zjc_cart.id,  <!-- 购物车表 -->
+		  zjc_cart.user_id,  <!-- 用户id -->
+		  zjc_cart.session_id,  <!-- session -->
+		  zjc_cart.goods_id,  <!-- 商品id -->
+		  zjc_cart.goods_sn,  <!-- 商品货号 -->
+		  zjc_cart.goods_name,  <!-- 商品名称 -->
+		  zjc_cart.market_price,  <!-- 积分比例价 -->
+		  zjc_cart.shop_price,  <!-- 本店价(现金) -->
+		  zjc_cart.cost_price,  <!-- 等额积分价 -->
+		  zjc_cart.goods_num,  <!-- 购买数量 -->
+		  zjc_cart.spec_key,  <!-- 商品规格key 对应zjc_spec_goods_price 表 -->
+		  zjc_cart.spec_key_name,  <!-- 商品规格组合名称 -->
+		  zjc_cart.bar_code,  <!-- 商品条码 -->
+		  zjc_cart.selected,  <!-- 购物车选中状态 -->
+		  zjc_cart.add_time,  <!-- 加入购物车的时间 -->
+		  zjc_cart.prom_type,  <!-- 0 普通订单,1 限时抢购, 2 团购 , 3 促销优惠 -->
+		  zjc_cart.prom_id,  <!-- 活动id -->
+		  zjc_cart.sku,  <!-- sku -->
+		  zjc_cart.store_id,  <!-- 商家ID -->
+		  img,
+		  zjc_cart.store_name  <!-- 商家名称 -->
+	</sql>
+
+	<!-- Where精确匹配字段 -->
+	<sql id="equal">
+	   <if test="id != null ">
+		      AND id = #{id}  <!-- 购物车表 -->
+		</if>
+	   <if test="user_id != null ">
+		      AND user_id = #{user_id}  <!-- 用户id -->
+		</if>
+	    <if test="session_id != null and session_id != ''">
+		      AND session_id = #{session_id}  <!-- session -->
+		</if>
+	   <if test="goods_id != null ">
+		      AND goods_id = #{goods_id}  <!-- 商品id -->
+		</if>
+	    <if test="goods_sn != null and goods_sn != ''">
+		      AND goods_sn = #{goods_sn}  <!-- 商品货号 -->
+		</if>
+	    <if test="goods_name != null and goods_name != ''">
+		      AND goods_name = #{goods_name}  <!-- 商品名称 -->
+		</if>
+	   <if test="market_price != null ">
+		      AND market_price = #{market_price}  <!-- 积分比例价 -->
+		</if>
+	   <if test="shop_price != null ">
+		      AND shop_price = #{shop_price}  <!-- 本店价(现金) -->
+		</if>
+	   <if test="cost_price != null ">
+		      AND cost_price = #{cost_price}  <!-- 等额积分价 -->
+		</if>
+	   <if test="goods_num != null ">
+		      AND goods_num = #{goods_num}  <!-- 购买数量 -->
+		</if>
+	    <if test="spec_key != null and spec_key != ''">
+		      AND spec_key = #{spec_key}  <!-- 商品规格key 对应zjc_spec_goods_price 表 -->
+		</if>
+	    <if test="spec_key_name != null and spec_key_name != ''">
+		      AND spec_key_name = #{spec_key_name}  <!-- 商品规格组合名称 -->
+		</if>
+	    <if test="bar_code != null and bar_code != ''">
+		      AND bar_code = #{bar_code}  <!-- 商品条码 -->
+		</if>
+	   <if test="selected != null ">
+		      AND selected = #{selected}  <!-- 购物车选中状态 -->
+		</if>
+	   <if test="add_time != null ">
+		      AND add_time = #{add_time}  <!-- 加入购物车的时间 -->
+		</if>
+	   <if test="prom_type != null ">
+		      AND prom_type = #{prom_type}  <!-- 0 普通订单,1 限时抢购, 2 团购 , 3 促销优惠 -->
+		</if>
+	   <if test="prom_id != null ">
+		      AND prom_id = #{prom_id}  <!-- 活动id -->
+		</if>
+	    <if test="sku != null and sku != ''">
+		      AND sku = #{sku}  <!-- sku -->
+		</if>
+	   <if test="store_id != null ">
+		      AND store_id = #{store_id}  <!-- 商家ID -->
+		</if>
+	    <if test="store_name != null and store_name != ''">
+		      AND store_name = #{store_name}  <!-- 商家名称 -->
+		</if>
+		 <if test="img != null and img != ''">
+		      AND img = #{img}  <!-- 商家名称 -->
+		</if>
+	</sql>
+	
+	<!-- Where模糊匹配字段 -->
+	<sql id="like">
+	    <if test="session_id != null and session_id != ''">
+		      AND session_id like '${session_id}%'  <!-- session -->
+		</if>
+	    <if test="goods_sn != null and goods_sn != ''">
+		      AND goods_sn like '${goods_sn}%'  <!-- 商品货号 -->
+		</if>
+	    <if test="goods_name != null and goods_name != ''">
+		      AND goods_name like '${goods_name}%'  <!-- 商品名称 -->
+		</if>
+	    <if test="spec_key != null and spec_key != ''">
+		      AND spec_key like '${spec_key}%'  <!-- 商品规格key 对应zjc_spec_goods_price 表 -->
+		</if>
+	    <if test="spec_key_name != null and spec_key_name != ''">
+		      AND spec_key_name like '${spec_key_name}%'  <!-- 商品规格组合名称 -->
+		</if>
+	    <if test="bar_code != null and bar_code != ''">
+		      AND bar_code like '${bar_code}%'  <!-- 商品条码 -->
+		</if>
+	    <if test="sku != null and sku != ''">
+		      AND sku like '${sku}%'  <!-- sku -->
+		</if>
+	    <if test="store_name != null and store_name != ''">
+		      AND store_name like '${store_name}%'  <!-- 商家名称 -->
+		</if>
+	</sql>
+	
+</mapper>

@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- zjc_order_action[zjc_order_action]SQL自动映射 -->
+<!--  注意:此文件由AOS平台自动生成-禁止手工修改 2017-05-24 09:08:52 -->
+<mapper namespace="com.zjc.order.dao.ZjcOrderActionDao">
+	
+	<!-- 插入一个数据持久化对象(插入字段为传入PO实体的非空属性) -->
+	<insert id="insert" useGeneratedKeys="true" keyProperty="action_id" parameterType="ZjcOrderActionPO">
+		INSERT INTO zjc_order_action (
+		<if test="order_id != null">
+	         order_id, <!-- 订单ID -->
+		</if>
+		<if test="action_user != null">
+	         action_user, <!-- 操作人 0 为管理员操作 -->
+		</if>
+		<if test="action_user_type != null">
+	         action_user_type, <!--  1用户 ，2 管理员  3，商家用户ID -->
+		</if>
+		<if test="order_status != null">
+	         order_status, <!-- 订单状态 -->
+		</if>
+		<if test="shipping_status != null">
+	         shipping_status, <!-- 配送状态 -->
+		</if>
+		<if test="pay_status != null">
+	         pay_status, <!-- 支付状态 -->
+		</if>
+		<if test="action_note != null and action_note != ''">
+	         action_note, <!-- 操作备注 -->
+		</if>
+		<if test="log_time != null and log_time != ''">
+	         log_time, <!-- 操作时间 -->
+		</if>
+		<if test="status_desc != null and status_desc != ''">
+	         status_desc, <!-- 状态描述 -->
+		</if>
+		<if test="action_user_name != null and action_user_name != ''">
+	         action_user_name, <!-- 操作者名称-->
+		</if>
+	          action_id
+		)VALUES(
+		<if test="order_id != null">
+	          #{order_id, jdbcType=INTEGER}, <!-- 订单ID -->
+	    </if>
+		<if test="action_user != null">
+	          #{action_user, jdbcType=INTEGER}, <!-- 操作人 0 为管理员操作 -->
+	    </if>
+		<if test="action_user_type != null">
+	          #{action_user_type, jdbcType=INTEGER}, <!--  1用户 ，2 管理员  3，商家用户ID -->
+	    </if>
+		<if test="order_status != null">
+	          #{order_status, jdbcType=INTEGER}, <!-- 订单状态 -->
+	    </if>
+		<if test="shipping_status != null">
+	          #{shipping_status, jdbcType=INTEGER}, <!-- 配送状态 -->
+	    </if>
+		<if test="pay_status != null">
+	          #{pay_status, jdbcType=INTEGER}, <!-- 支付状态 -->
+	    </if>
+		<if test="action_note != null and action_note != ''">
+	          #{action_note, jdbcType=VARCHAR}, <!-- 操作备注 -->
+	    </if>
+		<if test="log_time != null and log_time != ''">
+	          #{log_time, jdbcType=VARCHAR}, <!-- 操作时间 -->
+	    </if>
+		<if test="status_desc != null and status_desc != ''">
+	          #{status_desc, jdbcType=VARCHAR}, <!-- 状态描述 -->
+	    </if>
+	    <if test="action_user_name != null and action_user_name != ''">
+	          #{action_user_name, jdbcType=VARCHAR}, <!-- 操作者名称 -->
+	    </if>
+	          null
+		)
+	</insert>
+	
+	<!-- 插入一个数据持久化对象(含所有字段) -->
+	<insert id="insertAll" useGeneratedKeys="true" keyProperty="action_id" parameterType="ZjcOrderActionPO">
+		INSERT INTO zjc_order_action (
+		    <include refid="column" />
+		)
+		VALUES (
+		    #{action_id, jdbcType=INTEGER},  <!-- 表id -->
+		    #{order_id, jdbcType=INTEGER},  <!-- 订单ID -->
+		    #{action_user, jdbcType=INTEGER},  <!-- 操作人 0 为管理员操作 -->
+		    #{action_user_type, jdbcType=INTEGER},  <!--  1用户 ，2 管理员  3，商家用户ID -->
+		    #{order_status, jdbcType=INTEGER},  <!-- 订单状态 -->
+		    #{shipping_status, jdbcType=INTEGER},  <!-- 配送状态 -->
+		    #{pay_status, jdbcType=INTEGER},  <!-- 支付状态 -->
+		    #{action_note, jdbcType=VARCHAR},  <!-- 操作备注 -->
+		    #{log_time, jdbcType=VARCHAR},  <!-- 操作时间 -->
+		    #{status_desc, jdbcType=VARCHAR},  <!-- 状态描述 -->
+		    #{action_user_name, jdbcType=VARCHAR}  <!-- 操作者名称 -->
+		)
+	</insert>
+
+	<!-- 根据主键修改数据持久化对象 -->
+	<update id="updateByKey" parameterType="ZjcOrderActionPO">
+		UPDATE zjc_order_action
+		<set>
+			<if test="action_id != null">
+		          action_id = #{action_id, jdbcType=INTEGER},  <!-- 表id -->
+			</if>
+			<if test="order_id != null">
+		          order_id = #{order_id, jdbcType=INTEGER},  <!-- 订单ID -->
+			</if>
+			<if test="action_user != null">
+		          action_user = #{action_user, jdbcType=INTEGER},  <!-- 操作人 0 为管理员操作 -->
+			</if>
+			<if test="action_user_type != null">
+		          action_user_type = #{action_user_type, jdbcType=INTEGER},  <!--  1用户 ，2 管理员  3，商家用户ID -->
+			</if>
+			<if test="order_status != null">
+		          order_status = #{order_status, jdbcType=INTEGER},  <!-- 订单状态 -->
+			</if>
+			<if test="shipping_status != null">
+		          shipping_status = #{shipping_status, jdbcType=INTEGER},  <!-- 配送状态 -->
+			</if>
+			<if test="pay_status != null">
+		          pay_status = #{pay_status, jdbcType=INTEGER},  <!-- 支付状态 -->
+			</if>
+			<if test="action_note != null">
+		          action_note = #{action_note, jdbcType=VARCHAR},  <!-- 操作备注 -->
+			</if>
+			<if test="log_time != null">
+		          log_time = #{log_time, jdbcType=VARCHAR},  <!-- 操作时间 -->
+			</if>
+			<if test="status_desc != null">
+		          status_desc = #{status_desc, jdbcType=VARCHAR},  <!-- 状态描述 -->
+			</if>
+			<if test="action_user_name != null">
+		          action_user_name = #{action_user_name, jdbcType=VARCHAR},  <!-- 操作者名称 -->
+			</if>
+		</set>
+		WHERE  action_id = #{action_id}
+	</update>
+	
+	<!-- 根据主键删除数据持久化对象 -->
+	<delete id="deleteByKey">
+		DELETE FROM zjc_order_action WHERE  action_id = #{action_id}
+	</delete>
+
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="selectByKey" resultType="ZjcOrderActionPO">
+		SELECT
+		<include refid="column" />
+		FROM zjc_order_action WHERE  action_id = #{action_id}
+	</select>
+
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="selectOne" parameterType="Dto" resultType="ZjcOrderActionPO">
+		SELECT
+		    <include refid="column" />
+		FROM zjc_order_action
+		<where>
+		    <include refid="equal" />
+		</where>		
+	</select>
+
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="list" parameterType="Dto" resultType="ZjcOrderActionPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_order_action
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listPage" parameterType="Dto" resultType="ZjcOrderActionPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_order_action
+		<where>
+		    <include refid="equal" />
+		</where>	
+		order by log_time desc	
+	</select>
+	
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listczPage" parameterType="Dto" resultType="ZjcOrderActionPO" useCache="false">
+	    SELECT
+		  action_id,  
+		  order_id, 
+		  action_user, 
+		  action_user_type,
+		  order_status, 
+		  shipping_status,  
+		  pay_status, 
+		  action_note, 
+		  log_time,  
+		  status_desc,
+		  action_user_name 
+		FRoM zjc_order_action
+		<where>
+		    <include refid="equal" />
+		</where>	
+		order by log_time desc	
+	</select>
+	
+	<!-- 根据Dto模糊查询并返回数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="like" parameterType="Dto" resultType="ZjcOrderActionPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_order_action
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto模糊查询并返回分页数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="likePage" parameterType="Dto" resultType="ZjcOrderActionPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_order_action
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto统计行数 -->
+	<select id="rows" resultType="Integer" parameterType="Dto">
+		SELECT COUNT(1) AS aos_rows_ FROM zjc_order_action
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 根据数学表达式进行数学运算 -->
+	<select id="calc" parameterType="Dto" resultType="String">
+		SELECT
+			${_expr}
+		FROM zjc_order_action
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 表字段 -->
+	<sql id="column">
+		  action_id,  <!-- 表id -->
+		  order_id,  <!-- 订单ID -->
+		  action_user,  <!-- 操作人 0 为管理员操作 -->
+		  action_user_type,  <!--  1用户 ，2 管理员  3，商家用户ID -->
+		  order_status,  <!-- 订单状态 -->
+		  shipping_status,  <!-- 配送状态 -->
+		  pay_status,  <!-- 支付状态 -->
+		  action_note,  <!-- 操作备注 -->
+		  log_time,  <!-- 操作时间 -->
+		  status_desc,  <!-- 状态描述 -->
+		  action_user_name <!-- 操作者名称 -->
+	</sql>
+	
+	<!-- 表字段(用于外表的关联时引用) -->
+	<sql id="column2">
+		  zjc_order_action.action_id,  <!-- 表id -->
+		  zjc_order_action.order_id,  <!-- 订单ID -->
+		  zjc_order_action.action_user,  <!-- 操作人 0 为管理员操作 -->
+		  zjc_order_action.action_user_type,  <!--  1用户 ，2 管理员  3，商家用户ID -->
+		  zjc_order_action.order_status,  <!-- 订单状态 -->
+		  zjc_order_action.shipping_status,  <!-- 配送状态 -->
+		  zjc_order_action.pay_status,  <!-- 支付状态 -->
+		  zjc_order_action.action_note,  <!-- 操作备注 -->
+		  zjc_order_action.log_time,  <!-- 操作时间 -->
+		  zjc_order_action.status_desc,  <!-- 状态描述 -->
+		  zjc_order_action.action_user_name <!-- 操作者名称 -->
+	</sql>
+
+	<!-- Where精确匹配字段 -->
+	<sql id="equal">
+	   <if test="action_id != null ">
+		      AND action_id = #{action_id}  <!-- 表id -->
+		</if>
+	   <if test="order_id != null ">
+		      AND order_id = #{order_id}  <!-- 订单ID -->
+		</if>
+	   <if test="action_user != null ">
+		      AND action_user = #{action_user}  <!-- 操作人 0 为管理员操作 -->
+		</if>
+	   <if test="action_user_type != null ">
+		      AND action_user_type = #{action_user_type}  <!--  1用户 ，2 管理员  3，商家用户ID -->
+		</if>
+	   <if test="order_status != null ">
+		      AND order_status = #{order_status}  <!-- 订单状态 -->
+		</if>
+	   <if test="shipping_status != null ">
+		      AND shipping_status = #{shipping_status}  <!-- 配送状态 -->
+		</if>
+	   <if test="pay_status != null ">
+		      AND pay_status = #{pay_status}  <!-- 支付状态 -->
+		</if>
+	    <if test="action_note != null and action_note != ''">
+		      AND action_note = #{action_note}  <!-- 操作备注 -->
+		</if>
+	   <if test="log_time != null ">
+		      AND log_time = #{log_time}  <!-- 操作时间 -->
+		</if>
+	    <if test="status_desc != null and status_desc != ''">
+		      AND status_desc = #{status_desc}  <!-- 状态描述 -->
+		</if>
+		 <if test="action_user_name != null and action_user_name != ''">
+		      AND action_user_name = #{action_user_name}  <!-- 操作者名称 -->
+		</if>
+	</sql>
+	
+	<!-- Where模糊匹配字段 -->
+	<sql id="like">
+	    <if test="action_note != null and action_note != ''">
+		      AND action_note like '${action_note}%'  <!-- 操作备注 -->
+		</if>
+	    <if test="status_desc != null and status_desc != ''">
+		      AND status_desc like '${status_desc}%'  <!-- 状态描述 -->
+		</if>
+		<if test="action_user_name != null and action_user_name != ''">
+		      AND action_user_name like '${action_user_name}%'  <!-- 操作者名称 -->
+		</if>
+	</sql>
+	
+	<!-- ==============================================app接口====================================================== -->
+	<!-- 根据Dto降序查询数据 -->
+	<select id="listDataDesc" parameterType="Dto" resultType="ZjcOrderActionPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_order_action
+		<where>
+		    <include refid="equal" />
+		</where>
+		order by log_time desc	
+	</select>
+	
+</mapper>

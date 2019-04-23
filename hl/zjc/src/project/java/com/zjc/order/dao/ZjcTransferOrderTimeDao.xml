@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- zjc_transfer_order_time[zjc_transfer_order_time]SQL自动映射 -->
+<!--  注意:此文件由AOS平台自动生成-禁止手工修改 2018-04-17 09:51:52 -->
+<mapper namespace="com.zjc.order.dao.ZjcTransferOrderTimeDao">
+	
+	<!-- 插入一个数据持久化对象(插入字段为传入PO实体的非空属性) -->
+	<insert id="insert"  parameterType="ZjcTransferOrderTimePO">
+		INSERT INTO zjc_transfer_order_time (
+		<if test="transfer_time != null and transfer_time != ''">
+	         transfer_time, <!-- 转账时间 -->
+		</if>
+		<if test="transfer_type != null">
+	         transfer_type, <!-- transfer_type -->
+		</if>
+		<if test="reminder != null">
+	         reminder, <!-- 催单 -->
+		</if>
+		<if test="remindertime != null and remindertime != ''">
+	         remindertime, <!-- 催单时间 -->
+		</if>
+		<if test="single_back != null">
+	         single_back, <!-- 退单0发起退单1退单失败2退单成功 -->
+		</if>
+		<if test="single_back_time != null and single_back_time != ''">
+	         single_back_time, <!-- 退单时间 -->
+		</if>
+		<if test="confirm_single_back_time != null and confirm_single_back_time != ''">
+	         confirm_single_back_time, <!-- 确认退单时间 -->
+		</if>
+		<if test="order_id != null and order_id != ''">
+	          order_id  <!-- order_id -->
+	   </if>
+		)VALUES(
+		<if test="transfer_time != null and transfer_time != ''">
+	          #{transfer_time, jdbcType=VARCHAR}, <!-- 转账时间 -->
+	    </if>
+		<if test="transfer_type != null">
+	          #{transfer_type, jdbcType=INTEGER}, <!-- transfer_type -->
+	    </if>
+		<if test="reminder != null">
+	          #{reminder, jdbcType=INTEGER}, <!-- 催单 -->
+	    </if>
+		<if test="remindertime != null and remindertime != ''">
+	          #{remindertime, jdbcType=VARCHAR}, <!-- 催单时间 -->
+	    </if>
+		<if test="single_back != null">
+	          #{single_back, jdbcType=INTEGER}, <!-- 退单0发起退单1退单失败2退单成功 -->
+	    </if>
+		<if test="single_back_time != null and single_back_time != ''">
+	          #{single_back_time, jdbcType=VARCHAR}, <!-- 退单时间 -->
+	    </if>
+		<if test="confirm_single_back_time != null and confirm_single_back_time != ''">
+	          #{confirm_single_back_time, jdbcType=VARCHAR}, <!-- 确认退单时间 -->
+	    </if>
+		<if test="order_id != null and order_id != ''">
+		     #{order_id, jdbcType=INTEGER}  <!-- order_id -->
+	    </if>
+		)
+	</insert>
+	
+	<!-- 插入一个数据持久化对象(含所有字段) -->
+	<insert id="insertAll"  parameterType="ZjcTransferOrderTimePO">
+		INSERT INTO zjc_transfer_order_time (
+		    <include refid="column" />
+		)
+		VALUES (
+		    #{order_id, jdbcType=INTEGER},  <!-- order_id -->
+		    #{transfer_time, jdbcType=VARCHAR},  <!-- 转账时间 -->
+		    #{transfer_type, jdbcType=INTEGER},  <!-- transfer_type -->
+		    #{reminder, jdbcType=INTEGER},  <!-- 催单 -->
+		    #{remindertime, jdbcType=VARCHAR},  <!-- 催单时间 -->
+		    #{single_back, jdbcType=INTEGER},  <!-- 退单0发起退单1退单失败2退单成功 -->
+		    #{single_back_time, jdbcType=VARCHAR},  <!-- 退单时间 -->
+		    #{confirm_single_back_time, jdbcType=VARCHAR}  <!-- 确认退单时间 -->
+		)
+	</insert>
+
+	<!-- 根据主键修改数据持久化对象 -->
+	<update id="updateByKey" parameterType="ZjcTransferOrderTimePO">
+		UPDATE zjc_transfer_order_time
+		<set>
+			<if test="order_id != null">
+		          order_id = #{order_id, jdbcType=INTEGER},  <!-- order_id -->
+			</if>
+			<if test="transfer_time != null">
+		          transfer_time = #{transfer_time, jdbcType=VARCHAR},  <!-- 转账时间 -->
+			</if>
+			<if test="transfer_type != null">
+		          transfer_type = #{transfer_type, jdbcType=INTEGER},  <!-- transfer_type -->
+			</if>
+			<if test="reminder != null">
+		          reminder = #{reminder, jdbcType=INTEGER},  <!-- 催单 -->
+			</if>
+			<if test="remindertime != null">
+		          remindertime = #{remindertime, jdbcType=VARCHAR},  <!-- 催单时间 -->
+			</if>
+			<if test="single_back != null">
+		          single_back = #{single_back, jdbcType=INTEGER},  <!-- 退单0发起退单1退单失败2退单成功 -->
+			</if>
+			<if test="single_back_time != null">
+		          single_back_time = #{single_back_time, jdbcType=VARCHAR},  <!-- 退单时间 -->
+			</if>
+			<if test="confirm_single_back_time != null">
+		          confirm_single_back_time = #{confirm_single_back_time, jdbcType=VARCHAR},  <!-- 确认退单时间 -->
+			</if>
+		</set>
+		WHERE  order_id = #{order_id}
+	</update>
+	
+	<!-- 根据主键删除数据持久化对象 -->
+	<delete id="deleteByKey">
+		DELETE FROM zjc_transfer_order_time WHERE  order_id = #{order_id}
+	</delete>
+
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="selectByKey" resultType="ZjcTransferOrderTimePO">
+		SELECT
+		<include refid="column" />
+		FROM zjc_transfer_order_time WHERE  order_id = #{order_id}
+	</select>
+
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="selectOne" parameterType="Dto" resultType="ZjcTransferOrderTimePO">
+		SELECT
+		    <include refid="column" />
+		FROM zjc_transfer_order_time
+		<where>
+		    <include refid="equal" />
+		</where>		
+	</select>
+
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="list" parameterType="Dto" resultType="ZjcTransferOrderTimePO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_transfer_order_time
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listPage" parameterType="Dto" resultType="ZjcTransferOrderTimePO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_transfer_order_time
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto模糊查询并返回数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="like" parameterType="Dto" resultType="ZjcTransferOrderTimePO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_transfer_order_time
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto模糊查询并返回分页数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="likePage" parameterType="Dto" resultType="ZjcTransferOrderTimePO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_transfer_order_time
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto统计行数 -->
+	<select id="rows" resultType="Integer" parameterType="Dto">
+		SELECT COUNT(1) AS aos_rows_ FROM zjc_transfer_order_time
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 根据数学表达式进行数学运算 -->
+	<select id="calc" parameterType="Dto" resultType="String">
+		SELECT
+			${_expr}
+		FROM zjc_transfer_order_time
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 表字段 -->
+	<sql id="column">
+		  order_id,  <!-- order_id -->
+		  transfer_time,  <!-- 转账时间 -->
+		  transfer_type,  <!-- transfer_type -->
+		  reminder,  <!-- 催单 -->
+		  remindertime,  <!-- 催单时间 -->
+		  single_back,  <!-- 退单0发起退单1退单失败2退单成功 -->
+		  single_back_time,  <!-- 退单时间 -->
+		  confirm_single_back_time  <!-- 确认退单时间 -->
+	</sql>
+	
+	<!-- 表字段(用于外表的关联时引用) -->
+	<sql id="column2">
+		  zjc_transfer_order_time.order_id,  <!-- order_id -->
+		  zjc_transfer_order_time.transfer_time,  <!-- 转账时间 -->
+		  zjc_transfer_order_time.transfer_type,  <!-- transfer_type -->
+		  zjc_transfer_order_time.reminder,  <!-- 催单 -->
+		  zjc_transfer_order_time.remindertime,  <!-- 催单时间 -->
+		  zjc_transfer_order_time.single_back,  <!-- 退单0发起退单1退单失败2退单成功 -->
+		  zjc_transfer_order_time.single_back_time,  <!-- 退单时间 -->
+		  zjc_transfer_order_time.confirm_single_back_time  <!-- 确认退单时间 -->
+	</sql>
+
+	<!-- Where精确匹配字段 -->
+	<sql id="equal">
+	    <if test="order_id != null and order_id != ''">
+		      AND order_id = #{order_id}  <!-- order_id -->
+		</if>
+	    <if test="transfer_time != null and transfer_time != ''">
+		      AND transfer_time = #{transfer_time}  <!-- 转账时间 -->
+		</if>
+	   <if test="transfer_type != null ">
+		      AND transfer_type = #{transfer_type}  <!-- transfer_type -->
+		</if>
+	   <if test="reminder != null ">
+		      AND reminder = #{reminder}  <!-- 催单 -->
+		</if>
+	    <if test="remindertime != null and remindertime != ''">
+		      AND remindertime = #{remindertime}  <!-- 催单时间 -->
+		</if>
+	   <if test="single_back != null ">
+		      AND single_back = #{single_back}  <!-- 退单0发起退单1退单失败2退单成功 -->
+		</if>
+	    <if test="single_back_time != null and single_back_time != ''">
+		      AND single_back_time = #{single_back_time}  <!-- 退单时间 -->
+		</if>
+	    <if test="confirm_single_back_time != null and confirm_single_back_time != ''">
+		      AND confirm_single_back_time = #{confirm_single_back_time}  <!-- 确认退单时间 -->
+		</if>
+	</sql>
+	
+	<!-- Where模糊匹配字段 -->
+	<sql id="like">
+	    <if test="order_id != null and order_id != ''">
+		      AND order_id like '${order_id}%'  <!-- order_id -->
+		</if>
+	    <if test="transfer_time != null and transfer_time != ''">
+		      AND transfer_time like '${transfer_time}%'  <!-- 转账时间 -->
+		</if>
+	    <if test="remindertime != null and remindertime != ''">
+		      AND remindertime like '${remindertime}%'  <!-- 催单时间 -->
+		</if>
+	    <if test="single_back_time != null and single_back_time != ''">
+		      AND single_back_time like '${single_back_time}%'  <!-- 退单时间 -->
+		</if>
+	    <if test="confirm_single_back_time != null and confirm_single_back_time != ''">
+		      AND confirm_single_back_time like '${confirm_single_back_time}%'  <!-- 确认退单时间 -->
+		</if>
+	</sql>
+	
+</mapper>

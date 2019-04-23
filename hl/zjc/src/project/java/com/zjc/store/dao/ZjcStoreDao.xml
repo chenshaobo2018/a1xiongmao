@@ -1,0 +1,1363 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- zjc_store[zjc_store]SQL自动映射 -->
+<!--  注意:此文件由AOS平台自动生成-禁止手工修改 2017-05-09 16:22:16 -->
+<mapper namespace="com.zjc.store.dao.ZjcStoreDao">
+	
+	<resultMap id="queryForListMap" type="com.zjc.store.dao.po.ZjcStorePO">  
+        <id column="store_id" property="store_id" jdbcType="INTEGER"/>  
+        <result column="store_name" property="store_name" jdbcType="VARCHAR"/>
+        <result column="user_id" property="user_id" jdbcType="INTEGER"/>
+        <result column="cat_id" property="cat_id" jdbcType="INTEGER"/>
+        <result column="show_video" property="show_video" jdbcType="INTEGER"/>
+        <result column="store_state" property="store_state" jdbcType="INTEGER"/>
+        <result column="last_login_time" property="last_login_time" jdbcType="VARCHAR"/>
+        <result column="last_login_ip" property="last_login_ip" jdbcType="VARCHAR"/>
+        <result column="business_licence_number_elc" property="business_licence_number_elc" jdbcType="VARCHAR"/>
+        <result column="province_id" property="province_id" jdbcType="INTEGER"/>
+        <result column="city_id" property="city_id" jdbcType="INTEGER"/>
+        <result column="area_id" property="area_id" jdbcType="INTEGER"/>
+        <result column="twon_id" property="twon_id" jdbcType="INTEGER"/>
+        <result column="area_info" property="area_info" jdbcType="VARCHAR"/>
+        <result column="address_detail" property="address_detail" jdbcType="VARCHAR"/>
+        <result column="office_phone" property="office_phone" jdbcType="VARCHAR"/>
+        <result column="contacts_email" property="contacts_email" jdbcType="VARCHAR"/>
+        <result column="contacts_name" property="contacts_name" jdbcType="VARCHAR"/>
+        <result column="contacts_phone" property="contacts_phone" jdbcType="VARCHAR"/>
+        <result column="bank_account_name" property="bank_account_name" jdbcType="VARCHAR"/>
+        <result column="bank_account_number" property="bank_account_number" jdbcType="VARCHAR"/>
+        <result column="enterprise_num" property="enterprise_num" jdbcType="VARCHAR"/>
+        <result column="lng" property="lng" jdbcType="NUMERIC"/>
+        <result column="lat" property="lat" jdbcType="NUMERIC"/>
+        <result column="store_logo" property="store_logo" jdbcType="VARCHAR"/>
+        <result column="add_time" property="add_time" jdbcType="VARCHAR"/>
+        <result column="video_address" property="video_address" jdbcType="VARCHAR"/>
+        <result column="store_info" property="store_info" jdbcType="VARCHAR"/>
+        <result column="food_hygiene_img" property="food_hygiene_img" jdbcType="VARCHAR"/>
+        <result column="attestation_reason" property="attestation_reason" jdbcType="VARCHAR"/>
+        <result column="id_card_img" property="id_card_img" jdbcType="VARCHAR"/>
+        <result column="special_premit_img" property="special_premit_img" jdbcType="VARCHAR"/>
+        <collection property="zjcSellerInfoPO"  ofType="com.zjc.store.dao.po.ZjcSellerInfoPO">
+        	<id column="user_id" property="user_id" jdbcType="INTEGER"/>  
+	        <result column="email" property="email" jdbcType="VARCHAR"/>
+	        <result column="password" property="password" jdbcType="VARCHAR"/>
+	        <result column="pay_password" property="pay_password" jdbcType="VARCHAR"/>
+	        <result column="sex" property="sex" jdbcType="VARCHAR"/>
+	        <result column="birthday" property="birthday" jdbcType="VARCHAR"/>
+	        <result column="reg_time" property="reg_time" jdbcType="VARCHAR"/>
+	        <result column="last_login" property="last_login" jdbcType="VARCHAR"/>
+	        <result column="last_ip" property="last_ip" jdbcType="VARCHAR"/>
+	        <result column="qq" property="qq" jdbcType="VARCHAR"/>
+	        <result column="mobile" property="mobile" jdbcType="VARCHAR"/>
+	        <result column="mobile_validated" property="mobile_validated" jdbcType="VARCHAR"/>
+	        <result column="oauth" property="oauth" jdbcType="VARCHAR"/>
+	        <result column="openid" property="openid" jdbcType="VARCHAR"/>
+	        <result column="head_pic" property="head_pic" jdbcType="VARCHAR"/>
+	        <result column="email_validated" property="email_validated" jdbcType="VARCHAR"/>
+	        <result column="nickname" property="nickname" jdbcType="VARCHAR"/>
+	        <result column="level" property="level" jdbcType="VARCHAR"/>
+	        <result column="is_distribut" property="is_distribut" jdbcType="VARCHAR"/>
+	        <result column="first_leader" property="first_leader" jdbcType="VARCHAR"/>
+	        <result column="second_leader" property="second_leader" jdbcType="VARCHAR"/>
+	        <result column="third_leader" property="third_leader" jdbcType="VARCHAR"/>
+	        <result column="token" property="token" jdbcType="VARCHAR"/>
+	        <result column="token_validate_time" property="token_validate_time" jdbcType="VARCHAR"/>
+	        <result column="recommended_code" property="recommended_code" jdbcType="VARCHAR"/>
+	        <result column="is_qualified_member" property="is_qualified_member" jdbcType="VARCHAR"/>
+	        <result column="id_card" property="id_card" jdbcType="VARCHAR"/>
+	        <result column="real_name" property="real_name" jdbcType="VARCHAR"/>
+	        <result column="qualified_member" property="qualified_member" jdbcType="VARCHAR"/>
+	        <result column="store_id" property="store_id" jdbcType="VARCHAR"/>
+	        <result column="is_open_min_pay" property="is_open_min_pay" jdbcType="VARCHAR"/>
+        	<result column="authentication" property="authentication" jdbcType="VARCHAR"/>
+        </collection>
+        <collection property="zjcUsersAccountInfoPO"  ofType="com.zjc.users.dao.po.ZjcUsersAccountInfoPO">  
+            <id column="user_id" property="user_id" jdbcType="INTEGER" />
+            <result column="user_money" property="user_money" jdbcType="VARCHAR"/>
+            <result column="frozen_money" property="frozen_money" jdbcType="VARCHAR"/>
+            <result column="distribut_money" property="distribut_money" jdbcType="VARCHAR"/>
+            <result column="pay_points" property="pay_points" jdbcType="VARCHAR"/>
+            <result column="total_amount" property="total_amount" jdbcType="VARCHAR"/>
+            <result column="make_over_integral" property="make_over_integral" jdbcType="VARCHAR"/>
+            <result column="wallet_quota" property="wallet_quota" jdbcType="VARCHAR"/>
+            <result column="settlement_center" property="settlement_center" jdbcType="VARCHAR"/>
+            <result column="settlement_center_stime" property="settlement_center_stime" jdbcType="VARCHAR"/>
+            <result column="settlement_center_etime" property="settlement_center_etime" jdbcType="VARCHAR"/>
+            <result column="reg_giving_points" property="reg_giving_points" jdbcType="VARCHAR"/>
+            <result column="return_points" property="return_points" jdbcType="VARCHAR"/>
+            <result column="due_tc_points" property="due_tc_points" jdbcType="VARCHAR"/>
+            <result column="practical_tc_points" property="practical_tc_points" jdbcType="VARCHAR"/>
+            <result column="count_wallet_quota" property="count_wallet_quota" jdbcType="VARCHAR"/>
+            <result column="has_terminal" property="has_terminal" jdbcType="VARCHAR"/>
+        </collection>  
+    </resultMap> 
+	
+	<!-- 插入一个数据持久化对象(插入字段为传入PO实体的非空属性) -->
+	<insert id="insert" parameterType="ZjcStorePO">
+		INSERT INTO zjc_store (
+		<if test="store_name != null and store_name != ''">
+	         store_name, <!-- 店铺名称 -->
+		</if>
+		<if test="user_id != null">
+	         user_id, <!-- 用户ID -->
+		</if>
+		<if test="cat_id != null">
+	         cat_id, <!-- 绑定的商品分类 -->
+		</if>
+		<if test="show_video != null">
+	         show_video, <!-- 是否有视频权限 -->
+		</if>
+		<if test="store_state != null">
+	         store_state, <!-- 1:待审核  2：审核失败 3：正常 4：关闭 -->
+		</if>
+		<if test="last_login_time != null and last_login_time != ''">
+	         last_login_time, <!-- 最后登录时间 -->
+		</if>
+		<if test="last_login_ip != null and last_login_ip != ''">
+	         last_login_ip, <!-- 最后登录IP -->
+		</if>
+		<if test="business_licence_number_elc != null and business_licence_number_elc != ''">
+	         business_licence_number_elc, <!-- 营业执照电子版 -->
+		</if>
+		<if test="province_id != null">
+	         province_id, <!-- 省id -->
+		</if>
+		<if test="city_id != null">
+	         city_id, <!-- 市id -->
+		</if>
+		<if test="area_id != null">
+	         area_id, <!-- 地区id -->
+		</if>
+		<if test="twon_id != null">
+	         twon_id, <!-- 街道ID -->
+		</if>
+		<if test="area_info != null and area_info != ''">
+	         area_info, <!-- 省市区街道地址 -->
+		</if>
+		<if test="address_detail != null and address_detail != ''">
+	         address_detail, <!-- 详细地址 -->
+		</if>
+		<if test="office_phone != null and office_phone != ''">
+	         office_phone, <!-- 办公电话 -->
+		</if>
+		<if test="contacts_email != null and contacts_email != ''">
+	         contacts_email, <!-- 电子邮箱 -->
+		</if>
+		<if test="contacts_name != null and contacts_name != ''">
+	         contacts_name, <!-- 联系人 -->
+		</if>
+		<if test="contacts_phone != null and contacts_phone != ''">
+	         contacts_phone, <!-- 联系电话 -->
+		</if>
+		<if test="bank_account_name != null and bank_account_name != ''">
+	         bank_account_name, <!-- 开户行 -->
+		</if>
+		<if test="bank_account_number != null and bank_account_number != ''">
+	         bank_account_number, <!-- 银行账户 -->
+		</if>
+		<if test="enterprise_num != null and enterprise_num != ''">
+	         enterprise_num, <!-- 企业编码 -->
+		</if>
+		<if test="lng != null">
+	         lng, <!-- 经度 -->
+		</if>
+		<if test="lat != null">
+	         lat, <!-- 纬度 -->
+		</if>
+		<if test="store_logo != null and store_logo != ''">
+	         store_logo, <!-- 店铺LOGO -->
+		</if>
+		<if test="add_time != null and add_time != ''">
+	         add_time, <!-- 申请店铺时间 -->
+		</if>
+		<if test="video_address != null and video_address != ''">
+	         video_address, <!-- 视频地址 -->
+		</if>
+		<if test="store_info != null and store_info != ''">
+	         store_info, <!-- 店铺简介 -->
+		</if>
+		<if test="food_hygiene_img != null and food_hygiene_img != ''">
+	         food_hygiene_img, <!-- 食品卫生证 -->
+		</if>
+		<if test="attestation_reason != null and attestation_reason != ''">
+	         attestation_reason, <!-- 审核失败原因 -->
+		</if>
+		<if test="id_card_img != null and id_card_img != ''">
+	         id_card_img, <!-- 食品卫生证 -->
+		</if>
+		<if test="special_premit_img != null and special_premit_img != ''">
+	         special_premit_img, <!-- 审核失败原因 -->
+		</if>
+	          store_id
+		)VALUES(
+		<if test="store_name != null and store_name != ''">
+	          #{store_name, jdbcType=VARCHAR}, <!-- 店铺名称 -->
+	    </if>
+		<if test="user_id != null">
+	          #{user_id, jdbcType=INTEGER}, <!-- 用户ID -->
+	    </if>
+		<if test="cat_id != null">
+	          #{cat_id, jdbcType=INTEGER}, <!-- 绑定的商品分类 -->
+	    </if>
+		<if test="show_video != null">
+	          #{show_video, jdbcType=INTEGER}, <!-- 是否有视频权限 -->
+	    </if>
+		<if test="store_state != null">
+	          #{store_state, jdbcType=INTEGER}, <!-- 1:待审核  2：审核失败 3：正常 4：关闭 -->
+	    </if>
+		<if test="last_login_time != null and last_login_time != ''">
+	          #{last_login_time, jdbcType=VARCHAR}, <!-- 最后登录时间 -->
+	    </if>
+		<if test="last_login_ip != null and last_login_ip != ''">
+	          #{last_login_ip, jdbcType=VARCHAR}, <!-- 最后登录IP -->
+	    </if>
+		<if test="business_licence_number_elc != null and business_licence_number_elc != ''">
+	          #{business_licence_number_elc, jdbcType=VARCHAR}, <!-- 营业执照电子版 -->
+	    </if>
+		<if test="province_id != null">
+	          #{province_id, jdbcType=INTEGER}, <!-- 省id -->
+	    </if>
+		<if test="city_id != null">
+	          #{city_id, jdbcType=INTEGER}, <!-- 市id -->
+	    </if>
+		<if test="area_id != null">
+	          #{area_id, jdbcType=INTEGER}, <!-- 地区id -->
+	    </if>
+		<if test="twon_id != null">
+	          #{twon_id, jdbcType=INTEGER}, <!-- 街道ID -->
+	    </if>
+		<if test="area_info != null and area_info != ''">
+	          #{area_info, jdbcType=VARCHAR}, <!-- 省市区街道地址 -->
+	    </if>
+		<if test="address_detail != null and address_detail != ''">
+	          #{address_detail, jdbcType=VARCHAR}, <!-- 详细地址 -->
+	    </if>
+		<if test="office_phone != null and office_phone != ''">
+	          #{office_phone, jdbcType=VARCHAR}, <!-- 办公电话 -->
+	    </if>
+		<if test="contacts_email != null and contacts_email != ''">
+	          #{contacts_email, jdbcType=VARCHAR}, <!-- 电子邮箱 -->
+	    </if>
+		<if test="contacts_name != null and contacts_name != ''">
+	          #{contacts_name, jdbcType=VARCHAR}, <!-- 联系人 -->
+	    </if>
+		<if test="contacts_phone != null and contacts_phone != ''">
+	          #{contacts_phone, jdbcType=VARCHAR}, <!-- 联系电话 -->
+	    </if>
+		<if test="bank_account_name != null and bank_account_name != ''">
+	          #{bank_account_name, jdbcType=VARCHAR}, <!-- 开户行 -->
+	    </if>
+		<if test="bank_account_number != null and bank_account_number != ''">
+	          #{bank_account_number, jdbcType=VARCHAR}, <!-- 银行账户 -->
+	    </if>
+		<if test="enterprise_num != null and enterprise_num != ''">
+	          #{enterprise_num, jdbcType=VARCHAR}, <!-- 企业编码 -->
+	    </if>
+		<if test="lng != null">
+	          #{lng, jdbcType=NUMERIC}, <!-- 经度 -->
+	    </if>
+		<if test="lat != null">
+	          #{lat, jdbcType=NUMERIC}, <!-- 纬度 -->
+	    </if>
+		<if test="store_logo != null and store_logo != ''">
+	          #{store_logo, jdbcType=VARCHAR}, <!-- 店铺LOGO -->
+	    </if>
+		<if test="add_time != null and add_time != ''">
+	          #{add_time, jdbcType=VARCHAR}, <!-- 申请店铺时间 -->
+	    </if>
+		<if test="video_address != null and video_address != ''">
+	          #{video_address, jdbcType=VARCHAR}, <!-- 视频地址 -->
+	    </if>
+		<if test="store_info != null and store_info != ''">
+	          #{store_info, jdbcType=VARCHAR}, <!-- 店铺简介 -->
+	    </if>
+		<if test="food_hygiene_img != null and food_hygiene_img != ''">
+	          #{food_hygiene_img, jdbcType=VARCHAR}, <!-- 食品卫生证 -->
+	    </if>
+		<if test="attestation_reason != null and attestation_reason != ''">
+	          #{attestation_reason, jdbcType=VARCHAR}, <!-- 审核失败原因 -->
+	    </if>
+	    <if test="id_card_img != null and id_card_img != ''">
+	          #{id_card_img, jdbcType=VARCHAR}, <!-- 食品卫生证 -->
+	    </if>
+		<if test="special_premit_img != null and special_premit_img != ''">
+	          #{special_premit_img, jdbcType=VARCHAR}, <!-- 审核失败原因 -->
+	    </if>
+	          #{store_id, jdbcType=VARCHAR}
+		)
+	</insert>
+	
+	<!-- 插入一个数据持久化对象(含所有字段) -->
+	<insert id="insertAll" useGeneratedKeys="true" keyProperty="store_id" parameterType="ZjcStorePO">
+		INSERT INTO zjc_store (
+		    <include refid="column" />
+		)
+		VALUES (
+		    #{store_id, jdbcType=INTEGER},  <!-- 店铺ID -->
+		    #{store_name, jdbcType=VARCHAR},  <!-- 店铺名称 -->
+		    #{user_id, jdbcType=INTEGER},  <!-- 用户ID -->
+		    #{cat_id, jdbcType=INTEGER},  <!-- 绑定的商品分类 -->
+		    #{show_video, jdbcType=INTEGER},  <!-- 是否有视频权限 -->
+		    #{store_state, jdbcType=INTEGER},  <!-- 1:待审核  2：审核失败 3：正常 4：关闭 -->
+		    #{last_login_time, jdbcType=VARCHAR},  <!-- 最后登录时间 -->
+		    #{last_login_ip, jdbcType=VARCHAR},  <!-- 最后登录IP -->
+		    #{business_licence_number_elc, jdbcType=VARCHAR},  <!-- 营业执照电子版 -->
+		    #{province_id, jdbcType=INTEGER},  <!-- 省id -->
+		    #{city_id, jdbcType=INTEGER},  <!-- 市id -->
+		    #{area_id, jdbcType=INTEGER},  <!-- 地区id -->
+		    #{twon_id, jdbcType=INTEGER},  <!-- 街道ID -->
+		    #{area_info, jdbcType=VARCHAR},  <!-- 省市区街道地址 -->
+		    #{address_detail, jdbcType=VARCHAR},  <!-- 详细地址 -->
+		    #{office_phone, jdbcType=VARCHAR},  <!-- 办公电话 -->
+		    #{contacts_email, jdbcType=VARCHAR},  <!-- 电子邮箱 -->
+		    #{contacts_name, jdbcType=VARCHAR},  <!-- 联系人 -->
+		    #{contacts_phone, jdbcType=VARCHAR},  <!-- 联系电话 -->
+		    #{bank_account_name, jdbcType=VARCHAR},  <!-- 开户行 -->
+		    #{bank_account_number, jdbcType=VARCHAR},  <!-- 银行账户 -->
+		    #{enterprise_num, jdbcType=VARCHAR},  <!-- 企业编码 -->
+		    #{lng, jdbcType=NUMERIC},  <!-- 经度 -->
+		    #{lat, jdbcType=NUMERIC},  <!-- 纬度 -->
+		    #{store_logo, jdbcType=VARCHAR},  <!-- 店铺LOGO -->
+		    #{add_time, jdbcType=VARCHAR},  <!-- 申请店铺时间 -->
+		    #{video_address, jdbcType=VARCHAR},  <!-- 视频地址 -->
+		    #{store_info, jdbcType=VARCHAR},  <!-- 店铺简介 -->
+		    #{food_hygiene_img, jdbcType=VARCHAR},  <!-- 食品卫生证 -->
+		    #{attestation_reason, jdbcType=VARCHAR},  <!-- 审核失败原因 -->
+		    #{id_card_img, jdbcType=VARCHAR},  <!-- 食品卫生证 -->
+		    #{special_premit_img, jdbcType=VARCHAR}  <!-- 审核失败原因 -->
+		)
+	</insert>
+
+	<!-- 根据主键修改数据持久化对象 -->
+	<update id="updateByKey" parameterType="ZjcStorePO">
+		UPDATE zjc_store
+		<set>
+			<if test="store_id != null">
+		          store_id = #{store_id, jdbcType=INTEGER},  <!-- 店铺ID -->
+			</if>
+			<if test="store_name != null">
+		          store_name = #{store_name, jdbcType=VARCHAR},  <!-- 店铺名称 -->
+			</if>
+			<if test="user_id != null">
+		          user_id = #{user_id, jdbcType=INTEGER},  <!-- 用户ID -->
+			</if>
+			<if test="cat_id != null">
+		          cat_id = #{cat_id, jdbcType=INTEGER},  <!-- 绑定的商品分类 -->
+			</if>
+			<if test="show_video != null">
+		          show_video = #{show_video, jdbcType=INTEGER},  <!-- 是否有视频权限 -->
+			</if>
+			<if test="store_state != null">
+		          store_state = #{store_state, jdbcType=INTEGER},  <!-- 1:待审核  2：审核失败 3：正常 4：关闭 -->
+			</if>
+			<if test="last_login_time != null">
+		          last_login_time = #{last_login_time, jdbcType=VARCHAR},  <!-- 最后登录时间 -->
+			</if>
+			<if test="last_login_ip != null">
+		          last_login_ip = #{last_login_ip, jdbcType=VARCHAR},  <!-- 最后登录IP -->
+			</if>
+			<if test="business_licence_number_elc != null">
+		          business_licence_number_elc = #{business_licence_number_elc, jdbcType=VARCHAR},  <!-- 营业执照电子版 -->
+			</if>
+			<if test="province_id != null">
+		          province_id = #{province_id, jdbcType=INTEGER},  <!-- 省id -->
+			</if>
+			<if test="city_id != null">
+		          city_id = #{city_id, jdbcType=INTEGER},  <!-- 市id -->
+			</if>
+			<if test="area_id != null">
+		          area_id = #{area_id, jdbcType=INTEGER},  <!-- 地区id -->
+			</if>
+			<if test="twon_id != null">
+		          twon_id = #{twon_id, jdbcType=INTEGER},  <!-- 街道ID -->
+			</if>
+			<if test="area_info != null">
+		          area_info = #{area_info, jdbcType=VARCHAR},  <!-- 省市区街道地址 -->
+			</if>
+			<if test="address_detail != null">
+		          address_detail = #{address_detail, jdbcType=VARCHAR},  <!-- 详细地址 -->
+			</if>
+			<if test="office_phone != null">
+		          office_phone = #{office_phone, jdbcType=VARCHAR},  <!-- 办公电话 -->
+			</if>
+			<if test="contacts_email != null">
+		          contacts_email = #{contacts_email, jdbcType=VARCHAR},  <!-- 电子邮箱 -->
+			</if>
+			<if test="contacts_name != null">
+		          contacts_name = #{contacts_name, jdbcType=VARCHAR},  <!-- 联系人 -->
+			</if>
+			<if test="contacts_phone != null">
+		          contacts_phone = #{contacts_phone, jdbcType=VARCHAR},  <!-- 联系电话 -->
+			</if>
+			<if test="bank_account_name != null">
+		          bank_account_name = #{bank_account_name, jdbcType=VARCHAR},  <!-- 开户行 -->
+			</if>
+			<if test="bank_account_number != null">
+		          bank_account_number = #{bank_account_number, jdbcType=VARCHAR},  <!-- 银行账户 -->
+			</if>
+			<if test="enterprise_num != null">
+		          enterprise_num = #{enterprise_num, jdbcType=VARCHAR},  <!-- 企业编码 -->
+			</if>
+			<if test="lng != null">
+		          lng = #{lng, jdbcType=NUMERIC},  <!-- 经度 -->
+			</if>
+			<if test="lat != null">
+		          lat = #{lat, jdbcType=NUMERIC},  <!-- 纬度 -->
+			</if>
+			<if test="store_logo != null">
+		          store_logo = #{store_logo, jdbcType=VARCHAR},  <!-- 店铺LOGO -->
+			</if>
+			<if test="add_time != null">
+		          add_time = #{add_time, jdbcType=VARCHAR},  <!-- 申请店铺时间 -->
+			</if>
+			<if test="video_address != null">
+		          video_address = #{video_address, jdbcType=VARCHAR},  <!-- 视频地址 -->
+			</if>
+			<if test="store_info != null">
+		          store_info = #{store_info, jdbcType=VARCHAR},  <!-- 店铺简介 -->
+			</if>
+			<if test="food_hygiene_img != null">
+		          food_hygiene_img = #{food_hygiene_img, jdbcType=VARCHAR},  <!-- 食品卫生证 -->
+			</if>
+			<if test="attestation_reason != null">
+		          attestation_reason = #{attestation_reason, jdbcType=VARCHAR},  <!-- 审核失败原因 -->
+			</if>
+			<if test="id_card_img != null">
+		          id_card_img = #{id_card_img, jdbcType=VARCHAR},  <!-- 食品卫生证 -->
+			</if>
+			<if test="special_premit_img != null">
+		          special_premit_img = #{special_premit_img, jdbcType=VARCHAR},  <!-- 审核失败原因 -->
+			</if>
+		</set>
+		WHERE  store_id = #{store_id}
+	</update>
+	
+	<!-- 根据主键修改数据持久化对象 -->
+	<update id="updateByKey1" parameterType="ZjcStorePO">
+		UPDATE zjc_store
+		<set>
+			
+			<if test="contacts_phone != null">
+		          contacts_phone = #{contacts_phone, jdbcType=VARCHAR},  <!-- 联系电话 -->
+			</if>
+			
+		</set>
+		WHERE  store_id = #{store_id}
+	</update>
+	
+	<!-- 根据主键删除数据持久化对象 -->
+	<delete id="deleteByKey">
+		DELETE FROM zjc_store WHERE  store_id = #{store_id}
+	</delete>
+	<!-- 根据商店ID和店主真实姓名查找商店 -->
+	<select id="selectByKeyAndRealName" parameterType="Dto" resultType="ZjcStorePO">
+		select 
+			select count(store_id) from zjc_store t1 inner join zjc_seller_info t2 on t1.store_id = t2.store_id)
+		where t1.store_id = #{store_id} and real_name = #{real_name}	
+	</select>
+	<!-- 根据商店编号和用户ID查找商店 -->
+	<select id="selectByKey1" resultType="ZjcStorePO">
+		SELECT
+		t1.store_id,  <!-- 店铺ID -->
+		 t1.store_name,  <!-- 店铺名称 -->
+		 t1.user_id,  <!-- 用户ID -->
+		 t1.cat_id,  <!-- 绑定的商品分类 -->
+		 t1.show_video,  <!-- 是否有视频权限 -->
+		 t1.store_state,  <!-- 1:待审核  2：审核失败 3：正常 4：关闭 -->
+		 t1.last_login_time,  <!-- 最后登录时间 -->
+		 t1.last_login_ip,  <!-- 最后登录IP -->
+		 t1.business_licence_number_elc,  <!-- 营业执照电子版 -->
+		 t1.province_id,  <!-- 省id -->
+		 t1.city_id,  <!-- 市id -->
+		 t1.area_id,  <!-- 地区id -->
+		  t1.twon_id,  <!-- 街道ID -->
+		  t1.area_info,  <!-- 省市区街道地址 -->
+		  t1.address_detail,  <!-- 详细地址 -->
+		  t1.office_phone,  <!-- 办公电话 -->
+		  t1.contacts_email,  <!-- 电子邮箱 -->
+		  t1.contacts_name,  <!-- 联系人 -->
+		  t1.contacts_phone,  <!-- 联系电话 -->
+		  t1.bank_account_name,  <!-- 开户行 -->
+		  t1.bank_account_number,  <!-- 银行账户 -->
+		  t1.enterprise_num,  <!-- 企业编码 -->
+		  t1.lng,  <!-- 经度 -->
+		  t1.lat,  <!-- 纬度 -->
+		  t1.store_logo,  <!-- 店铺LOGO -->
+		  t1.add_time,  <!-- 申请店铺时间 -->
+		  t1.video_address,  <!-- 视频地址 -->
+		  t1.store_info,  <!-- 店铺简介 -->
+		  t1.food_hygiene_img,  <!-- 食品卫生证 -->
+		  t1.attestation_reason, <!-- 审核失败原因 -->
+		  t2.nickname,
+		  t2.real_name,
+		  t2.mobile,
+		  t2.id_card
+		FROM zjc_store t1 inner join zjc_seller_info t2 WHERE  t1.store_id = #{store_id} and t1.user_id = t2.user_id
+	</select>
+	
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="selectByKey" resultType="ZjcStorePO">
+		SELECT
+		<include refid="column" />
+		FROM zjc_store WHERE  store_id = #{store_id}
+	</select>
+	
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="queryStore" parameterType="ZjcStorePO" resultType="ZjcStorePO">
+		SELECT
+		<include refid="column" />
+		FROM zjc_store WHERE  store_id = #{store_id}
+	</select>
+
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="selectOne" parameterType="Dto" resultType="ZjcStorePO">
+		SELECT
+		    <include refid="column" />
+		FROM zjc_store
+		<where>
+		    <include refid="equal" />
+		</where>		
+	</select>
+	
+	<!-- 根据店铺名称查询店铺数据-->
+	<select id="selectByStoreName" parameterType="Dto" resultType="ZjcStorePO">
+		SELECT
+		    <include refid="column" />
+		FROM zjc_store 
+		<where>
+		    <if test="user_id != null and user_id != ''">
+		    	and user_id = #{user_id}
+		    </if>
+		    <if test="store_name != null and store_name != ''">
+		    	and store_name = #{store_name}
+		    </if>
+		</where>
+	</select>
+
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="list" parameterType="Dto" resultType="ZjcStorePO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_store
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listPage" parameterType="Dto" resultType="ZjcStorePO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_store
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto模糊查询并返回数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="like" parameterType="Dto" resultType="ZjcStorePO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_store
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+	<!-- 根据Dto模糊查询并返回分页数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="likePage" parameterType="Dto" resultType="ZjcStorePO" useCache="false">
+	    SELECT
+			t.store_id,t.user_id,t.store_name,t.contacts_name,t1.id_card,t.contacts_phone,t.store_state
+		FRoM zjc_store t
+		 inner join zjc_seller_info t1 on t.user_id = t1.user_id
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+	
+	<select id="getPendingStorePage" parameterType="Dto" resultType="ZjcStorePO" useCache="false">
+	 	SELECT
+			t.store_id, t.user_id, t.store_name, t1.real_name, t1.id_card, t1.mobile, t.store_state
+		FRoM zjc_store t
+		 inner join zjc_seller_info t1 on t.user_id = t1.user_id
+		<where>
+		    <if test="user_id != null and user_id!= ''">
+		    	t.user_id = #{user_id}
+		    </if>
+		    <if test="mobile != null and mobile != ''">
+		    	and t1.mobile = #{mobile}
+		    </if>
+		    <if test="store_state != null and store_state != ''">
+		    	and t.store_state = #{store_state}
+		    </if>
+		     <if test="real_name != null and real_name != ''">
+		    	and t1.real_name = #{real_name}
+		    </if>
+		     <if test="store_name != null and store_name != ''">
+		    	and t.store_name like '%${store_name}%'
+		    </if>
+		    <if test="store_state == null or store_state == ''">
+		    	and (t.store_state = 1 or t.store_state = 2)
+		    </if>
+		    <if test="store_state != null and store_state != ''">
+		    	and t.store_state = #{store_state}
+		    </if>
+		</where>
+		order by t.store_id desc
+	</select>
+	<!-- 根据Dto模糊查询并返回商家列表分页数据持久化对象集合 -->
+	<select id="queryStores" parameterType="Dto" resultType="ZjcStorePO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_store
+		<where>
+		     <if test="store_name != null and store_name != ''">
+		      AND store_name like '%${store_name}%'  <!-- 店铺名称 -->
+			</if>
+			<if test="user_id != null and user_id != ''">
+		      AND user_id = #{user_id}  <!--会员Id -->
+			</if>
+			<if test="contacts_phone != null and contacts_phone != ''">
+		      AND contacts_phone = #{contacts_phone}  <!-- 联系电话 -->
+			</if>
+		   	<if test="store_state == null or store_state == '' ">
+			      AND (store_state = 3 OR store_state = 4)  <!-- 店铺状态 -->
+			</if>
+			<if test="store_state != null and store_state != '' ">
+			      AND store_state = #{store_state}   <!-- 店铺状态 -->
+			</if>
+		</where>	
+	</select>
+	
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="queryForListPage" parameterType="Dto"  resultMap="queryForListMap" useCache="false">
+	    SELECT
+			t.store_id,t.user_id,t.store_name,t.area_info,t.show_video,t.contacts_name,t.contacts_phone,t.store_state,
+      		t1.real_name,t1.id_card,t2.wallet_quota,t2.has_terminal
+        from zjc_store t
+        inner join zjc_seller_info t1 on t.user_id = t1.user_id
+        inner join zjc_users_account_info t2 on t.user_id = t2.user_id
+         <where>
+            1=1
+		   <if test="store_name != null and store_name != ''">
+		      AND t.store_name like '%${store_name}%'  <!-- 店铺名称 -->
+			</if>
+			<if test="user_id != null and user_id != ''">
+		      AND t.user_id = #{user_id} AND t.user_id !=0 <!--会员Id -->
+			</if>
+			<if test="contacts_phone != null and contacts_phone != ''">
+		      AND t.contacts_phone = #{contacts_phone}  <!-- 联系电话 -->
+			</if>
+			<if test="store_state != null and store_state != '' ">
+			      AND t.store_state = #{store_state}   <!-- 店铺状态 -->
+			</if>
+			<if test="real_name != null and real_name != '' ">
+			      AND t1.real_name = #{real_name}   <!-- 店铺状态 -->
+			</if>
+			<if test="id_card != null and id_card != '' ">
+			      AND t1.id_card = #{id_card}   <!-- 店铺状态 -->
+			</if>
+			<if test="has_terminal != null ">
+			      AND t2.has_terminal = #{has_terminal}  <!-- 0-未开通终端结算 1-开通终端结算 -->
+			</if>
+		</where>	
+	</select>
+	
+	<select id="getStoreListPage" parameterType="Dto" resultType="Dto" useCache="false">
+	    SELECT
+			t.store_id,t.user_id,t.store_name,t.area_info,t.show_video,t.contacts_name,t1.mobile,t.store_state,t1.is_lock,t1.reg_time,
+      		t1.real_name,t1.id_card,t2.wallet_quota,t2.has_terminal,ifnull(t3.state, 0) as state 
+        from zjc_store t
+        inner join zjc_seller_info t1 on t.user_id = t1.user_id
+        inner join zjc_users_account_info t2 on t.user_id = t2.user_id
+        left join zjc_store_depute t3 on t1.store_id = t3.store_id
+         <where>
+		   <if test="store_name != null and store_name != ''">
+		      AND t.store_name like '%${store_name}%'  <!-- 店铺名称 -->
+			</if>
+			<if test="user_id != null and user_id != ''">
+		      AND t.user_id = #{user_id} AND t.user_id !=0 <!--会员Id -->
+			</if>
+			<if test="mobile != null and mobile != ''">
+		      AND t1.mobile = #{mobile}  <!-- 联系电话 -->
+			</if>
+			<if test="real_name != null and real_name != '' ">
+			      AND t1.real_name = #{real_name}   <!-- 店铺状态 -->
+			</if>
+			<if test="id_card != null and id_card != '' ">
+			      AND t1.id_card = #{id_card}   <!-- 店铺状态 -->
+			</if>
+			<if test="store_state == null">
+			      AND (t.store_state = 3 or t.store_state = 4)  <!-- 店铺状态 -->
+			</if>
+			<if test="store_state != null and store_state != '' ">
+			      AND t.store_state = #{store_state}   <!-- 店铺状态 -->
+			</if>
+		</where>
+		order by t.store_id desc
+	</select>
+	
+	<!-- 根据ZjcStorePO查询并返回数据持久化对象集合 -->
+	<select id="dayorder" parameterType="ZjcStorePO" resultType="ZjcStorePO">
+		select 
+			ifnull(sum(CASE WHEN pay_status = 1 THEN goods_price ELSE 0 END), 0) AS show_video,
+			ifnull(sum(case when pay_status = 0  then 1 else 0 end), 0) as province_id,
+			ifnull(sum(case when shipping_status = 0 and pay_status = 1  then 1 else 0 end), 0) as city_id,
+			ifnull(sum(case when order_status = 2  then 1 else 0 end), 0) as area_id,
+			ifnull(sum(case when order_status=4  then 1 else 0 end), 0) as twon_id,
+			ifnull(sum(goods_price), 0) as store_info,
+			count(order_id) as cat_id
+			from zjc_order 
+			where store_id=#{store_id} and to_days(NOW()) = to_days(add_time)<!-- DATE_FORMAT(add_time,'%Y-%m-%d')=DATE_FORMAT(sysdate(),'%Y-%m-%d') -->
+	</select>
+	
+	<!-- 根据Dto模糊查询并返回商家审核分页数据持久化对象集合 -->
+	<select id="queryAuditStoresPage" parameterType="Dto" resultType="ZjcStorePO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_store
+		<where>
+			user_id != 0 
+		   <if test="store_name != null and store_name != ''">
+		        AND store_name like '%${store_name}%'  <!-- 店铺名称 -->
+		   </if>
+		   <if test="store_state == null or store_state == '' ">
+			    AND (store_state = 1 OR store_state = 2)  <!-- 店铺状态 -->
+		   </if>
+		</where>	
+	</select>
+	
+	<!-- 根据Dto统计行数 -->
+	<select id="rows" resultType="Integer" parameterType="Dto">
+		SELECT COUNT(1) AS aos_rows_ FROM zjc_store
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 根据数学表达式进行数学运算 -->
+	<select id="calc" parameterType="Dto" resultType="String">
+		SELECT
+			${_expr}
+		FROM zjc_store
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!--根据userid查询店铺信息  -->
+	<select id="selectByUserId" resultType="ZjcStorePO">
+		SELECT
+			 <include refid="column" />
+		FROM zjc_store where user_id = #{user_id}
+	</select>
+	
+	<!-- 表字段 -->
+	<sql id="column">
+		  store_id,  <!-- 店铺ID -->
+		  store_name,  <!-- 店铺名称 -->
+		  user_id,  <!-- 用户ID -->
+		  cat_id,  <!-- 绑定的商品分类 -->
+		  show_video,  <!-- 是否有视频权限 -->
+		  store_state,  <!-- 1:待审核  2：审核失败 3：正常 4：关闭 -->
+		  last_login_time,  <!-- 最后登录时间 -->
+		  last_login_ip,  <!-- 最后登录IP -->
+		  business_licence_number_elc,  <!-- 营业执照电子版 -->
+		  province_id,  <!-- 省id -->
+		  city_id,  <!-- 市id -->
+		  area_id,  <!-- 地区id -->
+		  twon_id,  <!-- 街道ID -->
+		  area_info,  <!-- 省市区街道地址 -->
+		  address_detail,  <!-- 详细地址 -->
+		  office_phone,  <!-- 办公电话 -->
+		  contacts_email,  <!-- 电子邮箱 -->
+		  contacts_name,  <!-- 联系人 -->
+		  contacts_phone,  <!-- 联系电话 -->
+		  bank_account_name,  <!-- 开户行 -->
+		  bank_account_number,  <!-- 银行账户 -->
+		  enterprise_num,  <!-- 企业编码 -->
+		  lng,  <!-- 经度 -->
+		  lat,  <!-- 纬度 -->
+		  store_logo,  <!-- 店铺LOGO -->
+		  add_time,  <!-- 申请店铺时间 -->
+		  video_address,  <!-- 视频地址 -->
+		  store_info,  <!-- 店铺简介 -->
+		  food_hygiene_img,  <!-- 食品卫生证 -->
+		  attestation_reason,  <!-- 审核失败原因 -->
+		  id_card_img,  <!-- 食品卫生证 -->
+		  special_premit_img  <!-- 审核失败原因 -->
+	</sql>
+	
+	<!-- 表字段(用于外表的关联时引用) -->
+	<sql id="column2">
+		  zjc_store.store_id,  <!-- 店铺ID -->
+		  zjc_store.store_name,  <!-- 店铺名称 -->
+		  zjc_store.user_id,  <!-- 用户ID -->
+		  zjc_store.cat_id,  <!-- 绑定的商品分类 -->
+		  zjc_store.show_video,  <!-- 是否有视频权限 -->
+		  zjc_store.store_state,  <!-- 1:待审核  2：审核失败 3：正常 4：关闭 -->
+		  zjc_store.last_login_time,  <!-- 最后登录时间 -->
+		  zjc_store.last_login_ip,  <!-- 最后登录IP -->
+		  zjc_store.business_licence_number_elc,  <!-- 营业执照电子版 -->
+		  zjc_store.province_id,  <!-- 省id -->
+		  zjc_store.city_id,  <!-- 市id -->
+		  zjc_store.area_id,  <!-- 地区id -->
+		  zjc_store.twon_id,  <!-- 街道ID -->
+		  zjc_store.area_info,  <!-- 省市区街道地址 -->
+		  zjc_store.address_detail,  <!-- 详细地址 -->
+		  zjc_store.office_phone,  <!-- 办公电话 -->
+		  zjc_store.contacts_email,  <!-- 电子邮箱 -->
+		  zjc_store.contacts_name,  <!-- 联系人 -->
+		  zjc_store.contacts_phone,  <!-- 联系电话 -->
+		  zjc_store.bank_account_name,  <!-- 开户行 -->
+		  zjc_store.bank_account_number,  <!-- 银行账户 -->
+		  zjc_store.enterprise_num,  <!-- 企业编码 -->
+		  zjc_store.lng,  <!-- 经度 -->
+		  zjc_store.lat,  <!-- 纬度 -->
+		  zjc_store.store_logo,  <!-- 店铺LOGO -->
+		  zjc_store.add_time,  <!-- 申请店铺时间 -->
+		  zjc_store.video_address,  <!-- 视频地址 -->
+		  zjc_store.store_info,  <!-- 店铺简介 -->
+		  zjc_store.food_hygiene_img,  <!-- 食品卫生证 -->
+		  zjc_store.attestation_reason,  <!-- 审核失败原因 -->
+		  zjc_store.id_card_img,  <!-- 食品卫生证 -->
+		  zjc_store.special_premit_img,  <!-- 审核失败原因 -->
+	</sql>
+
+	<!-- Where精确匹配字段 -->
+	<sql id="equal">
+	   <if test="store_id != null ">
+		      AND store_id = #{store_id}  <!-- 店铺ID -->
+		</if>
+	    <if test="store_name != null and store_name != ''">
+		      AND store_name like '%${store_name}%'  <!-- 店铺名称 -->
+		</if>
+	   <if test="user_id != null ">
+		      AND user_id = #{user_id}  <!-- 用户ID -->
+		</if>
+	   <if test="cat_id != null ">
+		      AND cat_id = #{cat_id}  <!-- 绑定的商品分类 -->
+		</if>
+	   <if test="show_video != null ">
+		      AND show_video = #{show_video}  <!-- 是否有视频权限 -->
+		</if>
+	   <if test="store_state != null ">
+		      AND store_state = #{store_state}  <!-- 1:待审核  2：审核失败 3：正常 4：关闭 -->
+		</if>
+	   <if test="last_login_time != null and last_login_time != ''">
+		      AND last_login_time = #{last_login_time}  <!-- 最后登录时间 -->
+		</if>
+	    <if test="last_login_ip != null and last_login_ip != ''">
+		      AND last_login_ip = #{last_login_ip}  <!-- 最后登录IP -->
+		</if>
+	    <if test="business_licence_number_elc != null and business_licence_number_elc != ''">
+		      AND business_licence_number_elc = #{business_licence_number_elc}  <!-- 营业执照电子版 -->
+		</if>
+	   <if test="province_id != null ">
+		      AND province_id = #{province_id}  <!-- 省id -->
+		</if>
+	   <if test="city_id != null ">
+		      AND city_id = #{city_id}  <!-- 市id -->
+		</if>
+	   <if test="area_id != null ">
+		      AND area_id = #{area_id}  <!-- 地区id -->
+		</if>
+	   <if test="twon_id != null ">
+		      AND twon_id = #{twon_id}  <!-- 街道ID -->
+		</if>
+	    <if test="area_info != null and area_info != ''">
+		      AND area_info = #{area_info}  <!-- 省市区街道地址 -->
+		</if>
+	    <if test="address_detail != null and address_detail != ''">
+		      AND address_detail = #{address_detail}  <!-- 详细地址 -->
+		</if>
+	    <if test="office_phone != null and office_phone != ''">
+		      AND office_phone = #{office_phone}  <!-- 办公电话 -->
+		</if>
+	    <if test="contacts_email != null and contacts_email != ''">
+		      AND contacts_email = #{contacts_email}  <!-- 电子邮箱 -->
+		</if>
+	    <if test="contacts_name != null and contacts_name != ''">
+		      AND contacts_name = #{contacts_name}  <!-- 联系人 -->
+		</if>
+	    <if test="contacts_phone != null and contacts_phone != ''">
+		      AND contacts_phone = #{contacts_phone}  <!-- 联系电话 -->
+		</if>
+	    <if test="bank_account_name != null and bank_account_name != ''">
+		      AND bank_account_name = #{bank_account_name}  <!-- 开户行 -->
+		</if>
+	    <if test="bank_account_number != null and bank_account_number != ''">
+		      AND bank_account_number = #{bank_account_number}  <!-- 银行账户 -->
+		</if>
+	    <if test="enterprise_num != null and enterprise_num != ''">
+		      AND enterprise_num = #{enterprise_num}  <!-- 企业编码 -->
+		</if>
+	   <if test="lng != null ">
+		      AND lng = #{lng}  <!-- 经度 -->
+		</if>
+	   <if test="lat != null ">
+		      AND lat = #{lat}  <!-- 纬度 -->
+		</if>
+	    <if test="store_logo != null and store_logo != ''">
+		      AND store_logo = #{store_logo}  <!-- 店铺LOGO -->
+		</if>
+	   <if test="add_time != null and add_time != ''">
+		      AND add_time = #{add_time}  <!-- 申请店铺时间 -->
+		</if>
+	    <if test="video_address != null and video_address != ''">
+		      AND video_address = #{video_address}  <!-- 视频地址 -->
+		</if>
+	    <if test="store_info != null and store_info != ''">
+		      AND store_info = #{store_info}  <!-- 店铺简介 -->
+		</if>
+	    <if test="food_hygiene_img != null and food_hygiene_img != ''">
+		      AND food_hygiene_img = #{food_hygiene_img}  <!-- 食品卫生证 -->
+		</if>
+	    <if test="attestation_reason != null and attestation_reason != ''">
+		      AND attestation_reason = #{attestation_reason}  <!-- 审核失败原因 -->
+		</if>
+		<if test="id_card_img != null and id_card_img != ''">
+		      AND id_card_img = #{id_card_img}  <!-- 食品卫生证 -->
+		</if>
+	    <if test="special_premit_img != null and special_premit_img != ''">
+		      AND special_premit_img = #{special_premit_img}  <!-- 审核失败原因 -->
+		</if>
+	</sql>
+	
+	<!-- Where模糊匹配字段 -->
+	<sql id="like">
+		<if test="user_id != null and user_id != ''">
+		      AND t.user_id = #{user_id}  <!-- 商家会员ID -->
+		</if>
+		<if test="store_state != null and store_state != ''">
+		      AND store_state = #{store_state}  <!-- 店铺状态 -->
+		</if>
+	    <if test="store_name != null and store_name != ''">
+		      AND store_name like '%${store_name}%'  <!-- 店铺名称 -->
+		</if>
+	    <if test="last_login_ip != null and last_login_ip != ''">
+		      AND last_login_ip like '${last_login_ip}%'  <!-- 最后登录IP -->
+		</if>
+	    <if test="business_licence_number_elc != null and business_licence_number_elc != ''">
+		      AND business_licence_number_elc like '${business_licence_number_elc}%'  <!-- 营业执照电子版 -->
+		</if>
+	    <if test="area_info != null and area_info != ''">
+		      AND area_info like '${area_info}%'  <!-- 省市区街道地址 -->
+		</if>
+	    <if test="address_detail != null and address_detail != ''">
+		      AND address_detail like '${address_detail}%'  <!-- 详细地址 -->
+		</if>
+	    <if test="office_phone != null and office_phone != ''">
+		      AND office_phone = #{office_phone}  <!-- 办公电话 -->
+		</if>
+	    <if test="contacts_email != null and contacts_email != ''">
+		      AND contacts_email like '${contacts_email}%'  <!-- 电子邮箱 -->
+		</if>
+	    <if test="contacts_name != null and contacts_name != ''">
+		      AND contacts_name like '${contacts_name}%'  <!-- 联系人 -->
+		</if>
+	    <if test="contacts_phone != null and contacts_phone != ''">
+		      AND contacts_phone = #{contacts_phone}  <!-- 联系电话 -->
+		</if>
+	    <if test="bank_account_name != null and bank_account_name != ''">
+		      AND bank_account_name like '${bank_account_name}%'  <!-- 开户行 -->
+		</if>
+	    <if test="bank_account_number != null and bank_account_number != ''">
+		      AND bank_account_number like '${bank_account_number}%'  <!-- 银行账户 -->
+		</if>
+	    <if test="enterprise_num != null and enterprise_num != ''">
+		      AND enterprise_num like '${enterprise_num}%'  <!-- 企业编码 -->
+		</if>
+	    <if test="store_logo != null and store_logo != ''">
+		      AND store_logo like '${store_logo}%'  <!-- 店铺LOGO -->
+		</if>
+	    <if test="video_address != null and video_address != ''">
+		      AND video_address like '${video_address}%'  <!-- 视频地址 -->
+		</if>
+	    <if test="store_info != null and store_info != ''">
+		      AND store_info like '${store_info}%'  <!-- 店铺简介 -->
+		</if>
+	    <if test="food_hygiene_img != null and food_hygiene_img != ''">
+		      AND food_hygiene_img like '${food_hygiene_img}%'  <!-- 食品卫生证 -->
+		</if>
+	    <if test="attestation_reason != null and attestation_reason != ''">
+		      AND attestation_reason like '${attestation_reason}%'  <!-- 审核失败原因 -->
+		</if>
+		<if test="id_card_img != null and id_card_img != ''">
+		      AND id_card_img like '${id_card_img}%'  <!-- 食品卫生证 -->
+		</if>
+	    <if test="special_premit_img != null and special_premit_img != ''">
+		      AND special_premit_img like '${special_premit_img}%'  <!-- 审核失败原因 -->
+		</if>
+	</sql>
+	
+	<!-- ================================================app接口========================================= -->
+	<!-- 根据ZjcStorePO查询并返回数据持久化对象集合 -->
+	<select id="selectStoreByName" parameterType="ZjcStorePO" resultType="ZjcStorePO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_store
+		<where>
+		1 = 1
+		     <if test="store_name != null and store_name != ''">
+		      AND store_name = #{store_name}  <!-- 店铺名称 -->
+			</if>
+		</where>	
+	</select>
+	
+	<!-- 根据Dto模糊查询并返回分页数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="likeStoresPage" parameterType="Dto" resultType="ZjcStorePO" useCache="false">
+	    SELECT
+			store_id,
+			store_name,
+			contacts_phone,
+			area_info,
+			address_detail,
+			lng,
+			lat
+		FRoM zjc_store
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+	
+	<!-- 根据坐标范围以及店铺名称分页查询店铺数据 -->
+	<select id="likeDistancePage" parameterType="Dto" resultType="ZjcStorePO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_store
+		<where>
+			store_state = 3
+		    <if test="store_name != null and store_name != ''">
+		      AND store_name like concat('%', #{store_name}, '%') <!-- 店铺名称 -->
+			</if>
+			 <if test="keyword != null and keyword != ''">
+		      AND store_name like concat('%', #{keyword}, '%')  <!-- 店铺名称 -->
+			</if>
+			<if test="lngMin != null">
+		       <![CDATA[AND lng >= #{lngMin}]]> <!-- 经度 -->
+			</if>
+			<if test="lngMax != null">
+		       <![CDATA[AND lng <= #{lngMax}]]> <!-- 经度 -->
+			</if>
+		    <if test="latMin != null  ">
+			   <![CDATA[AND lat >= #{latMin}]]>  <!-- 纬度 -->
+			</if>
+			<if test="latMax != null ">
+			   <![CDATA[AND lat <= #{latMax}]]>  <!-- 纬度 -->
+			</if>
+		</where>	
+	</select>
+	
+	<insert id="insertAll1" parameterType="ZjcStorePO">
+		INSERT INTO zjc_store (
+		    <include refid="column" />
+		)
+		VALUES (
+		    #{store_id, jdbcType=INTEGER},  <!-- 店铺ID -->
+		    #{store_name, jdbcType=VARCHAR},  <!-- 店铺名称 -->
+		    #{user_id, jdbcType=INTEGER},  <!-- 用户ID -->
+		    #{cat_id, jdbcType=INTEGER},  <!-- 绑定的商品分类 -->
+		    #{show_video, jdbcType=INTEGER},  <!-- 是否有视频权限 -->
+		    #{store_state, jdbcType=INTEGER},  <!-- 1:待审核  2：审核失败 3：正常 4：关闭 -->
+		    #{last_login_time, jdbcType=VARCHAR},  <!-- 最后登录时间 -->
+		    #{last_login_ip, jdbcType=VARCHAR},  <!-- 最后登录IP -->
+		    #{business_licence_number_elc, jdbcType=VARCHAR},  <!-- 营业执照电子版 -->
+		    #{province_id, jdbcType=INTEGER},  <!-- 省id -->
+		    #{city_id, jdbcType=INTEGER},  <!-- 市id -->
+		    #{area_id, jdbcType=INTEGER},  <!-- 地区id -->
+		    #{twon_id, jdbcType=INTEGER},  <!-- 街道ID -->
+		    #{area_info, jdbcType=VARCHAR},  <!-- 省市区街道地址 -->
+		    #{address_detail, jdbcType=VARCHAR},  <!-- 详细地址 -->
+		    #{office_phone, jdbcType=VARCHAR},  <!-- 办公电话 -->
+		    #{contacts_email, jdbcType=VARCHAR},  <!-- 电子邮箱 -->
+		    #{contacts_name, jdbcType=VARCHAR},  <!-- 联系人 -->
+		    #{contacts_phone, jdbcType=VARCHAR},  <!-- 联系电话 -->
+		    #{bank_account_name, jdbcType=VARCHAR},  <!-- 开户行 -->
+		    #{bank_account_number, jdbcType=VARCHAR},  <!-- 银行账户 -->
+		    #{enterprise_num, jdbcType=VARCHAR},  <!-- 企业编码 -->
+		    #{lng, jdbcType=NUMERIC},  <!-- 经度 -->
+		    #{lat, jdbcType=NUMERIC},  <!-- 纬度 -->
+		    #{store_logo, jdbcType=VARCHAR},  <!-- 店铺LOGO -->
+		    #{add_time, jdbcType=VARCHAR},  <!-- 申请店铺时间 -->
+		    #{video_address, jdbcType=VARCHAR},  <!-- 视频地址 -->
+		    #{store_info, jdbcType=VARCHAR},  <!-- 店铺简介 -->
+		    #{food_hygiene_img, jdbcType=VARCHAR},  <!-- 食品卫生证 -->
+		    #{attestation_reason, jdbcType=VARCHAR}  <!-- 审核失败原因 -->
+		)
+	</insert>
+	
+	<select id="selectByStoreId" parameterType="Dto" resultType="ZjcSellerInfoPO">
+		select * from zjc_seller_info where store_id = #{store_id}
+	</select>
+	
+	<!-- =============================================== 委托收款 ============================================== -->
+	<!-- 商家委托收款账单列表 -->
+	<select id="billListPage" parameterType="Dto" resultType="Dto">
+			SELECT
+			t1.store_id,
+			t1.store_name,
+			t3.user_id,
+			t3.real_name,
+			sum(case when t2.pay_status=1 and t2.add_time &gt; date_sub(now(), interval 10 day) and t2.has_transfer = 0 THEN t2.cash else 0 end) as frozen_money,
+			sum(CASE WHEN t2.pay_status = 1 and t2.add_time  &lt;= date_sub(now(), interval 10 day) AND t2.has_transfer = 0 THEN t2.cash ELSE 0 END) AS pending_transfer,
+			sum(CASE WHEN t2.pay_status = 1 AND t2.has_transfer = 0 THEN t2.cash ELSE 0 END) AS cost,
+			sum(CASE WHEN t2.pay_status = 1 and t2.add_time  &lt;= date_sub(now(), interval 10 day) AND t2.has_transfer = 1 THEN t2.cash ELSE 0 END) AS transferred,
+		  	sum(case when t2.pay_status = 1 AND (t2.has_transfer = 0 OR (t2.add_time  &lt;= date_sub(now(), interval 10 day) AND t2.has_transfer = 1)) then t2.cash else 0 end) as sum_money
+			FROM zjc_order t2
+			inner JOIN zjc_store t1 on t1.store_id = t2.store_id
+			left join zjc_store_depute t3 on t1.store_id = t3.store_id
+			left join (
+			SELECT
+			x1.store_id,
+		  	sum(case when x2.pay_status = 1 then x2.cash else 0 end) as total
+			FROM zjc_order x2
+			inner JOIN zjc_store x1 on x1.store_id = x2.store_id
+			left join zjc_store_depute x3 on x1.store_id = x3.store_id
+			where (x2.pay_code = 'mixed_payment' or x2.pay_code = 'alipay') and x2.pay_status = 1 and x2.order_status in (2,4) and x2.is_del = 0 and x2.add_time &gt; '2017-10-05' 
+		    and x3.state = 3 group by x1.store_id) t4 on t4.store_id = t1.store_id
+		<where>
+			(t2.pay_code = 'mixed_payment' or t2.pay_code = 'alipay') and t2.pay_status = 1 and t2.order_status in (2,4) and t2.is_del = 0 and t2.add_time &gt; '2017-10-05'  and t3.state = 3 and t4.total > 0
+			<if test="store_name != null and store_name != ''">
+				and t1.store_name like '%${store_name}%'
+			</if>
+			<if test="real_name !=null and real_name != ''">
+				and t3.real_name = #{real_name}
+			</if>
+			<if test="user_id != null and user_id != ''">
+				and t3.user_id = #{user_id}
+			</if>
+		</where>
+		group by t1.store_id
+	</select>
+	<!-- 商家委托收款账单列表 -->
+	<select id="billListPage1" parameterType="Dto" resultType="Dto">
+		select 
+			t1.store_name, 
+			t1.store_id,
+			t3.user_id, 
+			t2.frozen_money, 
+			t2.pending_transfer, 
+			t2.transferred, 
+			t3.real_name,
+			(t2.frozen_money + t2.pending_transfer + t2.transferred) as sum_money,
+			sum(case when t4.has_transfer = 4 then t4.cash else 0 end) as cost
+		from zjc_store t1 
+		left join zjc_users_account_info t2 on t1.user_id = t2.user_id
+		left join zjc_store_depute t3 on t1.store_id = t3.store_id
+		left join zjc_order t4 on t1.store_id = t4.store_id
+		<where>
+			t3.state = 3
+			<if test="store_name != null and store_name != ''">
+				and t1.store_name like '%${store_name}%'
+			</if>
+			<if test="real_name !=null and real_name != ''">
+				and t3.real_name = #{real_name}
+			</if>
+			<if test="user_id != null and user_id != ''">
+				and t3.user_id = #{user_id}
+			</if>
+		</where>
+	</select>
+	<!-- 操作申请列表 -->
+	<select id="query_order_record" parameterType="Dto" resultType="Dto">
+		select 
+			order_id, 
+			order_sn, 
+			confirm_time, 
+			pay_code, 
+			cash from 
+		zjc_order 
+		<where>
+			order_status in (2, 4) and store_id = #{store_id} and cash > 0 and has_transfer in (0, 3) and add_time &gt; '2017-10-05'
+			<if test="order_sn != null and order_sn != ''">
+				and order_sn = #{order_sn}
+			</if>
+			<if test="pay_code != null and pay_code != ''">
+				and pay_code = #{pay_code}
+			</if>
+			<if test="confirm_time_start != null and confirm_time_start != ''">
+				and confirm_time &gt; #{confirm_time_start}
+			</if>
+			<if test="confirm_time_end != null and confirm_time_end != ''">
+				and confirm_time &lt; #{confirm_time_end}
+			</if>
+		</where>
+	</select>
+	<!-- 申请转账，修改订单的状态 -->
+	<update id="apply_for_transfer" parameterType="Dto">
+		update zjc_order 
+			set has_transfer = 2
+		where order_id in     
+        <foreach collection="ids" index="index" item="item" open="(" separator="," close=")">    
+            #{item}    
+        </foreach>  
+	</update>
+	
+	<!-- 申请转账通过，修改订单的状态 -->
+	<update id="via_for_transfer" parameterType="Dto">
+		update zjc_order 
+			set has_transfer = 4
+		where order_id in     
+        <foreach collection="ids" index="index" item="item" open="(" separator="," close=")">    
+            #{item}    
+        </foreach>  
+	</update>
+	
+	<select id="billAduitListPage" parameterType="Dto" resultType="Dto">
+		select 
+			t1.order_id,
+			t1.store_name, 
+			t1.store_id, 
+			t1.cash, 
+			t1.confirm_time,
+			t2.operator_id,
+			t3.name as operator_name
+		from zjc_order t1 left join zjc_transfer t2 on t1.order_id = t2.order_id 
+		left join aos_user t3 on t3.id = t2.operator_id
+		<where>
+			t1.has_transfer = 2
+			<if test="store_id != '' and store_id != null">
+				and store_id = #{store_id}
+			</if>
+			<if test="store_name != '' and store_name != null">
+				and store_name like '%${store_name}%'
+			</if>
+			<if test="operator_id != '' and operator_id != null">
+				and operator_id = #{operator_id}
+			</if>
+		</where>
+	</select>
+	
+	<select id="selectOrders" parameterType="Dto" resultType="ZjcOrderPO">
+		select order_id from zjc_order where store_id = #{store_id} and has_transfer = 4
+	</select>
+	
+	<update id="confirm_transfer" parameterType="Dto">
+		update zjc_order 
+			set has_transfer = 1
+		where order_id in     
+        <foreach collection="orders" index="index" item="item" open="(" separator="," close=")">    
+            #{item.order_id}    
+        </foreach>
+	</update>
+	
+	<select id="exceportBillList" parameterType="Dto" resultType="ZjcBillVO">
+		select 
+			t1.store_name, 
+			t1.store_id, 
+			t2.frozen_money, 
+			t2.pending_transfer, 
+			t2.transferred, 
+			(t2.frozen_money + t2.pending_transfer + t2.transferred) as sum_money,
+			sum(case when t4.has_transfer = 4 then t4.cash else 0 end) as cost
+		from zjc_store t1 
+		left join zjc_users_account_info t2 on t1.user_id = t2.user_id
+		left join zjc_store_depute t3 on t1.store_id = t3.store_id
+		left join zjc_order t4 on t1.store_id = t4.store_id
+		<where>
+			t3.state = 3
+			<if test="store_name != '' and store_name != ''">
+				and t1.store_name like '%${store_name}%'
+			</if>
+			<if test="store_id != '' and store_id != ''">
+				and t1.store_id = #{store_id}
+			</if>
+		</where>
+	</select>
+	
+	<select id="exportBillOrder" parameterType="Dto" resultType="ZjcBillOrder">
+		select 
+			t1.order_id, 
+			t1.order_sn, 
+			t1.confirm_time, 
+			t2.dic_desc as pay_name, 
+			t1.cash from 
+		zjc_order t1 left join aos_dic t2 on t1.pay_code = t2.code
+		<where>
+			t1.order_status in (2, 4) and t1.store_id = #{store_id} and t1.cash > 0 and t1.has_transfer in (0, 3)
+			<if test="order_sn != null and order_sn != ''">
+				and t1.order_sn = #{order_sn}
+			</if>
+			<if test="pay_code != null and pay_code != ''">
+				and t1.pay_code = #{pay_code}
+			</if>
+			<if test="confirm_time_start != null and confirm_time_start != ''">
+				and t1.confirm_time &gt; #{confirm_time_start}
+			</if>
+			<if test="confirm_time_end != null and confirm_time_end != ''">
+				and t1.confirm_time &lt; #{confirm_time_end}
+			</if>
+		</where>
+	</select>
+	<select id="getJe" parameterType="Dto" resultType="Dto">
+		select ifnull(max(confirm_time), 0) as max_confirm_time,
+			ifnull(min(confirm_time), 0) as min_confirm_time,
+			ifnull(sum(cash), 0) as sum_cash
+		 from zjc_order where store_id = #{store_id} and has_transfer = 4
+	</select>
+	
+	<select id="billListApp" parameterType="Dto" resultType="Dto">
+			SELECT
+			sum(CASE WHEN t2.pay_status = 1 and t2.add_time  &lt;= date_sub(now(), interval 10 day) AND t2.has_transfer = 0 THEN t2.cash ELSE 0 END) AS pending_transfer
+			FROM zjc_order t2
+			inner JOIN zjc_store t1 on t1.store_id = t2.store_id
+			left join zjc_store_depute t3 on t1.store_id = t3.store_id
+			left join (
+			SELECT
+			x1.store_id,
+		  	sum(case when x2.pay_status = 1 then x2.cash else 0 end) as total
+			FROM zjc_order x2
+			inner JOIN zjc_store x1 on x1.store_id = x2.store_id
+			left join zjc_store_depute x3 on x1.store_id = x3.store_id
+			where (x2.pay_code = 'mixed_payment' or x2.pay_code = 'alipay') and x2.pay_status = 1 and x2.order_status in (2,4) and x2.is_del = 0 and x2.add_time &gt; '2017-10-05' 
+		    and x3.state = 3 group by x1.store_id) t4 on t4.store_id = t1.store_id
+		<where>
+			(t2.pay_code = 'mixed_payment' or t2.pay_code = 'alipay') and t2.pay_status = 1 and t2.order_status in (2,4) and t2.is_del = 0 and t2.add_time &gt; '2017-10-05'  and t3.state = 3 and t4.total > 0
+			<if test="store_name != null and store_name != ''">
+				and t1.store_name like '%${store_name}%'
+			</if>
+			<if test="real_name !=null and real_name != ''">
+				and t3.real_name = #{real_name}
+			</if>
+			<if test="user_id != null and user_id != ''">
+				and t3.user_id = #{user_id}
+			</if>
+		</where>
+		group by t1.store_id
+	</select>
+	<!-- 查询导出店铺数据 -->
+	<select id="findStoreExportData" parameterType="Dto" resultType="ExportStoreVO">
+		select
+		  t.user_id,t.store_name,t1.real_name,t1.mobile,t.contacts_phone,t2.name as cat_name,t.business_licence_number_elc
+		from zjc_store t 
+		inner join zjc_seller_info t1 on t.user_id = t1.user_id
+		inner join zjc_goods_category t2 on t.cat_id = t2.id
+		<where>
+		   <if test="store_name != null and store_name != ''">
+		      AND t.store_name like '%${store_name}%'  <!-- 店铺名称 -->
+			</if>
+			<if test="user_id != null and user_id != ''">
+		      AND t.user_id = #{user_id} AND t.user_id !=0 <!--会员Id -->
+			</if>
+			<if test="mobile != null and mobile != ''">
+		      AND t1.mobile = #{mobile}  <!-- 联系电话 -->
+			</if>
+			<if test="real_name != null and real_name != '' ">
+			      AND t1.real_name = #{real_name}   <!-- 店铺状态 -->
+			</if>
+			<if test="id_card != null and id_card != '' ">
+			      AND t1.id_card = #{id_card}   <!-- 店铺状态 -->
+			</if>
+			<if test="store_state == null">
+			      AND (t.store_state = 3 or t.store_state = 4)  <!-- 店铺状态 -->
+			</if>
+			<if test="store_state != null and store_state != '' ">
+			      AND t.store_state = #{store_state}   <!-- 店铺状态 -->
+			</if>
+		</where>
+		order by t.store_id desc	
+	</select>
+	
+</mapper>	

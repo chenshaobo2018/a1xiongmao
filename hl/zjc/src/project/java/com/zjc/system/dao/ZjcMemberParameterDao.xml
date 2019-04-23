@@ -1,0 +1,688 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- zjc_member_parameter[zjc_member_parameter]SQL自动映射 -->
+<!--  注意:此文件由AOS平台自动生成-禁止手工修改 2017-06-13 11:27:40 -->
+<mapper namespace="com.zjc.system.dao.ZjcMemberParameterDao">
+	
+	<!-- 插入一个数据持久化对象(插入字段为传入PO实体的非空属性) -->
+	<insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="ZjcMemberParameterPO">
+		INSERT INTO zjc_member_parameter (
+		<if test="qualified_menber != null and qualified_menber != ''">
+	         qualified_menber, <!-- 合格会员 -->
+		</if>
+		<if test="menber_id != null and menber_id != ''">
+	         menber_id, <!-- 会员id跳段 -->
+		</if>
+		<if test="start_time != null and start_time != ''">
+	         start_time, <!-- 会员注册赠送开始时间 -->
+		</if>
+		<if test="end_time != null and end_time != ''">
+	         end_time, <!-- 会员注册赠送结束时间 -->
+		</if>
+		<if test="menber_spending != null and menber_spending != ''">
+	         menber_spending, <!-- 会员限制id -->
+		</if>
+		<if test="give_barter != null and give_barter != ''">
+	         give_barter, <!-- 会员注册赠送易物券 -->
+		</if>
+		<if test="barter_coupo_rate != null and barter_coupo_rate != ''">
+	         barter_coupo_rate, <!-- 充值易物券兑换比例 -->
+		</if>
+		<if test="membership_amount_limit != null and membership_amount_limit != ''">
+	         membership_amount_limit, <!-- 直推会员总数量限制 -->
+		</if>
+		<if test="members_always_limit != null and members_always_limit != ''">
+	         members_always_limit, <!-- 合格会员数量限制 -->
+		</if>
+		<if test="enterprise_always_limit != null and enterprise_always_limit != ''">
+	         enterprise_always_limit, <!-- 企业号合格会员数量限制 -->
+		</if>
+		<if test="member_comm_percentage_one != null and member_comm_percentage_one != ''">
+	         member_comm_percentage_one, <!-- 会员提成比例设置一 -->
+		</if>
+		<if test="member_comm_percentage_ones != null and member_comm_percentage_ones != ''">
+	         member_comm_percentage_ones, <!-- 会员提成比例设置一 -->
+		</if>
+		<if test="member_comm_percentage_two != null and member_comm_percentage_two != ''">
+	         member_comm_percentage_two, <!-- 会员提成比例设置二 -->
+		</if>
+		<if test="member_comm_percentage_twos != null and member_comm_percentage_twos != ''">
+	         member_comm_percentage_twos, <!-- 会员提成比例设置二 -->
+		</if>
+		<if test="member_comm_percentage_three != null and member_comm_percentage_three != ''">
+	         member_comm_percentage_three, <!-- 会员提成比例设置三 -->
+		</if>
+		<if test="member_comm_percentage_threes != null and member_comm_percentage_threes != ''">
+	         member_comm_percentage_threes, <!-- 会员提成比例设置三 -->
+		</if>
+		<if test="member_commission_model != null and member_commission_model != ''">
+	         member_commission_model, <!-- 会员返佣模式 -->
+		</if>
+		<if test="top_up_barter_volume != null and top_up_barter_volume != ''">
+	         top_up_barter_volume, <!-- 会员返佣模式 -->
+		</if>
+		<if test="offline_top_up_barter_volume != null and offline_top_up_barter_volume != ''">
+	         offline_top_up_barter_volume, <!-- 会员返佣模式 -->
+		</if>
+		<if test="top_up_barter_volume_minimum != null and top_up_barter_volume_minimum != ''">
+	         top_up_barter_volume_minimum, <!-- 会员返佣模式 -->
+		</if>
+		<if test="sum_settlement != null and sum_settlement != ''">
+	         sum_settlement, <!-- 会员返佣模式 -->
+		</if>
+		<if test="sum_points_today != null and sum_points_today != ''">
+	         sum_points_today, <!-- 会员返佣模式 -->
+		</if>
+		<if test="points_other_min != null and points_other_min != ''">
+	         points_other_min, <!-- 会员返佣模式 -->
+		</if>
+		<if test="update_time != null and update_time != ''">
+	         update_time, <!-- 会员返佣模式 -->
+		</if>
+		<if test="data_time != null and data_time != ''">
+	         data_time, <!-- 创建时间 -->
+		</if>
+		<if test="day_roll_in_max != null and day_roll_in_max != ''">
+	         day_roll_in_max, <!-- 会员每天转入最大值(0-200000) -->
+		</if>
+		<if test="day_line_shop_max != null and day_line_shop_max != ''">
+	         day_line_shop_max, <!-- 当日线下购物最大值（0_200000） -->
+		</if>
+		<if test="day_online_shop_max != null and day_online_shop_max != ''">
+	         day_online_shop_max, <!-- 当日商城购物最大值（0_200000） -->
+		</if>
+		<if test="is_lock != null and is_lock != ''">
+	         is_lock, <!-- 是否全部冻结账户；0表示冻结，1表示启用 -->
+		</if>
+		<if test="integral != null and integral != ''">
+	         integral, <!-- 是否全部冻结账户；0表示冻结，1表示启用 -->
+		</if>
+		<if test="amount != null and amount != ''">
+	         amount, <!-- 是否全部冻结账户；0表示冻结，1表示启用 -->
+		</if>
+	          id
+		)VALUES(
+		<if test="qualified_menber != null and qualified_menber != ''">
+	          #{qualified_menber, jdbcType=VARCHAR}, <!-- 合格会员 -->
+	    </if>
+		<if test="menber_id != null and menber_id != ''">
+	          #{menber_id, jdbcType=VARCHAR}, <!-- 会员id跳段 -->
+	    </if>
+		<if test="start_time != null and start_time != ''">
+	          #{start_time, jdbcType=VARCHAR}, <!-- 会员注册赠送开始时间 -->
+	    </if>
+		<if test="end_time != null and end_time != ''">
+	          #{end_time, jdbcType=VARCHAR}, <!-- 会员注册赠送结束时间 -->
+	    </if>
+	    <if test="menber_spending != null and menber_spending != ''">
+	        #{menber_spending, jdbcType=VARCHAR},  <!-- 会员限制id -->
+		</if>
+		<if test="give_barter != null and give_barter != ''">
+	          #{give_barter, jdbcType=VARCHAR}, <!-- 会员注册赠送易物券 -->
+	    </if>
+		<if test="barter_coupo_rate != null and barter_coupo_rate != ''">
+	          #{barter_coupo_rate, jdbcType=VARCHAR}, <!-- 充值易物券兑换比例 -->
+	    </if>
+		<if test="membership_amount_limit != null and membership_amount_limit != ''">
+	          #{membership_amount_limit, jdbcType=VARCHAR}, <!-- 直推会员总数量限制 -->
+	    </if>
+		<if test="members_always_limit != null and members_always_limit != ''">
+	          #{members_always_limit, jdbcType=VARCHAR}, <!-- 合格会员数量限制 -->
+	    </if>
+		<if test="enterprise_always_limit != null and enterprise_always_limit != ''">
+	          #{enterprise_always_limit, jdbcType=VARCHAR}, <!-- 企业号合格会员数量限制 -->
+	    </if>
+		<if test="member_comm_percentage_one != null and member_comm_percentage_one != ''">
+	          #{member_comm_percentage_one, jdbcType=VARCHAR}, <!-- 会员提成比例设置一 -->
+	    </if>
+		<if test="member_comm_percentage_ones != null and member_comm_percentage_ones != ''">
+	          #{member_comm_percentage_ones, jdbcType=VARCHAR}, <!-- 会员提成比例设置一 -->
+	    </if>
+		<if test="member_comm_percentage_two != null and member_comm_percentage_two != ''">
+	          #{member_comm_percentage_two, jdbcType=VARCHAR}, <!-- 会员提成比例设置二 -->
+	    </if>
+		<if test="member_comm_percentage_twos != null and member_comm_percentage_twos != ''">
+	          #{member_comm_percentage_twos, jdbcType=VARCHAR}, <!-- 会员提成比例设置二 -->
+	    </if>
+		<if test="member_comm_percentage_three != null and member_comm_percentage_three != ''">
+	          #{member_comm_percentage_three, jdbcType=VARCHAR}, <!-- 会员提成比例设置三 -->
+	    </if>
+		<if test="member_comm_percentage_threes != null and member_comm_percentage_threes != ''">
+	          #{member_comm_percentage_threes, jdbcType=VARCHAR}, <!-- 会员提成比例设置三 -->
+	    </if>
+		<if test="member_commission_model != null and member_commission_model != ''">
+	          #{member_commission_model, jdbcType=VARCHAR}, <!-- 会员返佣模式 -->
+	    </if>
+	    <if test="top_up_barter_volume != null and top_up_barter_volume != ''">
+	          #{top_up_barter_volume, jdbcType=INTEGER}, <!-- 会员返佣模式 -->
+	    </if>
+	    <if test="offline_top_up_barter_volume != null and offline_top_up_barter_volume != ''">
+	          #{offline_top_up_barter_volume, jdbcType=INTEGER}, <!-- 会员返佣模式 -->
+	    </if>
+	    <if test="top_up_barter_volume_minimum != null and top_up_barter_volume_minimum != ''">
+	          #{top_up_barter_volume_minimum, jdbcType=INTEGER}, <!-- 会员返佣模式 -->
+	    </if>
+	    <if test="sum_settlement != null and sum_settlement != ''">
+	          #{sum_settlement, jdbcType=INTEGER}, <!-- 创建时间 -->
+	    </if>
+	    <if test="sum_points_today != null and sum_points_today != ''">
+	          #{sum_points_today, jdbcType=INTEGER}, <!-- 创建时间 -->
+	    </if>
+	    <if test="points_other_min != null and points_other_min != ''">
+	          #{points_other_min, jdbcType=INTEGER}, <!-- 创建时间 -->
+	    </if>
+	    <if test="update_time != null and update_time != ''">
+	          #{update_time, jdbcType=VARCHAR}, <!-- 创建时间 -->
+	    </if>
+	    <if test="data_time != null and data_time != ''">
+	          #{data_time, jdbcType=VARCHAR}, <!-- 创建时间 -->
+	    </if>
+		<if test="day_roll_in_max != null and day_roll_in_max != ''">
+	         #{day_roll_in_max, jdbcType=INTEGER}, <!-- 会员每天转入最大值(0-200000) -->
+		</if>
+		<if test="day_line_shop_max != null and day_line_shop_max != ''">
+	          #{day_line_shop_max, jdbcType=INTEGER}, <!-- 当日线下购物最大值（0_200000） -->
+		</if>
+		<if test="day_online_shop_max != null and day_online_shop_max != ''">
+	          #{day_online_shop_max, jdbcType=INTEGER}, <!-- 当日商城购物最大值（0_200000） -->
+		</if>
+		<if test="is_lock != null and is_lock != ''">
+	          #{is_lock, jdbcType=INTEGER}, <!-- 是否全部冻结账户；0表示冻结，1表示启用 -->
+		</if>
+		<if test="integral != null and integral != ''">
+	         #{integral, jdbcType=VARCHAR}, <!-- 是否全部冻结账户；0表示冻结，1表示启用 -->
+		</if>
+		<if test="amount != null and amount != ''">
+	         #{amount, jdbcType=VARCHAR},  <!-- 是否全部冻结账户；0表示冻结，1表示启用 -->
+		</if>
+	          null
+		)
+	</insert>
+	
+	<!-- 插入一个数据持久化对象(含所有字段) -->
+	<insert id="insertAll" useGeneratedKeys="true" keyProperty="id" parameterType="ZjcMemberParameterPO">
+		INSERT INTO zjc_member_parameter (
+		    <include refid="column" />
+		)
+		VALUES (
+		    #{id, jdbcType=INTEGER},  <!-- 表id -->
+		    #{qualified_menber, jdbcType=VARCHAR},  <!-- 合格会员 -->
+		    #{menber_id, jdbcType=VARCHAR},  <!-- 会员id跳段 -->
+		    #{start_time, jdbcType=VARCHAR},  <!-- 会员注册赠送开始时间 -->
+		    #{end_time, jdbcType=VARCHAR},  <!-- 会员注册赠送结束时间 -->
+		    #{menber_spending, jdbcType=VARCHAR},  <!-- 会员限制id -->
+		    #{give_barter, jdbcType=VARCHAR},  <!-- 会员注册赠送易物券 -->
+		    #{barter_coupo_rate, jdbcType=VARCHAR},  <!-- 充值易物券兑换比例 -->
+		    #{membership_amount_limit, jdbcType=VARCHAR},  <!-- 直推会员总数量限制 -->
+		    #{members_always_limit, jdbcType=VARCHAR},  <!-- 合格会员数量限制 -->
+		    #{enterprise_always_limit, jdbcType=VARCHAR},  <!-- 企业号合格会员数量限制 -->
+		    #{member_comm_percentage_one, jdbcType=VARCHAR},  <!-- 会员提成比例设置一 -->
+		    #{member_comm_percentage_ones, jdbcType=VARCHAR},  <!-- 会员提成比例设置一 -->
+		    #{member_comm_percentage_two, jdbcType=VARCHAR},  <!-- 会员提成比例设置二 -->
+		    #{member_comm_percentage_twos, jdbcType=VARCHAR},  <!-- 会员提成比例设置二 -->
+		    #{member_comm_percentage_three, jdbcType=VARCHAR},  <!-- 会员提成比例设置三 -->
+		    #{member_comm_percentage_threes, jdbcType=VARCHAR},  <!-- 会员提成比例设置三 -->
+		    #{top_up_barter_volume, jdbcType=INTEGER},  <!-- 会员返佣模式 -->
+		    #{top_up_barter_volume_minimum, jdbcType=INTEGER},  <!-- 会员返佣模式 -->
+		    #{offline_top_up_barter_volume, jdbcType=INTEGER},  <!-- 会员返佣模式 -->
+		    #{member_commission_model, jdbcType=VARCHAR},  <!-- 会员返佣模式 -->
+		    #{sum_settlement, jdbcType=INTEGER}, 
+		    #{sum_points_today, jdbcType=INTEGER}, 
+		    #{points_other_min, jdbcType=INTEGER}, 
+		    #{update_time, jdbcType=VARCHAR}, 
+		    #{data_time, jdbcType=VARCHAR},  <!-- 创建时间 -->
+		    #{day_roll_in_max, jdbcType=INTEGER}, <!-- 会员每天转入最大值(0-200000) -->
+		    #{day_line_shop_max, jdbcType=INTEGER}, <!-- 当日线下购物最大值（0_200000） -->
+		    #{day_online_shop_max, jdbcType=INTEGER}, <!-- 当日商城购物最大值（0_200000） -->
+		    #{is_lock, jdbcType=INTEGER} <!-- 是否全部冻结账户；0表示冻结，1表示启用 -->
+	        #{integral, jdbcType=VARCHAR}, <!-- 是否全部冻结账户；0表示冻结，1表示启用 -->
+	        #{amount, jdbcType=VARCHAR},  <!-- 是否全部冻结账户；0表示冻结，1表示启用 -->
+		)
+	</insert>
+
+	<!-- 根据主键修改数据持久化对象 -->
+	<update id="updateByKey" parameterType="ZjcMemberParameterPO">
+		UPDATE zjc_member_parameter
+		<set>
+			<if test="id != null">
+		          id = #{id, jdbcType=INTEGER},  <!-- 表id -->
+			</if>
+			<if test="qualified_menber != null">
+		          qualified_menber = #{qualified_menber, jdbcType=VARCHAR},  <!-- 合格会员 -->
+			</if>
+			<if test="menber_id != null">
+		          menber_id = #{menber_id, jdbcType=VARCHAR},  <!-- 会员id跳段 -->
+			</if>
+			<if test="start_time != null">
+		          start_time = #{start_time, jdbcType=VARCHAR},  <!-- 会员注册赠送开始时间 -->
+			</if>
+			<if test="end_time != null">
+		          end_time = #{end_time, jdbcType=VARCHAR},  <!-- 会员注册赠送结束时间 -->
+			</if>
+			<if test="menber_spending != null">
+		          menber_spending = #{menber_spending, jdbcType=VARCHAR},  <!-- 会员限制id -->
+			</if>
+			<if test="give_barter != null">
+		          give_barter = #{give_barter, jdbcType=VARCHAR},  <!-- 会员注册赠送易物券 -->
+			</if>
+			<if test="barter_coupo_rate != null">
+		          barter_coupo_rate = #{barter_coupo_rate, jdbcType=VARCHAR},  <!-- 充值易物券兑换比例 -->
+			</if>
+			<if test="membership_amount_limit != null">
+		          membership_amount_limit = #{membership_amount_limit, jdbcType=VARCHAR},  <!-- 直推会员总数量限制 -->
+			</if>
+			<if test="members_always_limit != null">
+		          members_always_limit = #{members_always_limit, jdbcType=VARCHAR},  <!-- 合格会员数量限制 -->
+			</if>
+			<if test="enterprise_always_limit != null">
+		          enterprise_always_limit = #{enterprise_always_limit, jdbcType=VARCHAR},  <!-- 企业号合格会员数量限制 -->
+			</if>
+			<if test="member_comm_percentage_one != null">
+		          member_comm_percentage_one = #{member_comm_percentage_one, jdbcType=VARCHAR},  <!-- 会员提成比例设置一 -->
+			</if>
+			<if test="member_comm_percentage_ones != null">
+		          member_comm_percentage_ones = #{member_comm_percentage_ones, jdbcType=VARCHAR},  <!-- 会员提成比例设置一 -->
+			</if>
+			<if test="member_comm_percentage_two != null">
+		          member_comm_percentage_two = #{member_comm_percentage_two, jdbcType=VARCHAR},  <!-- 会员提成比例设置二 -->
+			</if>
+			<if test="member_comm_percentage_twos != null">
+		          member_comm_percentage_twos = #{member_comm_percentage_twos, jdbcType=VARCHAR},  <!-- 会员提成比例设置二 -->
+			</if>
+			<if test="member_comm_percentage_three != null">
+		          member_comm_percentage_three = #{member_comm_percentage_three, jdbcType=VARCHAR},  <!-- 会员提成比例设置三 -->
+			</if>
+			<if test="member_comm_percentage_threes != null">
+		          member_comm_percentage_threes = #{member_comm_percentage_threes, jdbcType=VARCHAR},  <!-- 会员提成比例设置三 -->
+			</if>
+			<if test="member_commission_model != null">
+		          member_commission_model = #{member_commission_model, jdbcType=VARCHAR},  <!-- 会员返佣模式 -->
+			</if>
+			<if test="top_up_barter_volume != null">
+		          top_up_barter_volume = #{top_up_barter_volume, jdbcType=INTEGER},  <!-- 会员返佣模式 -->
+			</if>
+			<if test="offline_top_up_barter_volume != null">
+		          offline_top_up_barter_volume = #{offline_top_up_barter_volume, jdbcType=INTEGER},  <!-- 会员返佣模式 -->
+			</if>
+			<if test="top_up_barter_volume_minimum != null">
+		          top_up_barter_volume_minimum = #{top_up_barter_volume_minimum, jdbcType=INTEGER},  <!-- 会员返佣模式 -->
+			</if>
+			<if test="data_time != null">
+		          data_time = #{data_time, jdbcType=VARCHAR},  <!-- 创建时间 -->
+			</if>
+			<if test="sum_settlement != null">
+		          sum_settlement = #{sum_settlement, jdbcType=INTEGER},  <!-- 添加时间 -->
+			</if>
+			<if test="sum_points_today != null">
+		          sum_points_today = #{sum_points_today, jdbcType=INTEGER},  <!-- 添加时间 -->
+			</if>
+			<if test="points_other_min != null">
+		          points_other_min = #{points_other_min, jdbcType=INTEGER},  <!-- 添加时间 -->
+			</if>
+			<if test="update_time != null">
+		          update_time = #{update_time, jdbcType=VARCHAR},  <!-- 添加时间 -->
+			</if>
+			<if test="day_roll_in_max != null and day_roll_in_max != ''">
+		         day_roll_in_max = #{day_roll_in_max, jdbcType=INTEGER}, <!-- 会员每天转入最大值(0-200000) -->
+			</if>
+			<if test="day_line_shop_max != null and day_line_shop_max != ''">
+		         day_line_shop_max = #{day_line_shop_max, jdbcType=INTEGER}, <!-- 当日线下购物最大值（0_200000） -->
+			</if>
+			<if test="day_online_shop_max != null and day_online_shop_max != ''">
+		         day_online_shop_max = #{day_online_shop_max, jdbcType=INTEGER}, <!-- 当日商城购物最大值（0_200000） -->
+			</if>
+			<if test="is_lock != null and is_lock != ''">
+		         is_lock = #{is_lock, jdbcType=INTEGER}, <!-- 是否全部冻结账户；0表示冻结，1表示启用 -->
+			</if>
+			<if test="integral != null and integral != ''">
+	         integral=#{integral, jdbcType=VARCHAR}, <!-- 是否全部冻结账户；0表示冻结，1表示启用 -->
+		    </if>
+			<if test="amount != null and amount != ''">
+		         amount=#{amount, jdbcType=VARCHAR},  <!-- 是否全部冻结账户；0表示冻结，1表示启用 -->
+			</if>
+		</set>
+		WHERE  id = #{id}
+	</update>
+	
+	<!-- 根据主键删除数据持久化对象 -->
+	<delete id="deleteByKey">
+		DELETE FROM zjc_member_parameter WHERE  id = #{id}
+	</delete>
+
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="selectByKey" resultType="ZjcMemberParameterPO">
+		SELECT
+		<include refid="column" />
+		FROM zjc_member_parameter WHERE  id = #{id}
+	</select>
+	
+	<!-- 根据最大id查询最新数据 -->
+	<select id="selectByMaxKey" resultType="ZjcMemberParameterPO">
+		SELECT
+		<include refid="column" />
+		 from zjc_member_parameter t  
+         where t.id=(select max(id) from zjc_member_parameter)
+	</select>
+
+   <select id="selectByMax"  resultType="ZjcMemberParameterPO">
+		SELECT
+		<include refid="column" />
+		 from zjc_member_parameter t  
+         where t.id=(select max(id) from zjc_member_parameter)
+	</select>
+   
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="selectOne" parameterType="Dto" resultType="ZjcMemberParameterPO">
+		SELECT
+		    <include refid="column" />
+		FROM zjc_member_parameter
+		<where>
+		    <include refid="equal" />
+		</where>		
+	</select>
+	
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="parameter" parameterType="ZjcMemberParameterPO" resultType="ZjcMemberParameterPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_member_parameter
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="list" parameterType="Dto" resultType="ZjcMemberParameterPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_member_parameter
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listPage" parameterType="Dto" resultType="ZjcMemberParameterPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_member_parameter
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto模糊查询并返回数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="like" parameterType="Dto" resultType="ZjcMemberParameterPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_member_parameter
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto模糊查询并返回分页数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="likePage" parameterType="Dto" resultType="ZjcMemberParameterPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_member_parameter
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto统计行数 -->
+	<select id="rows" resultType="Integer" parameterType="Dto">
+		SELECT COUNT(1) AS aos_rows_ FROM zjc_member_parameter
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 根据数学表达式进行数学运算 -->
+	<select id="calc" parameterType="Dto" resultType="String">
+		SELECT
+			${_expr}
+		FROM zjc_member_parameter
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 表字段 -->
+	<sql id="column">
+		  id,  <!-- 表id -->
+		  qualified_menber,  <!-- 合格会员 -->
+		  menber_id,  <!-- 会员id跳段 -->
+		  start_time,  <!-- 会员注册赠送开始时间 -->
+		  end_time,  <!-- 会员注册赠送结束时间 -->
+		  menber_spending,  <!-- 会员限制id -->
+		  give_barter,  <!-- 会员注册赠送易物券 -->
+		  barter_coupo_rate,  <!-- 充值易物券兑换比例 -->
+		  membership_amount_limit,  <!-- 直推会员总数量限制 -->
+		  members_always_limit,  <!-- 合格会员数量限制 -->
+		  enterprise_always_limit,  <!-- 企业号合格会员数量限制 -->
+		  member_comm_percentage_one,  <!-- 会员提成比例设置一 -->
+		  member_comm_percentage_ones,  <!-- 会员提成比例设置一 -->
+		  member_comm_percentage_two,  <!-- 会员提成比例设置二 -->
+		  member_comm_percentage_twos,  <!-- 会员提成比例设置二 -->
+		  member_comm_percentage_three,  <!-- 会员提成比例设置三 -->
+		  member_comm_percentage_threes,  <!-- 会员提成比例设置三 -->
+		  member_commission_model,  <!-- 会员返佣模式 -->
+		  top_up_barter_volume,  <!-- 会员返佣模式 -->
+		  offline_top_up_barter_volume,  <!-- 会员返佣模式 -->
+		  top_up_barter_volume_minimum,  <!-- 会员返佣模式 -->
+		  sum_settlement,  <!-- 会员返佣模式 -->
+		  sum_points_today,  <!-- 会员返佣模式 -->
+		  points_other_min,  <!-- 会员返佣模式 -->
+		  update_time,  <!-- 会员返佣模式 -->
+		  data_time,  <!-- 创建时间 -->
+		  day_roll_in_max, <!-- 会员每天转入最大值(0-200000) -->
+		  day_line_shop_max, <!-- 当日线下购物最大值（0_200000） -->
+		  day_online_shop_max, <!-- 当日商城购物最大值（0_200000） -->
+		  is_lock, <!-- 是否全部冻结账户；0表示冻结，1表示启用 -->
+		  integral,
+		  amount
+		  
+	</sql>
+	
+	<!-- 表字段(用于外表的关联时引用) -->
+	<sql id="column2">
+		  zjc_member_parameter.id,  <!-- 表id -->
+		  zjc_member_parameter.qualified_menber,  <!-- 合格会员 -->
+		  zjc_member_parameter.menber_id,  <!-- 会员id跳段 -->
+		  zjc_member_parameter.start_time,  <!-- 会员注册赠送开始时间 -->
+		  zjc_member_parameter.end_time,  <!-- 会员注册赠送结束时间 -->
+		  zjc_member_parameter.menber_spending, <!-- 会员限制id -->
+		  zjc_member_parameter.give_barter,  <!-- 会员注册赠送易物券 -->
+		  zjc_member_parameter.barter_coupo_rate,  <!-- 充值易物券兑换比例 -->
+		  zjc_member_parameter.membership_amount_limit,  <!-- 直推会员总数量限制 -->
+		  zjc_member_parameter.members_always_limit,  <!-- 合格会员数量限制 -->
+		  zjc_member_parameter.enterprise_always_limit,  <!-- 企业号合格会员数量限制 -->
+		  zjc_member_parameter.member_comm_percentage_one,  <!-- 会员提成比例设置一 -->
+		  zjc_member_parameter.member_comm_percentage_ones,  <!-- 会员提成比例设置一 -->
+		  zjc_member_parameter.member_comm_percentage_two,  <!-- 会员提成比例设置二 -->
+		  zjc_member_parameter.member_comm_percentage_twos,  <!-- 会员提成比例设置二 -->
+		  zjc_member_parameter.member_comm_percentage_three,  <!-- 会员提成比例设置三 -->
+		  zjc_member_parameter.member_comm_percentage_threes,  <!-- 会员提成比例设置三 -->
+		  zjc_member_parameter.member_commission_model,  <!-- 会员返佣模式 -->
+		  zjc_member_parameter.top_up_barter_volume,  <!-- 会员返佣模式 -->
+		  zjc_member_parameter.offline_top_up_barter_volume,  <!-- 会员返佣模式 -->
+		  zjc_member_parameter.top_up_barter_volume_minimum,  <!-- 会员返佣模式 -->
+		  zjc_member_parameter.sum_settlement,  <!-- 会员返佣模式 -->
+		  zjc_member_parameter.sum_points_today,  <!-- 会员返佣模式 -->
+		  zjc_member_parameter.points_other_min,  <!-- 会员返佣模式 -->
+		  zjc_member_parameter.update_time,  <!-- 会员返佣模式 -->
+		  zjc_member_parameter.data_time,  <!-- 创建时间 -->
+		  zjc_member_parameter.day_roll_in_max, <!-- 会员每天转入最大值(0-200000) -->
+		  zjc_member_parameter.day_line_shop_max, <!-- 当日线下购物最大值（0_200000） -->
+		  zjc_member_parameter.day_online_shop_max, <!-- 当日商城购物最大值（0_200000） -->
+		  zjc_member_parameter.is_lock, <!-- 是否全部冻结账户；0表示冻结，1表示启用 -->
+		  zjc_member_parameter.integral,
+		  zjc_member_parameter.amount
+	</sql>
+
+	<!-- Where精确匹配字段 -->
+	<sql id="equal">
+	   <if test="id != null ">
+		      AND id = #{id}  <!-- 表id -->
+		</if>
+	    <if test="qualified_menber != null and qualified_menber != ''">
+		      AND qualified_menber = #{qualified_menber}  <!-- 合格会员 -->
+		</if>
+	    <if test="menber_id != null and menber_id != ''">
+		      AND menber_id = #{menber_id}  <!-- 会员id跳段 -->
+		</if>
+	    <if test="start_time != null and start_time != ''">
+		      AND start_time = #{start_time}  <!-- 会员注册赠送开始时间 -->
+		</if>
+	    <if test="end_time != null and end_time != ''">
+		      AND end_time = #{end_time}  <!-- 会员注册赠送结束时间 -->
+		</if>
+		<if test="menber_spending != null and menber_spending != ''">
+		      AND menber_spending = #{menber_spending}  <!-- 会员限制id-->
+		</if>
+	    <if test="give_barter != null and give_barter != ''">
+		      AND give_barter = #{give_barter}  <!-- 会员注册赠送易物券 -->
+		</if>
+	    <if test="barter_coupo_rate != null and barter_coupo_rate != ''">
+		      AND barter_coupo_rate = #{barter_coupo_rate}  <!-- 充值易物券兑换比例 -->
+		</if>
+	    <if test="membership_amount_limit != null and membership_amount_limit != ''">
+		      AND membership_amount_limit = #{membership_amount_limit}  <!-- 直推会员总数量限制 -->
+		</if>
+	    <if test="members_always_limit != null and members_always_limit != ''">
+		      AND members_always_limit = #{members_always_limit}  <!-- 合格会员数量限制 -->
+		</if>
+	    <if test="enterprise_always_limit != null and enterprise_always_limit != ''">
+		      AND enterprise_always_limit = #{enterprise_always_limit}  <!-- 企业号合格会员数量限制 -->
+		</if>
+	    <if test="member_comm_percentage_one != null and member_comm_percentage_one != ''">
+		      AND member_comm_percentage_one = #{member_comm_percentage_one}  <!-- 会员提成比例设置一 -->
+		</if>
+	    <if test="member_comm_percentage_ones != null and member_comm_percentage_ones != ''">
+		      AND member_comm_percentage_ones = #{member_comm_percentage_ones}  <!-- 会员提成比例设置一 -->
+		</if>
+	    <if test="member_comm_percentage_two != null and member_comm_percentage_two != ''">
+		      AND member_comm_percentage_two = #{member_comm_percentage_two}  <!-- 会员提成比例设置二 -->
+		</if>
+	    <if test="member_comm_percentage_twos != null and member_comm_percentage_twos != ''">
+		      AND member_comm_percentage_twos = #{member_comm_percentage_twos}  <!-- 会员提成比例设置二 -->
+		</if>
+	    <if test="member_comm_percentage_three != null and member_comm_percentage_three != ''">
+		      AND member_comm_percentage_three = #{member_comm_percentage_three}  <!-- 会员提成比例设置三 -->
+		</if>
+	    <if test="member_comm_percentage_threes != null and member_comm_percentage_threes != ''">
+		      AND member_comm_percentage_threes = #{member_comm_percentage_threes}  <!-- 会员提成比例设置三 -->
+		</if>
+	    <if test="member_commission_model != null and member_commission_model != ''">
+		      AND member_commission_model = #{member_commission_model}  <!-- 会员返佣模式 -->
+		</if>
+		<if test="top_up_barter_volume != null and top_up_barter_volume != ''">
+		      AND top_up_barter_volume = #{top_up_barter_volume}  <!-- 会员返佣模式 -->
+		</if>
+		<if test="offline_top_up_barter_volume != null and offline_top_up_barter_volume != ''">
+		      AND offline_top_up_barter_volume = #{offline_top_up_barter_volume}  <!-- 会员返佣模式 -->
+		</if>
+		<if test="top_up_barter_volume_minimum != null and top_up_barter_volume_minimum != ''">
+		      AND top_up_barter_volume_minimum = #{top_up_barter_volume_minimum}  <!-- 会员返佣模式 -->
+		</if>
+		<if test="sum_settlement != null and sum_settlement != ''">
+		      AND sum_settlement = #{sum_settlement}  <!-- 结算中心提成比例 -->
+		</if>
+		<if test="sum_points_today != null and sum_points_today != ''">
+		      AND sum_points_today = #{sum_points_today}  <!-- 结算中心提成比例 -->
+		</if>
+		<if test="points_other_min != null and points_other_min != ''">
+		      AND points_other_min = #{points_other_min}  <!-- 结算中心提成比例 -->
+		</if>
+		<if test="update_time != null and update_time != ''">
+		      AND update_time = #{update_time}  <!-- 结算中心提成比例 -->
+		</if>
+	    <if test="data_time != null and data_time != ''">
+		      AND data_time = #{data_time}  <!-- 创建时间 -->
+		</if>
+		<if test="day_roll_in_max != null and day_roll_in_max != ''">
+	         AND day_roll_in_max = #{day_roll_in_max} <!-- 会员每天转入最大值(0-200000) -->
+		</if>
+		<if test="day_line_shop_max != null and day_line_shop_max != ''">
+	         AND day_line_shop_max = #{day_line_shop_max} <!-- 当日线下购物最大值（0_200000） -->
+		</if>
+		<if test="day_online_shop_max != null and day_online_shop_max != ''">
+	         AND day_online_shop_max = #{day_online_shop_max} <!-- 当日商城购物最大值（0_200000） -->
+		</if>
+		<if test="is_lock != null and is_lock != ''">
+	          AND is_lock = #{is_lock} <!-- 是否全部冻结账户；0表示冻结，1表示启用 -->
+		</if>
+	</sql>
+	
+	<!-- Where模糊匹配字段 -->
+	<sql id="like">
+	    <if test="qualified_menber != null and qualified_menber != ''">
+		      AND qualified_menber like '${qualified_menber}%'  <!-- 合格会员 -->
+		</if>
+	    <if test="menber_id != null and menber_id != ''">
+		      AND menber_id like '${menber_id}%'  <!-- 会员id跳段 -->
+		</if>
+	    <if test="start_time != null and start_time != ''">
+		      AND start_time like '${start_time}%'  <!-- 会员注册赠送开始时间 -->
+		</if>
+	    <if test="end_time != null and end_time != ''">
+		      AND end_time like '${end_time}%'  <!-- 会员注册赠送结束时间 -->
+		</if>
+	    <if test="give_barter != null and give_barter != ''">
+		      AND give_barter like '${give_barter}%'  <!-- 会员注册赠送易物券 -->
+		</if>
+	    <if test="barter_coupo_rate != null and barter_coupo_rate != ''">
+		      AND barter_coupo_rate like '${barter_coupo_rate}%'  <!-- 充值易物券兑换比例 -->
+		</if>
+	    <if test="membership_amount_limit != null and membership_amount_limit != ''">
+		      AND membership_amount_limit like '${membership_amount_limit}%'  <!-- 直推会员总数量限制 -->
+		</if>
+	    <if test="members_always_limit != null and members_always_limit != ''">
+		      AND members_always_limit like '${members_always_limit}%'  <!-- 合格会员数量限制 -->
+		</if>
+	    <if test="enterprise_always_limit != null and enterprise_always_limit != ''">
+		      AND enterprise_always_limit like '${enterprise_always_limit}%'  <!-- 企业号合格会员数量限制 -->
+		</if>
+	    <if test="member_comm_percentage_one != null and member_comm_percentage_one != ''">
+		      AND member_comm_percentage_one like '${member_comm_percentage_one}%'  <!-- 会员提成比例设置一 -->
+		</if>
+	    <if test="member_comm_percentage_ones != null and member_comm_percentage_ones != ''">
+		      AND member_comm_percentage_ones like '${member_comm_percentage_ones}%'  <!-- 会员提成比例设置一 -->
+		</if>
+	    <if test="member_comm_percentage_two != null and member_comm_percentage_two != ''">
+		      AND member_comm_percentage_two like '${member_comm_percentage_two}%'  <!-- 会员提成比例设置二 -->
+		</if>
+	    <if test="member_comm_percentage_twos != null and member_comm_percentage_twos != ''">
+		      AND member_comm_percentage_twos like '${member_comm_percentage_twos}%'  <!-- 会员提成比例设置二 -->
+		</if>
+	    <if test="member_comm_percentage_three != null and member_comm_percentage_three != ''">
+		      AND member_comm_percentage_three like '${member_comm_percentage_three}%'  <!-- 会员提成比例设置三 -->
+		</if>
+	    <if test="member_comm_percentage_threes != null and member_comm_percentage_threes != ''">
+		      AND member_comm_percentage_threes like '${member_comm_percentage_threes}%'  <!-- 会员提成比例设置三 -->
+		</if>
+	    <if test="member_commission_model != null and member_commission_model != ''">
+		      AND member_commission_model like '${member_commission_model}%'  <!-- 会员返佣模式 -->
+		</if>
+	    <if test="data_time != null and data_time != ''">
+		      AND data_time like '${data_time}%'  <!-- 创建时间 -->
+		</if>
+		<if test="day_roll_in_max != null and day_roll_in_max != ''">
+	         AND day_roll_in_max = #{day_roll_in_max} <!-- 会员每天转入最大值(0-200000) -->
+		</if>
+		<if test="day_line_shop_max != null and day_line_shop_max != ''">
+	         AND day_line_shop_max = #{day_line_shop_max} <!-- 当日线下购物最大值（0_200000） -->
+		</if>
+		<if test="day_online_shop_max != null and day_online_shop_max != ''">
+	         AND day_online_shop_max = #{day_online_shop_max} <!-- 当日商城购物最大值（0_200000） -->
+		</if>
+		<if test="is_lock != null and is_lock != ''">
+	          AND is_lock = #{is_lock} <!-- 是否全部冻结账户；0表示冻结，1表示启用 -->
+		</if>
+	</sql>
+	
+</mapper>

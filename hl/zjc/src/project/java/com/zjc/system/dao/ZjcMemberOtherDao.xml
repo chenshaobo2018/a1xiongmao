@@ -1,0 +1,546 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- zjc_member_other[zjc_member_other]SQL自动映射 -->
+<!--  注意:此文件由AOS平台自动生成-禁止手工修改 2019-01-30 09:57:56 -->
+<mapper namespace="com.zjc.system.dao.ZjcMemberOtherDao">
+	
+	<!-- 插入一个数据持久化对象(插入字段为传入PO实体的非空属性) -->
+	<insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="ZjcMemberOtherPO">
+		INSERT INTO zjc_member_other (
+		<if test="return_time != null and return_time != ''">
+	         return_time, <!-- 消费易物券返回时间点 -->
+		</if>
+		<if test="convertible_barter != null and convertible_barter != ''">
+	         convertible_barter, <!-- 可转易物券比例 -->
+		</if>
+		<if test="consumption_coupons != null and consumption_coupons != ''">
+	         consumption_coupons, <!-- 消费易物券比例 -->
+		</if>
+		<if test="small_barter_coupon_limits != null and small_barter_coupon_limits != ''">
+	         small_barter_coupon_limits, <!-- 小额易物券限制 -->
+		</if>
+		<if test="platform_recommended_code != null and platform_recommended_code != ''">
+	         platform_recommended_code, <!-- 平台推荐码 -->
+		</if>
+		<if test="merchants_quantity_limit != null and merchants_quantity_limit != ''">
+	         merchants_quantity_limit, <!-- 商家商品数量限制 -->
+		</if>
+		<if test="transfer_minimum != null and transfer_minimum != ''">
+	         transfer_minimum, <!-- 易物券转账最小值 -->
+		</if>
+		<if test="maximum_transfer != null and maximum_transfer != ''">
+	         maximum_transfer, <!-- 易物券转账最大值 -->
+		</if>
+		<if test="invalid_number != null and invalid_number != ''">
+	         invalid_number, <!-- 易物担保未确认失效天数 -->
+		</if>
+		<if test="barter_guarantee_fee != null and barter_guarantee_fee != ''">
+	         barter_guarantee_fee, <!-- 易物担保手续费 -->
+		</if>
+		<if test="barter_voucher_transfer_fees != null and barter_voucher_transfer_fees != ''">
+	         barter_voucher_transfer_fees, <!-- 易物券转账手续费 -->
+		</if>
+		<if test="maximum_fee != null and maximum_fee != ''">
+	         maximum_fee, <!-- 手续费最大值 -->
+		</if>
+		<if test="rebate_days_delay != null and rebate_days_delay != ''">
+	         rebate_days_delay, <!-- 普通商家返利延迟天数 -->
+		</if>
+		<if test="special_rebate_delay_days != null and special_rebate_delay_days != ''">
+	         special_rebate_delay_days, <!-- 特殊商家返利延迟天数 -->
+		</if>
+		<if test="order_receiving_days_overtime != null and order_receiving_days_overtime != ''">
+	         order_receiving_days_overtime, <!-- 订单超时收货天数 -->
+		</if>
+		<if test="date_time != null and date_time != ''">
+	         date_time, <!-- 添加时间 -->
+		</if>
+		<if test="signstep != null">
+	         signstep, <!-- signstep -->
+		</if>
+		<if test="minoutpoint != null">
+	         minoutpoint, <!-- minoutpoint -->
+		</if>
+		<if test="shop_drop_commission_rate != null and shop_drop_commission_rate != ''">
+	         shop_drop_commission_rate, <!-- 商家一滴酒提成比例 -->
+		</if>
+		<if test="shop_drop_commission_limit_days != null and shop_drop_commission_limit_days != ''">
+	         shop_drop_commission_limit_days, <!-- 商家一滴酒提成开始日期（多少天后开始提成） -->
+		</if>
+		<if test="user_drop_commission_rate != null and user_drop_commission_rate != ''">
+	         user_drop_commission_rate, <!-- 会员一滴酒提成比例 -->
+		</if>
+		<if test="user_drop_commission_limit_days != null and user_drop_commission_limit_days != ''">
+	         user_drop_commission_limit_days, <!-- 会议一滴酒提成开始天数（表示多少天后开始提成） -->
+		</if>
+	          id
+		)VALUES(
+		<if test="return_time != null and return_time != ''">
+	          #{return_time, jdbcType=VARCHAR}, <!-- 消费易物券返回时间点 -->
+	    </if>
+		<if test="convertible_barter != null and convertible_barter != ''">
+	          #{convertible_barter, jdbcType=VARCHAR}, <!-- 可转易物券比例 -->
+	    </if>
+		<if test="consumption_coupons != null and consumption_coupons != ''">
+	          #{consumption_coupons, jdbcType=VARCHAR}, <!-- 消费易物券比例 -->
+	    </if>
+		<if test="small_barter_coupon_limits != null and small_barter_coupon_limits != ''">
+	          #{small_barter_coupon_limits, jdbcType=VARCHAR}, <!-- 小额易物券限制 -->
+	    </if>
+		<if test="platform_recommended_code != null and platform_recommended_code != ''">
+	          #{platform_recommended_code, jdbcType=VARCHAR}, <!-- 平台推荐码 -->
+	    </if>
+		<if test="merchants_quantity_limit != null and merchants_quantity_limit != ''">
+	          #{merchants_quantity_limit, jdbcType=VARCHAR}, <!-- 商家商品数量限制 -->
+	    </if>
+		<if test="transfer_minimum != null and transfer_minimum != ''">
+	          #{transfer_minimum, jdbcType=VARCHAR}, <!-- 易物券转账最小值 -->
+	    </if>
+		<if test="maximum_transfer != null and maximum_transfer != ''">
+	          #{maximum_transfer, jdbcType=VARCHAR}, <!-- 易物券转账最大值 -->
+	    </if>
+		<if test="invalid_number != null and invalid_number != ''">
+	          #{invalid_number, jdbcType=VARCHAR}, <!-- 易物担保未确认失效天数 -->
+	    </if>
+		<if test="barter_guarantee_fee != null and barter_guarantee_fee != ''">
+	          #{barter_guarantee_fee, jdbcType=VARCHAR}, <!-- 易物担保手续费 -->
+	    </if>
+		<if test="barter_voucher_transfer_fees != null and barter_voucher_transfer_fees != ''">
+	          #{barter_voucher_transfer_fees, jdbcType=VARCHAR}, <!-- 易物券转账手续费 -->
+	    </if>
+		<if test="maximum_fee != null and maximum_fee != ''">
+	          #{maximum_fee, jdbcType=VARCHAR}, <!-- 手续费最大值 -->
+	    </if>
+		<if test="rebate_days_delay != null and rebate_days_delay != ''">
+	          #{rebate_days_delay, jdbcType=VARCHAR}, <!-- 普通商家返利延迟天数 -->
+	    </if>
+		<if test="special_rebate_delay_days != null and special_rebate_delay_days != ''">
+	          #{special_rebate_delay_days, jdbcType=VARCHAR}, <!-- 特殊商家返利延迟天数 -->
+	    </if>
+		<if test="order_receiving_days_overtime != null and order_receiving_days_overtime != ''">
+	          #{order_receiving_days_overtime, jdbcType=VARCHAR}, <!-- 订单超时收货天数 -->
+	    </if>
+		<if test="date_time != null and date_time != ''">
+	          #{date_time, jdbcType=VARCHAR}, <!-- 添加时间 -->
+	    </if>
+		<if test="signstep != null">
+	          #{signstep, jdbcType=INTEGER}, <!-- signstep -->
+	    </if>
+		<if test="minoutpoint != null">
+	          #{minoutpoint, jdbcType=INTEGER}, <!-- minoutpoint -->
+	    </if>
+		<if test="shop_drop_commission_rate != null and shop_drop_commission_rate != ''">
+	          #{shop_drop_commission_rate, jdbcType=VARCHAR}, <!-- 商家一滴酒提成比例 -->
+	    </if>
+		<if test="shop_drop_commission_limit_days != null and shop_drop_commission_limit_days != ''">
+	          #{shop_drop_commission_limit_days, jdbcType=VARCHAR}, <!-- 商家一滴酒提成开始日期（多少天后开始提成） -->
+	    </if>
+		<if test="user_drop_commission_rate != null and user_drop_commission_rate != ''">
+	          #{user_drop_commission_rate, jdbcType=VARCHAR}, <!-- 会员一滴酒提成比例 -->
+	    </if>
+		<if test="user_drop_commission_limit_days != null and user_drop_commission_limit_days != ''">
+	          #{user_drop_commission_limit_days, jdbcType=VARCHAR}, <!-- 会议一滴酒提成开始天数（表示多少天后开始提成） -->
+	    </if>
+	          null
+		)
+	</insert>
+	
+	<!-- 插入一个数据持久化对象(含所有字段) -->
+	<insert id="insertAll" useGeneratedKeys="true" keyProperty="id" parameterType="ZjcMemberOtherPO">
+		INSERT INTO zjc_member_other (
+		    <include refid="column" />
+		)
+		VALUES (
+		    #{id, jdbcType=INTEGER},  <!-- 表id -->
+		    #{return_time, jdbcType=VARCHAR},  <!-- 消费易物券返回时间点 -->
+		    #{convertible_barter, jdbcType=VARCHAR},  <!-- 可转易物券比例 -->
+		    #{consumption_coupons, jdbcType=VARCHAR},  <!-- 消费易物券比例 -->
+		    #{small_barter_coupon_limits, jdbcType=VARCHAR},  <!-- 小额易物券限制 -->
+		    #{platform_recommended_code, jdbcType=VARCHAR},  <!-- 平台推荐码 -->
+		    #{merchants_quantity_limit, jdbcType=VARCHAR},  <!-- 商家商品数量限制 -->
+		    #{transfer_minimum, jdbcType=VARCHAR},  <!-- 易物券转账最小值 -->
+		    #{maximum_transfer, jdbcType=VARCHAR},  <!-- 易物券转账最大值 -->
+		    #{invalid_number, jdbcType=VARCHAR},  <!-- 易物担保未确认失效天数 -->
+		    #{barter_guarantee_fee, jdbcType=VARCHAR},  <!-- 易物担保手续费 -->
+		    #{barter_voucher_transfer_fees, jdbcType=VARCHAR},  <!-- 易物券转账手续费 -->
+		    #{maximum_fee, jdbcType=VARCHAR},  <!-- 手续费最大值 -->
+		    #{rebate_days_delay, jdbcType=VARCHAR},  <!-- 普通商家返利延迟天数 -->
+		    #{special_rebate_delay_days, jdbcType=VARCHAR},  <!-- 特殊商家返利延迟天数 -->
+		    #{order_receiving_days_overtime, jdbcType=VARCHAR},  <!-- 订单超时收货天数 -->
+		    #{date_time, jdbcType=VARCHAR},  <!-- 添加时间 -->
+		    #{signstep, jdbcType=INTEGER},  <!-- signstep -->
+		    #{minoutpoint, jdbcType=INTEGER},  <!-- minoutpoint -->
+		    #{shop_drop_commission_rate, jdbcType=VARCHAR},  <!-- 商家一滴酒提成比例 -->
+		    #{shop_drop_commission_limit_days, jdbcType=VARCHAR},  <!-- 商家一滴酒提成开始日期（多少天后开始提成） -->
+		    #{user_drop_commission_rate, jdbcType=VARCHAR},  <!-- 会员一滴酒提成比例 -->
+		    #{user_drop_commission_limit_days, jdbcType=VARCHAR}  <!-- 会议一滴酒提成开始天数（表示多少天后开始提成） -->
+		)
+	</insert>
+
+	<!-- 根据主键修改数据持久化对象 -->
+	<update id="updateByKey" parameterType="ZjcMemberOtherPO">
+		UPDATE zjc_member_other
+		<set>
+			<if test="id != null">
+		          id = #{id, jdbcType=INTEGER},  <!-- 表id -->
+			</if>
+			<if test="return_time != null">
+		          return_time = #{return_time, jdbcType=VARCHAR},  <!-- 消费易物券返回时间点 -->
+			</if>
+			<if test="convertible_barter != null">
+		          convertible_barter = #{convertible_barter, jdbcType=VARCHAR},  <!-- 可转易物券比例 -->
+			</if>
+			<if test="consumption_coupons != null">
+		          consumption_coupons = #{consumption_coupons, jdbcType=VARCHAR},  <!-- 消费易物券比例 -->
+			</if>
+			<if test="small_barter_coupon_limits != null">
+		          small_barter_coupon_limits = #{small_barter_coupon_limits, jdbcType=VARCHAR},  <!-- 小额易物券限制 -->
+			</if>
+			<if test="platform_recommended_code != null">
+		          platform_recommended_code = #{platform_recommended_code, jdbcType=VARCHAR},  <!-- 平台推荐码 -->
+			</if>
+			<if test="merchants_quantity_limit != null">
+		          merchants_quantity_limit = #{merchants_quantity_limit, jdbcType=VARCHAR},  <!-- 商家商品数量限制 -->
+			</if>
+			<if test="transfer_minimum != null">
+		          transfer_minimum = #{transfer_minimum, jdbcType=VARCHAR},  <!-- 易物券转账最小值 -->
+			</if>
+			<if test="maximum_transfer != null">
+		          maximum_transfer = #{maximum_transfer, jdbcType=VARCHAR},  <!-- 易物券转账最大值 -->
+			</if>
+			<if test="invalid_number != null">
+		          invalid_number = #{invalid_number, jdbcType=VARCHAR},  <!-- 易物担保未确认失效天数 -->
+			</if>
+			<if test="barter_guarantee_fee != null">
+		          barter_guarantee_fee = #{barter_guarantee_fee, jdbcType=VARCHAR},  <!-- 易物担保手续费 -->
+			</if>
+			<if test="barter_voucher_transfer_fees != null">
+		          barter_voucher_transfer_fees = #{barter_voucher_transfer_fees, jdbcType=VARCHAR},  <!-- 易物券转账手续费 -->
+			</if>
+			<if test="maximum_fee != null">
+		          maximum_fee = #{maximum_fee, jdbcType=VARCHAR},  <!-- 手续费最大值 -->
+			</if>
+			<if test="rebate_days_delay != null">
+		          rebate_days_delay = #{rebate_days_delay, jdbcType=VARCHAR},  <!-- 普通商家返利延迟天数 -->
+			</if>
+			<if test="special_rebate_delay_days != null">
+		          special_rebate_delay_days = #{special_rebate_delay_days, jdbcType=VARCHAR},  <!-- 特殊商家返利延迟天数 -->
+			</if>
+			<if test="order_receiving_days_overtime != null">
+		          order_receiving_days_overtime = #{order_receiving_days_overtime, jdbcType=VARCHAR},  <!-- 订单超时收货天数 -->
+			</if>
+			<if test="date_time != null">
+		          date_time = #{date_time, jdbcType=VARCHAR},  <!-- 添加时间 -->
+			</if>
+			<if test="signstep != null">
+		          signstep = #{signstep, jdbcType=INTEGER},  <!-- signstep -->
+			</if>
+			<if test="minoutpoint != null">
+		          minoutpoint = #{minoutpoint, jdbcType=INTEGER},  <!-- minoutpoint -->
+			</if>
+			<if test="shop_drop_commission_rate != null">
+		          shop_drop_commission_rate = #{shop_drop_commission_rate, jdbcType=VARCHAR},  <!-- 商家一滴酒提成比例 -->
+			</if>
+			<if test="shop_drop_commission_limit_days != null">
+		          shop_drop_commission_limit_days = #{shop_drop_commission_limit_days, jdbcType=VARCHAR},  <!-- 商家一滴酒提成开始日期（多少天后开始提成） -->
+			</if>
+			<if test="user_drop_commission_rate != null">
+		          user_drop_commission_rate = #{user_drop_commission_rate, jdbcType=VARCHAR},  <!-- 会员一滴酒提成比例 -->
+			</if>
+			<if test="user_drop_commission_limit_days != null">
+		          user_drop_commission_limit_days = #{user_drop_commission_limit_days, jdbcType=VARCHAR},  <!-- 会议一滴酒提成开始天数（表示多少天后开始提成） -->
+			</if>
+		</set>
+		WHERE  id = #{id}
+	</update>
+	
+	<!-- 根据主键删除数据持久化对象 -->
+	<delete id="deleteByKey">
+		DELETE FROM zjc_member_other WHERE  id = #{id}
+	</delete>
+
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="selectByKey" resultType="ZjcMemberOtherPO">
+		SELECT
+		<include refid="column" />
+		FROM zjc_member_other WHERE  id = #{id}
+	</select>
+
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="selectOne" parameterType="Dto" resultType="ZjcMemberOtherPO">
+		SELECT
+		    <include refid="column" />
+		FROM zjc_member_other
+		<where>
+		    <include refid="equal" />
+		</where>		
+	</select>
+
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="list" parameterType="Dto" resultType="ZjcMemberOtherPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_member_other
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listPage" parameterType="Dto" resultType="ZjcMemberOtherPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_member_other
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto模糊查询并返回数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="like" parameterType="Dto" resultType="ZjcMemberOtherPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_member_other
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto模糊查询并返回分页数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="likePage" parameterType="Dto" resultType="ZjcMemberOtherPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_member_other
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+	
+		<!-- 根据最大id查询最新数据 -->
+	<select id="selectByMaxKey" resultType="ZjcMemberOtherPO">
+		SELECT
+		<include refid="column" />
+		 from zjc_member_other t  
+         where t.id=(select max(id) from zjc_member_other)
+	</select>
+	
+	<!-- 根据最大id查询最新数据 -->
+	<select id="selectByMaxKeys" parameterType="ZjcMemberOtherPO" resultType="ZjcMemberOtherPO">
+		SELECT
+		<include refid="column" />
+		 from zjc_member_other t2  
+         where t2.id=(select max(t1.id) from zjc_member_other t1)
+	</select>
+	
+	<!-- 根据Dto统计行数 -->
+	<select id="rows" resultType="Integer" parameterType="Dto">
+		SELECT COUNT(1) AS aos_rows_ FROM zjc_member_other
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 根据数学表达式进行数学运算 -->
+	<select id="calc" parameterType="Dto" resultType="String">
+		SELECT
+			${_expr}
+		FROM zjc_member_other
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 表字段 -->
+	<sql id="column">
+		  id,  <!-- 表id -->
+		  return_time,  <!-- 消费易物券返回时间点 -->
+		  convertible_barter,  <!-- 可转易物券比例 -->
+		  consumption_coupons,  <!-- 消费易物券比例 -->
+		  small_barter_coupon_limits,  <!-- 小额易物券限制 -->
+		  platform_recommended_code,  <!-- 平台推荐码 -->
+		  merchants_quantity_limit,  <!-- 商家商品数量限制 -->
+		  transfer_minimum,  <!-- 易物券转账最小值 -->
+		  maximum_transfer,  <!-- 易物券转账最大值 -->
+		  invalid_number,  <!-- 易物担保未确认失效天数 -->
+		  barter_guarantee_fee,  <!-- 易物担保手续费 -->
+		  barter_voucher_transfer_fees,  <!-- 易物券转账手续费 -->
+		  maximum_fee,  <!-- 手续费最大值 -->
+		  rebate_days_delay,  <!-- 普通商家返利延迟天数 -->
+		  special_rebate_delay_days,  <!-- 特殊商家返利延迟天数 -->
+		  order_receiving_days_overtime,  <!-- 订单超时收货天数 -->
+		  date_time,  <!-- 添加时间 -->
+		  signstep,  <!-- signstep -->
+		  minoutpoint,  <!-- minoutpoint -->
+		  shop_drop_commission_rate,  <!-- 商家一滴酒提成比例 -->
+		  shop_drop_commission_limit_days,  <!-- 商家一滴酒提成开始日期（多少天后开始提成） -->
+		  user_drop_commission_rate,  <!-- 会员一滴酒提成比例 -->
+		  user_drop_commission_limit_days  <!-- 会议一滴酒提成开始天数（表示多少天后开始提成） -->
+	</sql>
+	
+	<!-- 表字段(用于外表的关联时引用) -->
+	<sql id="column2">
+		  zjc_member_other.id,  <!-- 表id -->
+		  zjc_member_other.return_time,  <!-- 消费易物券返回时间点 -->
+		  zjc_member_other.convertible_barter,  <!-- 可转易物券比例 -->
+		  zjc_member_other.consumption_coupons,  <!-- 消费易物券比例 -->
+		  zjc_member_other.small_barter_coupon_limits,  <!-- 小额易物券限制 -->
+		  zjc_member_other.platform_recommended_code,  <!-- 平台推荐码 -->
+		  zjc_member_other.merchants_quantity_limit,  <!-- 商家商品数量限制 -->
+		  zjc_member_other.transfer_minimum,  <!-- 易物券转账最小值 -->
+		  zjc_member_other.maximum_transfer,  <!-- 易物券转账最大值 -->
+		  zjc_member_other.invalid_number,  <!-- 易物担保未确认失效天数 -->
+		  zjc_member_other.barter_guarantee_fee,  <!-- 易物担保手续费 -->
+		  zjc_member_other.barter_voucher_transfer_fees,  <!-- 易物券转账手续费 -->
+		  zjc_member_other.maximum_fee,  <!-- 手续费最大值 -->
+		  zjc_member_other.rebate_days_delay,  <!-- 普通商家返利延迟天数 -->
+		  zjc_member_other.special_rebate_delay_days,  <!-- 特殊商家返利延迟天数 -->
+		  zjc_member_other.order_receiving_days_overtime,  <!-- 订单超时收货天数 -->
+		  zjc_member_other.date_time,  <!-- 添加时间 -->
+		  zjc_member_other.signstep,  <!-- signstep -->
+		  zjc_member_other.minoutpoint,  <!-- minoutpoint -->
+		  zjc_member_other.shop_drop_commission_rate,  <!-- 商家一滴酒提成比例 -->
+		  zjc_member_other.shop_drop_commission_limit_days,  <!-- 商家一滴酒提成开始日期（多少天后开始提成） -->
+		  zjc_member_other.user_drop_commission_rate,  <!-- 会员一滴酒提成比例 -->
+		  zjc_member_other.user_drop_commission_limit_days  <!-- 会议一滴酒提成开始天数（表示多少天后开始提成） -->
+	</sql>
+
+	<!-- Where精确匹配字段 -->
+	<sql id="equal">
+	   <if test="id != null ">
+		      AND id = #{id}  <!-- 表id -->
+		</if>
+	    <if test="return_time != null and return_time != ''">
+		      AND return_time = #{return_time}  <!-- 消费易物券返回时间点 -->
+		</if>
+	    <if test="convertible_barter != null and convertible_barter != ''">
+		      AND convertible_barter = #{convertible_barter}  <!-- 可转易物券比例 -->
+		</if>
+	    <if test="consumption_coupons != null and consumption_coupons != ''">
+		      AND consumption_coupons = #{consumption_coupons}  <!-- 消费易物券比例 -->
+		</if>
+	    <if test="small_barter_coupon_limits != null and small_barter_coupon_limits != ''">
+		      AND small_barter_coupon_limits = #{small_barter_coupon_limits}  <!-- 小额易物券限制 -->
+		</if>
+	    <if test="platform_recommended_code != null and platform_recommended_code != ''">
+		      AND platform_recommended_code = #{platform_recommended_code}  <!-- 平台推荐码 -->
+		</if>
+	    <if test="merchants_quantity_limit != null and merchants_quantity_limit != ''">
+		      AND merchants_quantity_limit = #{merchants_quantity_limit}  <!-- 商家商品数量限制 -->
+		</if>
+	    <if test="transfer_minimum != null and transfer_minimum != ''">
+		      AND transfer_minimum = #{transfer_minimum}  <!-- 易物券转账最小值 -->
+		</if>
+	    <if test="maximum_transfer != null and maximum_transfer != ''">
+		      AND maximum_transfer = #{maximum_transfer}  <!-- 易物券转账最大值 -->
+		</if>
+	    <if test="invalid_number != null and invalid_number != ''">
+		      AND invalid_number = #{invalid_number}  <!-- 易物担保未确认失效天数 -->
+		</if>
+	    <if test="barter_guarantee_fee != null and barter_guarantee_fee != ''">
+		      AND barter_guarantee_fee = #{barter_guarantee_fee}  <!-- 易物担保手续费 -->
+		</if>
+	    <if test="barter_voucher_transfer_fees != null and barter_voucher_transfer_fees != ''">
+		      AND barter_voucher_transfer_fees = #{barter_voucher_transfer_fees}  <!-- 易物券转账手续费 -->
+		</if>
+	    <if test="maximum_fee != null and maximum_fee != ''">
+		      AND maximum_fee = #{maximum_fee}  <!-- 手续费最大值 -->
+		</if>
+	    <if test="rebate_days_delay != null and rebate_days_delay != ''">
+		      AND rebate_days_delay = #{rebate_days_delay}  <!-- 普通商家返利延迟天数 -->
+		</if>
+	    <if test="special_rebate_delay_days != null and special_rebate_delay_days != ''">
+		      AND special_rebate_delay_days = #{special_rebate_delay_days}  <!-- 特殊商家返利延迟天数 -->
+		</if>
+	    <if test="order_receiving_days_overtime != null and order_receiving_days_overtime != ''">
+		      AND order_receiving_days_overtime = #{order_receiving_days_overtime}  <!-- 订单超时收货天数 -->
+		</if>
+	    <if test="date_time != null and date_time != ''">
+		      AND date_time = #{date_time}  <!-- 添加时间 -->
+		</if>
+	   <if test="signstep != null ">
+		      AND signstep = #{signstep}  <!-- signstep -->
+		</if>
+	   <if test="minoutpoint != null ">
+		      AND minoutpoint = #{minoutpoint}  <!-- minoutpoint -->
+		</if>
+	    <if test="shop_drop_commission_rate != null and shop_drop_commission_rate != ''">
+		      AND shop_drop_commission_rate = #{shop_drop_commission_rate}  <!-- 商家一滴酒提成比例 -->
+		</if>
+	    <if test="shop_drop_commission_limit_days != null and shop_drop_commission_limit_days != ''">
+		      AND shop_drop_commission_limit_days = #{shop_drop_commission_limit_days}  <!-- 商家一滴酒提成开始日期（多少天后开始提成） -->
+		</if>
+	    <if test="user_drop_commission_rate != null and user_drop_commission_rate != ''">
+		      AND user_drop_commission_rate = #{user_drop_commission_rate}  <!-- 会员一滴酒提成比例 -->
+		</if>
+	    <if test="user_drop_commission_limit_days != null and user_drop_commission_limit_days != ''">
+		      AND user_drop_commission_limit_days = #{user_drop_commission_limit_days}  <!-- 会议一滴酒提成开始天数（表示多少天后开始提成） -->
+		</if>
+	</sql>
+	
+	<!-- Where模糊匹配字段 -->
+	<sql id="like">
+	    <if test="return_time != null and return_time != ''">
+		      AND return_time like '${return_time}%'  <!-- 消费易物券返回时间点 -->
+		</if>
+	    <if test="convertible_barter != null and convertible_barter != ''">
+		      AND convertible_barter like '${convertible_barter}%'  <!-- 可转易物券比例 -->
+		</if>
+	    <if test="consumption_coupons != null and consumption_coupons != ''">
+		      AND consumption_coupons like '${consumption_coupons}%'  <!-- 消费易物券比例 -->
+		</if>
+	    <if test="small_barter_coupon_limits != null and small_barter_coupon_limits != ''">
+		      AND small_barter_coupon_limits like '${small_barter_coupon_limits}%'  <!-- 小额易物券限制 -->
+		</if>
+	    <if test="platform_recommended_code != null and platform_recommended_code != ''">
+		      AND platform_recommended_code like '${platform_recommended_code}%'  <!-- 平台推荐码 -->
+		</if>
+	    <if test="merchants_quantity_limit != null and merchants_quantity_limit != ''">
+		      AND merchants_quantity_limit like '${merchants_quantity_limit}%'  <!-- 商家商品数量限制 -->
+		</if>
+	    <if test="transfer_minimum != null and transfer_minimum != ''">
+		      AND transfer_minimum like '${transfer_minimum}%'  <!-- 易物券转账最小值 -->
+		</if>
+	    <if test="maximum_transfer != null and maximum_transfer != ''">
+		      AND maximum_transfer like '${maximum_transfer}%'  <!-- 易物券转账最大值 -->
+		</if>
+	    <if test="invalid_number != null and invalid_number != ''">
+		      AND invalid_number like '${invalid_number}%'  <!-- 易物担保未确认失效天数 -->
+		</if>
+	    <if test="barter_guarantee_fee != null and barter_guarantee_fee != ''">
+		      AND barter_guarantee_fee like '${barter_guarantee_fee}%'  <!-- 易物担保手续费 -->
+		</if>
+	    <if test="barter_voucher_transfer_fees != null and barter_voucher_transfer_fees != ''">
+		      AND barter_voucher_transfer_fees like '${barter_voucher_transfer_fees}%'  <!-- 易物券转账手续费 -->
+		</if>
+	    <if test="maximum_fee != null and maximum_fee != ''">
+		      AND maximum_fee like '${maximum_fee}%'  <!-- 手续费最大值 -->
+		</if>
+	    <if test="rebate_days_delay != null and rebate_days_delay != ''">
+		      AND rebate_days_delay like '${rebate_days_delay}%'  <!-- 普通商家返利延迟天数 -->
+		</if>
+	    <if test="special_rebate_delay_days != null and special_rebate_delay_days != ''">
+		      AND special_rebate_delay_days like '${special_rebate_delay_days}%'  <!-- 特殊商家返利延迟天数 -->
+		</if>
+	    <if test="order_receiving_days_overtime != null and order_receiving_days_overtime != ''">
+		      AND order_receiving_days_overtime like '${order_receiving_days_overtime}%'  <!-- 订单超时收货天数 -->
+		</if>
+	    <if test="date_time != null and date_time != ''">
+		      AND date_time like '${date_time}%'  <!-- 添加时间 -->
+		</if>
+	    <if test="shop_drop_commission_rate != null and shop_drop_commission_rate != ''">
+		      AND shop_drop_commission_rate like '${shop_drop_commission_rate}%'  <!-- 商家一滴酒提成比例 -->
+		</if>
+	    <if test="shop_drop_commission_limit_days != null and shop_drop_commission_limit_days != ''">
+		      AND shop_drop_commission_limit_days like '${shop_drop_commission_limit_days}%'  <!-- 商家一滴酒提成开始日期（多少天后开始提成） -->
+		</if>
+	    <if test="user_drop_commission_rate != null and user_drop_commission_rate != ''">
+		      AND user_drop_commission_rate like '${user_drop_commission_rate}%'  <!-- 会员一滴酒提成比例 -->
+		</if>
+	    <if test="user_drop_commission_limit_days != null and user_drop_commission_limit_days != ''">
+		      AND user_drop_commission_limit_days like '${user_drop_commission_limit_days}%'  <!-- 会议一滴酒提成开始天数（表示多少天后开始提成） -->
+		</if>
+	</sql>
+	
+</mapper>

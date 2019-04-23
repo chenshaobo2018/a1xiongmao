@@ -1,0 +1,557 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- zjc_goods_category[zjc_goods_category]SQL自动映射 -->
+<!--  注意:此文件由AOS平台自动生成-禁止手工修改 2017-05-22 17:25:46 -->
+<mapper namespace="com.zjc.goods.dao.ZjcGoodsCategoryDao">
+
+	<resultMap id="queryForListMap" type="com.zjc.goods.dao.po.ZjcGoodsCategoryPO">  
+        <id column="id" property="id" jdbcType="INTEGER"/>  
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="mobile_name" property="mobile_name" jdbcType="VARCHAR"/>
+        <result column="parent_id" property="parent_id" jdbcType="INTEGER"/>
+        <result column="parent_id_path" property="parent_id_path" jdbcType="VARCHAR"/>
+        <result column="level" property="level" jdbcType="INTEGER"/>
+        <result column="sort_order" property="sort_order" jdbcType="INTEGER"/>
+        <result column="is_show" property="is_show" jdbcType="INTEGER"/>
+        <result column="image" property="image" jdbcType="VARCHAR"/>
+        <result column="is_hot" property="is_hot" jdbcType="INTEGER"/>
+        <result column="cat_group" property="cat_group" jdbcType="INTEGER"/>
+        <result column="commission_rate_1" property="commission_rate_1" jdbcType="VARCHAR"/>
+        <result column="commission_rate_2" property="commission_rate_2" jdbcType="VARCHAR"/>
+        <result column="commission_rate_3" property="commission_rate_3" jdbcType="VARCHAR"/>
+        <result column="wallet_amplification_rate" property="wallet_amplification_rate" jdbcType="VARCHAR"/>
+        <result column="store_rebate_rate" property="store_rebate_rate" jdbcType="VARCHAR"/>
+        <collection property="child_list"  ofType="com.zjc.goods.dao.po.ZjcGoodsCategoryPO">  
+            <id column="child_id" property="id" jdbcType="INTEGER"/>  
+	        <result column="child_name" property="name" jdbcType="VARCHAR"/>
+	        <result column="child_parent_id" property="parent_id" jdbcType="INTEGER"/>
+	        <result column="child_level" property="level" jdbcType="INTEGER"/>
+        </collection>  
+    </resultMap>  
+    
+    <select id="queryCategoryList" parameterType="Dto"  resultMap="queryForListMap" useCache="false">
+	    select
+	    	t1.id,t1.name,t1.parent_id,t1.level,t2.id as child_id,t2.name as child_name,t2.parent_id as child_parent_id,t2.level as child_level
+        FROM zjc_goods_category t1 
+		LEFT JOIN zjc_goods_category t2 on t1.id=t2.parent_id
+        <where>
+		  t1.parent_id = 0
+		</where>
+		order by id asc
+	</select>
+	
+	<!-- 插入一个数据持久化对象(插入字段为传入PO实体的非空属性) -->
+	<insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="ZjcGoodsCategoryPO">
+		INSERT INTO zjc_goods_category (
+		<if test="name != null and name != ''">
+	         name, <!-- 商品分类名称 -->
+		</if>
+		<if test="mobile_name != null and mobile_name != ''">
+	         mobile_name, <!-- 手机端显示的商品分类名 -->
+		</if>
+		<if test="parent_id != null">
+	         parent_id, <!-- 父id -->
+		</if>
+		<if test="parent_id_path != null and parent_id_path != ''">
+	         parent_id_path, <!-- 家族图谱 -->
+		</if>
+		<if test="level != null">
+	         level, <!-- 等级 -->
+		</if>
+		<if test="sort_order != null">
+	         sort_order, <!-- 顺序排序 -->
+		</if>
+		<if test="is_show != null">
+	         is_show, <!-- 是否显示 -->
+		</if>
+		<if test="image != null and image != ''">
+	         image, <!-- 分类图片 -->
+		</if>
+		<if test="is_hot != null">
+	         is_hot, <!-- 是否推荐为热门分类 -->
+		</if>
+		<if test="cat_group != null">
+	         cat_group, <!-- 分类分组默认0 -->
+		</if>
+		<if test="commission_rate_1 != null and commission_rate_1 != ''">
+	         commission_rate_1, <!-- 提成比例一 -->
+		</if>
+		<if test="commission_rate_2 != null and commission_rate_2 != ''">
+	         commission_rate_2, <!-- 提成比例二 -->
+		</if>
+		<if test="commission_rate_3 != null and commission_rate_3 != ''">
+	         commission_rate_3, <!-- 提成比例二 -->
+		</if>
+		<if test="wallet_amplification_rate != null and wallet_amplification_rate != ''">
+	         wallet_amplification_rate, <!-- 钱包扩增比例 -->
+		</if>
+		<if test="store_rebate_rate != null and store_rebate_rate != ''">
+	         store_rebate_rate, <!-- 商家返利比例 -->
+		</if>
+	          id
+		)VALUES(
+		<if test="name != null and name != ''">
+	          #{name, jdbcType=VARCHAR}, <!-- 商品分类名称 -->
+	    </if>
+		<if test="mobile_name != null and mobile_name != ''">
+	          #{mobile_name, jdbcType=VARCHAR}, <!-- 手机端显示的商品分类名 -->
+	    </if>
+		<if test="parent_id != null">
+	          #{parent_id, jdbcType=INTEGER}, <!-- 父id -->
+	    </if>
+		<if test="parent_id_path != null and parent_id_path != ''">
+	          #{parent_id_path, jdbcType=VARCHAR}, <!-- 家族图谱 -->
+	    </if>
+		<if test="level != null">
+	          #{level, jdbcType=INTEGER}, <!-- 等级 -->
+	    </if>
+		<if test="sort_order != null">
+	          #{sort_order, jdbcType=INTEGER}, <!-- 顺序排序 -->
+	    </if>
+		<if test="is_show != null">
+	          #{is_show, jdbcType=INTEGER}, <!-- 是否显示 -->
+	    </if>
+		<if test="image != null and image != ''">
+	          #{image, jdbcType=VARCHAR}, <!-- 分类图片 -->
+	    </if>
+		<if test="is_hot != null">
+	          #{is_hot, jdbcType=INTEGER}, <!-- 是否推荐为热门分类 -->
+	    </if>
+		<if test="cat_group != null">
+	          #{cat_group, jdbcType=INTEGER}, <!-- 分类分组默认0 -->
+	    </if>
+		<if test="commission_rate_1 != null and commission_rate_1 != ''">
+	          #{commission_rate_1, jdbcType=VARCHAR}, <!-- 提成比例一 -->
+	    </if>
+		<if test="commission_rate_2 != null and commission_rate_2 != ''">
+	          #{commission_rate_2, jdbcType=VARCHAR}, <!-- 提成比例二 -->
+	    </if>
+		<if test="commission_rate_3 != null and commission_rate_3 != ''">
+	          #{commission_rate_3, jdbcType=VARCHAR}, <!-- 提成比例二 -->
+	    </if>
+		<if test="wallet_amplification_rate != null and wallet_amplification_rate != ''">
+	          #{wallet_amplification_rate, jdbcType=VARCHAR}, <!-- 钱包扩增比例 -->
+	    </if>
+		<if test="store_rebate_rate != null and store_rebate_rate != ''">
+	          #{store_rebate_rate, jdbcType=VARCHAR}, <!-- 商家返利比例 -->
+	    </if>
+	          null
+		)
+	</insert>
+	
+	<!-- 插入一个数据持久化对象(含所有字段) -->
+	<insert id="insertAll" useGeneratedKeys="true" keyProperty="id" parameterType="ZjcGoodsCategoryPO">
+		INSERT INTO zjc_goods_category (
+		    <include refid="column" />
+		)
+		VALUES (
+		    #{id, jdbcType=INTEGER},  <!-- 商品分类id -->
+		    #{name, jdbcType=VARCHAR},  <!-- 商品分类名称 -->
+		    #{mobile_name, jdbcType=VARCHAR},  <!-- 手机端显示的商品分类名 -->
+		    #{parent_id, jdbcType=INTEGER},  <!-- 父id -->
+		    #{parent_id_path, jdbcType=VARCHAR},  <!-- 家族图谱 -->
+		    #{level, jdbcType=INTEGER},  <!-- 等级 -->
+		    #{sort_order, jdbcType=INTEGER},  <!-- 顺序排序 -->
+		    #{is_show, jdbcType=INTEGER},  <!-- 是否显示 -->
+		    #{image, jdbcType=VARCHAR},  <!-- 分类图片 -->
+		    #{is_hot, jdbcType=INTEGER},  <!-- 是否推荐为热门分类 -->
+		    #{cat_group, jdbcType=INTEGER},  <!-- 分类分组默认0 -->
+		    #{commission_rate_1, jdbcType=VARCHAR},  <!-- 提成比例一 -->
+		    #{commission_rate_2, jdbcType=VARCHAR},  <!-- 提成比例二 -->
+		    #{commission_rate_3, jdbcType=VARCHAR},  <!-- 提成比例二 -->
+		    #{wallet_amplification_rate, jdbcType=VARCHAR},  <!-- 钱包扩增比例 -->
+		    #{store_rebate_rate, jdbcType=VARCHAR}  <!-- 商家返利比例 -->
+		)
+	</insert>
+
+	<!-- 根据主键修改数据持久化对象 -->
+	<update id="updateByKey" parameterType="ZjcGoodsCategoryPO">
+		UPDATE zjc_goods_category
+		<set>
+			<if test="id != null">
+		          id = #{id, jdbcType=INTEGER},  <!-- 商品分类id -->
+			</if>
+			<if test="name != null">
+		          name = #{name, jdbcType=VARCHAR},  <!-- 商品分类名称 -->
+			</if>
+			<if test="mobile_name != null">
+		          mobile_name = #{mobile_name, jdbcType=VARCHAR},  <!-- 手机端显示的商品分类名 -->
+			</if>
+			<if test="parent_id != null">
+		          parent_id = #{parent_id, jdbcType=INTEGER},  <!-- 父id -->
+			</if>
+			<if test="parent_id_path != null">
+		          parent_id_path = #{parent_id_path, jdbcType=VARCHAR},  <!-- 家族图谱 -->
+			</if>
+			<if test="level != null">
+		          level = #{level, jdbcType=INTEGER},  <!-- 等级 -->
+			</if>
+			<if test="sort_order != null">
+		          sort_order = #{sort_order, jdbcType=INTEGER},  <!-- 顺序排序 -->
+			</if>
+			<if test="is_show != null">
+		          is_show = #{is_show, jdbcType=INTEGER},  <!-- 是否显示 -->
+			</if>
+			<if test="image != null">
+		          image = #{image, jdbcType=VARCHAR},  <!-- 分类图片 -->
+			</if>
+			<if test="is_hot != null">
+		          is_hot = #{is_hot, jdbcType=INTEGER},  <!-- 是否推荐为热门分类 -->
+			</if>
+			<if test="cat_group != null">
+		          cat_group = #{cat_group, jdbcType=INTEGER},  <!-- 分类分组默认0 -->
+			</if>
+			<if test="commission_rate_1 != null">
+		          commission_rate_1 = #{commission_rate_1, jdbcType=VARCHAR},  <!-- 提成比例一 -->
+			</if>
+			<if test="commission_rate_2 != null">
+		          commission_rate_2 = #{commission_rate_2, jdbcType=VARCHAR},  <!-- 提成比例二 -->
+			</if>
+			<if test="commission_rate_3 != null">
+		          commission_rate_3 = #{commission_rate_3, jdbcType=VARCHAR},  <!-- 提成比例二 -->
+			</if>
+			<if test="wallet_amplification_rate != null">
+		          wallet_amplification_rate = #{wallet_amplification_rate, jdbcType=VARCHAR},  <!-- 钱包扩增比例 -->
+			</if>
+			<if test="store_rebate_rate != null">
+		          store_rebate_rate = #{store_rebate_rate, jdbcType=VARCHAR},  <!-- 商家返利比例 -->
+			</if>
+		</set>
+		WHERE  id = #{id}
+	</update>
+	
+	<!-- 根据主键删除数据持久化对象 -->
+	<delete id="deleteByKey">
+		DELETE FROM zjc_goods_category WHERE  id = #{id}
+	</delete>
+
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="selectByKey" resultType="ZjcGoodsCategoryPO">
+		SELECT
+		<include refid="column" />
+		FROM zjc_goods_category WHERE  id = #{id}
+	</select>
+
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="selectOne" parameterType="Dto" resultType="ZjcGoodsCategoryPO">
+		SELECT
+		    <include refid="column" />
+		FROM zjc_goods_category
+		<where>
+		    <include refid="equal" />
+		</where>		
+	</select>
+	
+	<!-- 查询某节点下子节点的最大语义ID -->
+	<select id="getMaxPathId" resultType="String" parameterType="String">
+	     SELECT MAX(parent_id_path) AS max_parent_id_path FROM zjc_goods_category WHERE parent_id = #{parent_id}
+	</select>
+
+	<!-- 检查删除节点中是否包含根节点 -->
+	<select id="checkRootNode" resultType="ZjcGoodsCategoryPO" parameterType="Dto">
+	     SELECT 
+	         <include refid="column" />
+	      FROM zjc_goods_category WHERE id IN (${ids}) AND parent_id = '0'
+	      order by id desc
+	</select>
+
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="list" parameterType="Dto" resultType="ZjcGoodsCategoryPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_goods_category
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listPage" parameterType="Dto" resultType="ZjcGoodsCategoryPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_goods_category
+		<where>
+		    <include refid="equal" />
+		</where>
+		order by id desc	
+	</select>
+	
+	<!-- 根据Dto模糊查询并返回数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="like" parameterType="Dto" resultType="ZjcGoodsCategoryPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_goods_category
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto模糊查询并返回分页数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="likePage" parameterType="Dto" resultType="ZjcGoodsCategoryPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_goods_category
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto模糊查询并返回分页数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="get_goods_category" parameterType="Dto" resultMap="goods_category" useCache="false">
+	    SELECT
+			t1.id,t1.name,t1.level,t1.parent_id,
+			t2.id as zid,t2.name as zname,t2.level as zlevel,t2.parent_id as zparent_id		
+		FRoM zjc_goods_category t1 left join zjc_goods_category t2 on t1.id = t2.parent_id
+		<where>
+		    t1.parent_id = 0
+		</where>	
+		order by id asc
+	</select>
+	
+	<!-- 根据Dto模糊查询并返回分页数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="likeCategoryPoPage" parameterType="Dto" resultType="ZjcGoodsCategoryPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_goods_category
+		<where>
+			<if test="id != null and id != '' ">
+				AND id != #{id}
+			</if>
+		    <if test="name != null and name != ''">
+		      AND name like '%${name}%'  <!-- 商品分类名称 -->
+			</if>
+		    <if test="mobile_name != null and mobile_name != ''">
+			      AND mobile_name = #{mobile_name}  <!-- 手机端显示的商品分类名 -->
+			</if>
+		    <if test="parent_id_path != null and parent_id_path != ''">
+			      AND parent_id_path != #{parent_id_path} AND substring_index(parent_id_path,'_',2)=#{parent_id_path} <!-- 家族图谱 -->
+			</if>
+		    <if test="image != null and image != ''">
+			      AND image = #{image}  <!-- 分类图片 -->
+			</if>
+		    <if test="commission_rate_1 != null and commission_rate_1 != ''">
+			      AND commission_rate_1 = #{commission_rate_1}  <!-- 提成比例一 -->
+			</if>
+		    <if test="commission_rate_2 != null and commission_rate_2 != ''">
+			      AND commission_rate_2 = #{commission_rate_2}  <!-- 提成比例二 -->
+			</if>
+		    <if test="commission_rate_3 != null and commission_rate_3 != ''">
+			      AND commission_rate_3 = #{commission_rate_3}  <!-- 提成比例二 -->
+			</if>
+		    <if test="wallet_amplification_rate != null and wallet_amplification_rate != ''">
+			      AND wallet_amplification_rate = #{wallet_amplification_rate}  <!-- 钱包扩增比例 -->
+			</if>
+		    <if test="store_rebate_rate != null and store_rebate_rate != ''">
+			      AND store_rebate_rate = #{store_rebate_rate}  <!-- 商家返利比例 -->
+			</if>
+		</where>	
+		order by id desc
+	</select>
+	
+	<!-- 查询自定义下拉组件数据(重点是字段的别名) -->
+	<select id="listGoodsCategoryComboBoxData" resultType="Dto">
+		SELECT
+		id AS value, name AS display
+		FROM
+		zjc_goods_category
+		order by id desc
+	</select>
+	
+	<!-- 查询自定义下拉组件数据(重点是字段的别名) -->
+	<select id="listGoodsCategoryComboBoxDataByParam" resultType="Dto">
+		SELECT
+		id AS value, name AS display
+		FROM
+		zjc_goods_category
+		<where>
+		    <include refid="equal" />
+		</where>
+		order by id desc
+	</select>
+	
+	<select id="listGoodsCategory2" resultType="Dto">
+		SELECT
+		id AS value, name AS display
+		FROM
+		zjc_goods_category
+		<where>
+		    <if test="parent_id_path != null and parent_id_path != ''">
+		      AND parent_id_path like '${parent_id_path}%'  <!-- 家族图谱 -->
+			</if>
+			  AND parent_id_path != '${parent_id_path}'
+		</where>
+		order by id desc
+	</select>
+	
+	<!-- 根据Dto统计行数 -->
+	<select id="rows" resultType="Integer" parameterType="Dto">
+		SELECT COUNT(1) AS aos_rows_ FROM zjc_goods_category
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 根据数学表达式进行数学运算 -->
+	<select id="calc" parameterType="Dto" resultType="String">
+		SELECT
+			${_expr}
+		FROM zjc_goods_category
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 表字段 -->
+	<sql id="column">
+		  id,  <!-- 商品分类id -->
+		  name,  <!-- 商品分类名称 -->
+		  mobile_name,  <!-- 手机端显示的商品分类名 -->
+		  parent_id,  <!-- 父id -->
+		  parent_id_path,  <!-- 家族图谱 -->
+		  level,  <!-- 等级 -->
+		  sort_order,  <!-- 顺序排序 -->
+		  is_show,  <!-- 是否显示 -->
+		  image,  <!-- 分类图片 -->
+		  is_hot,  <!-- 是否推荐为热门分类 -->
+		  cat_group,  <!-- 分类分组默认0 -->
+		  commission_rate_1,  <!-- 提成比例一 -->
+		  commission_rate_2,  <!-- 提成比例二 -->
+		  commission_rate_3,  <!-- 提成比例二 -->
+		  wallet_amplification_rate,  <!-- 钱包扩增比例 -->
+		  store_rebate_rate  <!-- 商家返利比例 -->
+	</sql>
+	
+	<!-- 表字段(用于外表的关联时引用) -->
+	<sql id="column2">
+		  zjc_goods_category.id,  <!-- 商品分类id -->
+		  zjc_goods_category.name,  <!-- 商品分类名称 -->
+		  zjc_goods_category.mobile_name,  <!-- 手机端显示的商品分类名 -->
+		  zjc_goods_category.parent_id,  <!-- 父id -->
+		  zjc_goods_category.parent_id_path,  <!-- 家族图谱 -->
+		  zjc_goods_category.level,  <!-- 等级 -->
+		  zjc_goods_category.sort_order,  <!-- 顺序排序 -->
+		  zjc_goods_category.is_show,  <!-- 是否显示 -->
+		  zjc_goods_category.image,  <!-- 分类图片 -->
+		  zjc_goods_category.is_hot,  <!-- 是否推荐为热门分类 -->
+		  zjc_goods_category.cat_group,  <!-- 分类分组默认0 -->
+		  zjc_goods_category.commission_rate_1,  <!-- 提成比例一 -->
+		  zjc_goods_category.commission_rate_2,  <!-- 提成比例二 -->
+		  zjc_goods_category.commission_rate_3,  <!-- 提成比例二 -->
+		  zjc_goods_category.wallet_amplification_rate,  <!-- 钱包扩增比例 -->
+		  zjc_goods_category.store_rebate_rate  <!-- 商家返利比例 -->
+	</sql>
+
+	<!-- Where精确匹配字段 -->
+	<sql id="equal">
+	   <if test="id != null ">
+		      AND id = #{id}  <!-- 商品分类id -->
+		</if>
+	    <if test="name != null and name != ''">
+		      AND name = #{name}  <!-- 商品分类名称 -->
+		</if>
+	    <if test="mobile_name != null and mobile_name != ''">
+		      AND mobile_name = #{mobile_name}  <!-- 手机端显示的商品分类名 -->
+		</if>
+	   <if test="parent_id != null ">
+		      AND parent_id = #{parent_id}  <!-- 父id -->
+		</if>
+	    <if test="parent_id_path != null and parent_id_path != ''">
+		      AND parent_id_path = #{parent_id_path}  <!-- 家族图谱 -->
+		</if>
+	   <if test="level != null ">
+		      AND level = #{level}  <!-- 等级 -->
+		</if>
+	   <if test="sort_order != null ">
+		      AND sort_order = #{sort_order}  <!-- 顺序排序 -->
+		</if>
+	   <if test="is_show != null ">
+		      AND is_show = #{is_show}  <!-- 是否显示 -->
+		</if>
+	    <if test="image != null and image != ''">
+		      AND image = #{image}  <!-- 分类图片 -->
+		</if>
+	   <if test="is_hot != null ">
+		      AND is_hot = #{is_hot}  <!-- 是否推荐为热门分类 -->
+		</if>
+	   <if test="cat_group != null ">
+		      AND cat_group = #{cat_group}  <!-- 分类分组默认0 -->
+		</if>
+	    <if test="commission_rate_1 != null and commission_rate_1 != ''">
+		      AND commission_rate_1 = #{commission_rate_1}  <!-- 提成比例一 -->
+		</if>
+	    <if test="commission_rate_2 != null and commission_rate_2 != ''">
+		      AND commission_rate_2 = #{commission_rate_2}  <!-- 提成比例二 -->
+		</if>
+	    <if test="commission_rate_3 != null and commission_rate_3 != ''">
+		      AND commission_rate_3 = #{commission_rate_3}  <!-- 提成比例二 -->
+		</if>
+	    <if test="wallet_amplification_rate != null and wallet_amplification_rate != ''">
+		      AND wallet_amplification_rate = #{wallet_amplification_rate}  <!-- 钱包扩增比例 -->
+		</if>
+	    <if test="store_rebate_rate != null and store_rebate_rate != ''">
+		      AND store_rebate_rate = #{store_rebate_rate}  <!-- 商家返利比例 -->
+		</if>
+	</sql>
+	
+	<!-- Where模糊匹配字段 -->
+	<sql id="like">
+	    <if test="name != null and name != ''">
+		      AND name like '${name}%'  <!-- 商品分类名称 -->
+		</if>
+	    <if test="mobile_name != null and mobile_name != ''">
+		      AND mobile_name like '${mobile_name}%'  <!-- 手机端显示的商品分类名 -->
+		</if>
+	    <if test="parent_id_path != null and parent_id_path != ''">
+		      AND parent_id_path like '${parent_id_path}%'  <!-- 家族图谱 -->
+		</if>
+	    <if test="image != null and image != ''">
+		      AND image like '${image}%'  <!-- 分类图片 -->
+		</if>
+	    <if test="commission_rate_1 != null and commission_rate_1 != ''">
+		      AND commission_rate_1 like '${commission_rate_1}%'  <!-- 提成比例一 -->
+		</if>
+	    <if test="commission_rate_2 != null and commission_rate_2 != ''">
+		      AND commission_rate_2 like '${commission_rate_2}%'  <!-- 提成比例二 -->
+		</if>
+	    <if test="commission_rate_3 != null and commission_rate_3 != ''">
+		      AND commission_rate_3 like '${commission_rate_3}%'  <!-- 提成比例二 -->
+		</if>
+	    <if test="wallet_amplification_rate != null and wallet_amplification_rate != ''">
+		      AND wallet_amplification_rate like '${wallet_amplification_rate}%'  <!-- 钱包扩增比例 -->
+		</if>
+	    <if test="store_rebate_rate != null and store_rebate_rate != ''">
+		      AND store_rebate_rate like '${store_rebate_rate}%'  <!-- 商家返利比例 -->
+		</if>
+	</sql>
+	
+	<resultMap type="ZjcGoodsCategoryVO" id="goods_category">
+		<result property="id" column="id" />
+		<result property="name" column="name" />
+		<result property="level" column="level" />
+		<result property="parent_id" column="parent_id" />
+		<collection property="tmenu" ofType="ZjcGoodsCategoryVO" >
+			<result property="id" column="zid" />
+			<result property="name" column="zname" />
+			<result property="level" column="zlevel" />
+			<result property="parent_id" column="zparent_id" />
+		</collection>
+	</resultMap>
+	
+	<!-- =============================================商家App============================================================= -->
+	<!-- 商家App查询商家分类组件数据(重点是字段的别名) -->
+	<select id="getCategoryTreeApp" resultType="Dto">
+		SELECT
+		id AS value, name AS display
+		FROM
+		zjc_goods_category 
+		<where>
+			parent_id = 0
+		    <if test="cat_id != null ">
+		        AND id = #{cat_id}  <!-- 商品分类id -->
+			</if>
+		</where>
+		order by id
+	</select>
+</mapper>

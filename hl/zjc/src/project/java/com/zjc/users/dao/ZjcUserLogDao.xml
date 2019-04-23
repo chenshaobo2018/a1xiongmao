@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- zjc_user_log[zjc_user_log]SQL自动映射 -->
+<!--  注意:此文件由AOS平台自动生成-禁止手工修改 2017-06-12 09:41:29 -->
+<mapper namespace="com.zjc.users.dao.ZjcUserLogDao">
+	
+	<!-- 插入一个数据持久化对象(插入字段为传入PO实体的非空属性) -->
+	<insert id="insert"  parameterType="ZjcUserLogPO">
+		INSERT INTO zjc_user_log (
+		<if test="user_id != null">
+	         user_id, <!-- 用户id -->
+		</if>
+		<if test="time != null and time != ''">
+	         time, <!-- 操作时间 -->
+		</if>
+		<if test="type != null and type != ''">
+	         type, <!--  操作类型 -->
+		</if>
+		<if test="descs != null and descs != ''">
+	         descs, <!-- 描述 -->
+		</if>
+		<if test="show_type != null">
+	         show_type <!-- 展示类型；0表示app展示，1表示系统后台展示 -->
+		</if>
+		)VALUES(
+		<if test="user_id != null">
+	          #{user_id, jdbcType=INTEGER}, <!-- 用户id -->
+	    </if>
+		<if test="time != null and time != ''">
+	          #{time, jdbcType=VARCHAR}, <!-- 操作时间 -->
+	    </if>
+		<if test="type != null and type != ''">
+	          #{type, jdbcType=VARCHAR}, <!--  操作类型 -->
+	    </if>
+		<if test="descs != null and descs != ''">
+	          #{descs, jdbcType=VARCHAR}, <!-- 描述 -->
+	    </if>
+	    <if test="show_type != null">
+	          #{show_type, jdbcType=INTEGER} <!-- 展示类型；0表示app展示，1表示系统后台展示 -->
+	    </if>
+		)
+	</insert>
+	
+	<!-- 插入一个数据持久化对象(含所有字段) -->
+	<insert id="insertAll"  parameterType="ZjcUserLogPO">
+		INSERT INTO zjc_user_log (
+		    <include refid="column" />
+		)
+		VALUES (
+		    #{user_id, jdbcType=INTEGER},  <!-- 用户id -->
+		    #{time, jdbcType=VARCHAR},  <!-- 操作时间 -->
+		    #{type, jdbcType=VARCHAR},  <!--  操作类型 -->
+		    #{descs, jdbcType=VARCHAR},  <!-- 描述 -->
+		    #{show_type, jdbcType=INTEGER} <!-- 展示类型；0表示app展示，1表示系统后台展示 -->
+		)
+	</insert>
+
+	<!-- 根据主键修改数据持久化对象 -->
+	<update id="updateByKey" parameterType="ZjcUserLogPO">
+		UPDATE zjc_user_log
+		<set>
+			<if test="user_id != null">
+		          user_id = #{user_id, jdbcType=INTEGER},  <!-- 用户id -->
+			</if>
+			<if test="time != null">
+		          time = #{time, jdbcType=VARCHAR},  <!-- 操作时间 -->
+			</if>
+			<if test="type != null">
+		          type = #{type, jdbcType=VARCHAR},  <!--  操作类型 -->
+			</if>
+			<if test="descs != null">
+		          descs = #{descs, jdbcType=VARCHAR},  <!-- 描述 -->
+			</if>
+			 <if test="show_type != null">
+		          show_type = #{show_type, jdbcType=INTEGER}, <!-- 展示类型；0表示app展示，1表示系统后台展示 -->
+		    </if>
+		</set>
+		WHERE 
+	</update>
+	
+	<!-- 根据主键删除数据持久化对象 -->
+	<delete id="deleteByKey">
+		DELETE FROM zjc_user_log WHERE 
+	</delete>
+
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="selectByKey" resultType="ZjcUserLogPO">
+		SELECT
+		<include refid="column" />
+		FROM zjc_user_log WHERE 
+	</select>
+
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="selectOne" parameterType="Dto" resultType="ZjcUserLogPO">
+		SELECT
+		    <include refid="column" />
+		FROM zjc_user_log
+		<where>
+		    <include refid="equal" />
+		</where>		
+	</select>
+
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="list" parameterType="Dto" resultType="ZjcUserLogPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_user_log
+		<where>
+		    <include refid="equal" />
+		</where>
+		order by time desc	
+	</select>
+    
+    <!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listLogPage" parameterType="Dto" resultType="ZjcUserLogPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_user_log t
+		<where>
+		   t.type like '%xpt%'
+		</where>
+		order by time desc
+	</select>
+    
+    
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listPage" parameterType="Dto" resultType="ZjcUserLogPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_user_log
+		<where>
+		    <include refid="equal" />
+		</where>
+		order by time desc
+	</select>
+	<!-- app接口日志查询 -->
+	<select id="listUserLogPage" parameterType="Dto" resultType="ZjcUserLogPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_user_log
+		<where>
+			show_type = 1
+			<if test="user_id != null ">
+			      AND user_id = #{user_id}  <!-- 用户id -->
+			</if>
+		    <if test="time != null and time != ''">
+			      AND time = #{time}  <!-- 操作时间 -->
+			</if>
+		</where>
+		order by time desc
+	</select>
+	
+	<select id="RecentDays" parameterType="ZjcUserLogPO" resultType="ZjcUserLogPO" useCache="false">
+	    SELECT * from zjc_user_log where user_id = #{user_id} and to_days(time) = to_days(now()) order by time desc
+	</select>
+	
+	<select id="RecentWeeks" parameterType="ZjcUserLogPO" resultType="ZjcUserLogPO" useCache="false">
+	    SELECT * from zjc_user_log where user_id = #{user_id} and DATE_SUB(CURDATE(), INTERVAL 7 DAY) &lt;= date(time) order by time desc 
+	</select>
+	
+	<select id="RecentMonths" parameterType="ZjcUserLogPO" resultType="ZjcUserLogPO" useCache="false">
+	    SELECT * from zjc_user_log where user_id = #{user_id} and DATE_SUB(CURDATE(), INTERVAL 30 DAY) &lt;= date(time) order by time desc
+	</select>
+
+	<!-- 根据Dto模糊查询并返回数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="like" parameterType="Dto" resultType="ZjcUserLogPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_user_log
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto模糊查询并返回分页数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="likePage" parameterType="Dto" resultType="ZjcUserLogPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_user_log
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto统计行数 -->
+	<select id="rows" resultType="Integer" parameterType="Dto">
+		SELECT COUNT(1) AS aos_rows_ FROM zjc_user_log
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 根据数学表达式进行数学运算 -->
+	<select id="calc" parameterType="Dto" resultType="String">
+		SELECT
+			${_expr}
+		FROM zjc_user_log
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 表字段 -->
+	<sql id="column">
+		  user_id,  <!-- 用户id -->
+		  time,  <!-- 操作时间 -->
+		  type,  <!--  操作类型 -->
+		  descs,  <!-- 描述 -->
+		  show_type <!-- 展示类型；0表示app展示，1表示系统后台展示 -->
+	</sql>
+	
+	<!-- 表字段(用于外表的关联时引用) -->
+	<sql id="column2">
+		  zjc_user_log.user_id,  <!-- 用户id -->
+		  zjc_user_log.time,  <!-- 操作时间 -->
+		  zjc_user_log.type,  <!--  操作类型 -->
+		  zjc_user_log.descs,  <!-- 描述 -->
+		  zjc_user_log.show_type <!-- 展示类型；0表示app展示，1表示系统后台展示 -->
+	</sql>
+
+	<!-- Where精确匹配字段 -->
+	<sql id="equal">
+	   <if test="user_id != null ">
+		      AND user_id = #{user_id}  <!-- 用户id -->
+		</if>
+	    <if test="time != null and time != ''">
+		      AND time = #{time}  <!-- 操作时间 -->
+		</if>
+	    <if test="type != null and type != ''">
+		      AND type = #{type}  <!--  操作类型 -->
+		</if>
+	    <if test="descs != null and descs != ''">
+		      AND descs = #{descs}  <!-- 描述 -->
+		</if>
+		 <if test="show_type != null">
+		      AND show_type = #{show_type}  <!-- 展示类型；0表示app展示，1表示系统后台展示 -->
+		</if>
+	</sql>
+	
+	<!-- Where模糊匹配字段 -->
+	<sql id="like">
+	    <if test="time != null and time != ''">
+		      AND time like '${time}%'  <!-- 操作时间 -->
+		</if>
+	    <if test="type != null and type != ''">
+		      AND type like '${type}%'  <!--  操作类型 -->
+		</if>
+	    <if test="descs != null and descs != ''">
+		      AND descs like '${descs}%'  <!-- 描述 -->
+		</if>
+	</sql>
+	<!-- 插入一个数据持久化对象(插入字段为传入PO实体的非空属性) -->
+	<insert id="insert1"  parameterType="ZjcUserLogPO">
+		INSERT INTO zjc_user_log (
+		<if test="user_id != null">
+	         user_id, <!-- 用户id -->
+		</if>
+	         time, <!-- 操作时间 -->
+		<if test="type != null and type != ''">
+	         type, <!--  操作类型 -->
+		</if>
+		<if test="descs != null and descs != ''">
+	         descs, <!-- 描述 -->
+		</if>
+		<if test="show_type != null and show_type != ''">
+	         show_type <!-- 描述 -->
+		</if>
+		)VALUES(
+		<if test="user_id != null">
+	          #{user_id, jdbcType=INTEGER}, <!-- 用户id -->
+	    </if>
+	          NOW(), <!-- 操作时间 -->
+		<if test="type != null and type != ''">
+	          #{type, jdbcType=VARCHAR}, <!--  操作类型 -->
+	    </if>
+		<if test="descs != null and descs != ''">
+	          #{descs, jdbcType=VARCHAR}, <!-- 描述 -->
+	    </if>
+	    <if test="show_type != null">
+	          #{show_type, jdbcType=INTEGER} <!-- 展示类型；0表示app展示，1表示系统后台展示 -->
+	    </if>
+		)
+	</insert>
+	
+	<select id="serachLogPage" parameterType="Dto" resultType="ZjcUserLogPO" useCache="false">
+	   select * from zjc_user_log 
+	   <where>
+	   		user_id = #{user_id}
+	   		<choose>
+	   			<when test="condition == '0'">
+	   				and to_days(time) = to_days(now())
+	   			</when>
+	   			<when test="condition == '1'">
+	   				and DATE_SUB(CURDATE(), INTERVAL 7 DAY) &lt;= date(time)
+	   			</when>
+	   			<when test="condition == '2'">
+	   				and DATE_SUB(CURDATE(), INTERVAL 30 DAY) &lt;= date(time)
+	   			</when>
+	   		</choose>
+	   </where>	
+	</select>
+	
+	<select id="demo" parameterType="Dto" resultType="Dto">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_user_log
+		<where>
+		    user_id = 10025
+		</where>
+		order by time desc limit 0,50	
+	</select>
+	
+	<select id="getAfterSaleLogPage" parameterType="Dto" resultType="Dto">
+		select * from zjc_user_log 
+		<where>
+			<if test="start_time != null and start_time != ''">
+				time &gt;= #{start_time}
+			</if>
+			<if test="end_time != null and end_time != ''">
+				and time &lt;= #{end_time}
+			</if>
+			and type in ('商城赠送', '售后处理')
+		</where>
+	</select>
+</mapper>

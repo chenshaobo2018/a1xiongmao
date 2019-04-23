@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- zjc_brand[zjc_brand]SQL自动映射 -->
+<!--  注意:此文件由AOS平台自动生成-禁止手工修改 2017-06-06 15:57:52 -->
+<mapper namespace="com.zjc.goods.dao.ZjcBrandDao">
+	
+	<!-- 插入一个数据持久化对象(插入字段为传入PO实体的非空属性) -->
+	<insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="ZjcBrandPO">
+		INSERT INTO zjc_brand (
+		<if test="name != null and name != ''">
+	         name, <!-- 品牌名称 -->
+		</if>
+		<if test="logo != null and logo != ''">
+	         logo, <!-- 品牌logo -->
+		</if>
+		<if test="url != null and url != ''">
+	         url, <!-- 品牌地址 -->
+		</if>
+		<if test="sort != null">
+	         sort, <!-- 排序 -->
+		</if>
+		<if test="cat_name != null and cat_name != ''">
+	         cat_name, <!-- 品牌分类 -->
+		</if>
+		<if test="parent_cat_id != null">
+	         parent_cat_id, <!-- 分类id -->
+		</if>
+		<if test="cat_id != null">
+	         cat_id, <!-- 分类id -->
+		</if>
+		<if test="is_hot != null">
+	         is_hot, <!-- 是否推荐 -->
+		</if>
+	          id
+		)VALUES(
+		<if test="name != null and name != ''">
+	          #{name, jdbcType=VARCHAR}, <!-- 品牌名称 -->
+	    </if>
+		<if test="logo != null and logo != ''">
+	          #{logo, jdbcType=VARCHAR}, <!-- 品牌logo -->
+	    </if>
+		<if test="url != null and url != ''">
+	          #{url, jdbcType=VARCHAR}, <!-- 品牌地址 -->
+	    </if>
+		<if test="sort != null">
+	          #{sort, jdbcType=INTEGER}, <!-- 排序 -->
+	    </if>
+		<if test="cat_name != null and cat_name != ''">
+	          #{cat_name, jdbcType=VARCHAR}, <!-- 品牌分类 -->
+	    </if>
+		<if test="parent_cat_id != null">
+	          #{parent_cat_id, jdbcType=INTEGER}, <!-- 分类id -->
+	    </if>
+		<if test="cat_id != null">
+	          #{cat_id, jdbcType=INTEGER}, <!-- 分类id -->
+	    </if>
+		<if test="is_hot != null">
+	          #{is_hot, jdbcType=INTEGER}, <!-- 是否推荐 -->
+	    </if>
+	          null
+		)
+	</insert>
+	
+	<!-- 插入一个数据持久化对象(含所有字段) -->
+	<insert id="insertAll" useGeneratedKeys="true" keyProperty="id" parameterType="ZjcBrandPO">
+		INSERT INTO zjc_brand (
+		    <include refid="column" />
+		)
+		VALUES (
+		    #{id, jdbcType=INTEGER},  <!-- 品牌表 -->
+		    #{name, jdbcType=VARCHAR},  <!-- 品牌名称 -->
+		    #{logo, jdbcType=VARCHAR},  <!-- 品牌logo -->
+		    #{url, jdbcType=VARCHAR},  <!-- 品牌地址 -->
+		    #{sort, jdbcType=INTEGER},  <!-- 排序 -->
+		    #{cat_name, jdbcType=VARCHAR},  <!-- 品牌分类 -->
+		    #{parent_cat_id, jdbcType=INTEGER},  <!-- 分类id -->
+		    #{cat_id, jdbcType=INTEGER},  <!-- 分类id -->
+		    #{is_hot, jdbcType=INTEGER}  <!-- 是否推荐 -->
+		)
+	</insert>
+
+	<!-- 根据主键修改数据持久化对象 -->
+	<update id="updateByKey" parameterType="ZjcBrandPO">
+		UPDATE zjc_brand
+		<set>
+			<if test="id != null">
+		          id = #{id, jdbcType=INTEGER},  <!-- 品牌表 -->
+			</if>
+			<if test="name != null">
+		          name = #{name, jdbcType=VARCHAR},  <!-- 品牌名称 -->
+			</if>
+			<if test="logo != null">
+		          logo = #{logo, jdbcType=VARCHAR},  <!-- 品牌logo -->
+			</if>
+			<if test="url != null">
+		          url = #{url, jdbcType=VARCHAR},  <!-- 品牌地址 -->
+			</if>
+			<if test="sort != null">
+		          sort = #{sort, jdbcType=INTEGER},  <!-- 排序 -->
+			</if>
+			<if test="cat_name != null">
+		          cat_name = #{cat_name, jdbcType=VARCHAR},  <!-- 品牌分类 -->
+			</if>
+			<if test="parent_cat_id != null">
+		          parent_cat_id = #{parent_cat_id, jdbcType=INTEGER},  <!-- 分类id -->
+			</if>
+			<if test="cat_id != null">
+		          cat_id = #{cat_id, jdbcType=INTEGER},  <!-- 分类id -->
+			</if>
+			<if test="is_hot != null">
+		          is_hot = #{is_hot, jdbcType=INTEGER},  <!-- 是否推荐 -->
+			</if>
+		</set>
+		WHERE  id = #{id}
+	</update>
+	
+	<!-- 根据主键删除数据持久化对象 -->
+	<delete id="deleteByKey">
+		DELETE FROM zjc_brand WHERE  id = #{id}
+	</delete>
+
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="selectByKey" resultType="ZjcBrandPO">
+		SELECT
+		<include refid="column" />
+		FROM zjc_brand WHERE  id = #{id}
+	</select>
+
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="selectOne" parameterType="Dto" resultType="ZjcBrandPO">
+		SELECT
+		    <include refid="column" />
+		FROM zjc_brand
+		<where>
+		    <include refid="equal" />
+		</where>		
+	</select>
+
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="list" parameterType="Dto" resultType="ZjcBrandPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_brand
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listPage" parameterType="Dto" resultType="ZjcBrandPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_brand
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto模糊查询并返回数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="like" parameterType="Dto" resultType="ZjcBrandPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_brand
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto模糊查询并返回分页数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="likePage" parameterType="Dto" resultType="ZjcBrandPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_brand
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+	
+	<!-- 查询自定义下拉组件数据(重点是字段的别名) -->
+	<select id="listBrandComboBoxData" resultType="Dto">
+		SELECT
+		id AS value, name AS display
+		FROM
+		zjc_brand
+	</select>
+	
+	<!-- 根据Dto统计行数 -->
+	<select id="rows" resultType="Integer" parameterType="Dto">
+		SELECT COUNT(1) AS aos_rows_ FROM zjc_brand
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 根据数学表达式进行数学运算 -->
+	<select id="calc" parameterType="Dto" resultType="String">
+		SELECT
+			${_expr}
+		FROM zjc_brand
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 表字段 -->
+	<sql id="column">
+		  id,  <!-- 品牌表 -->
+		  name,  <!-- 品牌名称 -->
+		  logo,  <!-- 品牌logo -->
+		  url,  <!-- 品牌地址 -->
+		  sort,  <!-- 排序 -->
+		  cat_name,  <!-- 品牌分类 -->
+		  parent_cat_id,  <!-- 分类id -->
+		  cat_id,  <!-- 分类id -->
+		  is_hot  <!-- 是否推荐 -->
+	</sql>
+	
+	<!-- 表字段(用于外表的关联时引用) -->
+	<sql id="column2">
+		  zjc_brand.id,  <!-- 品牌表 -->
+		  zjc_brand.name,  <!-- 品牌名称 -->
+		  zjc_brand.logo,  <!-- 品牌logo -->
+		  zjc_brand.url,  <!-- 品牌地址 -->
+		  zjc_brand.sort,  <!-- 排序 -->
+		  zjc_brand.cat_name,  <!-- 品牌分类 -->
+		  zjc_brand.parent_cat_id,  <!-- 分类id -->
+		  zjc_brand.cat_id,  <!-- 分类id -->
+		  zjc_brand.is_hot  <!-- 是否推荐 -->
+	</sql>
+
+	<!-- Where精确匹配字段 -->
+	<sql id="equal">
+	   <if test="id != null ">
+		      AND id = #{id}  <!-- 品牌表 -->
+		</if>
+	    <if test="name != null and name != ''">
+		      AND name = #{name}  <!-- 品牌名称 -->
+		</if>
+	    <if test="logo != null and logo != ''">
+		      AND logo = #{logo}  <!-- 品牌logo -->
+		</if>
+	    <if test="url != null and url != ''">
+		      AND url = #{url}  <!-- 品牌地址 -->
+		</if>
+	   <if test="sort != null ">
+		      AND sort = #{sort}  <!-- 排序 -->
+		</if>
+	    <if test="cat_name != null and cat_name != ''">
+		      AND cat_name = #{cat_name}  <!-- 品牌分类 -->
+		</if>
+	   <if test="parent_cat_id != null ">
+		      AND parent_cat_id = #{parent_cat_id}  <!-- 分类id -->
+		</if>
+	   <if test="cat_id != null ">
+		      AND cat_id = #{cat_id}  <!-- 分类id -->
+		</if>
+	   <if test="is_hot != null ">
+		      AND is_hot = #{is_hot}  <!-- 是否推荐 -->
+		</if>
+	</sql>
+	
+	<!-- Where模糊匹配字段 -->
+	<sql id="like">
+	    <if test="name != null and name != ''">
+		      AND name like '${name}%'  <!-- 品牌名称 -->
+		</if>
+	    <if test="logo != null and logo != ''">
+		      AND logo like '${logo}%'  <!-- 品牌logo -->
+		</if>
+	    <if test="url != null and url != ''">
+		      AND url like '${url}%'  <!-- 品牌地址 -->
+		</if>
+	    <if test="cat_name != null and cat_name != ''">
+		      AND cat_name like '${cat_name}%'  <!-- 品牌分类 -->
+		</if>
+	</sql>
+</mapper>

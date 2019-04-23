@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- zjc_sign_record[zjc_sign_record]SQL自动映射 -->
+<!--  注意:此文件由AOS平台自动生成-禁止手工修改 2017-07-14 11:07:20 -->
+<mapper namespace="com.api.sign.dao.ZjcSignRecordDao">
+	
+	<!-- 插入一个数据持久化对象(插入字段为传入PO实体的非空属性) -->
+	<insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="ZjcSignRecordPO">
+		INSERT INTO zjc_sign_record (
+		<if test="user_id != null">
+	         user_id, <!-- 用户ID -->
+		</if>
+		<if test="score != null">
+	         score, <!-- 易物券 -->
+		</if>
+	         time, <!-- 签到时间 -->
+		<if test="desc != null and desc != ''">
+	         `desc`, <!-- 描述 -->
+		</if>
+		<if test="total != null">
+	         total, <!-- 总计获取易物券 -->
+		</if>
+		<if test="abvial_total != null">
+	         abvial_total, <!-- 可转出的易物券 -->
+		</if>
+		<if test="type != null">
+	         type, <!-- 类型 -->
+		</if>
+	          id
+		)VALUES(
+		<if test="user_id != null">
+	          #{user_id, jdbcType=INTEGER}, <!-- 用户ID -->
+	    </if>
+		<if test="score != null">
+	          #{score, jdbcType=INTEGER}, <!-- 易物券 -->
+	    </if>
+	          NOW(), <!-- 签到时间 -->
+		<if test="desc != null and desc != ''">
+	          #{desc, jdbcType=VARCHAR}, <!-- 描述 -->
+	    </if>
+		<if test="total != null">
+	          #{total, jdbcType=INTEGER}, <!-- 总计获取易物券 -->
+	    </if>
+		<if test="abvial_total != null">
+	          #{abvial_total, jdbcType=INTEGER}, <!-- 可转出的易物券 -->
+	    </if>
+		<if test="type != null">
+	          #{type, jdbcType=INTEGER}, <!-- 类型 -->
+	    </if>
+	          null
+		)
+	</insert>
+	
+	<!-- 插入一个数据持久化对象(含所有字段) -->
+	<insert id="insertAll" useGeneratedKeys="true" keyProperty="id" parameterType="ZjcSignRecordPO">
+		INSERT INTO zjc_sign_record (
+		    <include refid="column" />
+		)
+		VALUES (
+		    #{id, jdbcType=INTEGER},  <!-- 主键ID -->
+		    #{user_id, jdbcType=INTEGER},  <!-- 用户ID -->
+		    #{score, jdbcType=INTEGER},  <!-- 易物券 -->
+		    #{time, jdbcType=Date},  <!-- 签到时间 -->
+		     #{desc, jdbcType=VARCHAR},  <!-- 描述 -->
+		    #{total, jdbcType=INTEGER},  <!-- 总计获取易物券 -->
+		    #{abvial_total, jdbcType=INTEGER},  <!-- 可转出的易物券 -->
+		    #{type, jdbcType=INTEGER}  <!-- 类型 -->
+		)
+	</insert>
+	
+
+	<!-- 根据主键修改数据持久化对象 -->
+	<update id="updateByKey" parameterType="ZjcSignRecordPO">
+		UPDATE zjc_sign_record
+		<set>
+			<if test="id != null">
+		          id = #{id, jdbcType=INTEGER},  <!-- 主键ID -->
+			</if>
+			<if test="user_id != null">
+		          user_id = #{user_id, jdbcType=INTEGER},  <!-- 用户ID -->
+			</if>
+			<if test="score != null">
+		          score = #{score, jdbcType=INTEGER},  <!-- 易物券 -->
+			</if>
+			<if test="time != null">
+		          time = #{time, jdbcType=Date},  <!-- 签到时间 -->
+			</if>
+			<if test="desc != null">
+		          desc = #{desc, jdbcType=VARCHAR},  <!-- 描述 -->
+			</if>
+			<if test="total != null">
+		          total = #{total, jdbcType=INTEGER},  <!-- 总计获取易物券 -->
+			</if>
+			<if test="abvial_total != null">
+		          abvial_total = #{abvial_total, jdbcType=INTEGER},  <!-- 可转出的易物券 -->
+			</if>
+			<if test="type != null">
+		          type = #{type, jdbcType=INTEGER},  <!-- 类型 -->
+			</if>
+		</set>
+		WHERE  id = #{id}
+	</update>
+	
+	<!-- 根据主键删除数据持久化对象 -->
+	<delete id="deleteByKey">
+		DELETE FROM zjc_sign_record WHERE  id = #{id}
+	</delete>
+
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="selectByKey" resultType="ZjcSignRecordPO">
+		SELECT
+		<include refid="column" />
+		FROM zjc_sign_record WHERE  id = #{id}
+	</select>
+
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="selectOne" parameterType="Dto" resultType="ZjcSignRecordPO">
+		SELECT
+		    <include refid="column" />
+		FROM zjc_sign_record
+		<where>
+		    <include refid="equal" />
+		</where>		
+	</select>
+	
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="list" parameterType="Dto" resultType="ZjcSignRecordPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_sign_record
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listPage" parameterType="Dto" resultType="ZjcSignRecordPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_sign_record
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto模糊查询并返回数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="like" parameterType="Dto" resultType="ZjcSignRecordPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_sign_record
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto模糊查询并返回分页数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="likePage" parameterType="Dto" resultType="ZjcSignRecordPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_sign_record
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto统计行数 -->
+	<select id="rows" resultType="Integer" parameterType="Dto">
+		SELECT COUNT(1) AS aos_rows_ FROM zjc_sign_record
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 根据数学表达式进行数学运算 -->
+	<select id="calc" parameterType="Dto" resultType="String">
+		SELECT
+			${_expr}
+		FROM zjc_sign_record
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 表字段 -->
+	<sql id="column">
+		  id,  <!-- 主键ID -->
+		  user_id,  <!-- 用户ID -->
+		  score,  <!-- 易物券 -->
+		  time,  <!-- 签到时间 -->
+		  `desc`,  <!-- 描述 -->
+		  total,  <!-- 总计获取易物券 -->
+		  abvial_total,  <!-- 可转出的易物券 -->
+		  type  <!-- 类型 -->
+	</sql>
+	
+	<!-- 表字段(用于外表的关联时引用) -->
+	<sql id="column2">
+		  zjc_sign_record.id,  <!-- 主键ID -->
+		  zjc_sign_record.user_id,  <!-- 用户ID -->
+		  zjc_sign_record.score,  <!-- 易物券 -->
+		  zjc_sign_record.time,  <!-- 签到时间 -->
+		  zjc_sign_record.desc,  <!-- 描述 -->
+		  zjc_sign_record.total,  <!-- 总计获取易物券 -->
+		  zjc_sign_record.abvial_total,  <!-- 可转出的易物券 -->
+		  zjc_sign_record.type  <!-- 类型 -->
+	</sql>
+
+	<!-- Where精确匹配字段 -->
+	<sql id="equal">
+	   <if test="id != null ">
+		      AND id = #{id}  <!-- 主键ID -->
+		</if>
+	   <if test="user_id != null ">
+		      AND user_id = #{user_id}  <!-- 用户ID -->
+		</if>
+	   <if test="score != null ">
+		      AND score = #{score}  <!-- 易物券 -->
+		</if>
+	   <if test="time != null ">
+		      AND time = #{time}  <!-- 签到时间 -->
+		</if>
+	    <if test="desc != null and desc != ''">
+		      AND desc = #{desc}  <!-- 描述 -->
+		</if>
+	   <if test="total != null ">
+		      AND total = #{total}  <!-- 总计获取易物券 -->
+		</if>
+	   <if test="abvial_total != null ">
+		      AND abvial_total = #{abvial_total}  <!-- 可转出的易物券 -->
+		</if>
+	   <if test="type != null ">
+		      AND type = #{type}  <!-- 类型 -->
+		</if>
+	</sql>
+	
+	<!-- Where模糊匹配字段 -->
+	<sql id="like">
+	    <if test="desc != null and desc != ''">
+		      AND desc like '${desc}%'  <!-- 描述 -->
+		</if>
+	</sql>
+	
+	<!-- Where精确匹配字段 -->
+	<sql id="equal2">
+	   <if test="user_id != null ">
+		      AND user_id = #{user_id}  <!-- 用户ID -->
+		</if>
+	    <if test="desc != null and desc != ''">
+		      AND desc = #{desc}  <!-- 描述 -->
+		</if>
+	</sql>
+	<!-- ================================APP接口================================ -->
+	<!-- 查询签到次数 -->
+	<select id="signTimes" parameterType="Dto" resultType="Integer">
+		select count(user_id) from zjc_sign_record where user_id = #{user_id} and `desc` = "用户签到"  
+	</select>
+	<!-- 查询用户累计签到获取易物劵 -->
+	<select id="getSignTotal" parameterType="Dto" resultType="Integer">
+		select MAX(t1.total) from zjc_sign_record t1 where t1.user_id = #{user_id}
+	</select>
+	<!-- 查询用户当前可以转出易物劵 -->
+	<select id="getAbTotal" parameterType="Dto" resultType="Integer">
+		select abvial_total from zjc_sign_record where user_id = #{user_id} order by time desc limit 0,1
+	</select>
+	<!-- 查询用户当月的签到数据 -->
+	<select id="listMonthSign" parameterType="Dto" resultType="ZjcSignRecordPO">
+		select * from zjc_sign_record 
+		where user_id = #{user_id} 
+		and time > DATE_ADD(curdate(),interval -day(curdate())+1 day)
+		and time &lt; DATE_ADD(curdate()-day(curdate())+1,interval 1 month)
+		and type = 1
+		order by time desc
+	</select>
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="findCurrent" parameterType="Dto" resultType="ZjcSignRecordPO">
+		SELECT
+		    <include refid="column" />
+		FROM zjc_sign_record
+		<where>
+		    user_id  = #{user_id} order by id desc limit 0,1
+		</where>		
+	</select>
+	
+	<!-- 根据用户id查询当天用户签到数据 -->
+	<select id="selectByToday" parameterType="Dto" resultType="ZjcSignRecordPO">
+		SELECT
+		    <include refid="column" />
+		FROM zjc_sign_record
+		<where>
+		   user_id  = #{user_id} and to_days(#{nowDate}) = to_days(time)
+		</where>		
+	</select>
+</mapper>

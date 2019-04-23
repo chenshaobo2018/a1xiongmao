@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- t_outbound[t_outbound]SQL自动映射 -->
+<!--  注意:此文件由AOS平台自动生成-禁止手工修改 2019-03-05 10:01:11 -->
+<mapper namespace="com.api.hl.dao.TGutboundDao">
+	
+	<!-- 插入一个数据持久化对象(插入字段为传入PO实体的非空属性) -->
+	<insert id="insert"  parameterType="TGutboundPO">
+		INSERT INTO t_outbound (
+		<if test="goods != null and goods != ''">
+	         goods, <!-- goods -->
+		</if>
+		<if test="num != null and num != ''">
+	         num, <!-- num -->
+		</if>
+		<if test="user_account != null and user_account != ''">
+	         user_account, <!-- user_account -->
+		</if>
+		<if test="user_name != null and user_name != ''">
+	         user_name, <!-- user_name -->
+		</if>
+		<if test="add_time != null and add_time != ''">
+	         add_time, <!-- add_time -->
+		</if>
+		<if test="id != null and id != ''">
+	          id  <!-- id -->
+	   </if>
+		)VALUES(
+		<if test="goods != null and goods != ''">
+	          #{goods, jdbcType=VARCHAR}, <!-- goods -->
+	    </if>
+		<if test="num != null and num != ''">
+	          #{num, jdbcType=VARCHAR}, <!-- num -->
+	    </if>
+	    <if test="user_account != null and user_account != ''">
+	          #{user_account, jdbcType=VARCHAR}, <!-- user_account -->
+		</if>
+		<if test="user_name != null and user_name != ''">
+	         #{user_name, jdbcType=VARCHAR},
+		</if>
+		<if test="add_time != null and add_time != ''">
+	         #{add_time, jdbcType=VARCHAR},
+		</if>
+		<if test="id != null and id != ''">
+		     #{id, jdbcType=VARCHAR}  <!-- id -->
+	    </if>
+		)
+	</insert>
+	
+	<!-- 插入一个数据持久化对象(含所有字段) -->
+	<insert id="insertAll"  parameterType="TGutboundPO">
+		INSERT INTO t_outbound (
+		    <include refid="column" />
+		)
+		VALUES (
+		    #{id, jdbcType=VARCHAR},  <!-- id -->
+		    #{goods, jdbcType=VARCHAR},  <!-- goods -->
+		    #{num, jdbcType=VARCHAR},  <!-- num -->
+		    #{user_account, jdbcType=VARCHAR},
+		    #{user_name, jdbcType=VARCHAR},
+		    #{add_time, jdbcType=VARCHAR}
+		)
+	</insert>
+
+	<!-- 根据主键修改数据持久化对象 -->
+	<update id="updateByKey" parameterType="TGutboundPO">
+		UPDATE t_outbound
+		<set>
+			<if test="id != null">
+		          id = #{id, jdbcType=VARCHAR},  <!-- id -->
+			</if>
+			<if test="goods != null">
+		          goods = #{goods, jdbcType=VARCHAR},  <!-- goods -->
+			</if>
+			<if test="num != null">
+		          num = #{num, jdbcType=VARCHAR},  <!-- num -->
+			</if>
+			<if test="user_account != null">
+		          user_account = #{user_account, jdbcType=VARCHAR},  <!-- user_account -->
+			</if>
+			<if test="user_name != null">
+		          user_name = #{user_name, jdbcType=VARCHAR},  <!-- user_name -->
+			</if>
+			<if test="add_time != null">
+		          add_time = #{add_time, jdbcType=VARCHAR},  <!-- add_time -->
+			</if>
+		</set>
+		WHERE  id = #{id}
+	</update>
+	
+	<!-- 根据主键删除数据持久化对象 -->
+	<delete id="deleteByKey">
+		DELETE FROM t_outbound WHERE  id = #{id}
+	</delete>
+
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="selectByKey" resultType="TGutboundPO">
+		SELECT
+		<include refid="column" />
+		FROM t_outbound WHERE  id = #{id}
+	</select>
+
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="selectOne" parameterType="Dto" resultType="TGutboundPO">
+		SELECT
+		    <include refid="column" />
+		FROM t_outbound
+		<where>
+		    <include refid="equal" />
+		</where>		
+	</select>
+
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="list" parameterType="Dto" resultType="TGutboundPO">
+		SELECT
+			<include refid="column" />	
+		FROM t_outbound
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listPage" parameterType="Dto" resultType="TGutboundPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM t_outbound
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto模糊查询并返回数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="like" parameterType="Dto" resultType="TGutboundPO">
+		SELECT
+			<include refid="column" />	
+		FROM t_outbound
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto模糊查询并返回分页数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="likePage" parameterType="Dto" resultType="TGutboundPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM t_outbound
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+	
+	<select id="pgPage" parameterType="Dto" resultType="Dto" useCache="false">
+	   SELECT t2.material_name,t3.price,t3.specifications_name,t4.type_name
+         ,t1.add_time,t1.user_account,t1.user_name,t1.num,t3.id,t1.num-t5.number as unmbers
+	from t_outbound t1 
+	LEFT JOIN t_specifications t3 on t3.id=t1.goods
+	LEFT JOIN t_goods t2 on t3.goods_id=t2.id
+	LEFT JOIN t_type t4 on t4.id =t2.type_id  
+	LEFT JOIN (SELECT t.specifications_id,SUM(t.number) as number from t_order_detailed t GROUP BY t.specifications_id) as t5 on t3.id=t5.specifications_id
+	  <where>
+		    <include refid="like" />
+		</where>	
+	</select>
+	
+	<select id="OutboundExport" parameterType="Dto" resultType="Dto" useCache="false">
+	   SELECT t2.material_name,t3.price,t3.specifications_name,t4.type_name
+         ,t1.add_time,t1.user_account,t1.user_name,t1.num,t3.id,t1.num-t5.number as unmbers
+	from t_outbound t1 
+	LEFT JOIN t_specifications t3 on t3.id=t1.goods
+	LEFT JOIN t_goods t2 on t3.goods_id=t2.id
+	LEFT JOIN t_type t4 on t4.id =t2.type_id  
+	LEFT JOIN (SELECT t.specifications_id,SUM(t.number) as number from t_order_detailed t GROUP BY t.specifications_id) as t5 on t3.id=t5.specifications_id
+	  <where>
+		    <include refid="like" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto统计行数 -->
+	<select id="rows" resultType="Integer" parameterType="Dto">
+		SELECT COUNT(1) AS aos_rows_ FROM t_outbound
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 根据数学表达式进行数学运算 -->
+	<select id="calc" parameterType="Dto" resultType="String">
+		SELECT
+			${_expr}
+		FROM t_outbound
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 表字段 -->
+	<sql id="column">
+		  id,  <!-- id -->
+		  goods,  <!-- goods -->
+		  num,  <!-- num -->
+		  user_account,
+		  user_name,
+		  add_time
+	</sql>
+	
+	<!-- 表字段(用于外表的关联时引用) -->
+	<sql id="column2">
+		  t_outbound.id,  <!-- id -->
+		  t_outbound.goods,  <!-- goods -->
+		  t_outbound.num,  <!-- num -->
+		  t_outbound.user_account,
+		  t_outbound.user_name,
+		  t_outbound.add_time
+	</sql>
+
+	<!-- Where精确匹配字段 -->
+	<sql id="equal">
+	    <if test="id != null and id != ''">
+		      AND id = #{id}  <!-- id -->
+		</if>
+	    <if test="goods != null and goods != ''">
+		      AND goods = #{goods}  <!-- goods -->
+		</if>
+	    <if test="num != null and num != ''">
+		      AND num = #{num}  <!-- num -->
+		</if>
+	</sql>
+	
+	<!-- Where模糊匹配字段 -->
+	<sql id="like">
+	    <if test="id != null and id != ''">
+		      AND id like '${id}%'  <!-- id -->
+		</if>
+	    <if test="goods != null and goods != ''">
+		      AND goods like '${goods}%'  <!-- goods -->
+		</if>
+	    <if test="num != null and num != ''">
+		      AND num like '${num}%'  <!-- num -->
+		</if>
+	</sql>
+	
+</mapper>

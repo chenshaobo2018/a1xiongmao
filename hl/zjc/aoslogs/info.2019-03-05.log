@@ -1,0 +1,44 @@
+2019-03-05 09:51:24 INFO [Class:o.e.j.s.Server->Thread:main] jetty-8.1.17.v20150415 
+2019-03-05 09:51:25 INFO [Class:o.e.j.s.h.ContextHandler$Context->Thread:main] Initializing Spring root WebApplicationContext 
+2019-03-05 09:51:57 INFO [Class:o.e.j.s.h.ContextHandler$Context->Thread:main] Initializing Spring FrameworkServlet 'springDispatcherServlet' 
+2019-03-05 09:51:58 INFO [Class:o.e.j.s.AbstractConnector->Thread:main] Started SelectChannelConnector@0.0.0.0:10010 
+2019-03-05 09:52:20 WARN [Class:a.f.w.f.HttpBackendFilter->Thread:qtp336260195-27] 请求被重定向到登录页。【URL：/aosuite/http/do.jhtml】 
+2019-03-05 09:55:46 INFO [Class:o.e.j.s.Server->Thread:main] jetty-8.1.17.v20150415 
+2019-03-05 09:55:47 INFO [Class:o.e.j.s.h.ContextHandler$Context->Thread:main] Initializing Spring root WebApplicationContext 
+2019-03-05 09:56:18 INFO [Class:o.e.j.s.h.ContextHandler$Context->Thread:main] Initializing Spring FrameworkServlet 'springDispatcherServlet' 
+2019-03-05 09:56:19 INFO [Class:o.e.j.s.AbstractConnector->Thread:main] Started SelectChannelConnector@0.0.0.0:10010 
+2019-03-05 10:01:08 INFO [Class:a.f.b.r.DaoBuilder->Thread:qtp1597700807-25] PO文件[com.api.hl.dao.po.TBrandPO.java]生成成功。 
+2019-03-05 10:01:08 INFO [Class:a.f.b.r.DaoBuilder->Thread:qtp1597700807-25] Dao Java文件[com.api.hl.dao.TBrandDao.java]生成成功。 
+2019-03-05 10:01:08 INFO [Class:a.f.b.r.DaoBuilder->Thread:qtp1597700807-25] Dao Xml文件[com.api.hl.dao.sqlmap.TBrandDao.xml]生成成功。 
+2019-03-05 10:01:09 INFO [Class:a.f.b.r.DaoBuilder->Thread:qtp1597700807-25] PO文件[com.api.hl.dao.po.TCartPO.java]生成成功。 
+2019-03-05 10:01:09 INFO [Class:a.f.b.r.DaoBuilder->Thread:qtp1597700807-25] Dao Java文件[com.api.hl.dao.TCartDao.java]生成成功。 
+2019-03-05 10:01:09 INFO [Class:a.f.b.r.DaoBuilder->Thread:qtp1597700807-25] Dao Xml文件[com.api.hl.dao.sqlmap.TCartDao.xml]生成成功。 
+2019-03-05 10:01:09 INFO [Class:a.f.b.r.DaoBuilder->Thread:qtp1597700807-25] PO文件[com.api.hl.dao.po.TGoodsPO.java]生成成功。 
+2019-03-05 10:01:09 INFO [Class:a.f.b.r.DaoBuilder->Thread:qtp1597700807-25] Dao Java文件[com.api.hl.dao.TGoodsDao.java]生成成功。 
+2019-03-05 10:01:09 INFO [Class:a.f.b.r.DaoBuilder->Thread:qtp1597700807-25] Dao Xml文件[com.api.hl.dao.sqlmap.TGoodsDao.xml]生成成功。 
+2019-03-05 10:01:09 INFO [Class:a.f.b.r.DaoBuilder->Thread:qtp1597700807-25] PO文件[com.api.hl.dao.po.TOrderPO.java]生成成功。 
+2019-03-05 10:01:09 INFO [Class:a.f.b.r.DaoBuilder->Thread:qtp1597700807-25] Dao Java文件[com.api.hl.dao.TOrderDao.java]生成成功。 
+2019-03-05 10:01:09 INFO [Class:a.f.b.r.DaoBuilder->Thread:qtp1597700807-25] Dao Xml文件[com.api.hl.dao.sqlmap.TOrderDao.xml]生成成功。 
+2019-03-05 10:01:10 INFO [Class:a.f.b.r.DaoBuilder->Thread:qtp1597700807-25] PO文件[com.api.hl.dao.po.TOrderDetailedPO.java]生成成功。 
+2019-03-05 10:01:10 INFO [Class:a.f.b.r.DaoBuilder->Thread:qtp1597700807-25] Dao Java文件[com.api.hl.dao.TOrderDetailedDao.java]生成成功。 
+2019-03-05 10:01:10 INFO [Class:a.f.b.r.DaoBuilder->Thread:qtp1597700807-25] Dao Xml文件[com.api.hl.dao.sqlmap.TOrderDetailedDao.xml]生成成功。 
+2019-03-05 10:01:10 INFO [Class:a.f.b.r.DaoBuilder->Thread:qtp1597700807-25] PO文件[com.api.hl.dao.po.TProjectPO.java]生成成功。 
+2019-03-05 10:01:10 INFO [Class:a.f.b.r.DaoBuilder->Thread:qtp1597700807-25] Dao Java文件[com.api.hl.dao.TProjectDao.java]生成成功。 
+2019-03-05 10:01:10 INFO [Class:a.f.b.r.DaoBuilder->Thread:qtp1597700807-25] Dao Xml文件[com.api.hl.dao.sqlmap.TProjectDao.xml]生成成功。 
+2019-03-05 10:01:10 INFO [Class:a.f.b.r.DaoBuilder->Thread:qtp1597700807-25] PO文件[com.api.hl.dao.po.TSpecificationsPO.java]生成成功。 
+2019-03-05 10:01:10 INFO [Class:a.f.b.r.DaoBuilder->Thread:qtp1597700807-25] Dao Java文件[com.api.hl.dao.TSpecificationsDao.java]生成成功。 
+2019-03-05 10:01:10 INFO [Class:a.f.b.r.DaoBuilder->Thread:qtp1597700807-25] Dao Xml文件[com.api.hl.dao.sqlmap.TSpecificationsDao.xml]生成成功。 
+2019-03-05 10:01:11 INFO [Class:a.f.b.r.DaoBuilder->Thread:qtp1597700807-25] PO文件[com.api.hl.dao.po.TSupplierPO.java]生成成功。 
+2019-03-05 10:01:11 INFO [Class:a.f.b.r.DaoBuilder->Thread:qtp1597700807-25] Dao Java文件[com.api.hl.dao.TSupplierDao.java]生成成功。 
+2019-03-05 10:01:11 INFO [Class:a.f.b.r.DaoBuilder->Thread:qtp1597700807-25] Dao Xml文件[com.api.hl.dao.sqlmap.TSupplierDao.xml]生成成功。 
+2019-03-05 10:01:11 INFO [Class:a.f.b.r.DaoBuilder->Thread:qtp1597700807-25] PO文件[com.api.hl.dao.po.TTypePO.java]生成成功。 
+2019-03-05 10:01:11 INFO [Class:a.f.b.r.DaoBuilder->Thread:qtp1597700807-25] Dao Java文件[com.api.hl.dao.TTypeDao.java]生成成功。 
+2019-03-05 10:01:11 INFO [Class:a.f.b.r.DaoBuilder->Thread:qtp1597700807-25] Dao Xml文件[com.api.hl.dao.sqlmap.TTypeDao.xml]生成成功。 
+2019-03-05 10:01:11 INFO [Class:a.f.b.r.DaoBuilder->Thread:qtp1597700807-25] PO文件[com.api.hl.dao.po.TUserhlPO.java]生成成功。 
+2019-03-05 10:01:11 INFO [Class:a.f.b.r.DaoBuilder->Thread:qtp1597700807-25] Dao Java文件[com.api.hl.dao.TUserhlDao.java]生成成功。 
+2019-03-05 10:01:11 INFO [Class:a.f.b.r.DaoBuilder->Thread:qtp1597700807-25] Dao Xml文件[com.api.hl.dao.sqlmap.TUserhlDao.xml]生成成功。 
+2019-03-05 10:01:12 INFO [Class:a.f.b.r.DaoBuilder->Thread:qtp1597700807-25] PO文件[com.api.hl.dao.po.TUserProjectPO.java]生成成功。 
+2019-03-05 10:01:12 INFO [Class:a.f.b.r.DaoBuilder->Thread:qtp1597700807-25] Dao Java文件[com.api.hl.dao.TUserProjectDao.java]生成成功。 
+2019-03-05 10:01:12 INFO [Class:a.f.b.r.DaoBuilder->Thread:qtp1597700807-25] Dao Xml文件[com.api.hl.dao.sqlmap.TUserProjectDao.xml]生成成功。 
+2019-03-05 17:30:02 INFO [Class:o.e.j.s.h.ContextHandler$Context->Thread:Thread-0] Destroying Spring FrameworkServlet 'springDispatcherServlet' 
+2019-03-05 17:30:02 INFO [Class:o.e.j.s.h.ContextHandler$Context->Thread:Thread-0] Closing Spring root WebApplicationContext 

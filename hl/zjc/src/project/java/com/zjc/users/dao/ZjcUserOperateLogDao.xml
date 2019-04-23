@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- zjc_user_operate_log[zjc_user_operate_log]SQL自动映射 -->
+<!--  注意:此文件由AOS平台自动生成-禁止手工修改 2017-10-17 09:35:48 -->
+<mapper namespace="com.zjc.users.dao.ZjcUserOperateLogDao">
+	
+	<!-- 插入一个数据持久化对象(插入字段为传入PO实体的非空属性) -->
+	<insert id="insert"  parameterType="ZjcUserOperateLogPO">
+		INSERT INTO zjc_user_operate_log (
+		<if test="user_id != null">
+	         user_id, <!-- 操作人ID -->
+		</if>
+		<if test="operate_type != null and operate_type != ''">
+	         operate_type, <!-- 操作类型 -->
+		</if>
+		<if test="user_name != null and user_name != ''">
+	         user_name, <!-- 操作人 -->
+		</if>
+		<if test="operate_time != null and operate_time != ''">
+	         operate_time, <!-- 操作时间 -->
+		</if>
+		<if test="descs != null and descs != ''">
+	         descs <!-- 操作备注 -->
+		</if>
+		)VALUES(
+		<if test="user_id != null">
+	          #{user_id, jdbcType=INTEGER}, <!-- 操作人ID -->
+	    </if>
+		<if test="operate_type != null and operate_type != ''">
+	          #{operate_type, jdbcType=VARCHAR}, <!-- 操作类型 -->
+	    </if>
+		<if test="user_name != null and user_name != ''">
+	          #{user_name, jdbcType=VARCHAR}, <!-- 操作人 -->
+	    </if>
+		<if test="operate_time != null and operate_time != ''">
+	          #{operate_time, jdbcType=VARCHAR}, <!-- 操作时间 -->
+	    </if>
+		<if test="descs != null and descs != ''">
+	          #{descs, jdbcType=VARCHAR} <!-- 操作备注 -->
+	    </if>
+		)
+	</insert>
+	
+	<!-- 插入一个数据持久化对象(含所有字段) -->
+	<insert id="insertAll"  parameterType="ZjcUserOperateLogPO">
+		INSERT INTO zjc_user_operate_log (
+		    <include refid="column" />
+		)
+		VALUES (
+		    #{user_id, jdbcType=INTEGER},  <!-- 操作人ID -->
+		    #{operate_type, jdbcType=VARCHAR},  <!-- 操作类型 -->
+		    #{user_name, jdbcType=VARCHAR},  <!-- 操作人 -->
+		    #{operate_time, jdbcType=VARCHAR},  <!-- 操作时间 -->
+		    #{descs, jdbcType=VARCHAR}  <!-- 操作备注 -->
+		)
+	</insert>
+
+	<!-- 根据主键修改数据持久化对象 -->
+	<update id="updateByKey" parameterType="ZjcUserOperateLogPO">
+		UPDATE zjc_user_operate_log
+		<set>
+			<if test="user_id != null">
+		          user_id = #{user_id, jdbcType=INTEGER},  <!-- 操作人ID -->
+			</if>
+			<if test="operate_type != null">
+		          operate_type = #{operate_type, jdbcType=VARCHAR},  <!-- 操作类型 -->
+			</if>
+			<if test="user_name != null">
+		          user_name = #{user_name, jdbcType=VARCHAR},  <!-- 操作人 -->
+			</if>
+			<if test="operate_time != null">
+		          operate_time = #{operate_time, jdbcType=VARCHAR},  <!-- 操作时间 -->
+			</if>
+			<if test="descs != null">
+		          descs = #{descs, jdbcType=VARCHAR},  <!-- 操作备注 -->
+			</if>
+		</set>
+		WHERE 
+	</update>
+	
+	<!-- 根据主键删除数据持久化对象 -->
+	<delete id="deleteByKey">
+		DELETE FROM zjc_user_operate_log WHERE 
+	</delete>
+
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="selectByKey" resultType="ZjcUserOperateLogPO">
+		SELECT
+		<include refid="column" />
+		FROM zjc_user_operate_log WHERE 
+	</select>
+
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="selectOne" parameterType="Dto" resultType="ZjcUserOperateLogPO">
+		SELECT
+		    <include refid="column" />
+		FROM zjc_user_operate_log
+		<where>
+		    <include refid="equal" />
+		</where>		
+	</select>
+
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="list" parameterType="Dto" resultType="ZjcUserOperateLogPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_user_operate_log
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listPage" parameterType="Dto" resultType="ZjcUserOperateLogPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_user_operate_log
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto模糊查询并返回数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="like" parameterType="Dto" resultType="ZjcUserOperateLogPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_user_operate_log
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto模糊查询并返回分页数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="likePage" parameterType="Dto" resultType="ZjcUserOperateLogPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_user_operate_log
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto统计行数 -->
+	<select id="rows" resultType="Integer" parameterType="Dto">
+		SELECT COUNT(1) AS aos_rows_ FROM zjc_user_operate_log
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 根据数学表达式进行数学运算 -->
+	<select id="calc" parameterType="Dto" resultType="String">
+		SELECT
+			${_expr}
+		FROM zjc_user_operate_log
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+		<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="listLogs" parameterType="Dto" resultType="ZjcUserOperateLogPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_user_operate_log
+		<where>
+		     <if test="user_id != null ">
+		      AND user_id = #{user_id}  <!-- 操作人ID -->
+		</if>
+	    <if test="operate_type != null and operate_type != ''">
+		      AND operate_type = #{operate_type}  <!-- 操作类型 -->
+		</if>
+	    <if test="user_name != null and user_name != ''">
+		      AND user_name = #{user_name}  <!-- 操作人 -->
+		</if>
+	    <if test="operate_time != null and operate_time != ''">
+		      AND operate_time &lt;= #{operate_time}  <!-- 操作时间 -->
+		</if>
+	    <if test="descs != null and descs != ''">
+		      AND descs = #{descs}  <!-- 操作备注 -->
+		</if>
+		</where>	
+	</select>
+	
+	
+	<!-- 表字段 -->
+	<sql id="column">
+		  user_id,  <!-- 操作人ID -->
+		  operate_type,  <!-- 操作类型 -->
+		  user_name,  <!-- 操作人 -->
+		  operate_time,  <!-- 操作时间 -->
+		  descs  <!-- 操作备注 -->
+	</sql>
+	
+	<!-- 表字段(用于外表的关联时引用) -->
+	<sql id="column2">
+		  zjc_user_operate_log.user_id,  <!-- 操作人ID -->
+		  zjc_user_operate_log.operate_type,  <!-- 操作类型 -->
+		  zjc_user_operate_log.user_name,  <!-- 操作人 -->
+		  zjc_user_operate_log.operate_time,  <!-- 操作时间 -->
+		  zjc_user_operate_log.descs  <!-- 操作备注 -->
+	</sql>
+
+	<!-- Where精确匹配字段 -->
+	<sql id="equal">
+	   <if test="user_id != null ">
+		      AND user_id = #{user_id}  <!-- 操作人ID -->
+		</if>
+	    <if test="operate_type != null and operate_type != ''">
+		      AND operate_type = #{operate_type}  <!-- 操作类型 -->
+		</if>
+	    <if test="user_name != null and user_name != ''">
+		      AND user_name = #{user_name}  <!-- 操作人 -->
+		</if>
+	    <if test="operate_time != null and operate_time != ''">
+		      AND operate_time = #{operate_time}  <!-- 操作时间 -->
+		</if>
+	    <if test="descs != null and descs != ''">
+		      AND descs = #{descs}  <!-- 操作备注 -->
+		</if>
+	</sql>
+	
+	<!-- Where模糊匹配字段 -->
+	<sql id="like">
+	    <if test="operate_type != null and operate_type != ''">
+		      AND operate_type like '${operate_type}%'  <!-- 操作类型 -->
+		</if>
+	    <if test="user_name != null and user_name != ''">
+		      AND user_name like '${user_name}%'  <!-- 操作人 -->
+		</if>
+	    <if test="operate_time != null and operate_time != ''">
+		      AND operate_time like '${operate_time}%'  <!-- 操作时间 -->
+		</if>
+	    <if test="descs != null and descs != ''">
+		      AND descs like '${descs}%'  <!-- 操作备注 -->
+		</if>
+	</sql>
+	
+</mapper>

@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- zjc_balance_order[zjc_balance_order]SQL自动映射 -->
+<!--  注意:此文件由AOS平台自动生成-禁止手工修改 2017-06-06 17:27:43 -->
+<mapper namespace="com.zjc.order.dao.ZjcBalanceOrderDao">
+	
+	<!-- 插入一个数据持久化对象(插入字段为传入PO实体的非空属性) -->
+	<insert id="insert" useGeneratedKeys="true" keyProperty="balance_id" parameterType="ZjcBalanceOrderPO">
+		INSERT INTO zjc_balance_order (
+		<if test="balance_sn != null and balance_sn != ''">
+	         balance_sn, <!-- 订单编号 -->
+		</if>
+		<if test="user_id != null">
+	         user_id, <!-- 用户id -->
+		</if>
+		<if test="user_name != null and user_name != ''">
+	         user_name, <!-- 会员名称 -->
+		</if>
+		<if test="balance_price != null">
+	         balance_price, <!-- 结算中心价格 -->
+		</if>
+		<if test="status != null">
+	         status, <!-- 0 待审核  1 审核通过 2 审核未通过 -->
+		</if>
+		<if test="add_time != null and add_time != ''">
+	         add_time, <!-- 购买时间 -->
+		</if>
+		<if test="verify_time != null and verify_time != ''">
+	         verify_time, <!-- 审核时间 -->
+		</if>
+		<if test="verify_note != null and verify_note != ''">
+	         verify_note, <!-- 审核备注 -->
+		</if>
+		<if test="admin_id != null">
+	         admin_id, <!-- 管理员ID -->
+		</if>
+		<if test="admin_name != null and admin_name != ''">
+	         admin_name, <!-- 管理员名称 -->
+		</if>
+	          balance_id
+		)VALUES(
+		<if test="balance_sn != null and balance_sn != ''">
+	          #{balance_sn, jdbcType=VARCHAR}, <!-- 订单编号 -->
+	    </if>
+		<if test="user_id != null">
+	          #{user_id, jdbcType=INTEGER}, <!-- 用户id -->
+	    </if>
+		<if test="user_name != null and user_name != ''">
+	          #{user_name, jdbcType=VARCHAR}, <!-- 会员名称 -->
+	    </if>
+		<if test="balance_price != null">
+	          #{balance_price, jdbcType=NUMERIC}, <!-- 结算中心价格 -->
+	    </if>
+		<if test="status != null">
+	          #{status, jdbcType=INTEGER}, <!-- 0 待审核  1 审核通过 2 审核未通过 -->
+	    </if>
+		<if test="add_time != null and add_time != ''">
+	          #{add_time, jdbcType=VARCHAR}, <!-- 购买时间 -->
+	    </if>
+		<if test="verify_time != null and verify_time != ''">
+	          #{verify_time, jdbcType=VARCHAR}, <!-- 审核时间 -->
+	    </if>
+		<if test="verify_note != null and verify_note != ''">
+	          #{verify_note, jdbcType=VARCHAR}, <!-- 审核备注 -->
+	    </if>
+		<if test="admin_id != null">
+	          #{admin_id, jdbcType=INTEGER}, <!-- 管理员ID -->
+	    </if>
+		<if test="admin_name != null and admin_name != ''">
+	          #{admin_name, jdbcType=VARCHAR}, <!-- 管理员名称 -->
+	    </if>
+	          null
+		)
+	</insert>
+	
+	<!-- 插入一个数据持久化对象(含所有字段) -->
+	<insert id="insertAll" useGeneratedKeys="true" keyProperty="balance_id" parameterType="ZjcBalanceOrderPO">
+		INSERT INTO zjc_balance_order (
+		    <include refid="column" />
+		)
+		VALUES (
+		    #{balance_id, jdbcType=INTEGER},  <!-- 订单id -->
+		    #{balance_sn, jdbcType=VARCHAR},  <!-- 订单编号 -->
+		    #{user_id, jdbcType=INTEGER},  <!-- 用户id -->
+		    #{user_name, jdbcType=VARCHAR},  <!-- 会员名称 -->
+		    #{balance_price, jdbcType=NUMERIC},  <!-- 结算中心价格 -->
+		    #{status, jdbcType=INTEGER},  <!-- 0 待审核  1 审核通过 2 审核未通过 -->
+		    #{add_time, jdbcType=VARCHAR},  <!-- 购买时间 -->
+		    #{verify_time, jdbcType=VARCHAR},  <!-- 审核时间 -->
+		    #{verify_note, jdbcType=VARCHAR},  <!-- 审核备注 -->
+		    #{admin_id, jdbcType=INTEGER},  <!-- 管理员ID -->
+		    #{admin_name, jdbcType=VARCHAR}  <!-- 管理员名称 -->
+		)
+	</insert>
+
+	<!-- 根据主键修改数据持久化对象 -->
+	<update id="updateByKey" parameterType="ZjcBalanceOrderPO">
+		UPDATE zjc_balance_order
+		<set>
+			<if test="balance_id != null">
+		          balance_id = #{balance_id, jdbcType=INTEGER},  <!-- 订单id -->
+			</if>
+			<if test="balance_sn != null">
+		          balance_sn = #{balance_sn, jdbcType=VARCHAR},  <!-- 订单编号 -->
+			</if>
+			<if test="user_id != null">
+		          user_id = #{user_id, jdbcType=INTEGER},  <!-- 用户id -->
+			</if>
+			<if test="user_name != null">
+		          user_name = #{user_name, jdbcType=VARCHAR},  <!-- 会员名称 -->
+			</if>
+			<if test="balance_price != null">
+		          balance_price = #{balance_price, jdbcType=NUMERIC},  <!-- 结算中心价格 -->
+			</if>
+			<if test="status != null">
+		          status = #{status, jdbcType=INTEGER},  <!-- 0 待审核  1 审核通过 2 审核未通过 -->
+			</if>
+			<if test="verify_time != null">
+		          verify_time = #{verify_time, jdbcType=VARCHAR},  <!-- 审核时间 -->
+			</if>
+			<if test="verify_note != null">
+		          verify_note = #{verify_note, jdbcType=VARCHAR},  <!-- 审核备注 -->
+			</if>
+			<if test="verify_note != null">
+		          verify_note = #{verify_note, jdbcType=VARCHAR},  <!-- 审核备注 -->
+			</if>
+			<if test="admin_id != null">
+		          admin_id = #{admin_id, jdbcType=INTEGER},  <!-- 管理员ID -->
+			</if>
+			<if test="admin_name != null">
+		          admin_name = #{admin_name, jdbcType=VARCHAR},  <!-- 管理员名称 -->
+			</if>
+		</set>
+		WHERE  balance_id = #{balance_id}
+	</update>
+	
+	<!-- 根据主键删除数据持久化对象 -->
+	<delete id="deleteByKey">
+		DELETE FROM zjc_balance_order WHERE  balance_id = #{balance_id}
+	</delete>
+
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="selectByKey" resultType="ZjcBalanceOrderPO">
+		SELECT
+		<include refid="column" />
+		FROM zjc_balance_order WHERE  balance_id = #{balance_id}
+	</select>
+
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="selectOne" parameterType="Dto" resultType="ZjcBalanceOrderPO">
+		SELECT
+		    <include refid="column" />
+		FROM zjc_balance_order
+		<where>
+		    <include refid="equal" />
+		</where>		
+	</select>
+
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="list" parameterType="Dto" resultType="ZjcBalanceOrderPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_balance_order
+		<where>
+		    <include refid="equal" />
+		</where>	
+		order by add_time desc
+	</select>
+
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listPage" parameterType="Dto" resultType="ZjcBalanceOrderPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_balance_order
+		<where>
+		    <include refid="equal" />
+		</where>	
+		order by add_time desc
+	</select>
+	
+	<!-- 根据Dto模糊查询并返回数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="like" parameterType="Dto" resultType="ZjcBalanceOrderPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_balance_order
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto模糊查询并返回分页数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="likePage" parameterType="Dto" resultType="ZjcBalanceOrderPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_balance_order
+		<where>
+		    <include refid="like" />
+		</where>
+		order by add_time desc	
+	</select>
+	
+	<!-- 根据Dto统计行数 -->
+	<select id="rows" resultType="Integer" parameterType="Dto">
+		SELECT COUNT(1) AS aos_rows_ FROM zjc_balance_order
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 根据数学表达式进行数学运算 -->
+	<select id="calc" parameterType="Dto" resultType="String">
+		SELECT
+			${_expr}
+		FROM zjc_balance_order
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 表字段 -->
+	<sql id="column">
+		  balance_id,  <!-- 订单id -->
+		  balance_sn,  <!-- 订单编号 -->
+		  user_id,  <!-- 用户id -->
+		  user_name,  <!-- 会员名称 -->
+		  balance_price,  <!-- 结算中心价格 -->
+		  status,  <!-- 0 待审核  1 审核通过 2 审核未通过 -->
+		  add_time,  <!-- 购买时间 -->
+		  verify_time,  <!-- 审核时间 -->
+		  verify_note,  <!-- 审核备注 -->
+		  admin_id,  <!-- 管理员ID -->
+		  admin_name  <!-- 管理员名称 -->
+	</sql>
+	
+	<!-- 表字段(用于外表的关联时引用) -->
+	<sql id="column2">
+		  zjc_balance_order.balance_id,  <!-- 订单id -->
+		  zjc_balance_order.balance_sn,  <!-- 订单编号 -->
+		  zjc_balance_order.user_id,  <!-- 用户id -->
+		  zjc_balance_order.user_name,  <!-- 会员名称 -->
+		  zjc_balance_order.balance_price,  <!-- 结算中心价格 -->
+		  zjc_balance_order.status,  <!-- 0 待审核  1 审核通过 2 审核未通过 -->
+		  zjc_balance_order.add_time,  <!-- 购买时间 -->
+		  zjc_balance_order.verify_time,  <!-- 审核时间 -->
+		  zjc_balance_order.verify_note,  <!-- 审核备注 -->
+		  zjc_balance_order.admin_id,  <!-- 管理员ID -->
+		  zjc_balance_order.admin_name  <!-- 管理员名称 -->
+	</sql>
+
+	<!-- Where精确匹配字段 -->
+	<sql id="equal">
+	   <if test="balance_id != null ">
+		      AND balance_id = #{balance_id}  <!-- 订单id -->
+		</if>
+	    <if test="balance_sn != null and balance_sn != ''">
+		      AND balance_sn = #{balance_sn}  <!-- 订单编号 -->
+		</if>
+	   <if test="user_id != null ">
+		      AND user_id = #{user_id}  <!-- 用户id -->
+		</if>
+	    <if test="user_name != null and user_name != ''">
+		      AND user_name = #{user_name}  <!-- 会员名称 -->
+		</if>
+	   <if test="balance_price != null ">
+		      AND balance_price = #{balance_price}  <!-- 结算中心价格 -->
+		</if>
+	   <if test="status != null ">
+		      AND status = #{status}  <!-- 0 待审核  1 审核通过 2 审核未通过 -->
+		</if>
+	   <if test="add_time != null and add_time != ''">
+		      AND add_time = #{add_time}  <!-- 购买时间 -->
+		</if>
+	    <if test="verify_time != null and verify_time != ''">
+		      AND verify_time = #{verify_time}  <!-- 审核时间 -->
+		</if>
+	    <if test="verify_note != null and verify_note != ''">
+		      AND verify_note = #{verify_note}  <!-- 审核备注 -->
+		</if>
+	   <if test="admin_id != null ">
+		      AND admin_id = #{admin_id}  <!-- 管理员ID -->
+		</if>
+	    <if test="admin_name != null and admin_name != ''">
+		      AND admin_name = #{admin_name}  <!-- 管理员名称 -->
+		</if>
+	</sql>
+	
+	<!-- Where模糊匹配字段 -->
+	<sql id="like">
+		<if test="status != null and status != '' ">
+		      AND status = #{status}  <!-- 0 待审核  1 审核通过 2 审核未通过 -->
+		</if>
+		<if test="add_time_start != null and add_time_start != ''">
+		      <![CDATA[AND add_time >= #{add_time_start}]]>  <!-- 购买时间(起) -->
+		</if>
+		<if test="add_time_end != null and add_time_end != ''">
+		      <![CDATA[AND add_time <= #{add_time_end}]]>  <!-- 购买时间(止) -->
+		</if>
+	    <if test="balance_sn != null and balance_sn != ''">
+		      AND balance_sn = #{balance_sn}  <!-- 订单编号 -->
+		</if>
+	    <if test="user_name != null and user_name != ''">
+		      AND user_name = #{user_name}  <!-- 会员名称 -->
+		</if>
+	    <if test="verify_note != null and verify_note != ''">
+		      AND verify_note like '${verify_note}%'  <!-- 审核备注 -->
+		</if>
+	    <if test="admin_name != null and admin_name != ''">
+		      AND admin_name like '${admin_name}%'  <!-- 管理员名称 -->
+		</if>
+	</sql>
+	
+</mapper>

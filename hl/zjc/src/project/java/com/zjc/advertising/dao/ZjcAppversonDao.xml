@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- zjc_appverson[zjc_appverson]SQL自动映射 -->
+<!--  注意:此文件由AOS平台自动生成-禁止手工修改 2017-06-19 09:54:18 -->
+<mapper namespace="com.zjc.advertising.dao.ZjcAppversonDao">
+	
+	<!-- 插入一个数据持久化对象(插入字段为传入PO实体的非空属性) -->
+	<insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="ZjcAppversonPO">
+		INSERT INTO zjc_appverson (
+		<if test="app_type != null">
+	         app_type, <!-- app类型 -->
+		</if>
+		<if test="app_verson != null">
+	         app_verson, <!-- 版本号 -->
+		</if>
+		<if test="is_force != null">
+	         is_force, <!-- 0 不强制升级，1 强制升级 -->
+		</if>
+		<if test="verson_log != null and verson_log != ''">
+	         verson_log, <!-- 升级日志 -->
+		</if>
+		<if test="download_url != null and download_url != ''">
+	         download_url, <!-- 下载路径 -->
+		</if>
+		<if test="md5 != null and md5 != ''">
+	         md5, <!-- md5 -->
+		</if>
+		<if test="app_verson_name != null and app_verson_name != ''">
+	         app_verson_name, <!-- 版本号名称 -->
+		</if>
+		<if test="add_time != null and add_time != ''">
+	         add_time, <!-- 添加时间 -->
+		</if>
+		<if test="type != null">
+	         type, <!-- 0表示用户端；1表示商家端 -->
+		</if>
+	          id
+		)VALUES(
+		<if test="app_type != null">
+	          #{app_type, jdbcType=INTEGER}, <!-- app类型 -->
+	    </if>
+		<if test="app_verson != null">
+	          #{app_verson, jdbcType=INTEGER}, <!-- 版本号 -->
+	    </if>
+		<if test="is_force != null">
+	          #{is_force, jdbcType=INTEGER}, <!-- 0 不强制升级，1 强制升级 -->
+	    </if>
+		<if test="verson_log != null and verson_log != ''">
+	          #{verson_log, jdbcType=VARCHAR}, <!-- 升级日志 -->
+	    </if>
+		<if test="download_url != null and download_url != ''">
+	          #{download_url, jdbcType=VARCHAR}, <!-- 下载路径 -->
+	    </if>
+		<if test="md5 != null and md5 != ''">
+	          #{md5, jdbcType=VARCHAR}, <!-- md5 -->
+	    </if>
+		<if test="app_verson_name != null and app_verson_name != ''">
+	          #{app_verson_name, jdbcType=VARCHAR}, <!-- 版本号名称 -->
+	    </if>
+		<if test="add_time != null and add_time != ''">
+	          NOW(), <!-- 添加时间 -->
+	    </if>
+	    <if test="type != null">
+	          #{type, jdbcType=INTEGER}, <!-- 0表示用户端；1表示商家端 -->
+	    </if>
+	          null
+		)
+	</insert>
+	
+	<!-- 插入一个数据持久化对象(含所有字段) -->
+	<insert id="insertAll" useGeneratedKeys="true" keyProperty="id" parameterType="ZjcAppversonPO">
+		INSERT INTO zjc_appverson (
+		    <include refid="column" />
+		)
+		VALUES (
+		    #{id, jdbcType=INTEGER},  <!-- id -->
+		    #{app_type, jdbcType=INTEGER},  <!-- app类型 -->
+		    #{app_verson, jdbcType=INTEGER},  <!-- 版本号 -->
+		    #{is_force, jdbcType=INTEGER},  <!-- 0 不强制升级，1 强制升级 -->
+		    #{verson_log, jdbcType=VARCHAR},  <!-- 升级日志 -->
+		    #{download_url, jdbcType=VARCHAR},  <!-- 下载路径 -->
+		    #{md5, jdbcType=VARCHAR},  <!-- md5 -->
+		    #{app_verson_name, jdbcType=VARCHAR},  <!-- 版本号名称 -->
+		    #{add_time, jdbcType=VARCHAR},  <!-- 添加时间 -->
+		    #{type, jdbcType=INTEGER} <!-- 0表示用户端；1表示商家端 -->
+		)
+	</insert>
+
+	<!-- 根据主键修改数据持久化对象 -->
+	<update id="updateByKey" parameterType="ZjcAppversonPO">
+		UPDATE zjc_appverson
+		<set>
+			<if test="id != null">
+		          id = #{id, jdbcType=INTEGER},  <!-- id -->
+			</if>
+			<if test="app_type != null">
+		          app_type = #{app_type, jdbcType=INTEGER},  <!-- app类型 -->
+			</if>
+			<if test="app_verson != null">
+		          app_verson = #{app_verson, jdbcType=INTEGER},  <!-- 版本号 -->
+			</if>
+			<if test="is_force != null">
+		          is_force = #{is_force, jdbcType=INTEGER},  <!-- 0 不强制升级，1 强制升级 -->
+			</if>
+			<if test="verson_log != null">
+		          verson_log = #{verson_log, jdbcType=VARCHAR},  <!-- 升级日志 -->
+			</if>
+			<if test="download_url != null">
+		          download_url = #{download_url, jdbcType=VARCHAR},  <!-- 下载路径 -->
+			</if>
+			<if test="md5 != null">
+		          md5 = #{md5, jdbcType=VARCHAR},  <!-- md5 -->
+			</if>
+			<if test="app_verson_name != null">
+		          app_verson_name = #{app_verson_name, jdbcType=VARCHAR},  <!-- 版本号名称 -->
+			</if>
+			<if test="add_time != null">
+		          add_time = #{add_time, jdbcType=VARCHAR},  <!-- 添加时间 -->
+			</if>
+			<if test="type != null">
+	              type = #{type, jdbcType=INTEGER} <!-- 0表示用户端；1表示商家端 -->
+	   		 </if>
+		</set>
+		WHERE  id = #{id}
+	</update>
+	
+	<!-- 根据主键删除数据持久化对象 -->
+	<delete id="deleteByKey">
+		DELETE FROM zjc_appverson WHERE  id = #{id}
+	</delete>
+     
+     <!-- 查询自定义下拉组件数据(重点是字段的别名) -->
+	<select id="listBrandComboBoxData" resultType="Dto">
+		SELECT
+		app_verson_name AS value, app_verson_name AS display
+		FROM zjc_appverson
+	</select>
+     
+     
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="selectByKey" resultType="ZjcAppversonPO">
+		SELECT
+		<include refid="column" />
+		FROM zjc_appverson WHERE  id = #{id}
+	</select>
+
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="selectOne" parameterType="Dto" resultType="ZjcAppversonPO">
+		SELECT
+		    <include refid="column" />
+		FROM zjc_appverson
+		<where>
+		    <include refid="equal" />
+		</where>		
+	</select>
+	
+	<select id="selectOnes" parameterType="ZjcAppversonPO" resultType="ZjcAppversonPO">
+		SELECT
+		    <include refid="column" />
+		FROM zjc_appverson
+		<where>
+		    <include refid="equal" />
+		</where>		
+	</select>
+
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="list" parameterType="Dto" resultType="ZjcAppversonPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_appverson
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listPage" parameterType="Dto" resultType="Dto" useCache="false">
+	    select * from zjc_appverson
+		<where>
+		    <if test="app_verson_name != null and app_verson_name !=''">
+		      app_verson_name = #{app_verson_name}  <!-- 版本号 -->
+			</if>
+		</where>	
+		order by add_time desc
+	</select>
+	
+	<!-- 根据Dto模糊查询并返回数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="like" parameterType="Dto" resultType="ZjcAppversonPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_appverson
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto模糊查询并返回分页数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="likePage" parameterType="Dto" resultType="ZjcAppversonPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_appverson
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto统计行数 -->
+	<select id="rows" resultType="Integer" parameterType="Dto">
+		SELECT COUNT(1) AS aos_rows_ FROM zjc_appverson
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 根据数学表达式进行数学运算 -->
+	<select id="calc" parameterType="Dto" resultType="String">
+		SELECT
+			${_expr}
+		FROM zjc_appverson
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 表字段 -->
+	<sql id="column">
+		  id,  <!-- id -->
+		  app_type,  <!-- app类型 -->
+		  app_verson,  <!-- 版本号 -->
+		  is_force,  <!-- 0 不强制升级，1 强制升级 -->
+		  verson_log,  <!-- 升级日志 -->
+		  download_url,  <!-- 下载路径 -->
+		  md5,  <!-- md5 -->
+		  app_verson_name,  <!-- 版本号名称 -->
+		  add_time,  <!-- 添加时间 -->
+		  type <!-- 0表示用户端；1表示商家端 -->
+	</sql>
+	
+	<!-- 表字段(用于外表的关联时引用) -->
+	<sql id="column2">
+		  zjc_appverson.id,  <!-- id -->
+		  zjc_appverson.app_type,  <!-- app类型 -->
+		  zjc_appverson.app_verson,  <!-- 版本号 -->
+		  zjc_appverson.is_force,  <!-- 0 不强制升级，1 强制升级 -->
+		  zjc_appverson.verson_log,  <!-- 升级日志 -->
+		  zjc_appverson.download_url,  <!-- 下载路径 -->
+		  zjc_appverson.md5,  <!-- md5 -->
+		  zjc_appverson.app_verson_name,  <!-- 版本号名称 -->
+		  zjc_appverson.add_time,  <!-- 添加时间 -->
+		  zjc_appverson.type <!-- 0表示用户端；1表示商家端 -->
+	</sql>
+
+	<!-- Where精确匹配字段 -->
+	<sql id="equal">
+	   <if test="id != null ">
+		      AND id = #{id}  <!-- id -->
+		</if>
+	   <if test="app_type != null ">
+		      AND app_type = #{app_type}  <!-- app类型 -->
+		</if>
+	   <if test="app_verson != null ">
+		      AND app_verson = #{app_verson}  <!-- 版本号 -->
+		</if>
+	   <if test="is_force != null ">
+		      AND is_force = #{is_force}  <!-- 0 不强制升级，1 强制升级 -->
+		</if>
+	    <if test="verson_log != null and verson_log != ''">
+		      AND verson_log = #{verson_log}  <!-- 升级日志 -->
+		</if>
+	    <if test="download_url != null and download_url != ''">
+		      AND download_url = #{download_url}  <!-- 下载路径 -->
+		</if>
+	    <if test="md5 != null and md5 != ''">
+		      AND md5 = #{md5}  <!-- md5 -->
+		</if>
+	    <if test="app_verson_name != null and app_verson_name != ''">
+		      AND app_verson_name = #{app_verson_name}  <!-- 版本号名称 -->
+		</if>
+	    <if test="add_time != null and add_time != ''">
+		      AND add_time = #{add_time}  <!-- 添加时间 -->
+		</if>
+	</sql>
+	
+	<!-- Where精确匹配字段 -->
+	<sql id="equal2">
+	   <if test="id != null ">
+		      AND id = #{id}  <!-- id -->
+		</if>
+	   <if test="app_type != null ">
+		      AND app_type = #{terminalType}  <!-- app类型 -->
+		</if>
+	   <if test="app_verson != null ">
+		      AND app_verson = #{app_verson}  <!-- 版本号 -->
+		</if>
+	   <if test="is_force != null ">
+		      AND is_force = #{is_force}  <!-- 0 不强制升级，1 强制升级 -->
+		</if>
+	    <if test="verson_log != null and verson_log != ''">
+		      AND verson_log = #{verson_log}  <!-- 升级日志 -->
+		</if>
+	    <if test="download_url != null and download_url != ''">
+		      AND download_url = #{download_url}  <!-- 下载路径 -->
+		</if>
+	    <if test="md5 != null and md5 != ''">
+		      AND md5 = #{md5}  <!-- md5 -->
+		</if>
+	    <if test="app_verson_name != null and app_verson_name != ''">
+		      AND app_verson_name = #{app_verson_name}  <!-- 版本号名称 -->
+		</if>
+	    <if test="add_time != null and add_time != ''">
+		      AND add_time = #{add_time}  <!-- 添加时间 -->
+		</if>
+		<if test="type != null ">
+		      AND type = #{type}  <!-- app类型 -->
+		</if>
+	</sql>
+	
+	<!-- Where模糊匹配字段 -->
+	<sql id="like">
+	    <if test="verson_log != null and verson_log != ''">
+		      AND verson_log like '${verson_log}%'  <!-- 升级日志 -->
+		</if>
+	    <if test="download_url != null and download_url != ''">
+		      AND download_url like '${download_url}%'  <!-- 下载路径 -->
+		</if>
+	    <if test="md5 != null and md5 != ''">
+		      AND md5 like '${md5}%'  <!-- md5 -->
+		</if>
+	    <if test="app_verson_name != null and app_verson_name != ''">
+		      AND app_verson_name like '${app_verson_name}%'  <!-- 版本号名称 -->
+		</if>
+	    <if test="add_time != null and add_time != ''">
+		      AND add_time like '${add_time}%'  <!-- 添加时间 -->
+		</if>
+	</sql>
+	
+	<!-- ==========================================api接口============================================ -->
+	<!-- 根据Dto倒序查询版本数据 -->
+	<select id="listVersionDesc" parameterType="Dto" resultType="ZjcAppversonPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_appverson 
+		<where>
+			<if test="terminalType != null">
+				and app_type = #{terminalType}
+			</if>
+			<if test="type != null">
+				and type = #{type}
+			</if>
+		</where> order by id desc	
+	</select>
+</mapper>

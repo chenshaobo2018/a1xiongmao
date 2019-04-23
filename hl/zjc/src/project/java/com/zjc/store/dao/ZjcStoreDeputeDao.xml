@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- zjc_store_depute[zjc_store_depute]SQL自动映射 -->
+<!--  注意:此文件由AOS平台自动生成-禁止手工修改 2017-08-27 17:08:23 -->
+<mapper namespace="com.zjc.store.dao.ZjcStoreDeputeDao">
+	
+	<!-- 插入一个数据持久化对象(插入字段为传入PO实体的非空属性) -->
+	<insert id="insert"  parameterType="ZjcStoreDeputePO">
+		INSERT INTO zjc_store_depute (
+		<if test="real_name != null and real_name != ''">
+	         real_name, <!-- 委托人姓名 -->
+		</if>
+		<if test="id_card != null and id_card != ''">
+	         id_card, <!-- 身份证号 -->
+		</if>
+		<if test="contract_mobile != null and contract_mobile != ''">
+	         contract_mobile, <!-- 联系电话 -->
+		</if>
+		<if test="store_id != null">
+	         store_id, <!-- 企业ID -->
+		</if>
+		<if test="office_mobile != null and office_mobile != ''">
+	         office_mobile, <!-- 企业电话 -->
+		</if>
+		<if test="account_name != null and account_name != ''">
+	         account_name, <!-- 开户户名 -->
+		</if>
+		<if test="account_mumber != null and account_mumber != ''">
+	         account_mumber, <!-- 开户账号 -->
+		</if>
+		<if test="bank != null and bank != ''">
+	         bank, <!-- 开户银行 -->
+		</if>
+		<if test="add_time != null and add_time != ''">
+	         add_time, <!-- 申请时间 -->
+		</if>
+		<if test="state != null and state != ''">
+	         state, <!-- 审核状态：1待审，2失败，3通过 -->
+		</if>
+		<if test="store_name != null and store_name != ''">
+	         store_name, <!-- 审核状态：1待审，2失败，3通过 -->
+		</if>
+		<if test="note != null and note != ''">
+	         note, <!-- 操作备注 -->
+		</if>
+		<if test="user_id != null">
+	          user_id  <!-- 委托人ID -->
+	   </if>
+		)VALUES(
+		<if test="real_name != null and real_name != ''">
+	          #{real_name, jdbcType=VARCHAR}, <!-- 委托人姓名 -->
+	    </if>
+		<if test="id_card != null and id_card != ''">
+	          #{id_card, jdbcType=VARCHAR}, <!-- 身份证号 -->
+	    </if>
+		<if test="contract_mobile != null and contract_mobile != ''">
+	          #{contract_mobile, jdbcType=VARCHAR}, <!-- 联系电话 -->
+	    </if>
+		<if test="store_id != null">
+	          #{store_id, jdbcType=INTEGER}, <!-- 企业ID -->
+	    </if>
+		<if test="office_mobile != null and office_mobile != ''">
+	          #{office_mobile, jdbcType=VARCHAR}, <!-- 企业电话 -->
+	    </if>
+		<if test="account_name != null and account_name != ''">
+	          #{account_name, jdbcType=VARCHAR}, <!-- 开户户名 -->
+	    </if>
+		<if test="account_mumber != null and account_mumber != ''">
+	          #{account_mumber, jdbcType=VARCHAR}, <!-- 开户账号 -->
+	    </if>
+		<if test="bank != null and bank != ''">
+	          #{bank, jdbcType=VARCHAR}, <!-- 开户银行 -->
+	    </if>
+		<if test="add_time != null and add_time != ''">
+	          #{add_time, jdbcType=VARCHAR}, <!-- 申请时间 -->
+	    </if>
+		<if test="state != null and state != ''">
+	          #{state, jdbcType=VARCHAR}, <!-- 审核状态：1待审，2失败，3通过 -->
+	    </if>
+	    <if test="store_name != null and store_name != ''">
+	          #{store_name, jdbcType=VARCHAR}, <!-- 审核状态：1待审，2失败，3通过 -->
+	    </if>
+	    <if test="note != null and note != ''">
+	          #{note, jdbcType=VARCHAR}, <!-- 操作记录 -->
+	    </if>
+		<if test="user_id != null">
+		     #{user_id, jdbcType=INTEGER}  <!-- 委托人ID -->
+	    </if>
+		)
+	</insert>
+	
+	<!-- 插入一个数据持久化对象(含所有字段) -->
+	<insert id="insertAll"  parameterType="ZjcStoreDeputePO">
+		INSERT INTO zjc_store_depute (
+		    <include refid="column" />
+		)
+		VALUES (
+		    #{user_id, jdbcType=INTEGER},  <!-- 委托人ID -->
+		    #{real_name, jdbcType=VARCHAR},  <!-- 委托人姓名 -->
+		    #{id_card, jdbcType=VARCHAR},  <!-- 身份证号 -->
+		    #{contract_mobile, jdbcType=VARCHAR},  <!-- 联系电话 -->
+		    #{store_id, jdbcType=INTEGER},  <!-- 企业ID -->
+		    #{office_mobile, jdbcType=VARCHAR},  <!-- 企业电话 -->
+		    #{account_name, jdbcType=VARCHAR},  <!-- 开户户名 -->
+		    #{account_mumber, jdbcType=VARCHAR},  <!-- 开户账号 -->
+		    #{bank, jdbcType=VARCHAR},  <!-- 开户银行 -->
+		    #{add_time, jdbcType=VARCHAR},  <!-- 申请时间 -->
+		    #{state, jdbcType=VARCHAR},  <!-- 审核状态：1待审，2失败，3通过 -->
+		    #{store_name, jdbcType=VARCHAR},
+		    #{note, jdbcType=VARCHAR}
+		)
+	</insert>
+
+	<!-- 根据主键修改数据持久化对象 -->
+	<update id="updateByKey" parameterType="ZjcStoreDeputePO">
+		UPDATE zjc_store_depute
+		<set>
+			<if test="user_id != null">
+		          user_id = #{user_id, jdbcType=INTEGER},  <!-- 委托人ID -->
+			</if>
+			<if test="real_name != null">
+		          real_name = #{real_name, jdbcType=VARCHAR},  <!-- 委托人姓名 -->
+			</if>
+			<if test="id_card != null">
+		          id_card = #{id_card, jdbcType=VARCHAR},  <!-- 身份证号 -->
+			</if>
+			<if test="contract_mobile != null">
+		          contract_mobile = #{contract_mobile, jdbcType=VARCHAR},  <!-- 联系电话 -->
+			</if>
+			<if test="store_id != null">
+		          store_id = #{store_id, jdbcType=INTEGER},  <!-- 企业ID -->
+			</if>
+			<if test="office_mobile != null">
+		          office_mobile = #{office_mobile, jdbcType=VARCHAR},  <!-- 企业电话 -->
+			</if>
+			<if test="account_name != null">
+		          account_name = #{account_name, jdbcType=VARCHAR},  <!-- 开户户名 -->
+			</if>
+			<if test="account_mumber != null">
+		          account_mumber = #{account_mumber, jdbcType=VARCHAR},  <!-- 开户账号 -->
+			</if>
+			<if test="bank != null">
+		          bank = #{bank, jdbcType=VARCHAR},  <!-- 开户银行 -->
+			</if>
+			<if test="add_time != null">
+		          add_time = #{add_time, jdbcType=VARCHAR},  <!-- 申请时间 -->
+			</if>
+			<if test="state != null">
+		          state = #{state, jdbcType=VARCHAR},  <!-- 审核状态：1待审，2失败，3通过 -->
+			</if>
+			<if test="state != null">
+		          store_name = #{store_name, jdbcType=VARCHAR},  <!-- 审核状态：1待审，2失败，3通过 -->
+			</if>
+			<if test="note != null and note != ''">
+				note = #{note, jdbcType=VARCHAR}
+			</if>
+		</set>
+		WHERE  user_id = #{user_id}
+	</update>
+	<!-- 根据店铺ID修改 -->
+	<update id="updateByStoreId" parameterType="ZjcStoreDeputePO">
+		UPDATE zjc_store_depute
+		<set>
+			<if test="user_id != null">
+		          user_id = #{user_id, jdbcType=INTEGER},  <!-- 委托人ID -->
+			</if>
+			<if test="real_name != null">
+		          real_name = #{real_name, jdbcType=VARCHAR},  <!-- 委托人姓名 -->
+			</if>
+			<if test="id_card != null">
+		          id_card = #{id_card, jdbcType=VARCHAR},  <!-- 身份证号 -->
+			</if>
+			<if test="contract_mobile != null">
+		          contract_mobile = #{contract_mobile, jdbcType=VARCHAR},  <!-- 联系电话 -->
+			</if>
+			<if test="store_id != null">
+		          store_id = #{store_id, jdbcType=INTEGER},  <!-- 企业ID -->
+			</if>
+			<if test="office_mobile != null">
+		          office_mobile = #{office_mobile, jdbcType=VARCHAR},  <!-- 企业电话 -->
+			</if>
+			<if test="account_name != null">
+		          account_name = #{account_name, jdbcType=VARCHAR},  <!-- 开户户名 -->
+			</if>
+			<if test="account_mumber != null">
+		          account_mumber = #{account_mumber, jdbcType=VARCHAR},  <!-- 开户账号 -->
+			</if>
+			<if test="bank != null">
+		          bank = #{bank, jdbcType=VARCHAR},  <!-- 开户银行 -->
+			</if>
+			<if test="add_time != null">
+		          add_time = #{add_time, jdbcType=VARCHAR},  <!-- 申请时间 -->
+			</if>
+			<if test="state != null">
+		          state = #{state, jdbcType=VARCHAR},  <!-- 审核状态：1待审，2失败，3通过 -->
+			</if>
+			<if test="state != null">
+		          store_name = #{store_name, jdbcType=VARCHAR},  <!-- 审核状态：1待审，2失败，3通过 -->
+			</if>
+			<if test="note != null and note != ''">
+				note = #{note, jdbcType=VARCHAR}
+			</if>
+		</set>
+		WHERE  store_id = #{store_id}
+	</update>
+	
+	<!-- 根据主键删除数据持久化对象 -->
+	<delete id="deleteByKey">
+		DELETE FROM zjc_store_depute WHERE  user_id = #{user_id}
+	</delete>
+
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="selectByKey" resultType="ZjcStoreDeputePO">
+		SELECT
+		<include refid="column" />
+		FROM zjc_store_depute WHERE  user_id = #{user_id}
+	</select>
+
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="selectOne" parameterType="Dto" resultType="ZjcStoreDeputePO">
+		SELECT
+		    <include refid="column" />
+		FROM zjc_store_depute
+		<where>
+		    <include refid="equal" />
+		</where>		
+	</select>
+
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="list" parameterType="Dto" resultType="ZjcStoreDeputePO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_store_depute
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listPage" parameterType="Dto" resultType="ZjcStoreDeputePO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_store_depute
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto模糊查询并返回数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="like" parameterType="Dto" resultType="ZjcStoreDeputePO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_store_depute
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto模糊查询并返回分页数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="likePage" parameterType="Dto" resultType="ZjcStoreDeputePO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_store_depute
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto统计行数 -->
+	<select id="rows" resultType="Integer" parameterType="Dto">
+		SELECT COUNT(1) AS aos_rows_ FROM zjc_store_depute
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 根据数学表达式进行数学运算 -->
+	<select id="calc" parameterType="Dto" resultType="String">
+		SELECT
+			${_expr}
+		FROM zjc_store_depute
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 表字段 -->
+	<sql id="column">
+		  user_id,  <!-- 委托人ID -->
+		  real_name,  <!-- 委托人姓名 -->
+		  id_card,  <!-- 身份证号 -->
+		  contract_mobile,  <!-- 联系电话 -->
+		  store_id,  <!-- 企业ID -->
+		  office_mobile,  <!-- 企业电话 -->
+		  account_name,  <!-- 开户户名 -->
+		  account_mumber,  <!-- 开户账号 -->
+		  bank,  <!-- 开户银行 -->
+		  add_time,  <!-- 申请时间 -->
+		  state,  <!-- 审核状态：1待审，2失败，3通过 -->
+		  store_name,
+		  note
+	</sql>
+	
+	<!-- 表字段(用于外表的关联时引用) -->
+	<sql id="column2">
+		  zjc_store_depute.user_id,  <!-- 委托人ID -->
+		  zjc_store_depute.real_name,  <!-- 委托人姓名 -->
+		  zjc_store_depute.id_card,  <!-- 身份证号 -->
+		  zjc_store_depute.contract_mobile,  <!-- 联系电话 -->
+		  zjc_store_depute.store_id,  <!-- 企业ID -->
+		  zjc_store_depute.office_mobile,  <!-- 企业电话 -->
+		  zjc_store_depute.account_name,  <!-- 开户户名 -->
+		  zjc_store_depute.account_mumber,  <!-- 开户账号 -->
+		  zjc_store_depute.bank,  <!-- 开户银行 -->
+		  zjc_store_depute.add_time,  <!-- 申请时间 -->
+		  zjc_store_depute.state,  <!-- 审核状态：1待审，2失败，3通过 -->
+		  zjc_store_depute.store_name,
+		  zjc_store_depute.note
+	</sql>
+
+	<!-- Where精确匹配字段 -->
+	<sql id="equal">
+	   <if test="user_id != null ">
+		      AND user_id = #{user_id}  <!-- 委托人ID -->
+		</if>
+	    <if test="real_name != null and real_name != ''">
+		      AND real_name = #{real_name}  <!-- 委托人姓名 -->
+		</if>
+	    <if test="id_card != null and id_card != ''">
+		      AND id_card = #{id_card}  <!-- 身份证号 -->
+		</if>
+	    <if test="contract_mobile != null and contract_mobile != ''">
+		      AND contract_mobile = #{contract_mobile}  <!-- 联系电话 -->
+		</if>
+	   <if test="store_id != null ">
+		      AND store_id = #{store_id}  <!-- 企业ID -->
+		</if>
+	    <if test="office_mobile != null and office_mobile != ''">
+		      AND office_mobile = #{office_mobile}  <!-- 企业电话 -->
+		</if>
+	    <if test="account_name != null and account_name != ''">
+		      AND account_name = #{account_name}  <!-- 开户户名 -->
+		</if>
+	    <if test="account_mumber != null and account_mumber != ''">
+		      AND account_mumber = #{account_mumber}  <!-- 开户账号 -->
+		</if>
+	    <if test="bank != null and bank != ''">
+		      AND bank = #{bank}  <!-- 开户银行 -->
+		</if>
+	    <if test="add_time != null and add_time != ''">
+		      AND add_time = #{add_time}  <!-- 申请时间 -->
+		</if>
+	    <if test="state != null and state != ''">
+		      AND state = #{state}  <!-- 审核状态：1待审，2失败，3通过 -->
+		</if>
+		<if test="store_name != null and store_name != ''">
+		      AND store_name = #{store_name}  <!-- 审核状态：1待审，2失败，3通过 -->
+		</if>
+		<if test="note != null and note != ''">
+		      AND note = #{note}  <!-- 备注 -->
+		</if>
+	</sql>
+	
+	<!-- Where模糊匹配字段 -->
+	<sql id="like">
+	    <if test="real_name != null and real_name != ''">
+		      AND real_name like '${real_name}%'  <!-- 委托人姓名 -->
+		</if>
+	    <if test="id_card != null and id_card != ''">
+		      AND id_card = #{id_card}  <!-- 身份证号 -->
+		</if>
+	    <if test="contract_mobile != null and contract_mobile != ''">
+		      AND contract_mobile = #{contract_mobile}  <!-- 联系电话 -->
+		</if>
+	    <if test="office_mobile != null and office_mobile != ''">
+		      AND office_mobile = #office_mobile}  <!-- 企业电话 -->
+		</if>
+	    <if test="account_name != null and account_name != ''">
+		      AND account_name like '${account_name}%'  <!-- 开户户名 -->
+		</if>
+	    <if test="account_mumber != null and account_mumber != ''">
+		      AND account_mumber like '${account_mumber}%'  <!-- 开户账号 -->
+		</if>
+	    <if test="bank != null and bank != ''">
+		      AND bank like '${bank}%'  <!-- 开户银行 -->
+		</if>
+	    <if test="add_time != null and add_time != ''">
+		      AND add_time like '${add_time}%'  <!-- 申请时间 -->
+		</if>
+	    <if test="state != null and state != ''">
+		      AND state = #{state}  <!-- 审核状态：1待审，2失败，3通过 -->
+		</if>
+		<if test="store_name != null and store_name != ''">
+		      AND store_name like '${store_name}%'  <!-- 审核状态：1待审，2失败，3通过 -->
+		</if>
+		<if test="note != null and note != ''">
+		      AND note like '%${note}%'  <!-- 审核状态：1待审，2失败，3通过 -->
+		</if>
+	</sql>
+	
+	<select id="listSerachPage" parameterType="Dto" resultType="ZjcStoreDeputePO">
+		select * from zjc_store_depute
+		<where>
+			<if test="user_id != '' and user_id != null">
+				user_id = #{user_id}
+			</if>
+			<if test="real_name != '' and real_name != null">
+				real_name like '%${real_name}%'
+			</if>
+			<if test="store_name != '' and store_name != null">
+				store_name like '%${store_name}%'
+			</if>
+			<if test="state != '' and state != null">
+				state = #{state}
+			</if>
+		</where>
+		order by add_time desc
+	</select>
+	
+	<select id="deputeDetial" parameterType="Dto" resultType="ZjcStoreDeputePO">
+		select real_name, id_card, contract_mobile, account_mumber, account_name, bank, state, store_name, user_id, store_id, note
+		from zjc_store_depute where store_id = #{store_id}
+	</select>
+	
+	<select id="deputeDelByCondition" parameterType="Dto" resultType="ZjcStoreDeputePO">
+		select real_name, id_card, contract_mobile, account_mumber, account_name, bank, state, store_name, user_id, store_id, note
+		from zjc_store_depute where store_id = #{store_id} and user_id = #{user_id}
+	</select>
+	
+	<update id="updateDepute" parameterType="ZjcStoreDeputePO">
+		update zjc_store_depute 
+			set state = #{state}, note = #{note}
+		where user_id = #{user_id}
+	</update>
+	
+	<select id="selectByStoreId" parameterType="Dto" resultType="Dto">
+		select * from zjc_store_depute where store_id = #{store_id}
+	</select>
+</mapper>

@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- zjc_pay_bank[zjc_pay_bank]SQL自动映射 -->
+<!--  注意:此文件由AOS平台自动生成-禁止手工修改 2018-01-17 14:44:37 -->
+<mapper namespace="com.api.alipay.dao.ZjcPayBankDao">
+	
+	<!-- 插入一个数据持久化对象(插入字段为传入PO实体的非空属性) -->
+	<insert id="insert"  parameterType="ZjcPayBankPO">
+		INSERT INTO zjc_pay_bank (
+		<if test="user_id != null and user_id != ''">
+	         user_id, <!-- user_id -->
+		</if>
+		<if test="phone != null">
+	         phone, <!-- phone -->
+		</if>
+		<if test="bank_card != null">
+	         bank_card, <!-- bank_card -->
+		</if>
+		<if test="id_card != null and id_card != ''">
+	         id_card, <!-- id_card -->
+		</if>
+		<if test="pay_default != null">
+	         pay_default, <!-- 0不默认1默认 -->
+		</if>
+		<if test="is_delete != null">
+	         is_delete, <!--是否删除-->
+		</if>
+		<if test="bank_id != null and bank_id != ''">
+	          bank_id  <!-- bank_id -->
+	   </if>
+		)VALUES(
+		<if test="user_id != null and user_id != ''">
+	          #{user_id, jdbcType=VARCHAR}, <!-- user_id -->
+	    </if>
+		<if test="phone != null">
+	          #{phone, jdbcType=VARCHAR}, <!-- phone -->
+	    </if>
+		<if test="bank_card != null">
+	          #{bank_card, jdbcType=VARCHAR}, <!-- bank_card -->
+	    </if>
+		<if test="id_card != null and id_card != ''">
+	          #{id_card, jdbcType=VARCHAR}, <!-- id_card -->
+	    </if>
+		<if test="pay_default != null">
+	          #{pay_default, jdbcType=INTEGER}, <!-- 0不默认1默认 -->
+	    </if>
+	    <if test="is_delete != null">
+	          #{is_delete, jdbcType=INTEGER}, <!-- 0不默认1默认 -->
+	    </if>
+		<if test="bank_id != null and bank_id != ''">
+		     #{bank_id, jdbcType=VARCHAR}  <!-- bank_id -->
+	    </if>
+		)
+	</insert>
+	
+	<!-- 插入一个数据持久化对象(含所有字段) -->
+	<insert id="insertAll"  parameterType="ZjcPayBankPO">
+		INSERT INTO zjc_pay_bank (
+		    <include refid="column" />
+		)
+		VALUES (
+		    #{bank_id, jdbcType=VARCHAR},  <!-- bank_id -->
+		    #{user_id, jdbcType=VARCHAR},  <!-- user_id -->
+		    #{phone, jdbcType=VARCHAR},  <!-- phone -->
+		    #{bank_card, jdbcType=VARCHAR},  <!-- bank_card -->
+		    #{id_card, jdbcType=VARCHAR},  <!-- id_card -->
+		    #{pay_default, jdbcType=INTEGER},  <!-- 0不默认1默认 -->
+		    #{is_delete, jdbcType=INTEGER}
+		)
+	</insert>
+
+	<!-- 根据主键修改数据持久化对象 -->
+	<update id="updateByKey" parameterType="ZjcPayBankPO">
+		UPDATE zjc_pay_bank
+		<set>
+			<if test="bank_id != null">
+		          bank_id = #{bank_id, jdbcType=VARCHAR},  <!-- bank_id -->
+			</if>
+			<if test="user_id != null">
+		          user_id = #{user_id, jdbcType=VARCHAR},  <!-- user_id -->
+			</if>
+			<if test="phone != null">
+		          phone = #{phone, jdbcType=VARCHAR},  <!-- phone -->
+			</if>
+			<if test="bank_card != null">
+		          bank_card = #{bank_card, jdbcType=VARCHAR},  <!-- bank_card -->
+			</if>
+			<if test="id_card != null">
+		          id_card = #{id_card, jdbcType=VARCHAR},  <!-- id_card -->
+			</if>
+			<if test="pay_default != null">
+		          pay_default = #{pay_default, jdbcType=INTEGER},  <!-- 0不默认1默认 -->
+			</if>
+			<if test="is_delete != null">
+		          is_delete = #{is_delete, jdbcType=INTEGER},  <!-- 0不默认1默认 -->
+			</if>
+		</set>
+		WHERE  bank_id = #{bank_id}
+	</update>
+	
+	<!-- 根据主键删除数据持久化对象 -->
+	<delete id="deleteByKey">
+		DELETE FROM zjc_pay_bank WHERE  bank_id = #{bank_id}
+	</delete>
+
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="selectByKey" resultType="ZjcPayBankPO">
+		SELECT
+		<include refid="column" />
+		FROM zjc_pay_bank WHERE  bank_id = #{bank_id}
+	</select>
+
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="selectOne" parameterType="Dto" resultType="ZjcPayBankPO">
+		SELECT
+		    <include refid="column" />
+		FROM zjc_pay_bank
+		<where>
+		    <include refid="equal" />
+		</where>		
+	</select>
+
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="list" parameterType="Dto" resultType="ZjcPayBankPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_pay_bank
+		where 	is_delete=1
+		 <if test="user_id != null and user_id != ''">
+		      AND user_id = #{user_id}  <!-- user_id -->
+		</if>
+	</select>
+
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listPage" parameterType="Dto" resultType="ZjcPayBankPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_pay_bank
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto模糊查询并返回数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="like" parameterType="Dto" resultType="ZjcPayBankPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_pay_bank
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto模糊查询并返回分页数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="likePage" parameterType="Dto" resultType="ZjcPayBankPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_pay_bank
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto统计行数 -->
+	<select id="rows" resultType="Integer" parameterType="Dto">
+		SELECT COUNT(1) AS aos_rows_ FROM zjc_pay_bank
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 根据数学表达式进行数学运算 -->
+	<select id="calc" parameterType="Dto" resultType="String">
+		SELECT
+			${_expr}
+		FROM zjc_pay_bank
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 表字段 -->
+	<sql id="column">
+		  bank_id,  <!-- bank_id -->
+		  user_id,  <!-- user_id -->
+		  phone,  <!-- phone -->
+		  bank_card,  <!-- bank_card -->
+		  id_card,  <!-- id_card -->
+		  pay_default,  <!-- 0不默认1默认 -->
+		  is_delete
+	</sql>
+	
+	<!-- 表字段(用于外表的关联时引用) -->
+	<sql id="column2">
+		  zjc_pay_bank.bank_id,  <!-- bank_id -->
+		  zjc_pay_bank.user_id,  <!-- user_id -->
+		  zjc_pay_bank.phone,  <!-- phone -->
+		  zjc_pay_bank.bank_card,  <!-- bank_card -->
+		  zjc_pay_bank.id_card,  <!-- id_card -->
+		  zjc_pay_bank.pay_default,  <!-- 0不默认1默认 -->
+		  zjc_pay_bank.is_delete
+	</sql>
+
+	<!-- Where精确匹配字段 -->
+	<sql id="equal">
+	    <if test="bank_id != null and bank_id != ''">
+		      AND bank_id = #{bank_id}  <!-- bank_id -->
+		</if>
+	    <if test="user_id != null and user_id != ''">
+		      AND user_id = #{user_id}  <!-- user_id -->
+		</if>
+	   <if test="phone != null ">
+		      AND phone = #{phone}  <!-- phone -->
+		</if>
+	   <if test="bank_card != null ">
+		      AND bank_card = #{bank_card}  <!-- bank_card -->
+		</if>
+	    <if test="id_card != null and id_card != ''">
+		      AND id_card = #{id_card}  <!-- id_card -->
+		</if>
+	   <if test="pay_default != null ">
+		      AND pay_default = #{pay_default}  <!-- 0不默认1默认 -->
+		</if>
+		 <if test="is_delete != null ">
+		      AND is_delete = #{is_delete}  <!-- 0不默认1默认 -->
+		</if>
+	</sql>
+	
+	<!-- Where模糊匹配字段 -->
+	<sql id="like">
+	    <if test="bank_id != null and bank_id != ''">
+		      AND bank_id like '${bank_id}%'  <!-- bank_id -->
+		</if>
+	    <if test="user_id != null and user_id != ''">
+		      AND user_id like '${user_id}%'  <!-- user_id -->
+		</if>
+	    <if test="id_card != null and id_card != ''">
+		      AND id_card like '${id_card}%'  <!-- id_card -->
+		</if>
+	</sql>
+	
+</mapper>

@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- zjc_after_sales_record[zjc_after_sales_record]SQL自动映射 -->
+<!--  注意:此文件由AOS平台自动生成-禁止手工修改 2017-08-21 16:07:05 -->
+<mapper namespace="com.zjc.users.dao.ZjcAfterSalesRecordDao">
+	
+	<!-- 插入一个数据持久化对象(插入字段为传入PO实体的非空属性) -->
+	<insert id="insert"  parameterType="ZjcAfterSalesRecordPO">
+		INSERT INTO zjc_after_sales_record (
+		<if test="operation != null">
+	         operation, <!-- 操作人 -->
+		</if>
+		<if test="add_time != null and add_time != ''">
+	         add_time, <!-- 添加时间 -->
+		</if>
+		<if test="operation_type != null">
+	         operation_type, <!-- 操作类型 -->
+		</if>
+		<if test="operating_content != null and operating_content != ''">
+	         operating_content, <!-- 操作内容 -->
+		</if>
+		<if test="user_id != null">
+	         user_id, <!-- user_id -->
+		</if>
+		<if test="id != null">
+	          id  <!-- id -->
+	   </if>
+		)VALUES(
+		<if test="operation != null">
+	          #{operation, jdbcType=INTEGER}, <!-- 操作人 -->
+	    </if>
+		<if test="add_time != null and add_time != ''">
+	          #{add_time, jdbcType=VARCHAR}, <!-- 添加时间 -->
+	    </if>
+		<if test="operation_type != null">
+	          #{operation_type, jdbcType=VARCHAR}, <!-- 操作类型 -->
+	    </if>
+		<if test="operating_content != null and operating_content != ''">
+	          #{operating_content, jdbcType=VARCHAR}, <!-- 操作内容 -->
+	    </if>
+		<if test="user_id != null">
+	          #{user_id, jdbcType=INTEGER}, <!-- user_id -->
+	    </if>
+		<if test="id != null">
+		     #{id, jdbcType=INTEGER}  <!-- id -->
+	    </if>
+		)
+	</insert>
+	
+	<!-- 插入一个数据持久化对象(含所有字段) -->
+	<insert id="insertAll"  parameterType="ZjcAfterSalesRecordPO">
+		INSERT INTO zjc_after_sales_record (
+		    <include refid="column" />
+		)
+		VALUES (
+		    #{id, jdbcType=INTEGER},  <!-- id -->
+		    #{operation, jdbcType=INTEGER},  <!-- 操作人 -->
+		    #{add_time, jdbcType=VARCHAR},  <!-- 添加时间 -->
+		    #{operation_type, jdbcType=VARCHAR},  <!-- 操作类型 -->
+		    #{operating_content, jdbcType=VARCHAR},  <!-- 操作内容 -->
+		    #{user_id, jdbcType=INTEGER}  <!-- user_id -->
+		)
+	</insert>
+
+	<!-- 根据主键修改数据持久化对象 -->
+	<update id="updateByKey" parameterType="ZjcAfterSalesRecordPO">
+		UPDATE zjc_after_sales_record
+		<set>
+			<if test="id != null">
+		          id = #{id, jdbcType=INTEGER},  <!-- id -->
+			</if>
+			<if test="operation != null">
+		          operation = #{operation, jdbcType=INTEGER},  <!-- 操作人 -->
+			</if>
+			<if test="add_time != null">
+		          add_time = #{add_time, jdbcType=VARCHAR},  <!-- 添加时间 -->
+			</if>
+			<if test="operation_type != null">
+		          operation_type = #{operation_type, jdbcType=VARCHAR},  <!-- 操作类型 -->
+			</if>
+			<if test="operating_content != null">
+		          operating_content = #{operating_content, jdbcType=VARCHAR},  <!-- 操作内容 -->
+			</if>
+			<if test="user_id != null">
+		          user_id = #{user_id, jdbcType=INTEGER},  <!-- user_id -->
+			</if>
+		</set>
+		WHERE  id = #{id}
+	</update>
+	
+	<!-- 根据主键删除数据持久化对象 -->
+	<delete id="deleteByKey">
+		DELETE FROM zjc_after_sales_record WHERE  id = #{id}
+	</delete>
+
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="selectByKey" resultType="ZjcAfterSalesRecordPO">
+		SELECT
+		<include refid="column" />
+		FROM zjc_after_sales_record WHERE  id = #{id}
+	</select>
+
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="selectOne" parameterType="Dto" resultType="ZjcAfterSalesRecordPO">
+		SELECT
+		    <include refid="column" />
+		FROM zjc_after_sales_record
+		<where>
+		    <include refid="equal" />
+		</where>		
+	</select>
+
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="list" parameterType="Dto" resultType="ZjcAfterSalesRecordPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_after_sales_record
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listPage" parameterType="Dto" resultType="ZjcAfterSalesRecordPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_after_sales_record
+		<where>
+		    <include refid="equal" />
+		</where>	
+		order by add_time desc
+	</select>
+	
+	<!-- 根据Dto模糊查询并返回数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="like" parameterType="Dto" resultType="ZjcAfterSalesRecordPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_after_sales_record
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto模糊查询并返回分页数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="likePage" parameterType="Dto" resultType="ZjcAfterSalesRecordPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_after_sales_record
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto统计行数 -->
+	<select id="rows" resultType="Integer" parameterType="Dto">
+		SELECT COUNT(1) AS aos_rows_ FROM zjc_after_sales_record
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 根据数学表达式进行数学运算 -->
+	<select id="calc" parameterType="Dto" resultType="String">
+		SELECT
+			${_expr}
+		FROM zjc_after_sales_record
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 表字段 -->
+	<sql id="column">
+		  id,  <!-- id -->
+		  operation,  <!-- 操作人 -->
+		  add_time,  <!-- 添加时间 -->
+		  operation_type,  <!-- 操作类型 -->
+		  operating_content,  <!-- 操作内容 -->
+		  user_id  <!-- user_id -->
+	</sql>
+	
+	<!-- 表字段(用于外表的关联时引用) -->
+	<sql id="column2">
+		  zjc_after_sales_record.id,  <!-- id -->
+		  zjc_after_sales_record.operation,  <!-- 操作人 -->
+		  zjc_after_sales_record.add_time,  <!-- 添加时间 -->
+		  zjc_after_sales_record.operation_type,  <!-- 操作类型 -->
+		  zjc_after_sales_record.operating_content,  <!-- 操作内容 -->
+		  zjc_after_sales_record.user_id  <!-- user_id -->
+	</sql>
+
+	<!-- Where精确匹配字段 -->
+	<sql id="equal">
+	   <if test="id != null ">
+		      AND id = #{id}  <!-- id -->
+		</if>
+	   <if test="operation != null ">
+		      AND operation = #{operation}  <!-- 操作人 -->
+		</if>
+	    <if test="add_time != null and add_time != ''">
+		      AND add_time = #{add_time}  <!-- 添加时间 -->
+		</if>
+	   <if test="operation_type != null ">
+		      AND operation_type = #{operation_type}  <!-- 操作类型 -->
+		</if>
+	    <if test="operating_content != null and operating_content != ''">
+		      AND operating_content = #{operating_content}  <!-- 操作内容 -->
+		</if>
+	   <if test="user_id != null ">
+		      AND user_id = #{user_id}  <!-- user_id -->
+		</if>
+	</sql>
+	
+	<!-- Where模糊匹配字段 -->
+	<sql id="like">
+	    <if test="add_time != null and add_time != ''">
+		      AND add_time like '${add_time}%'  <!-- 添加时间 -->
+		</if>
+	    <if test="operating_content != null and operating_content != ''">
+		      AND operating_content like '${operating_content}%'  <!-- 操作内容 -->
+		</if>
+	</sql>
+	
+</mapper>

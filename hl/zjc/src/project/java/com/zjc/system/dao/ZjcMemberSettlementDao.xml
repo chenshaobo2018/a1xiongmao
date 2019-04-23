@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- zjc_member_settlement[zjc_member_settlement]SQL自动映射 -->
+<!--  注意:此文件由AOS平台自动生成-禁止手工修改 2017-06-13 16:52:00 -->
+<mapper namespace="com.zjc.system.dao.ZjcMemberSettlementDao">
+	
+	<!-- 插入一个数据持久化对象(插入字段为传入PO实体的非空属性) -->
+	<insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="ZjcMemberSettlementPO">
+		INSERT INTO zjc_member_settlement (
+		<if test="settlement_center_points != null and settlement_center_points != ''">
+	         settlement_center_points, <!-- 购买结算中心所需积分 -->
+		</if>
+		<if test="settlement_center_commission != null and settlement_center_commission != ''">
+	         settlement_center_commission, <!-- 结算中心提成比例 -->
+		</if>
+		<if test="date_time != null and date_time != ''">
+	         date_time, <!-- 添加时间 -->
+		</if>
+		<if test="sum_settlement != null and sum_settlement != ''">
+	         sum_settlement, <!-- 会员返佣模式 -->
+		</if>
+		<if test="sum_points_today != null and sum_points_today != ''">
+	         sum_points_today, <!-- 会员返佣模式 -->
+		</if>
+		<if test="points_other_min != null and points_other_min != ''">
+	         points_other_min, <!-- 会员返佣模式 -->
+		</if>
+		<if test="update_time != null and update_time != ''">
+	         update_time, <!-- 会员返佣模式 -->
+		</if>
+	          id
+		)VALUES(
+		<if test="settlement_center_points != null and settlement_center_points != ''">
+	          #{settlement_center_points, jdbcType=VARCHAR}, <!-- 购买结算中心所需积分 -->
+	    </if>
+		<if test="settlement_center_commission != null and settlement_center_commission != ''">
+	          #{settlement_center_commission, jdbcType=VARCHAR}, <!-- 结算中心提成比例 -->
+	    </if>
+		<if test="date_time != null and date_time != ''">
+	          #{date_time, jdbcType=VARCHAR}, <!-- 添加时间 -->
+	    </if>
+	     <if test="sum_settlement != null and sum_settlement != ''">
+	          #{sum_settlement, jdbcType=INTEGER}, <!-- 创建时间 -->
+	    </if>
+	    <if test="sum_points_today != null and sum_points_today != ''">
+	          #{sum_points_today, jdbcType=INTEGER}, <!-- 创建时间 -->
+	    </if>
+	    <if test="points_other_min != null and points_other_min != ''">
+	          #{points_other_min, jdbcType=INTEGER}, <!-- 创建时间 -->
+	    </if>
+	    <if test="update_time != null and update_time != ''">
+	          #{update_time, jdbcType=VARCHAR}, <!-- 创建时间 -->
+	    </if>
+	          null
+		)
+	</insert>
+	
+	<!-- 插入一个数据持久化对象(含所有字段) -->
+	<insert id="insertAll" useGeneratedKeys="true" keyProperty="id" parameterType="ZjcMemberSettlementPO">
+		INSERT INTO zjc_member_settlement (
+		    <include refid="column" />
+		)
+		VALUES (
+		    #{id, jdbcType=INTEGER},  <!-- 表id -->
+		    #{settlement_center_points, jdbcType=VARCHAR},  <!-- 购买结算中心所需积分 -->
+		    #{settlement_center_commission, jdbcType=VARCHAR},  <!-- 结算中心提成比例 -->
+		    #{sum_settlement, jdbcType=INTEGER}, 
+		    #{sum_points_today, jdbcType=INTEGER}, 
+		    #{points_other_min, jdbcType=INTEGER}, 
+		    #{update_time, jdbcType=VARCHAR}, 
+		    #{date_time, jdbcType=VARCHAR}  <!-- 添加时间 -->
+		)
+	</insert>
+
+	<!-- 根据主键修改数据持久化对象 -->
+	<update id="updateByKey" parameterType="ZjcMemberSettlementPO">
+		UPDATE zjc_member_settlement
+		<set>
+			<if test="id != null">
+		          id = #{id, jdbcType=INTEGER},  <!-- 表id -->
+			</if>
+			<if test="settlement_center_points != null">
+		          settlement_center_points = #{settlement_center_points, jdbcType=VARCHAR},  <!-- 购买结算中心所需积分 -->
+			</if>
+			<if test="settlement_center_commission != null">
+		          settlement_center_commission = #{settlement_center_commission, jdbcType=VARCHAR},  <!-- 结算中心提成比例 -->
+			</if>
+			<if test="date_time != null">
+		          date_time = #{date_time, jdbcType=VARCHAR},  <!-- 添加时间 -->
+			</if>
+			<if test="sum_settlement != null">
+		          sum_settlement = #{sum_settlement, jdbcType=INTEGER},  <!-- 添加时间 -->
+			</if>
+			<if test="sum_points_today != null">
+		          sum_points_today = #{sum_points_today, jdbcType=INTEGER},  <!-- 添加时间 -->
+			</if>
+			<if test="points_other_min != null">
+		          points_other_min = #{points_other_min, jdbcType=INTEGER},  <!-- 添加时间 -->
+			</if>
+			<if test="update_time != null">
+		          update_time = #{update_time, jdbcType=VARCHAR},  <!-- 添加时间 -->
+			</if>
+			
+		</set>
+		WHERE  id = #{id}
+	</update>
+	
+	<!-- 根据主键删除数据持久化对象 -->
+	<delete id="deleteByKey">
+		DELETE FROM zjc_member_settlement WHERE  id = #{id}
+	</delete>
+
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="selectByKey" resultType="ZjcMemberSettlementPO">
+		SELECT
+		<include refid="column" />
+		FROM zjc_member_settlement WHERE  id = #{id}
+	</select>
+	
+	 <!-- 根据最大id查询最新数据 -->
+	<select id="selectByMaxKey" resultType="ZjcMemberSettlementPO">
+		SELECT
+		<include refid="column" />
+		 from zjc_member_settlement t  
+         where t.id=(select max(id) from zjc_member_settlement)
+	</select>
+
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="selectOne" parameterType="Dto" resultType="ZjcMemberSettlementPO">
+		SELECT
+		    <include refid="column" />
+		FROM zjc_member_settlement
+		<where>
+		    <include refid="equal" />
+		</where>		
+	</select>
+
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="list" parameterType="Dto" resultType="ZjcMemberSettlementPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_member_settlement
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listPage" parameterType="Dto" resultType="ZjcMemberSettlementPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_member_settlement
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto模糊查询并返回数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="like" parameterType="Dto" resultType="ZjcMemberSettlementPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_member_settlement
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto模糊查询并返回分页数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="likePage" parameterType="Dto" resultType="ZjcMemberSettlementPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_member_settlement
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto统计行数 -->
+	<select id="rows" resultType="Integer" parameterType="Dto">
+		SELECT COUNT(1) AS aos_rows_ FROM zjc_member_settlement
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 根据数学表达式进行数学运算 -->
+	<select id="calc" parameterType="Dto" resultType="String">
+		SELECT
+			${_expr}
+		FROM zjc_member_settlement
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 表字段 -->
+	<sql id="column">
+		  id,  <!-- 表id -->
+		  settlement_center_points,  <!-- 购买结算中心所需积分 -->
+		  settlement_center_commission,  <!-- 结算中心提成比例 -->
+		   sum_settlement,  <!-- 会员返佣模式 -->
+		  sum_points_today,  <!-- 会员返佣模式 -->
+		  points_other_min,  <!-- 会员返佣模式 -->
+		  update_time,  <!-- 会员返佣模式 -->
+		  date_time  <!-- 添加时间 -->
+	</sql>
+	
+	<!-- 表字段(用于外表的关联时引用) -->
+	<sql id="column2">
+		  zjc_member_settlement.id,  <!-- 表id -->
+		  zjc_member_settlement.settlement_center_points,  <!-- 购买结算中心所需积分 -->
+		  zjc_member_settlement.settlement_center_commission,  <!-- 结算中心提成比例 -->
+		  zjc_member_settlement.sum_settlement,  <!-- 会员返佣模式 -->
+		  zjc_member_settlement.sum_points_today,  <!-- 会员返佣模式 -->
+		  zjc_member_settlement.points_other_min,  <!-- 会员返佣模式 -->
+		  zjc_member_settlement.update_time,  <!-- 会员返佣模式 -->
+		  zjc_member_settlement.date_time  <!-- 添加时间 -->
+	</sql>
+
+	<!-- Where精确匹配字段 -->
+	<sql id="equal">
+	   <if test="id != null ">
+		      AND id = #{id}  <!-- 表id -->
+		</if>
+	    <if test="settlement_center_points != null and settlement_center_points != ''">
+		      AND settlement_center_points = #{settlement_center_points}  <!-- 购买结算中心所需积分 -->
+		</if>
+	    <if test="settlement_center_commission != null and settlement_center_commission != ''">
+		      AND settlement_center_commission = #{settlement_center_commission}  <!-- 结算中心提成比例 -->
+		</if>
+		<if test="sum_settlement != null and sum_settlement != ''">
+		      AND sum_settlement = #{sum_settlement}  <!-- 结算中心提成比例 -->
+		</if>
+		<if test="sum_points_today != null and sum_points_today != ''">
+		      AND sum_points_today = #{sum_points_today}  <!-- 结算中心提成比例 -->
+		</if>
+		<if test="points_other_min != null and points_other_min != ''">
+		      AND points_other_min = #{points_other_min}  <!-- 结算中心提成比例 -->
+		</if>
+		<if test="update_time != null and update_time != ''">
+		      AND update_time = #{update_time}  <!-- 结算中心提成比例 -->
+		</if>
+	    <if test="date_time != null and date_time != ''">
+		      AND date_time = #{date_time}  <!-- 添加时间 -->
+		</if>
+	</sql>
+	
+	<!-- Where模糊匹配字段 -->
+	<sql id="like">
+	    <if test="settlement_center_points != null and settlement_center_points != ''">
+		      AND settlement_center_points like '${settlement_center_points}%'  <!-- 购买结算中心所需积分 -->
+		</if>
+	    <if test="settlement_center_commission != null and settlement_center_commission != ''">
+		      AND settlement_center_commission like '${settlement_center_commission}%'  <!-- 结算中心提成比例 -->
+		</if>
+	    <if test="date_time != null and date_time != ''">
+		      AND date_time like '${date_time}%'  <!-- 添加时间 -->
+		</if>
+	</sql>
+	
+</mapper>

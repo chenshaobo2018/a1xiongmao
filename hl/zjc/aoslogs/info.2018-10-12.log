@@ -1,0 +1,6 @@
+2018-10-12 14:24:39 INFO [Class:o.e.j.s.Server->Thread:main] jetty-8.1.17.v20150415 
+2018-10-12 14:24:40 INFO [Class:o.e.j.s.h.ContextHandler$Context->Thread:main] Initializing Spring root WebApplicationContext 
+2018-10-12 14:25:23 INFO [Class:o.e.j.s.h.ContextHandler$Context->Thread:main] Initializing Spring FrameworkServlet 'springDispatcherServlet' 
+2018-10-12 14:25:25 INFO [Class:o.e.j.s.AbstractConnector->Thread:main] Started SelectChannelConnector@0.0.0.0:10010 
+2018-10-12 14:34:45 WARN [Class:a.f.w.f.HttpBackendFilter->Thread:qtp1184897668-27] 请求被重定向到登录页。【URL：/aosuite/http/do.jhtml】 
+2018-10-12 14:42:05 ERROR [Class:a.f.c.c.CacheMasterDataService->Thread:qtp1184897668-28] 没有获取到Key为[sex_]的数据字典。 

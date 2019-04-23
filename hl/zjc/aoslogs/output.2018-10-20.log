@@ -1,0 +1,7 @@
+2018-10-20 10:31:03 INFO [Class:o.e.j.s.Server->Thread:main] jetty-8.1.17.v20150415 
+2018-10-20 10:31:04 INFO [Class:o.e.j.s.h.ContextHandler$Context->Thread:main] Initializing Spring root WebApplicationContext 
+2018-10-20 10:31:45 INFO [Class:o.e.j.s.h.ContextHandler$Context->Thread:main] Initializing Spring FrameworkServlet 'springDispatcherServlet' 
+2018-10-20 10:31:47 INFO [Class:o.e.j.s.AbstractConnector->Thread:main] Started SelectChannelConnector@0.0.0.0:10010 
+2018-10-20 10:35:45 INFO [Class:c.a.s.s.SlbService->Thread:qtp272482896-23] ========================app获取的钱包地址13551257407 
+2018-10-20 10:35:46 INFO [Class:c.a.s.s.SlbService->Thread:qtp272482896-23] ========================app获取的钱包地址获取回来的参数{"message":"成功","data":{"exist":1},"resultCode":0,"totalPage":0} 
+2018-10-20 10:35:46 INFO [Class:c.a.s.s.SlbService->Thread:qtp272482896-23] ========================app获取的钱包地址1EXnwVHgHyGhKcqmnvzkBvNT2t7HAx7EVr 

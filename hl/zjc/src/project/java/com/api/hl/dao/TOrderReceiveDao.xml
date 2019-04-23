@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- t_order_receive[t_order_receive]SQL自动映射 -->
+<!--  注意:此文件由AOS平台自动生成-禁止手工修改 2019-04-21 11:26:03 -->
+<mapper namespace="com.api.hl.dao.TOrderReceiveDao">
+	
+	<!-- 插入一个数据持久化对象(插入字段为传入PO实体的非空属性) -->
+	<insert id="insert"  parameterType="TOrderReceivePO">
+		INSERT INTO t_order_receive (
+		<if test="order_detailed_id != null and order_detailed_id != ''">
+	         order_detailed_id, <!-- 订单明细id -->
+		</if>
+		<if test="receive_time != null and receive_time != ''">
+	         receive_time, <!-- 收货时间 -->
+		</if>
+		<if test="receive_number != null">
+	         receive_number, <!-- 收货数量 -->
+		</if>
+		<if test="user_id != null and user_id != ''">
+	         user_id, <!-- 用户id -->
+		</if>
+		<if test="id != null and id != ''">
+	          id  <!-- 主键，订单收货表，与订单表多对一关系 -->
+	   </if>
+		)VALUES(
+		<if test="order_detailed_id != null and order_detailed_id != ''">
+	          #{order_detailed_id, jdbcType=VARCHAR}, <!-- 订单明细id -->
+	    </if>
+		<if test="receive_time != null and receive_time != ''">
+	          #{receive_time, jdbcType=VARCHAR}, <!-- 收货时间 -->
+	    </if>
+		<if test="receive_number != null">
+	          #{receive_number, jdbcType=INTEGER}, <!-- 收货数量 -->
+	    </if>
+		<if test="user_id != null and user_id != ''">
+	          #{user_id, jdbcType=VARCHAR}, <!-- 用户id -->
+	    </if>
+		<if test="id != null and id != ''">
+		     #{id, jdbcType=VARCHAR}  <!-- 主键，订单收货表，与订单表多对一关系 -->
+	    </if>
+		)
+	</insert>
+	
+	<!-- 插入一个数据持久化对象(含所有字段) -->
+	<insert id="insertAll"  parameterType="TOrderReceivePO">
+		INSERT INTO t_order_receive (
+		    <include refid="column" />
+		)
+		VALUES (
+		    #{id, jdbcType=VARCHAR},  <!-- 主键，订单收货表，与订单表多对一关系 -->
+		    #{order_detailed_id, jdbcType=VARCHAR},  <!-- 订单明细id -->
+		    #{receive_time, jdbcType=VARCHAR},  <!-- 收货时间 -->
+		    #{receive_number, jdbcType=INTEGER},  <!-- 收货数量 -->
+		    #{user_id, jdbcType=VARCHAR}  <!-- 用户id -->
+		)
+	</insert>
+
+	<!-- 根据主键修改数据持久化对象 -->
+	<update id="updateByKey" parameterType="TOrderReceivePO">
+		UPDATE t_order_receive
+		<set>
+			<if test="id != null">
+		          id = #{id, jdbcType=VARCHAR},  <!-- 主键，订单收货表，与订单表多对一关系 -->
+			</if>
+			<if test="order_detailed_id != null">
+		          order_detailed_id = #{order_detailed_id, jdbcType=VARCHAR},  <!-- 订单明细id -->
+			</if>
+			<if test="receive_time != null">
+		          receive_time = #{receive_time, jdbcType=VARCHAR},  <!-- 收货时间 -->
+			</if>
+			<if test="receive_number != null">
+		          receive_number = #{receive_number, jdbcType=INTEGER},  <!-- 收货数量 -->
+			</if>
+			<if test="user_id != null">
+		          user_id = #{user_id, jdbcType=VARCHAR},  <!-- 用户id -->
+			</if>
+		</set>
+		WHERE  id = #{id}
+	</update>
+	
+	<!-- 根据主键删除数据持久化对象 -->
+	<delete id="deleteByKey">
+		DELETE FROM t_order_receive WHERE  id = #{id}
+	</delete>
+
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="selectByKey" resultType="TOrderReceivePO">
+		SELECT
+		<include refid="column" />
+		FROM t_order_receive WHERE  id = #{id}
+	</select>
+
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="selectOne" parameterType="Dto" resultType="TOrderReceivePO">
+		SELECT
+		    <include refid="column" />
+		FROM t_order_receive
+		<where>
+		    <include refid="equal" />
+		</where>		
+	</select>
+
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="list" parameterType="Dto" resultType="TOrderReceivePO">
+		SELECT
+			<include refid="column" />	
+		FROM t_order_receive
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listPage" parameterType="Dto" resultType="TOrderReceivePO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM t_order_receive
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto模糊查询并返回数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="like" parameterType="Dto" resultType="TOrderReceivePO">
+		SELECT
+			<include refid="column" />	
+		FROM t_order_receive
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto模糊查询并返回分页数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="likePage" parameterType="Dto" resultType="TOrderReceivePO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM t_order_receive
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto统计行数 -->
+	<select id="rows" resultType="Integer" parameterType="Dto">
+		SELECT COUNT(1) AS aos_rows_ FROM t_order_receive
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 根据数学表达式进行数学运算 -->
+	<select id="calc" parameterType="Dto" resultType="String">
+		SELECT
+			${_expr}
+		FROM t_order_receive
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 表字段 -->
+	<sql id="column">
+		  id,  <!-- 主键，订单收货表，与订单表多对一关系 -->
+		  order_detailed_id,  <!-- 订单明细id -->
+		  receive_time,  <!-- 收货时间 -->
+		  receive_number,  <!-- 收货数量 -->
+		  user_id  <!-- 用户id -->
+	</sql>
+	
+	<!-- 表字段(用于外表的关联时引用) -->
+	<sql id="column2">
+		  t_order_receive.id,  <!-- 主键，订单收货表，与订单表多对一关系 -->
+		  t_order_receive.order_detailed_id,  <!-- 订单明细id -->
+		  t_order_receive.receive_time,  <!-- 收货时间 -->
+		  t_order_receive.receive_number,  <!-- 收货数量 -->
+		  t_order_receive.user_id  <!-- 用户id -->
+	</sql>
+
+	<!-- Where精确匹配字段 -->
+	<sql id="equal">
+	    <if test="id != null and id != ''">
+		      AND id = #{id}  <!-- 主键，订单收货表，与订单表多对一关系 -->
+		</if>
+	    <if test="order_detailed_id != null and order_detailed_id != ''">
+		      AND order_detailed_id = #{order_detailed_id}  <!-- 订单明细id -->
+		</if>
+	    <if test="receive_time != null and receive_time != ''">
+		      AND receive_time = #{receive_time}  <!-- 收货时间 -->
+		</if>
+	   <if test="receive_number != null ">
+		      AND receive_number = #{receive_number}  <!-- 收货数量 -->
+		</if>
+	    <if test="user_id != null and user_id != ''">
+		      AND user_id = #{user_id}  <!-- 用户id -->
+		</if>
+	</sql>
+	
+	<!-- Where模糊匹配字段 -->
+	<sql id="like">
+	    <if test="id != null and id != ''">
+		      AND id like '${id}%'  <!-- 主键，订单收货表，与订单表多对一关系 -->
+		</if>
+	    <if test="order_detailed_id != null and order_detailed_id != ''">
+		      AND order_detailed_id like '${order_detailed_id}%'  <!-- 订单明细id -->
+		</if>
+	    <if test="receive_time != null and receive_time != ''">
+		      AND receive_time like '${receive_time}%'  <!-- 收货时间 -->
+		</if>
+	    <if test="user_id != null and user_id != ''">
+		      AND user_id like '${user_id}%'  <!-- 用户id -->
+		</if>
+	</sql>
+	
+</mapper>

@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- wx_share_activity[wx_share_activity]SQL自动映射 -->
+<!--  注意:此文件由AOS平台自动生成-禁止手工修改 2018-01-31 17:44:12 -->
+<mapper namespace="com.wxactivity.share.dao.WxShareActivityDao">
+	
+	<!-- 插入一个数据持久化对象(插入字段为传入PO实体的非空属性) -->
+	<insert id="insert"  parameterType="WxShareActivityPO">
+		INSERT INTO wx_share_activity (
+		<if test="share_open_id != null and share_open_id != ''">
+	         share_open_id, <!-- 分享人open_id -->
+		</if>
+		<if test="goods_id != null and goods_id != ''">
+	         goods_id, <!-- goods_id -->
+		</if>
+		<if test="share_integral != null and share_integral != ''">
+	         share_integral, <!-- 分享获得积分数 -->
+		</if>
+		<if test="goods_integral != null and goods_integral != ''">
+	         goods_integral, <!-- 商品积分数 -->
+		</if>
+		<if test="open_id != null and open_id != ''">
+	         open_id, <!-- 助力人open_id -->
+		</if>
+		<if test="img != null and img != ''">
+	         img, <!-- 助力人头像 -->
+		</if>
+		<if test="nickname != null and nickname != ''">
+	         nickname, <!-- 助力人昵称 -->
+		</if>
+		<if test="type != null and type != ''">
+	         type, <!-- 是否兑换0未兑换1已兑换 -->
+		</if>
+		<if test="addtime != null and addtime != ''">
+	         addtime, <!-- 添加时间 -->
+		</if>
+		<if test="user_id != null and user_id != ''">
+	         user_id, <!-- 添加时间 -->
+		</if>
+		<if test="share_id != null and share_id != ''">
+	          share_id  <!-- share_id -->
+	   </if>
+		)VALUES(
+		<if test="share_open_id != null and share_open_id != ''">
+	          #{share_open_id, jdbcType=VARCHAR}, <!-- 分享人open_id -->
+	    </if>
+		<if test="goods_id != null and goods_id != ''">
+	          #{goods_id, jdbcType=VARCHAR}, <!-- goods_id -->
+	    </if>
+		<if test="share_integral != null and share_integral != ''">
+	          #{share_integral, jdbcType=VARCHAR}, <!-- 分享获得积分数 -->
+	    </if>
+		<if test="goods_integral != null and goods_integral != ''">
+	          #{goods_integral, jdbcType=VARCHAR}, <!-- 商品积分数 -->
+	    </if>
+		<if test="open_id != null and open_id != ''">
+	          #{open_id, jdbcType=VARCHAR}, <!-- 助力人open_id -->
+	    </if>
+		<if test="img != null and img != ''">
+	          #{img, jdbcType=VARCHAR}, <!-- 助力人头像 -->
+	    </if>
+		<if test="nickname != null and nickname != ''">
+	          #{nickname, jdbcType=VARCHAR}, <!-- 助力人昵称 -->
+	    </if>
+		<if test="type != null and type != ''">
+	          #{type, jdbcType=VARCHAR}, <!-- 是否兑换0未兑换1已兑换 -->
+	    </if>
+		<if test="addtime != null and addtime != ''">
+	          #{addtime, jdbcType=VARCHAR}, <!-- 添加时间 -->
+	    </if>
+	    <if test="user_id != null and user_id != ''">
+	         #{user_id, jdbcType=INTEGER},
+		</if>
+		<if test="share_id != null and share_id != ''">
+		     #{share_id, jdbcType=VARCHAR}  <!-- share_id -->
+	    </if>
+		)
+	</insert>
+	
+	<!-- 插入一个数据持久化对象(含所有字段) -->
+	<insert id="insertAll"  parameterType="WxShareActivityPO">
+		INSERT INTO wx_share_activity (
+		    <include refid="column" />
+		)
+		VALUES (
+		    #{share_id, jdbcType=VARCHAR},  <!-- share_id -->
+		    #{share_open_id, jdbcType=VARCHAR},  <!-- 分享人open_id -->
+		    #{goods_id, jdbcType=VARCHAR},  <!-- goods_id -->
+		    #{share_integral, jdbcType=VARCHAR},  <!-- 分享获得积分数 -->
+		    #{goods_integral, jdbcType=VARCHAR},  <!-- 商品积分数 -->
+		    #{open_id, jdbcType=VARCHAR},  <!-- 助力人open_id -->
+		    #{img, jdbcType=VARCHAR},  <!-- 助力人头像 -->
+		    #{nickname, jdbcType=VARCHAR},  <!-- 助力人昵称 -->
+		    #{type, jdbcType=VARCHAR},  <!-- 是否兑换0未兑换1已兑换 -->
+		    #{addtime, jdbcType=VARCHAR},  <!-- 添加时间 -->
+		    #{user_id, jdbcType=INTEGER}
+		)
+	</insert>
+
+	<!-- 根据主键修改数据持久化对象 -->
+	<update id="updateByKey" parameterType="WxShareActivityPO">
+		UPDATE wx_share_activity
+		<set>
+			<if test="share_id != null">
+		          share_id = #{share_id, jdbcType=VARCHAR},  <!-- share_id -->
+			</if>
+			<if test="share_open_id != null">
+		          share_open_id = #{share_open_id, jdbcType=VARCHAR},  <!-- 分享人open_id -->
+			</if>
+			<if test="goods_id != null">
+		          goods_id = #{goods_id, jdbcType=VARCHAR},  <!-- goods_id -->
+			</if>
+			<if test="share_integral != null">
+		          share_integral = #{share_integral, jdbcType=VARCHAR},  <!-- 分享获得积分数 -->
+			</if>
+			<if test="goods_integral != null">
+		          goods_integral = #{goods_integral, jdbcType=VARCHAR},  <!-- 商品积分数 -->
+			</if>
+			<if test="open_id != null">
+		          open_id = #{open_id, jdbcType=VARCHAR},  <!-- 助力人open_id -->
+			</if>
+			<if test="img != null">
+		          img = #{img, jdbcType=VARCHAR},  <!-- 助力人头像 -->
+			</if>
+			<if test="nickname != null">
+		          nickname = #{nickname, jdbcType=VARCHAR},  <!-- 助力人昵称 -->
+			</if>
+			<if test="type != null">
+		          type = #{type, jdbcType=VARCHAR},  <!-- 是否兑换0未兑换1已兑换 -->
+			</if>
+			<if test="addtime != null">
+		          addtime = #{addtime, jdbcType=VARCHAR},  <!-- 添加时间 -->
+			</if>
+			<if test="user_id != null">
+		          user_id = #{user_id, jdbcType=INTEGER},  <!-- 添加时间 -->
+			</if>
+			
+		</set>
+		WHERE  share_id = #{share_id}
+	</update>
+	
+	<!-- 根据条件修改是否兑换-->
+	<update id="updateDatasByDto" parameterType="Dto">
+		UPDATE wx_share_activity 
+		<set>
+			type=1
+		</set>
+		WHERE share_open_id=#{share_open_id} AND goods_id=#{goods_id}
+	</update>
+	<update id="updateDatasByDtos" parameterType="Dto">
+		UPDATE wx_share_activity 
+		<set>
+			type=1
+		</set>
+		WHERE user_id=#{user_id} AND goods_id=#{goods_id}
+	</update>
+	
+	<!-- 根据主键删除数据持久化对象 -->
+	<delete id="deleteByKey">
+		DELETE FROM wx_share_activity WHERE  share_id = #{share_id}
+	</delete>
+
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="selectByKey" resultType="WxShareActivityPO">
+		SELECT
+		<include refid="column" />
+		FROM wx_share_activity WHERE  share_id = #{share_id}
+	</select>
+
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="selectOne" parameterType="Dto" resultType="WxShareActivityPO">
+		SELECT
+		    <include refid="column" />
+		FROM wx_share_activity
+		<where>
+		    <include refid="equal" />
+		</where>		
+	</select>
+	
+	<!-- 根据条件查询type数 -->
+	<select id="selectTypeSum" parameterType="Dto"  resultType="Dto">
+		SELECT SUM(type) AS typeSum FROM wx_share_activity WHERE share_open_id=#{share_open_id} AND goods_id=#{goods_id}
+	</select>
+    
+     <select id="appShareintegral" parameterType="Dto" resultType="WxShareActivityPO">
+		SELECT SUM(t.share_integral) as share_integral
+			from wx_share_activity t 
+			where  t.user_id=#{user_id}
+	 </select>
+	 
+	 <select id="sharelist" parameterType="Dto" resultType="WxShareActivityPO">
+		SELECT DISTINCT t.goods_id from wx_share_activity t
+		where  t.share_open_id=#{open_id} and t.type = 0
+	 </select>
+	 
+	  <select id="appSharelist" parameterType="Dto" resultType="WxShareActivityPO">
+		SELECT DISTINCT t.goods_id from wx_share_activity t
+		where  t.user_id=#{user_id} and t.type = 0
+	 </select>
+	 
+	  <select id="shareUserPage" parameterType="Dto" resultType="WxShareActivityPO">
+		SELECT t.nickname as nickname,t1.share_integral,t1.addtime 
+		 from zjc_users_info t
+		 INNER JOIN wx_share_activity t1 on t.openid=t1.open_id
+		 where t1.user_id=#{user_id} and t1.type = 0
+	 </select>
+    
+    
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="list" parameterType="Dto" resultType="WxShareActivityPO">
+		SELECT
+			<include refid="column" />	
+		FROM wx_share_activity
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="list2" parameterType="Dto" resultType="WxShareActivityPO">
+		SELECT
+			<include refid="column" />	
+		FROM wx_share_activity
+		<where>
+		    <include refid="equal" />
+		    AND share_integral > 0
+		</where>	
+	</select>
+
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listPage" parameterType="Dto" resultType="WxShareActivityPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM wx_share_activity
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+	
+	
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="shareGoodsPage" parameterType="Dto" resultType="WxShareActivityPO" useCache="false">
+	   SELECT t2.goods_name,t2.original_img,t1.goods_id,t2.market_price,SUM(t1.share_integral) AS share_integral 
+		from wx_user_activity t 
+		LEFT JOIN wx_share_activity t1 on t.open_id=t1.share_open_id
+		LEFT JOIN zjc_goods t2 on t1.goods_id=t2.goods_id
+		where t1.type=0 and t.open_id=#{open_id}
+		 <if test="goods_id != null and goods_id != ''">
+		      AND t1.goods_id = #{goods_id}  
+		</if>
+		group by t2.goods_name,t2.original_img,t1.goods_id,t2.market_price
+	</select>
+	
+	
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="appshareGoodsPage" parameterType="Dto" resultType="WxShareActivityPO" useCache="false">
+	   SELECT t2.goods_name,t2.original_img,t1.goods_id,t2.market_price,SUM(t1.share_integral) AS share_integral 
+		from zjc_users_info t
+		LEFT JOIN wx_share_activity t1 on t.openid=t1.share_open_id
+		LEFT JOIN zjc_goods t2 on t1.goods_id=t2.goods_id
+		where t1.type=0 and t1.share_open_id=#{openid}
+		 <if test="goods_id != null and goods_id != ''">
+		      AND t1.goods_id = #{goods_id}  
+		</if>
+		group by t2.goods_name,t2.original_img,t1.goods_id,t2.market_price
+	</select>
+	
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="shareGoods" parameterType="Dto" resultType="WxShareActivityPO" useCache="false">
+	   SELECT t2.goods_name,t2.original_img,t1.goods_id,t2.market_price,SUM(t1.share_integral) AS share_integral 
+		from wx_user_activity t 
+		LEFT JOIN wx_share_activity t1 on t.open_id=t1.share_open_id
+		LEFT JOIN zjc_goods t2 on t1.goods_id=t2.goods_id
+		where t1.type=0 and t.open_id=#{open_id}
+		 <if test="goods_id != null and goods_id != ''">
+		      AND t1.goods_id = #{goods_id}  
+		</if>
+		group by t2.goods_name,t2.original_img,t1.goods_id,t2.market_price
+	</select>
+	
+	<!-- 根据Dto模糊查询并返回数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="like" parameterType="Dto" resultType="WxShareActivityPO">
+		SELECT
+			<include refid="column" />	
+		FROM wx_share_activity
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto模糊查询并返回分页数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="likePage" parameterType="Dto" resultType="WxShareActivityPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM wx_share_activity
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto统计行数 -->
+	<select id="rows" resultType="Integer" parameterType="Dto">
+		SELECT COUNT(1) AS aos_rows_ FROM wx_share_activity
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 根据数学表达式进行数学运算 -->
+	<select id="calc" parameterType="Dto" resultType="String">
+		SELECT
+			${_expr}
+		FROM wx_share_activity
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 表字段 -->
+	<sql id="column">
+		  share_id,  <!-- share_id -->
+		  share_open_id,  <!-- 分享人open_id -->
+		  goods_id,  <!-- goods_id -->
+		  share_integral,  <!-- 分享获得积分数 -->
+		  goods_integral,  <!-- 商品积分数 -->
+		  open_id,  <!-- 助力人open_id -->
+		  img,  <!-- 助力人头像 -->
+		  nickname,  <!-- 助力人昵称 -->
+		  type,  <!-- 是否兑换0未兑换1已兑换 -->
+		  addtime,  <!-- 添加时间 -->
+		  user_id 
+	</sql>
+	
+	<!-- 表字段(用于外表的关联时引用) -->
+	<sql id="column2">
+		  wx_share_activity.share_id,  <!-- share_id -->
+		  wx_share_activity.share_open_id,  <!-- 分享人open_id -->
+		  wx_share_activity.goods_id,  <!-- goods_id -->
+		  wx_share_activity.share_integral,  <!-- 分享获得积分数 -->
+		  wx_share_activity.goods_integral,  <!-- 商品积分数 -->
+		  wx_share_activity.open_id,  <!-- 助力人open_id -->
+		  wx_share_activity.img,  <!-- 助力人头像 -->
+		  wx_share_activity.nickname,  <!-- 助力人昵称 -->
+		  wx_share_activity.type,  <!-- 是否兑换0未兑换1已兑换 -->
+		  wx_share_activity.addtime,  <!-- 添加时间 -->
+		  wx_share_activity.user_id
+	</sql>
+
+	<!-- Where精确匹配字段 -->
+	<sql id="equal">
+	    <if test="share_id != null and share_id != ''">
+		      AND share_id = #{share_id}  <!-- share_id -->
+		</if>
+	    <if test="share_open_id != null and share_open_id != ''">
+		      AND share_open_id = #{share_open_id}  <!-- 分享人open_id -->
+		</if>
+	    <if test="goods_id != null and goods_id != ''">
+		      AND goods_id = #{goods_id}  <!-- goods_id -->
+		</if>
+	    <if test="share_integral != null and share_integral != ''">
+		      AND share_integral = #{share_integral}  <!-- 分享获得积分数 -->
+		</if>
+	    <if test="goods_integral != null and goods_integral != ''">
+		      AND goods_integral = #{goods_integral}  <!-- 商品积分数 -->
+		</if>
+	    <if test="open_id != null and open_id != ''">
+		      AND open_id = #{open_id}  <!-- 助力人open_id -->
+		</if>
+	    <if test="img != null and img != ''">
+		      AND img = #{img}  <!-- 助力人头像 -->
+		</if>
+	    <if test="nickname != null and nickname != ''">
+		      AND nickname = #{nickname}  <!-- 助力人昵称 -->
+		</if>
+	    <if test="type != null and type != ''">
+		      AND type = #{type}  <!-- 是否兑换0未兑换1已兑换 -->
+		</if>
+	    <if test="addtime != null and addtime != ''">
+		      AND addtime = #{addtime}  <!-- 添加时间 -->
+		</if>
+		<if test="user_id != null and user_id != ''">
+		      AND user_id = #{user_id}  <!-- 添加时间 -->
+		</if>
+	</sql>
+	
+	<!-- Where模糊匹配字段 -->
+	<sql id="like">
+	    <if test="share_id != null and share_id != ''">
+		      AND share_id like '${share_id}%'  <!-- share_id -->
+		</if>
+	    <if test="share_open_id != null and share_open_id != ''">
+		      AND share_open_id like '${share_open_id}%'  <!-- 分享人open_id -->
+		</if>
+	    <if test="goods_id != null and goods_id != ''">
+		      AND goods_id like '${goods_id}%'  <!-- goods_id -->
+		</if>
+	    <if test="share_integral != null and share_integral != ''">
+		      AND share_integral like '${share_integral}%'  <!-- 分享获得积分数 -->
+		</if>
+	    <if test="goods_integral != null and goods_integral != ''">
+		      AND goods_integral like '${goods_integral}%'  <!-- 商品积分数 -->
+		</if>
+	    <if test="open_id != null and open_id != ''">
+		      AND open_id like '${open_id}%'  <!-- 助力人open_id -->
+		</if>
+	    <if test="img != null and img != ''">
+		      AND img like '${img}%'  <!-- 助力人头像 -->
+		</if>
+	    <if test="nickname != null and nickname != ''">
+		      AND nickname like '${nickname}%'  <!-- 助力人昵称 -->
+		</if>
+	    <if test="type != null and type != ''">
+		      AND type like '${type}%'  <!-- 是否兑换0未兑换1已兑换 -->
+		</if>
+	    <if test="addtime != null and addtime != ''">
+		      AND addtime like '${addtime}%'  <!-- 添加时间 -->
+		</if>
+	</sql>
+	
+</mapper>

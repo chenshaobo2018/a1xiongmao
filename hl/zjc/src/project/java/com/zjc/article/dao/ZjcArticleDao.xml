@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- zjc_article[zjc_article]SQL自动映射 -->
+<!--  注意:此文件由AOS平台自动生成-禁止手工修改 2017-07-07 11:48:02 -->
+<mapper namespace="com.zjc.article.dao.ZjcArticleDao">
+	
+	<!-- 插入一个数据持久化对象(插入字段为传入PO实体的非空属性) -->
+	<insert id="insert" useGeneratedKeys="true" keyProperty="article_id" parameterType="ZjcArticlePO">
+		INSERT INTO zjc_article (
+		<if test="cat_id != null">
+	         cat_id, <!-- 类别ID -->
+		</if>
+		<if test="title != null and title != ''">
+	         title, <!-- 文章标题 -->
+		</if>
+		<if test="content != null and content != ''">
+	         content, <!-- 文章内容 -->
+		</if>
+		<if test="author != null and author != ''">
+	         author, <!-- 文章作者 -->
+		</if>
+		<if test="author_email != null and author_email != ''">
+	         author_email, <!-- 作者邮箱 -->
+		</if>
+		<if test="keywords != null and keywords != ''">
+	         keywords, <!-- 关键字 -->
+		</if>
+		<if test="article_type != null">
+	         article_type, <!-- 文章类型 -->
+		</if>
+		<if test="is_open != null">
+	         is_open, <!-- 是否开启 -->
+		</if>
+		<if test="add_time != null and add_time != ''">
+	         add_time, <!-- 添加时间 -->
+		</if>
+		<if test="file_url != null and file_url != ''">
+	         file_url, <!-- 附件地址 -->
+		</if>
+		<if test="open_type != null">
+	         open_type, <!-- open_type -->
+		</if>
+		<if test="link != null and link != ''">
+	         link, <!-- 链接地址 -->
+		</if>
+		<if test="description != null and description != ''">
+	         description, <!-- 文章摘要 -->
+		</if>
+		<if test="click != null">
+	         click, <!-- 浏览量 -->
+		</if>
+		<if test="publish_time != null and publish_time != ''">
+	         publish_time, <!-- 文章发布时间 -->
+		</if>
+		<if test="thumb != null and thumb != ''">
+	         thumb, <!-- 文章缩略图 -->
+		</if>
+	          article_id
+		)VALUES(
+		<if test="cat_id != null">
+	          #{cat_id, jdbcType=INTEGER}, <!-- 类别ID -->
+	    </if>
+		<if test="title != null and title != ''">
+	          #{title, jdbcType=VARCHAR}, <!-- 文章标题 -->
+	    </if>
+		<if test="content != null and content != ''">
+	          #{content, jdbcType=VARCHAR}, <!-- 文章内容 -->
+	    </if>
+		<if test="author != null and author != ''">
+	          #{author, jdbcType=VARCHAR}, <!-- 文章作者 -->
+	    </if>
+		<if test="author_email != null and author_email != ''">
+	          #{author_email, jdbcType=VARCHAR}, <!-- 作者邮箱 -->
+	    </if>
+		<if test="keywords != null and keywords != ''">
+	          #{keywords, jdbcType=VARCHAR}, <!-- 关键字 -->
+	    </if>
+		<if test="article_type != null">
+	          #{article_type, jdbcType=INTEGER}, <!-- 文章类型 -->
+	    </if>
+		<if test="is_open != null">
+	          #{is_open, jdbcType=INTEGER}, <!-- 是否开启 -->
+	    </if>
+		<if test="add_time != null and add_time != ''">
+	          #{add_time, jdbcType=VARCHAR}, <!-- 添加时间 -->
+	    </if>
+		<if test="file_url != null and file_url != ''">
+	          #{file_url, jdbcType=VARCHAR}, <!-- 附件地址 -->
+	    </if>
+		<if test="open_type != null">
+	          #{open_type, jdbcType=INTEGER}, <!-- open_type -->
+	    </if>
+		<if test="link != null and link != ''">
+	          #{link, jdbcType=VARCHAR}, <!-- 链接地址 -->
+	    </if>
+		<if test="description != null and description != ''">
+	          #{description, jdbcType=VARCHAR}, <!-- 文章摘要 -->
+	    </if>
+		<if test="click != null">
+	          #{click, jdbcType=INTEGER}, <!-- 浏览量 -->
+	    </if>
+		<if test="publish_time != null and publish_time != ''">
+	          #{publish_time, jdbcType=VARCHAR}, <!-- 文章发布时间 -->
+	    </if>
+		<if test="thumb != null and thumb != ''">
+	          #{thumb, jdbcType=VARCHAR}, <!-- 文章缩略图 -->
+	    </if>
+	          null
+		)
+	</insert>
+	
+	<!-- 插入新的文章 -->
+	<insert id="insertArticle" parameterType="Dto">
+		insert into zjc_article 
+		(
+		  cat_id,  <!-- 类别ID -->
+		  title,  <!-- 文章标题 -->
+		  content,  <!-- 文章内容 -->
+		  description,  <!-- 文章摘要 -->
+		  publish_time,  <!-- 文章发布时间 -->
+		  add_time
+		)
+		values (
+		    #{cat_id, jdbcType=INTEGER},  <!-- 类别ID -->
+		    #{title, jdbcType=VARCHAR},  <!-- 文章标题 -->
+		    #{content, jdbcType=VARCHAR},  <!-- 文章内容 -->
+		    #{description, jdbcType=VARCHAR},  <!-- 文章摘要 -->
+		    #{publish_time, jdbcType=VARCHAR},  <!-- 文章发布时间 -->
+		    now()
+		)
+	</insert>
+	<!-- 插入一个数据持久化对象(含所有字段) -->
+	<insert id="insertAll" useGeneratedKeys="true" keyProperty="article_id" parameterType="ZjcArticlePO">
+		INSERT INTO zjc_article (
+		    <include refid="column" />
+		)
+		VALUES (
+		    #{article_id, jdbcType=INTEGER},  <!-- 表id -->
+		    #{cat_id, jdbcType=INTEGER},  <!-- 类别ID -->
+		    #{title, jdbcType=VARCHAR},  <!-- 文章标题 -->
+		    #{content, jdbcType=VARCHAR},  <!-- 文章内容 -->
+		    #{author, jdbcType=VARCHAR},  <!-- 文章作者 -->
+		    #{author_email, jdbcType=VARCHAR},  <!-- 作者邮箱 -->
+		    #{keywords, jdbcType=VARCHAR},  <!-- 关键字 -->
+		    #{article_type, jdbcType=INTEGER},  <!-- 文章类型 -->
+		    #{is_open, jdbcType=INTEGER},  <!-- 是否开启 -->
+		    #{add_time, jdbcType=VARCHAR},  <!-- 添加时间 -->
+		    #{file_url, jdbcType=VARCHAR},  <!-- 附件地址 -->
+		    #{open_type, jdbcType=INTEGER},  <!-- open_type -->
+		    #{link, jdbcType=VARCHAR},  <!-- 链接地址 -->
+		    #{description, jdbcType=VARCHAR},  <!-- 文章摘要 -->
+		    #{click, jdbcType=INTEGER},  <!-- 浏览量 -->
+		    #{publish_time, jdbcType=VARCHAR},  <!-- 文章发布时间 -->
+		    #{thumb, jdbcType=VARCHAR}  <!-- 文章缩略图 -->
+		)
+	</insert>
+
+	<!-- 根据主键修改数据持久化对象 -->
+	<update id="updateByKey" parameterType="ZjcArticlePO">
+		UPDATE zjc_article
+		<set>
+			<if test="article_id != null">
+		          article_id = #{article_id, jdbcType=INTEGER},  <!-- 表id -->
+			</if>
+			<if test="cat_id != null">
+		          cat_id = #{cat_id, jdbcType=INTEGER},  <!-- 类别ID -->
+			</if>
+			<if test="title != null">
+		          title = #{title, jdbcType=VARCHAR},  <!-- 文章标题 -->
+			</if>
+			<if test="content != null">
+		          content = #{content, jdbcType=VARCHAR},  <!-- 文章内容 -->
+			</if>
+			<if test="author != null">
+		          author = #{author, jdbcType=VARCHAR},  <!-- 文章作者 -->
+			</if>
+			<if test="author_email != null">
+		          author_email = #{author_email, jdbcType=VARCHAR},  <!-- 作者邮箱 -->
+			</if>
+			<if test="keywords != null">
+		          keywords = #{keywords, jdbcType=VARCHAR},  <!-- 关键字 -->
+			</if>
+			<if test="article_type != null">
+		          article_type = #{article_type, jdbcType=INTEGER},  <!-- 文章类型 -->
+			</if>
+			<if test="is_open != null">
+		          is_open = #{is_open, jdbcType=INTEGER},  <!-- 是否开启 -->
+			</if>
+			<if test="add_time != null">
+		          add_time = #{add_time, jdbcType=VARCHAR},  <!-- 添加时间 -->
+			</if>
+			<if test="file_url != null">
+		          file_url = #{file_url, jdbcType=VARCHAR},  <!-- 附件地址 -->
+			</if>
+			<if test="open_type != null">
+		          open_type = #{open_type, jdbcType=INTEGER},  <!-- open_type -->
+			</if>
+			<if test="link != null">
+		          link = #{link, jdbcType=VARCHAR},  <!-- 链接地址 -->
+			</if>
+			<if test="description != null">
+		          description = #{description, jdbcType=VARCHAR},  <!-- 文章摘要 -->
+			</if>
+			<if test="click != null">
+		          click = #{click, jdbcType=INTEGER},  <!-- 浏览量 -->
+			</if>
+			<if test="publish_time != null">
+		          publish_time = #{publish_time, jdbcType=VARCHAR},  <!-- 文章发布时间 -->
+			</if>
+			<if test="thumb != null">
+		          thumb = #{thumb, jdbcType=VARCHAR},  <!-- 文章缩略图 -->
+			</if>
+		</set>
+		WHERE  article_id = #{article_id}
+	</update>
+	
+	<update id="updateArticle" parameterType="Dto">
+		update zjc_article 
+		<set>
+			<if test="true">
+		          title = #{title, jdbcType=VARCHAR},  <!-- 文章标题 -->
+			</if>
+			<if test="true">
+		          content = #{content, jdbcType=VARCHAR},  <!-- 文章内容 -->
+			</if>
+			<if test="true">
+		          author = #{author, jdbcType=VARCHAR},  <!-- 文章作者 -->
+			</if>
+			<if test="true">
+		          author_email = #{author_email, jdbcType=VARCHAR},  <!-- 作者邮箱 -->
+			</if>
+			<if test="true">
+		          keywords = #{keywords, jdbcType=VARCHAR},  <!-- 关键字 -->
+			</if>
+			<if test="true">
+		          is_open = #{is_open, jdbcType=INTEGER},  <!-- 是否开启 -->
+			</if>
+		</set>
+	</update>
+	<!-- 根据主键删除数据持久化对象 -->
+	<delete id="deleteByKey">
+		DELETE FROM zjc_article WHERE  article_id = #{article_id}
+	</delete>
+
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="selectByKey" resultType="ZjcArticlePO">
+		SELECT
+		<include refid="column" />
+		FROM zjc_article WHERE  article_id = #{article_id}
+	</select>
+	
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="selectByKey1" resultType="ZjcArticleVO">
+		SELECT
+			title,thumb,content
+		FROM zjc_article WHERE  article_id = #{article_id}
+	</select>
+	
+	<!-- 获取全部的新闻 -->
+	<select id="listNewsPage" resultType="Dto">
+		select 
+			t1.article_id,
+			t1.title,
+			t1.thumb
+		 from
+		zjc_article t1 left join zjc_article_cat t2 on t1.cat_id = t2.cat_id
+		where t2.cat_name = "新闻资讯" and is_open = 1 order by add_time desc
+	</select>
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="selectOne" parameterType="Dto" resultType="ZjcArticlePO">
+		SELECT
+		    <include refid="column" />
+		FROM zjc_article
+		<where>
+		    <include refid="equal" />
+		</where>	
+		order by article_id desc	
+	</select>
+
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="list" parameterType="Dto" resultType="ZjcArticlePO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_article
+		where cat_id=86
+		order by add_time desc
+	</select>
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listPage" parameterType="Dto" resultType="ZjcArticlePO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_article
+		<where>
+		    <include refid="equal" />
+		</where>	
+		order by article_id desc
+	</select>
+	
+	<!-- 根据条件查询，返回分页模型 -->
+	<select id="listLikePage" parameterType="Dto" resultType="Dto" useCache="false">
+		select 
+			t1.article_id,
+			t1.title,
+			t1.is_open,
+			t1.add_time,
+			t1.description,
+			t1.publish_time,
+			t2.cat_name 
+		from zjc_article t1 inner join zjc_article_cat t2 on t1.cat_id = t2.cat_id
+		<where>
+		<if test="title != null and title != ''">
+		      AND t1.title like '${title}%'  <!-- 文章标题 -->
+		</if>
+		<if test="content != null and title != ''">
+		      AND t1.content like '${content}%'  <!-- 文章内容 -->
+		</if>
+		<if test="cat_name != null and cat_name != ''">
+		      AND t2.cat_name like '${cat_name}%'  <!-- 分类名称 -->
+		</if>
+		</where>
+		order by add_time desc
+	</select>
+	<!-- 根据Dto模糊查询并返回数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="like" parameterType="Dto" resultType="ZjcArticlePO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_article
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto模糊查询并返回分页数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="likePage" parameterType="Dto" resultType="ZjcArticlePO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_article
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto统计行数 -->
+	<select id="rows" resultType="Integer" parameterType="Dto">
+		SELECT COUNT(1) AS aos_rows_ FROM zjc_article
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 根据数学表达式进行数学运算 -->
+	<select id="calc" parameterType="Dto" resultType="String">
+		SELECT
+			${_expr}
+		FROM zjc_article
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 表字段 -->
+	<sql id="column">
+		  article_id,  <!-- 表id -->
+		  cat_id,  <!-- 类别ID -->
+		  title,  <!-- 文章标题 -->
+		  content,  <!-- 文章内容 -->
+		  author,  <!-- 文章作者 -->
+		  author_email,  <!-- 作者邮箱 -->
+		  keywords,  <!-- 关键字 -->
+		  article_type,  <!-- 文章类型 -->
+		  is_open,  <!-- 是否开启 -->
+		  add_time,  <!-- 添加时间 -->
+		  file_url,  <!-- 附件地址 -->
+		  open_type,  <!-- open_type -->
+		  link,  <!-- 链接地址 -->
+		  description,  <!-- 文章摘要 -->
+		  click,  <!-- 浏览量 -->
+		  publish_time,  <!-- 文章发布时间 -->
+		  thumb  <!-- 文章缩略图 -->
+	</sql>
+	
+	<!-- 表字段(用于外表的关联时引用) -->
+	<sql id="column2">
+		  zjc_article.article_id,  <!-- 表id -->
+		  zjc_article.cat_id,  <!-- 类别ID -->
+		  zjc_article.title,  <!-- 文章标题 -->
+		  zjc_article.content,  <!-- 文章内容 -->
+		  zjc_article.author,  <!-- 文章作者 -->
+		  zjc_article.author_email,  <!-- 作者邮箱 -->
+		  zjc_article.keywords,  <!-- 关键字 -->
+		  zjc_article.article_type,  <!-- 文章类型 -->
+		  zjc_article.is_open,  <!-- 是否开启 -->
+		  zjc_article.add_time,  <!-- 添加时间 -->
+		  zjc_article.file_url,  <!-- 附件地址 -->
+		  zjc_article.open_type,  <!-- open_type -->
+		  zjc_article.link,  <!-- 链接地址 -->
+		  zjc_article.description,  <!-- 文章摘要 -->
+		  zjc_article.click,  <!-- 浏览量 -->
+		  zjc_article.publish_time,  <!-- 文章发布时间 -->
+		  zjc_article.thumb  <!-- 文章缩略图 -->
+	</sql>
+
+	<!-- Where精确匹配字段 -->
+	<sql id="equal">
+	   <if test="article_id != null ">
+		      AND article_id = #{article_id}  <!-- 表id -->
+		</if>
+	   <if test="cat_id != null ">
+		      AND cat_id = #{cat_id}  <!-- 类别ID -->
+		</if>
+	    <if test="title != null and title != ''">
+		      AND title = #{title}  <!-- 文章标题 -->
+		</if>
+	    <if test="content != null and content != ''">
+		      AND content = #{content}  <!-- 文章内容 -->
+		</if>
+	    <if test="author != null and author != ''">
+		      AND author = #{author}  <!-- 文章作者 -->
+		</if>
+	    <if test="author_email != null and author_email != ''">
+		      AND author_email = #{author_email}  <!-- 作者邮箱 -->
+		</if>
+	    <if test="keywords != null and keywords != ''">
+		      AND keywords = #{keywords}  <!-- 关键字 -->
+		</if>
+	   <if test="article_type != null ">
+		      AND article_type = #{article_type}  <!-- 文章类型 -->
+		</if>
+	   <if test="is_open != null ">
+		      AND is_open = #{is_open}  <!-- 是否开启 -->
+		</if>
+	    <if test="add_time != null and add_time != ''">
+		      AND add_time = #{add_time}  <!-- 添加时间 -->
+		</if>
+	    <if test="file_url != null and file_url != ''">
+		      AND file_url = #{file_url}  <!-- 附件地址 -->
+		</if>
+	   <if test="open_type != null ">
+		      AND open_type = #{open_type}  <!-- open_type -->
+		</if>
+	    <if test="link != null and link != ''">
+		      AND link = #{link}  <!-- 链接地址 -->
+		</if>
+	    <if test="description != null and description != ''">
+		      AND description = #{description}  <!-- 文章摘要 -->
+		</if>
+	   <if test="click != null ">
+		      AND click = #{click}  <!-- 浏览量 -->
+		</if>
+	    <if test="publish_time != null and publish_time != ''">
+		      AND publish_time = #{publish_time}  <!-- 文章发布时间 -->
+		</if>
+	    <if test="thumb != null and thumb != ''">
+		      AND thumb = #{thumb}  <!-- 文章缩略图 -->
+		</if>
+	</sql>
+	
+	<!-- Where模糊匹配字段 -->
+	<sql id="like">
+	    <if test="title != null and title != ''">
+		      AND title like '${title}%'  <!-- 文章标题 -->
+		</if>
+	    <if test="content != null and content != ''">
+		      AND content like '${content}%'  <!-- 文章内容 -->
+		</if>
+	    <if test="author != null and author != ''">
+		      AND author like '${author}%'  <!-- 文章作者 -->
+		</if>
+	    <if test="author_email != null and author_email != ''">
+		      AND author_email like '${author_email}%'  <!-- 作者邮箱 -->
+		</if>
+	    <if test="keywords != null and keywords != ''">
+		      AND keywords like '${keywords}%'  <!-- 关键字 -->
+		</if>
+	    <if test="add_time != null and add_time != ''">
+		      AND add_time like '${add_time}%'  <!-- 添加时间 -->
+		</if>
+	    <if test="file_url != null and file_url != ''">
+		      AND file_url like '${file_url}%'  <!-- 附件地址 -->
+		</if>
+	    <if test="link != null and link != ''">
+		      AND link like '${link}%'  <!-- 链接地址 -->
+		</if>
+	    <if test="description != null and description != ''">
+		      AND description like '${description}%'  <!-- 文章摘要 -->
+		</if>
+	    <if test="publish_time != null and publish_time != ''">
+		      AND publish_time like '${publish_time}%'  <!-- 文章发布时间 -->
+		</if>
+	    <if test="thumb != null and thumb != ''">
+		      AND thumb like '${thumb}%'  <!-- 文章缩略图 -->
+		</if>
+	</sql>
+	
+</mapper>

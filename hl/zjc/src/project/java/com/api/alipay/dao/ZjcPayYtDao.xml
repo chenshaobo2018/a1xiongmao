@@ -1,0 +1,687 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- zjc_pay_yt[zjc_pay_yt]SQL自动映射 -->
+<!--  注意:此文件由AOS平台自动生成-禁止手工修改 2018-01-17 14:44:38 -->
+<mapper namespace="com.api.alipay.dao.ZjcPayYtDao">
+	
+	<!-- 插入一个数据持久化对象(插入字段为传入PO实体的非空属性) -->
+	<insert id="insert"  parameterType="ZjcPayYtPO">
+		INSERT INTO zjc_pay_yt (
+		<if test="currencytype != null and currencytype != ''">
+	         currencytype, <!-- currencyType -->
+		</if>
+		<if test="bankamt != null and bankamt != ''">
+	         bankamt, <!-- bankAmt -->
+		</if>
+		<if test="orderid != null and orderid != ''">
+	         orderid, <!-- orderId -->
+		</if>
+		<if test="bankfeeamt != null and bankfeeamt != ''">
+	         bankfeeamt, <!-- bankFeeAmt -->
+		</if>
+		<if test="settledate != null and settledate != ''">
+	         settledate, <!-- settleDate -->
+		</if>
+		<if test="orderamt != null and orderamt != ''">
+	         orderamt, <!-- orderAmt -->
+		</if>
+		<if test="bussid != null and bussid != ''">
+	         bussid, <!-- bussId -->
+		</if>
+		<if test="integralamt != null and integralamt != ''">
+	         integralamt, <!-- integralAmt -->
+		</if>
+		<if test="merchantid != null and merchantid != ''">
+	         merchantid, <!-- merchantId -->
+		</if>
+		<if test="vaseq != null and vaseq != ''">
+	         vaseq, <!-- vaSeq -->
+		</if>
+		<if test="paymenttime != null and paymenttime != ''">
+	         paymenttime, <!-- payMentTime -->
+		</if>
+		<if test="transcode != null and transcode != ''">
+	         transcode, <!-- transCode -->
+		</if>
+		<if test="channelorderid != null and channelorderid != ''">
+	         channelorderid, <!-- channelOrderId -->
+		</if>
+		<if test="trandatetime != null and trandatetime != ''">
+	         trandatetime, <!-- tranDateTime -->
+		</if>
+		<if test="reserver1 != null and reserver1 != ''">
+	         reserver1, <!-- reserver1 -->
+		</if>
+		<if test="bankseq != null and bankseq != ''">
+	         bankseq, <!-- bankSeq -->
+		</if>
+		<if test="systracenum != null and systracenum != ''">
+	         systracenum, <!-- sysTraceNum -->
+		</if>
+		<if test="merordernum != null and merordernum != ''">
+	         merordernum, <!-- merOrderNum -->
+		</if>
+		<if test="userid != null and userid != ''">
+	         userid, <!-- userId -->
+		</if>
+		<if test="reserver4 != null and reserver4 != ''">
+	         reserver4, <!-- reserver4 -->
+		</if>
+		<if test="signvalue != null and signvalue != ''">
+	         signvalue, <!-- signValue -->
+		</if>
+		<if test="reserver3 != null and reserver3 != ''">
+	         reserver3, <!-- reserver3 -->
+		</if>
+		<if test="reserver2 != null and reserver2 != ''">
+	         reserver2, <!-- reserver2 -->
+		</if>
+		<if test="bankid != null and bankid != ''">
+	         bankid, <!-- bankId -->
+		</if>
+		<if test="vaamt != null and vaamt != ''">
+	         vaamt, <!-- vaAmt -->
+		</if>
+		<if test="orderinfo != null and orderinfo != ''">
+	         orderinfo, <!-- orderInfo -->
+		</if>
+		<if test="tranamt != null and tranamt != ''">
+	         tranamt, <!-- tranAmt -->
+		</if>
+		<if test="userip != null and userip != ''">
+	         userip, <!-- userIp -->
+		</if>
+		<if test="integralseq != null and integralseq != ''">
+	         integralseq, <!-- integralSeq -->
+		</if>
+		<if test="respcode != null and respcode != ''">
+	         respcode, <!-- respCode -->
+		</if>
+		<if test="pay_id != null and pay_id != ''">
+	          pay_id  <!-- pay_id -->
+	   </if>
+		)VALUES(
+		<if test="currencytype != null and currencytype != ''">
+	          #{currencytype, jdbcType=VARCHAR}, <!-- currencyType -->
+	    </if>
+		<if test="bankamt != null and bankamt != ''">
+	          #{bankamt, jdbcType=VARCHAR}, <!-- bankAmt -->
+	    </if>
+		<if test="orderid != null and orderid != ''">
+	          #{orderid, jdbcType=VARCHAR}, <!-- orderId -->
+	    </if>
+		<if test="bankfeeamt != null and bankfeeamt != ''">
+	          #{bankfeeamt, jdbcType=VARCHAR}, <!-- bankFeeAmt -->
+	    </if>
+		<if test="settledate != null and settledate != ''">
+	          #{settledate, jdbcType=VARCHAR}, <!-- settleDate -->
+	    </if>
+		<if test="orderamt != null and orderamt != ''">
+	          #{orderamt, jdbcType=VARCHAR}, <!-- orderAmt -->
+	    </if>
+		<if test="bussid != null and bussid != ''">
+	          #{bussid, jdbcType=VARCHAR}, <!-- bussId -->
+	    </if>
+		<if test="integralamt != null and integralamt != ''">
+	          #{integralamt, jdbcType=VARCHAR}, <!-- integralAmt -->
+	    </if>
+		<if test="merchantid != null and merchantid != ''">
+	          #{merchantid, jdbcType=VARCHAR}, <!-- merchantId -->
+	    </if>
+		<if test="vaseq != null and vaseq != ''">
+	          #{vaseq, jdbcType=VARCHAR}, <!-- vaSeq -->
+	    </if>
+		<if test="paymenttime != null and paymenttime != ''">
+	          #{paymenttime, jdbcType=VARCHAR}, <!-- payMentTime -->
+	    </if>
+		<if test="transcode != null and transcode != ''">
+	          #{transcode, jdbcType=VARCHAR}, <!-- transCode -->
+	    </if>
+		<if test="channelorderid != null and channelorderid != ''">
+	          #{channelorderid, jdbcType=VARCHAR}, <!-- channelOrderId -->
+	    </if>
+		<if test="trandatetime != null and trandatetime != ''">
+	          #{trandatetime, jdbcType=VARCHAR}, <!-- tranDateTime -->
+	    </if>
+		<if test="reserver1 != null and reserver1 != ''">
+	          #{reserver1, jdbcType=VARCHAR}, <!-- reserver1 -->
+	    </if>
+		<if test="bankseq != null and bankseq != ''">
+	          #{bankseq, jdbcType=VARCHAR}, <!-- bankSeq -->
+	    </if>
+		<if test="systracenum != null and systracenum != ''">
+	          #{systracenum, jdbcType=VARCHAR}, <!-- sysTraceNum -->
+	    </if>
+		<if test="merordernum != null and merordernum != ''">
+	          #{merordernum, jdbcType=VARCHAR}, <!-- merOrderNum -->
+	    </if>
+		<if test="userid != null and userid != ''">
+	          #{userid, jdbcType=VARCHAR}, <!-- userId -->
+	    </if>
+		<if test="reserver4 != null and reserver4 != ''">
+	          #{reserver4, jdbcType=VARCHAR}, <!-- reserver4 -->
+	    </if>
+		<if test="signvalue != null and signvalue != ''">
+	          #{signvalue, jdbcType=VARCHAR}, <!-- signValue -->
+	    </if>
+		<if test="reserver3 != null and reserver3 != ''">
+	          #{reserver3, jdbcType=VARCHAR}, <!-- reserver3 -->
+	    </if>
+		<if test="reserver2 != null and reserver2 != ''">
+	          #{reserver2, jdbcType=VARCHAR}, <!-- reserver2 -->
+	    </if>
+		<if test="bankid != null and bankid != ''">
+	          #{bankid, jdbcType=VARCHAR}, <!-- bankId -->
+	    </if>
+		<if test="vaamt != null and vaamt != ''">
+	          #{vaamt, jdbcType=VARCHAR}, <!-- vaAmt -->
+	    </if>
+		<if test="orderinfo != null and orderinfo != ''">
+	          #{orderinfo, jdbcType=VARCHAR}, <!-- orderInfo -->
+	    </if>
+		<if test="tranamt != null and tranamt != ''">
+	          #{tranamt, jdbcType=VARCHAR}, <!-- tranAmt -->
+	    </if>
+		<if test="userip != null and userip != ''">
+	          #{userip, jdbcType=VARCHAR}, <!-- userIp -->
+	    </if>
+		<if test="integralseq != null and integralseq != ''">
+	          #{integralseq, jdbcType=VARCHAR}, <!-- integralSeq -->
+	    </if>
+		<if test="respcode != null and respcode != ''">
+	          #{respcode, jdbcType=VARCHAR}, <!-- respCode -->
+	    </if>
+		<if test="pay_id != null and pay_id != ''">
+		     #{pay_id, jdbcType=VARCHAR}  <!-- pay_id -->
+	    </if>
+		)
+	</insert>
+	
+	<!-- 插入一个数据持久化对象(含所有字段) -->
+	<insert id="insertAll"  parameterType="ZjcPayYtPO">
+		INSERT INTO zjc_pay_yt (
+		    <include refid="column" />
+		)
+		VALUES (
+		    #{pay_id, jdbcType=VARCHAR},  <!-- pay_id -->
+		    #{currencytype, jdbcType=VARCHAR},  <!-- currencyType -->
+		    #{bankamt, jdbcType=VARCHAR},  <!-- bankAmt -->
+		    #{orderid, jdbcType=VARCHAR},  <!-- orderId -->
+		    #{bankfeeamt, jdbcType=VARCHAR},  <!-- bankFeeAmt -->
+		    #{settledate, jdbcType=VARCHAR},  <!-- settleDate -->
+		    #{orderamt, jdbcType=VARCHAR},  <!-- orderAmt -->
+		    #{bussid, jdbcType=VARCHAR},  <!-- bussId -->
+		    #{integralamt, jdbcType=VARCHAR},  <!-- integralAmt -->
+		    #{merchantid, jdbcType=VARCHAR},  <!-- merchantId -->
+		    #{vaseq, jdbcType=VARCHAR},  <!-- vaSeq -->
+		    #{paymenttime, jdbcType=VARCHAR},  <!-- payMentTime -->
+		    #{transcode, jdbcType=VARCHAR},  <!-- transCode -->
+		    #{channelorderid, jdbcType=VARCHAR},  <!-- channelOrderId -->
+		    #{trandatetime, jdbcType=VARCHAR},  <!-- tranDateTime -->
+		    #{reserver1, jdbcType=VARCHAR},  <!-- reserver1 -->
+		    #{bankseq, jdbcType=VARCHAR},  <!-- bankSeq -->
+		    #{systracenum, jdbcType=VARCHAR},  <!-- sysTraceNum -->
+		    #{merordernum, jdbcType=VARCHAR},  <!-- merOrderNum -->
+		    #{userid, jdbcType=VARCHAR},  <!-- userId -->
+		    #{reserver4, jdbcType=VARCHAR},  <!-- reserver4 -->
+		    #{signvalue, jdbcType=VARCHAR},  <!-- signValue -->
+		    #{reserver3, jdbcType=VARCHAR},  <!-- reserver3 -->
+		    #{reserver2, jdbcType=VARCHAR},  <!-- reserver2 -->
+		    #{bankid, jdbcType=VARCHAR},  <!-- bankId -->
+		    #{vaamt, jdbcType=VARCHAR},  <!-- vaAmt -->
+		    #{orderinfo, jdbcType=VARCHAR},  <!-- orderInfo -->
+		    #{tranamt, jdbcType=VARCHAR},  <!-- tranAmt -->
+		    #{userip, jdbcType=VARCHAR},  <!-- userIp -->
+		    #{integralseq, jdbcType=VARCHAR},  <!-- integralSeq -->
+		    #{respcode, jdbcType=VARCHAR}  <!-- respCode -->
+		)
+	</insert>
+
+	<!-- 根据主键修改数据持久化对象 -->
+	<update id="updateByKey" parameterType="ZjcPayYtPO">
+		UPDATE zjc_pay_yt
+		<set>
+			<if test="pay_id != null">
+		          pay_id = #{pay_id, jdbcType=VARCHAR},  <!-- pay_id -->
+			</if>
+			<if test="currencytype != null">
+		          currencytype = #{currencytype, jdbcType=VARCHAR},  <!-- currencyType -->
+			</if>
+			<if test="bankamt != null">
+		          bankamt = #{bankamt, jdbcType=VARCHAR},  <!-- bankAmt -->
+			</if>
+			<if test="orderid != null">
+		          orderid = #{orderid, jdbcType=VARCHAR},  <!-- orderId -->
+			</if>
+			<if test="bankfeeamt != null">
+		          bankfeeamt = #{bankfeeamt, jdbcType=VARCHAR},  <!-- bankFeeAmt -->
+			</if>
+			<if test="settledate != null">
+		          settledate = #{settledate, jdbcType=VARCHAR},  <!-- settleDate -->
+			</if>
+			<if test="orderamt != null">
+		          orderamt = #{orderamt, jdbcType=VARCHAR},  <!-- orderAmt -->
+			</if>
+			<if test="bussid != null">
+		          bussid = #{bussid, jdbcType=VARCHAR},  <!-- bussId -->
+			</if>
+			<if test="integralamt != null">
+		          integralamt = #{integralamt, jdbcType=VARCHAR},  <!-- integralAmt -->
+			</if>
+			<if test="merchantid != null">
+		          merchantid = #{merchantid, jdbcType=VARCHAR},  <!-- merchantId -->
+			</if>
+			<if test="vaseq != null">
+		          vaseq = #{vaseq, jdbcType=VARCHAR},  <!-- vaSeq -->
+			</if>
+			<if test="paymenttime != null">
+		          paymenttime = #{paymenttime, jdbcType=VARCHAR},  <!-- payMentTime -->
+			</if>
+			<if test="transcode != null">
+		          transcode = #{transcode, jdbcType=VARCHAR},  <!-- transCode -->
+			</if>
+			<if test="channelorderid != null">
+		          channelorderid = #{channelorderid, jdbcType=VARCHAR},  <!-- channelOrderId -->
+			</if>
+			<if test="trandatetime != null">
+		          trandatetime = #{trandatetime, jdbcType=VARCHAR},  <!-- tranDateTime -->
+			</if>
+			<if test="reserver1 != null">
+		          reserver1 = #{reserver1, jdbcType=VARCHAR},  <!-- reserver1 -->
+			</if>
+			<if test="bankseq != null">
+		          bankseq = #{bankseq, jdbcType=VARCHAR},  <!-- bankSeq -->
+			</if>
+			<if test="systracenum != null">
+		          systracenum = #{systracenum, jdbcType=VARCHAR},  <!-- sysTraceNum -->
+			</if>
+			<if test="merordernum != null">
+		          merordernum = #{merordernum, jdbcType=VARCHAR},  <!-- merOrderNum -->
+			</if>
+			<if test="userid != null">
+		          userid = #{userid, jdbcType=VARCHAR},  <!-- userId -->
+			</if>
+			<if test="reserver4 != null">
+		          reserver4 = #{reserver4, jdbcType=VARCHAR},  <!-- reserver4 -->
+			</if>
+			<if test="signvalue != null">
+		          signvalue = #{signvalue, jdbcType=VARCHAR},  <!-- signValue -->
+			</if>
+			<if test="reserver3 != null">
+		          reserver3 = #{reserver3, jdbcType=VARCHAR},  <!-- reserver3 -->
+			</if>
+			<if test="reserver2 != null">
+		          reserver2 = #{reserver2, jdbcType=VARCHAR},  <!-- reserver2 -->
+			</if>
+			<if test="bankid != null">
+		          bankid = #{bankid, jdbcType=VARCHAR},  <!-- bankId -->
+			</if>
+			<if test="vaamt != null">
+		          vaamt = #{vaamt, jdbcType=VARCHAR},  <!-- vaAmt -->
+			</if>
+			<if test="orderinfo != null">
+		          orderinfo = #{orderinfo, jdbcType=VARCHAR},  <!-- orderInfo -->
+			</if>
+			<if test="tranamt != null">
+		          tranamt = #{tranamt, jdbcType=VARCHAR},  <!-- tranAmt -->
+			</if>
+			<if test="userip != null">
+		          userip = #{userip, jdbcType=VARCHAR},  <!-- userIp -->
+			</if>
+			<if test="integralseq != null">
+		          integralseq = #{integralseq, jdbcType=VARCHAR},  <!-- integralSeq -->
+			</if>
+			<if test="respcode != null">
+		          respcode = #{respcode, jdbcType=VARCHAR},  <!-- respCode -->
+			</if>
+		</set>
+		WHERE  pay_id = #{pay_id}
+	</update>
+	
+	<!-- 根据主键删除数据持久化对象 -->
+	<delete id="deleteByKey">
+		DELETE FROM zjc_pay_yt WHERE  pay_id = #{pay_id}
+	</delete>
+
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="selectByKey" resultType="ZjcPayYtPO">
+		SELECT
+		<include refid="column" />
+		FROM zjc_pay_yt WHERE  pay_id = #{pay_id}
+	</select>
+
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="selectOne" parameterType="Dto" resultType="ZjcPayYtPO">
+		SELECT
+		    <include refid="column" />
+		FROM zjc_pay_yt
+		<where>
+		    <include refid="equal" />
+		</where>		
+	</select>
+
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="list" parameterType="Dto" resultType="ZjcPayYtPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_pay_yt
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listPage" parameterType="Dto" resultType="ZjcPayYtPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_pay_yt
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto模糊查询并返回数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="like" parameterType="Dto" resultType="ZjcPayYtPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_pay_yt
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto模糊查询并返回分页数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="likePage" parameterType="Dto" resultType="ZjcPayYtPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_pay_yt
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto统计行数 -->
+	<select id="rows" resultType="Integer" parameterType="Dto">
+		SELECT COUNT(1) AS aos_rows_ FROM zjc_pay_yt
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 根据数学表达式进行数学运算 -->
+	<select id="calc" parameterType="Dto" resultType="String">
+		SELECT
+			${_expr}
+		FROM zjc_pay_yt
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 表字段 -->
+	<sql id="column">
+		  pay_id,  <!-- pay_id -->
+		  currencytype,  <!-- currencyType -->
+		  bankamt,  <!-- bankAmt -->
+		  orderid,  <!-- orderId -->
+		  bankfeeamt,  <!-- bankFeeAmt -->
+		  settledate,  <!-- settleDate -->
+		  orderamt,  <!-- orderAmt -->
+		  bussid,  <!-- bussId -->
+		  integralamt,  <!-- integralAmt -->
+		  merchantid,  <!-- merchantId -->
+		  vaseq,  <!-- vaSeq -->
+		  paymenttime,  <!-- payMentTime -->
+		  transcode,  <!-- transCode -->
+		  channelorderid,  <!-- channelOrderId -->
+		  trandatetime,  <!-- tranDateTime -->
+		  reserver1,  <!-- reserver1 -->
+		  bankseq,  <!-- bankSeq -->
+		  systracenum,  <!-- sysTraceNum -->
+		  merordernum,  <!-- merOrderNum -->
+		  userid,  <!-- userId -->
+		  reserver4,  <!-- reserver4 -->
+		  signvalue,  <!-- signValue -->
+		  reserver3,  <!-- reserver3 -->
+		  reserver2,  <!-- reserver2 -->
+		  bankid,  <!-- bankId -->
+		  vaamt,  <!-- vaAmt -->
+		  orderinfo,  <!-- orderInfo -->
+		  tranamt,  <!-- tranAmt -->
+		  userip,  <!-- userIp -->
+		  integralseq,  <!-- integralSeq -->
+		  respcode  <!-- respCode -->
+	</sql>
+	
+	<!-- 表字段(用于外表的关联时引用) -->
+	<sql id="column2">
+		  zjc_pay_yt.pay_id,  <!-- pay_id -->
+		  zjc_pay_yt.currencytype,  <!-- currencyType -->
+		  zjc_pay_yt.bankamt,  <!-- bankAmt -->
+		  zjc_pay_yt.orderid,  <!-- orderId -->
+		  zjc_pay_yt.bankfeeamt,  <!-- bankFeeAmt -->
+		  zjc_pay_yt.settledate,  <!-- settleDate -->
+		  zjc_pay_yt.orderamt,  <!-- orderAmt -->
+		  zjc_pay_yt.bussid,  <!-- bussId -->
+		  zjc_pay_yt.integralamt,  <!-- integralAmt -->
+		  zjc_pay_yt.merchantid,  <!-- merchantId -->
+		  zjc_pay_yt.vaseq,  <!-- vaSeq -->
+		  zjc_pay_yt.paymenttime,  <!-- payMentTime -->
+		  zjc_pay_yt.transcode,  <!-- transCode -->
+		  zjc_pay_yt.channelorderid,  <!-- channelOrderId -->
+		  zjc_pay_yt.trandatetime,  <!-- tranDateTime -->
+		  zjc_pay_yt.reserver1,  <!-- reserver1 -->
+		  zjc_pay_yt.bankseq,  <!-- bankSeq -->
+		  zjc_pay_yt.systracenum,  <!-- sysTraceNum -->
+		  zjc_pay_yt.merordernum,  <!-- merOrderNum -->
+		  zjc_pay_yt.userid,  <!-- userId -->
+		  zjc_pay_yt.reserver4,  <!-- reserver4 -->
+		  zjc_pay_yt.signvalue,  <!-- signValue -->
+		  zjc_pay_yt.reserver3,  <!-- reserver3 -->
+		  zjc_pay_yt.reserver2,  <!-- reserver2 -->
+		  zjc_pay_yt.bankid,  <!-- bankId -->
+		  zjc_pay_yt.vaamt,  <!-- vaAmt -->
+		  zjc_pay_yt.orderinfo,  <!-- orderInfo -->
+		  zjc_pay_yt.tranamt,  <!-- tranAmt -->
+		  zjc_pay_yt.userip,  <!-- userIp -->
+		  zjc_pay_yt.integralseq,  <!-- integralSeq -->
+		  zjc_pay_yt.respcode  <!-- respCode -->
+	</sql>
+
+	<!-- Where精确匹配字段 -->
+	<sql id="equal">
+	    <if test="pay_id != null and pay_id != ''">
+		      AND pay_id = #{pay_id}  <!-- pay_id -->
+		</if>
+	    <if test="currencytype != null and currencytype != ''">
+		      AND currencytype = #{currencytype}  <!-- currencyType -->
+		</if>
+	    <if test="bankamt != null and bankamt != ''">
+		      AND bankamt = #{bankamt}  <!-- bankAmt -->
+		</if>
+	    <if test="orderid != null and orderid != ''">
+		      AND orderid = #{orderid}  <!-- orderId -->
+		</if>
+	    <if test="bankfeeamt != null and bankfeeamt != ''">
+		      AND bankfeeamt = #{bankfeeamt}  <!-- bankFeeAmt -->
+		</if>
+	    <if test="settledate != null and settledate != ''">
+		      AND settledate = #{settledate}  <!-- settleDate -->
+		</if>
+	    <if test="orderamt != null and orderamt != ''">
+		      AND orderamt = #{orderamt}  <!-- orderAmt -->
+		</if>
+	    <if test="bussid != null and bussid != ''">
+		      AND bussid = #{bussid}  <!-- bussId -->
+		</if>
+	    <if test="integralamt != null and integralamt != ''">
+		      AND integralamt = #{integralamt}  <!-- integralAmt -->
+		</if>
+	    <if test="merchantid != null and merchantid != ''">
+		      AND merchantid = #{merchantid}  <!-- merchantId -->
+		</if>
+	    <if test="vaseq != null and vaseq != ''">
+		      AND vaseq = #{vaseq}  <!-- vaSeq -->
+		</if>
+	    <if test="paymenttime != null and paymenttime != ''">
+		      AND paymenttime = #{paymenttime}  <!-- payMentTime -->
+		</if>
+	    <if test="transcode != null and transcode != ''">
+		      AND transcode = #{transcode}  <!-- transCode -->
+		</if>
+	    <if test="channelorderid != null and channelorderid != ''">
+		      AND channelorderid = #{channelorderid}  <!-- channelOrderId -->
+		</if>
+	    <if test="trandatetime != null and trandatetime != ''">
+		      AND trandatetime = #{trandatetime}  <!-- tranDateTime -->
+		</if>
+	    <if test="reserver1 != null and reserver1 != ''">
+		      AND reserver1 = #{reserver1}  <!-- reserver1 -->
+		</if>
+	    <if test="bankseq != null and bankseq != ''">
+		      AND bankseq = #{bankseq}  <!-- bankSeq -->
+		</if>
+	    <if test="systracenum != null and systracenum != ''">
+		      AND systracenum = #{systracenum}  <!-- sysTraceNum -->
+		</if>
+	    <if test="merordernum != null and merordernum != ''">
+		      AND merordernum = #{merordernum}  <!-- merOrderNum -->
+		</if>
+	    <if test="userid != null and userid != ''">
+		      AND userid = #{userid}  <!-- userId -->
+		</if>
+	    <if test="reserver4 != null and reserver4 != ''">
+		      AND reserver4 = #{reserver4}  <!-- reserver4 -->
+		</if>
+	    <if test="signvalue != null and signvalue != ''">
+		      AND signvalue = #{signvalue}  <!-- signValue -->
+		</if>
+	    <if test="reserver3 != null and reserver3 != ''">
+		      AND reserver3 = #{reserver3}  <!-- reserver3 -->
+		</if>
+	    <if test="reserver2 != null and reserver2 != ''">
+		      AND reserver2 = #{reserver2}  <!-- reserver2 -->
+		</if>
+	    <if test="bankid != null and bankid != ''">
+		      AND bankid = #{bankid}  <!-- bankId -->
+		</if>
+	    <if test="vaamt != null and vaamt != ''">
+		      AND vaamt = #{vaamt}  <!-- vaAmt -->
+		</if>
+	    <if test="orderinfo != null and orderinfo != ''">
+		      AND orderinfo = #{orderinfo}  <!-- orderInfo -->
+		</if>
+	    <if test="tranamt != null and tranamt != ''">
+		      AND tranamt = #{tranamt}  <!-- tranAmt -->
+		</if>
+	    <if test="userip != null and userip != ''">
+		      AND userip = #{userip}  <!-- userIp -->
+		</if>
+	    <if test="integralseq != null and integralseq != ''">
+		      AND integralseq = #{integralseq}  <!-- integralSeq -->
+		</if>
+	    <if test="respcode != null and respcode != ''">
+		      AND respcode = #{respcode}  <!-- respCode -->
+		</if>
+	</sql>
+	
+	<!-- Where模糊匹配字段 -->
+	<sql id="like">
+	    <if test="pay_id != null and pay_id != ''">
+		      AND pay_id like '${pay_id}%'  <!-- pay_id -->
+		</if>
+	    <if test="currencytype != null and currencytype != ''">
+		      AND currencytype like '${currencytype}%'  <!-- currencyType -->
+		</if>
+	    <if test="bankamt != null and bankamt != ''">
+		      AND bankamt like '${bankamt}%'  <!-- bankAmt -->
+		</if>
+	    <if test="orderid != null and orderid != ''">
+		      AND orderid like '${orderid}%'  <!-- orderId -->
+		</if>
+	    <if test="bankfeeamt != null and bankfeeamt != ''">
+		      AND bankfeeamt like '${bankfeeamt}%'  <!-- bankFeeAmt -->
+		</if>
+	    <if test="settledate != null and settledate != ''">
+		      AND settledate like '${settledate}%'  <!-- settleDate -->
+		</if>
+	    <if test="orderamt != null and orderamt != ''">
+		      AND orderamt like '${orderamt}%'  <!-- orderAmt -->
+		</if>
+	    <if test="bussid != null and bussid != ''">
+		      AND bussid like '${bussid}%'  <!-- bussId -->
+		</if>
+	    <if test="integralamt != null and integralamt != ''">
+		      AND integralamt like '${integralamt}%'  <!-- integralAmt -->
+		</if>
+	    <if test="merchantid != null and merchantid != ''">
+		      AND merchantid like '${merchantid}%'  <!-- merchantId -->
+		</if>
+	    <if test="vaseq != null and vaseq != ''">
+		      AND vaseq like '${vaseq}%'  <!-- vaSeq -->
+		</if>
+	    <if test="paymenttime != null and paymenttime != ''">
+		      AND paymenttime like '${paymenttime}%'  <!-- payMentTime -->
+		</if>
+	    <if test="transcode != null and transcode != ''">
+		      AND transcode like '${transcode}%'  <!-- transCode -->
+		</if>
+	    <if test="channelorderid != null and channelorderid != ''">
+		      AND channelorderid like '${channelorderid}%'  <!-- channelOrderId -->
+		</if>
+	    <if test="trandatetime != null and trandatetime != ''">
+		      AND trandatetime like '${trandatetime}%'  <!-- tranDateTime -->
+		</if>
+	    <if test="reserver1 != null and reserver1 != ''">
+		      AND reserver1 like '${reserver1}%'  <!-- reserver1 -->
+		</if>
+	    <if test="bankseq != null and bankseq != ''">
+		      AND bankseq like '${bankseq}%'  <!-- bankSeq -->
+		</if>
+	    <if test="systracenum != null and systracenum != ''">
+		      AND systracenum like '${systracenum}%'  <!-- sysTraceNum -->
+		</if>
+	    <if test="merordernum != null and merordernum != ''">
+		      AND merordernum like '${merordernum}%'  <!-- merOrderNum -->
+		</if>
+	    <if test="userid != null and userid != ''">
+		      AND userid like '${userid}%'  <!-- userId -->
+		</if>
+	    <if test="reserver4 != null and reserver4 != ''">
+		      AND reserver4 like '${reserver4}%'  <!-- reserver4 -->
+		</if>
+	    <if test="signvalue != null and signvalue != ''">
+		      AND signvalue like '${signvalue}%'  <!-- signValue -->
+		</if>
+	    <if test="reserver3 != null and reserver3 != ''">
+		      AND reserver3 like '${reserver3}%'  <!-- reserver3 -->
+		</if>
+	    <if test="reserver2 != null and reserver2 != ''">
+		      AND reserver2 like '${reserver2}%'  <!-- reserver2 -->
+		</if>
+	    <if test="bankid != null and bankid != ''">
+		      AND bankid like '${bankid}%'  <!-- bankId -->
+		</if>
+	    <if test="vaamt != null and vaamt != ''">
+		      AND vaamt like '${vaamt}%'  <!-- vaAmt -->
+		</if>
+	    <if test="orderinfo != null and orderinfo != ''">
+		      AND orderinfo like '${orderinfo}%'  <!-- orderInfo -->
+		</if>
+	    <if test="tranamt != null and tranamt != ''">
+		      AND tranamt like '${tranamt}%'  <!-- tranAmt -->
+		</if>
+	    <if test="userip != null and userip != ''">
+		      AND userip like '${userip}%'  <!-- userIp -->
+		</if>
+	    <if test="integralseq != null and integralseq != ''">
+		      AND integralseq like '${integralseq}%'  <!-- integralSeq -->
+		</if>
+	    <if test="respcode != null and respcode != ''">
+		      AND respcode like '${respcode}%'  <!-- respCode -->
+		</if>
+	</sql>
+	
+</mapper>

@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- zjc_member_multiplication[zjc_member_multiplication]SQL自动映射 -->
+<!--  注意:此文件由AOS平台自动生成-禁止手工修改 2017-06-13 15:53:40 -->
+<mapper namespace="com.zjc.system.dao.ZjcMemberMultiplicationDao">
+	
+	<!-- 插入一个数据持久化对象(插入字段为传入PO实体的非空属性) -->
+	<insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="ZjcMemberMultiplicationPO">
+		INSERT INTO zjc_member_multiplication (
+		<if test="default_multiplier != null and default_multiplier != ''">
+	         default_multiplier, <!-- 默认倍增倍数 -->
+		</if>
+		<if test="start_time != null and start_time != ''">
+	         start_time, <!-- 限时倍增开始时间 -->
+		</if>
+		<if test="end_time != null and end_time != ''">
+	         end_time, <!-- 限时倍增结束时间 -->
+		</if>
+		<if test="timed_multiplication != null and timed_multiplication != ''">
+	         timed_multiplication, <!-- 限时倍增倍数 -->
+		</if>
+		<if test="special_merchants_multiplication != null and special_merchants_multiplication != ''">
+	         special_merchants_multiplication, <!-- 特殊商家倍增倍数 -->
+		</if>
+		<if test="special_merchants_multiplication_id != null and special_merchants_multiplication_id != ''">
+	         special_merchants_multiplication_id, <!-- 特殊商家倍增结算会员ID -->
+		</if>
+		<if test="offline_shopping_commission_ratio != null and offline_shopping_commission_ratio != ''">
+	         offline_shopping_commission_ratio, <!-- 线下购物商家提成比例 -->
+		</if>
+		<if test="date_time != null and date_time != ''">
+	         date_time, <!-- 产生时间 -->
+		</if>
+		<if test="offline_shopping_multiplication_rate != null and offline_shopping_multiplication_rate != ''">
+	         offline_shopping_multiplication_rate, <!-- 线下购物会员赠送比例 -->
+		</if>
+	          id
+		)VALUES(
+		<if test="default_multiplier != null and default_multiplier != ''">
+	          #{default_multiplier, jdbcType=VARCHAR}, <!-- 默认倍增倍数 -->
+	    </if>
+		<if test="start_time != null and start_time != ''">
+	          #{start_time, jdbcType=VARCHAR}, <!-- 限时倍增开始时间 -->
+	    </if>
+		<if test="end_time != null and end_time != ''">
+	          #{end_time, jdbcType=VARCHAR}, <!-- 限时倍增结束时间 -->
+	    </if>
+		<if test="timed_multiplication != null and timed_multiplication != ''">
+	          #{timed_multiplication, jdbcType=VARCHAR}, <!-- 限时倍增倍数 -->
+	    </if>
+		<if test="special_merchants_multiplication != null and special_merchants_multiplication != ''">
+	          #{special_merchants_multiplication, jdbcType=VARCHAR}, <!-- 特殊商家倍增倍数 -->
+	    </if>
+		<if test="special_merchants_multiplication_id != null and special_merchants_multiplication_id != ''">
+	          #{special_merchants_multiplication_id, jdbcType=VARCHAR}, <!-- 特殊商家倍增结算会员ID -->
+	    </if>
+	    <if test="offline_shopping_commission_ratio != null and offline_shopping_commission_ratio != ''">
+	          #{offline_shopping_commission_ratio, jdbcType=VARCHAR}, <!-- 线下购物商家提成比例 -->
+	    </if>
+		<if test="date_time != null and date_time != ''">
+	          #{date_time, jdbcType=VARCHAR}, <!-- 产生时间 -->
+	    </if>
+	    <if test="offline_shopping_multiplication_rate != null and offline_shopping_multiplication_rate != ''">
+	          #{offline_shopping_multiplication_rate, jdbcType=VARCHAR}, <!-- 线下购物会员赠送比例 -->
+	    </if>
+	          null
+		)
+	</insert>
+	
+	<!-- 插入一个数据持久化对象(含所有字段) -->
+	<insert id="insertAll" useGeneratedKeys="true" keyProperty="id" parameterType="ZjcMemberMultiplicationPO">
+		INSERT INTO zjc_member_multiplication (
+		    <include refid="column" />
+		)
+		VALUES (
+		    #{id, jdbcType=INTEGER},  <!-- 表id -->
+		    #{default_multiplier, jdbcType=VARCHAR},  <!-- 默认倍增倍数 -->
+		    #{start_time, jdbcType=VARCHAR},  <!-- 限时倍增开始时间 -->
+		    #{end_time, jdbcType=VARCHAR},  <!-- 限时倍增结束时间 -->
+		    #{timed_multiplication, jdbcType=VARCHAR},  <!-- 限时倍增倍数 -->
+		    #{special_merchants_multiplication, jdbcType=VARCHAR},  <!-- 特殊商家倍增倍数 -->
+		    #{special_merchants_multiplication_id, jdbcType=VARCHAR},  <!-- 特殊商家倍增结算会员ID -->
+		    #{offline_shopping_commission_ratio, jdbcType=VARCHAR},  <!-- 线下购物商家提成比例 -->
+		    #{date_time, jdbcType=VARCHAR},  <!-- 产生时间 -->
+		    #{offline_shopping_multiplication_rate, jdbcType=VARCHAR}  <!-- 线下购物会员赠送比例 -->
+		)
+	</insert>
+
+	<!-- 根据主键修改数据持久化对象 -->
+	<update id="updateByKey" parameterType="ZjcMemberMultiplicationPO">
+		UPDATE zjc_member_multiplication
+		<set>
+			<if test="id != null">
+		          id = #{id, jdbcType=INTEGER},  <!-- 表id -->
+			</if>
+			<if test="default_multiplier != null">
+		          default_multiplier = #{default_multiplier, jdbcType=VARCHAR},  <!-- 默认倍增倍数 -->
+			</if>
+			<if test="start_time != null">
+		          start_time = #{start_time, jdbcType=VARCHAR},  <!-- 限时倍增开始时间 -->
+			</if>
+			<if test="end_time != null">
+		          end_time = #{end_time, jdbcType=VARCHAR},  <!-- 限时倍增结束时间 -->
+			</if>
+			<if test="timed_multiplication != null">
+		          timed_multiplication = #{timed_multiplication, jdbcType=VARCHAR},  <!-- 限时倍增倍数 -->
+			</if>
+			<if test="special_merchants_multiplication != null">
+		          special_merchants_multiplication = #{special_merchants_multiplication, jdbcType=VARCHAR},  <!-- 特殊商家倍增倍数 -->
+			</if>
+			<if test="special_merchants_multiplication_id != null">
+		          special_merchants_multiplication_id = #{special_merchants_multiplication_id, jdbcType=VARCHAR},  <!-- 特殊商家倍增结算会员ID -->
+			</if>
+			<if test="offline_shopping_commission_ratio != null">
+		          offline_shopping_commission_ratio = #{offline_shopping_commission_ratio, jdbcType=VARCHAR},  <!-- 线下购物商家提成比例  -->
+			</if>
+			<if test="date_time != null">
+		          date_time = #{date_time, jdbcType=VARCHAR},  <!-- 产生时间 -->
+			</if>
+			<if test="offline_shopping_multiplication_rate != null and offline_shopping_multiplication_rate != ''">
+	          	offline_shopping_multiplication_rate = #{offline_shopping_multiplication_rate, jdbcType=VARCHAR}, <!-- 线下购物会员赠送比例 -->
+	    	</if>
+		</set>
+		WHERE  id = #{id}
+	</update>
+	
+	<!-- 根据主键删除数据持久化对象 -->
+	<delete id="deleteByKey">
+		DELETE FROM zjc_member_multiplication WHERE  id = #{id}
+	</delete>
+
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="selectByKey" resultType="ZjcMemberMultiplicationPO">
+		SELECT
+		<include refid="column" />
+		FROM zjc_member_multiplication WHERE  id = #{id}
+	</select>
+    
+    <!-- 根据最大id查询最新数据 -->
+	<select id="selectByMaxKey" resultType="ZjcMemberMultiplicationPO">
+		SELECT
+		<include refid="column" />
+		from zjc_member_multiplication t  
+         where t.id=(select max(id) from zjc_member_multiplication)
+	</select>
+	
+	<select id="selectByMaxKey1" resultType="Dto">
+		SELECT
+		<include refid="twocolumn" />
+		 from zjc_member_multiplication t ,zjc_member_settlement a  
+         where t.id=(select max(b.id) from zjc_member_multiplication b) and a.id=(select max(d.id) from zjc_member_settlement d)
+	</select>
+    
+    
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="selectOne" parameterType="Dto" resultType="ZjcMemberMultiplicationPO">
+		SELECT
+		    <include refid="column" />
+		FROM zjc_member_multiplication
+		<where>
+		    <include refid="equal" />
+		</where>		
+	</select>
+
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="list" parameterType="Dto" resultType="ZjcMemberMultiplicationPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_member_multiplication
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listPage" parameterType="Dto" resultType="ZjcMemberMultiplicationPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_member_multiplication
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto模糊查询并返回数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="like" parameterType="Dto" resultType="ZjcMemberMultiplicationPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_member_multiplication
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto模糊查询并返回分页数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="likePage" parameterType="Dto" resultType="ZjcMemberMultiplicationPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_member_multiplication
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto统计行数 -->
+	<select id="rows" resultType="Integer" parameterType="Dto">
+		SELECT COUNT(1) AS aos_rows_ FROM zjc_member_multiplication
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 根据数学表达式进行数学运算 -->
+	<select id="calc" parameterType="Dto" resultType="String">
+		SELECT
+			${_expr}
+		FROM zjc_member_multiplication
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 表字段 -->
+	<sql id="column">
+		  id,  <!-- 表id -->
+		  default_multiplier,  <!-- 默认倍增倍数 -->
+		  start_time,  <!-- 限时倍增开始时间 -->
+		  end_time,  <!-- 限时倍增结束时间 -->
+		  timed_multiplication,  <!-- 限时倍增倍数 -->
+		  special_merchants_multiplication,  <!-- 特殊商家倍增倍数 -->
+		  special_merchants_multiplication_id,  <!-- 特殊商家倍增结算会员ID -->
+		  offline_shopping_commission_ratio, <!-- 线下购物商家提成比例 -->
+		  date_time,  <!-- 产生时间 -->
+		  offline_shopping_multiplication_rate <!-- 线下购物会员赠送比例 -->
+	</sql>
+	
+	<!-- 表字段 -->
+	<sql id="twocolumn">
+		  t.id,
+		  t.default_multiplier,  <!-- 默认倍增倍数 -->
+		  t.start_time,  <!-- 限时倍增开始时间 -->
+		  t.end_time,  <!-- 限时倍增结束时间 -->
+		  t.timed_multiplication,  <!-- 限时倍增倍数 -->
+		  t.special_merchants_multiplication,  <!-- 特殊商家倍增倍数 -->
+		  t.special_merchants_multiplication_id,  <!-- 特殊商家倍增结算会员ID -->
+		  t.offline_shopping_commission_ratio, <!-- 线下购物商家提成比例 -->
+		  t.date_time,  <!-- 产生时间 -->
+		  t.offline_shopping_multiplication_rate, <!-- 线下购物会员赠送比例 -->
+		  a.id,
+		  a.settlement_center_points,  <!-- 购买结算中心所需积分 -->
+		  a.settlement_center_commission,  <!-- 结算中心提成比例 -->
+		  a.sum_settlement,  <!-- 会员返佣模式 -->
+		  a.sum_points_today,  <!-- 会员返佣模式 -->
+		  a.points_other_min  <!-- 会员返佣模式 -->
+	</sql>
+	
+	<!-- 表字段(用于外表的关联时引用) -->
+	<sql id="column2">
+		  zjc_member_multiplication.id,  <!-- 表id -->
+		  zjc_member_multiplication.default_multiplier,  <!-- 默认倍增倍数 -->
+		  zjc_member_multiplication.start_time,  <!-- 限时倍增开始时间 -->
+		  zjc_member_multiplication.end_time,  <!-- 限时倍增结束时间 -->
+		  zjc_member_multiplication.timed_multiplication,  <!-- 限时倍增倍数 -->
+		  zjc_member_multiplication.special_merchants_multiplication,  <!-- 特殊商家倍增倍数 -->
+		  zjc_member_multiplication.special_merchants_multiplication_id,  <!-- 特殊商家倍增结算会员ID -->
+		  zjc_member_multiplication.offline_shopping_commission_ratio, <!-- 线下购物商家提成比例  -->
+		  zjc_member_multiplication.date_time,  <!-- 产生时间 -->
+		  zjc_member_multiplication.offline_shopping_multiplication_rate <!-- 线下购物会员赠送比例 -->
+	</sql>
+
+	<!-- Where精确匹配字段 -->
+	<sql id="equal">
+	   <if test="id != null ">
+		      AND id = #{id}  <!-- 表id -->
+		</if>
+	    <if test="default_multiplier != null and default_multiplier != ''">
+		      AND default_multiplier = #{default_multiplier}  <!-- 默认倍增倍数 -->
+		</if>
+	    <if test="start_time != null and start_time != ''">
+		      AND start_time = #{start_time}  <!-- 限时倍增开始时间 -->
+		</if>
+	    <if test="end_time != null and end_time != ''">
+		      AND end_time = #{end_time}  <!-- 限时倍增结束时间 -->
+		</if>
+	    <if test="timed_multiplication != null and timed_multiplication != ''">
+		      AND timed_multiplication = #{timed_multiplication}  <!-- 限时倍增倍数 -->
+		</if>
+	    <if test="special_merchants_multiplication != null and special_merchants_multiplication != ''">
+		      AND special_merchants_multiplication = #{special_merchants_multiplication}  <!-- 特殊商家倍增倍数 -->
+		</if>
+	    <if test="special_merchants_multiplication_id != null and special_merchants_multiplication_id != ''">
+		      AND special_merchants_multiplication_id = #{special_merchants_multiplication_id}  <!-- 特殊商家倍增结算会员ID -->
+		</if>
+		<if test="offline_shopping_commission_ratio != null and offline_shopping_commission_ratio != ''">
+		      AND offline_shopping_commission_ratio = #{offline_shopping_commission_ratio}  <!-- 线下购物商家提成比例 -->
+		</if>
+	    <if test="date_time != null and date_time != ''">
+		      AND date_time = #{date_time}  <!-- 产生时间 -->
+		</if>
+		 <if test="offline_shopping_multiplication_rate != null and offline_shopping_multiplication_rate != ''">
+		      AND offline_shopping_multiplication_rate = #{offline_shopping_multiplication_rate}  <!-- 线下购物会员赠送比例 -->
+		</if>
+	</sql>
+	
+	<!-- Where模糊匹配字段 -->
+	<sql id="like">
+	    <if test="default_multiplier != null and default_multiplier != ''">
+		      AND default_multiplier like '${default_multiplier}%'  <!-- 默认倍增倍数 -->
+		</if>
+	    <if test="start_time != null and start_time != ''">
+		      AND start_time like '${start_time}%'  <!-- 限时倍增开始时间 -->
+		</if>
+	    <if test="end_time != null and end_time != ''">
+		      AND end_time like '${end_time}%'  <!-- 限时倍增结束时间 -->
+		</if>
+	    <if test="timed_multiplication != null and timed_multiplication != ''">
+		      AND timed_multiplication like '${timed_multiplication}%'  <!-- 限时倍增倍数 -->
+		</if>
+	    <if test="special_merchants_multiplication != null and special_merchants_multiplication != ''">
+		      AND special_merchants_multiplication like '${special_merchants_multiplication}%'  <!-- 特殊商家倍增倍数 -->
+		</if>
+	    <if test="special_merchants_multiplication_id != null and special_merchants_multiplication_id != ''">
+		      AND special_merchants_multiplication_id like '${special_merchants_multiplication_id}%'  <!-- 特殊商家倍增结算会员ID -->
+		</if>
+	    <if test="date_time != null and date_time != ''">
+		      AND date_time like '${date_time}%'  <!-- 产生时间 -->
+		</if>
+	</sql>
+	
+</mapper>

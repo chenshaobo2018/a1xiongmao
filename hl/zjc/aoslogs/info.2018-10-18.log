@@ -1,0 +1,354 @@
+2018-10-18 09:49:43 INFO [Class:o.e.j.s.Server->Thread:main] jetty-8.1.17.v20150415 
+2018-10-18 09:49:45 INFO [Class:o.e.j.s.h.ContextHandler$Context->Thread:main] Initializing Spring root WebApplicationContext 
+2018-10-18 09:50:30 INFO [Class:o.e.j.s.h.ContextHandler$Context->Thread:main] Initializing Spring FrameworkServlet 'springDispatcherServlet' 
+2018-10-18 09:50:33 INFO [Class:o.e.j.s.AbstractConnector->Thread:main] Started SelectChannelConnector@0.0.0.0:10010 
+2018-10-18 09:53:56 INFO [Class:c.a.s.s.SlbService->Thread:qtp1656467572-25] ========================app获取的钱包地址13551257407 
+2018-10-18 09:54:00 INFO [Class:c.a.s.s.SlbService->Thread:qtp1656467572-25] ========================app获取的钱包地址获取回来的参数{"message":"成功","data":{"exist":1},"resultCode":0,"totalPage":0} 
+2018-10-18 09:54:01 INFO [Class:c.a.s.s.SlbService->Thread:qtp1656467572-25] ========================app获取的钱包地址14ePEdokRyhRoPP5U3U9955iGQDTgCgLwY 
+2018-10-18 09:54:05 INFO [Class:c.a.s.s.SlbService->Thread:qtp1656467572-25] ========================app获取的钱包地址13551257407 
+2018-10-18 09:54:07 INFO [Class:c.a.s.s.SlbService->Thread:qtp1656467572-25] ========================app获取的钱包地址获取回来的参数{"message":"成功","data":{"exist":1},"resultCode":0,"totalPage":0} 
+2018-10-18 09:54:10 INFO [Class:c.a.s.s.SlbService->Thread:qtp1656467572-25] ========================app获取的钱包地址14ePEdokRyhRoPP5U3U9955iGQDTgCgLwY 
+2018-10-18 09:55:13 INFO [Class:c.a.s.s.SlbService->Thread:qtp1656467572-28] ========================app获取的钱包地址13551257407 
+2018-10-18 09:55:14 INFO [Class:c.a.s.s.SlbService->Thread:qtp1656467572-28] ========================app获取的钱包地址获取回来的参数{"message":"成功","data":{"exist":1},"resultCode":0,"totalPage":0} 
+2018-10-18 09:55:15 INFO [Class:c.a.s.s.SlbService->Thread:qtp1656467572-28] ========================app获取的钱包地址14ePEdokRyhRoPP5U3U9955iGQDTgCgLwY 
+2018-10-18 09:55:30 INFO [Class:c.a.s.s.SlbService->Thread:qtp1656467572-27] ========================app获取的钱包地址13551257407 
+2018-10-18 09:56:25 INFO [Class:c.a.s.s.SlbService->Thread:qtp1656467572-27] ========================app获取的钱包地址获取回来的参数{"message":"成功","data":{"exist":1},"resultCode":0,"totalPage":0} 
+2018-10-18 09:56:27 INFO [Class:c.a.s.s.SlbService->Thread:qtp1656467572-27] ========================app获取的钱包地址14ePEdokRyhRoPP5U3U9955iGQDTgCgLwY 
+2018-10-18 09:57:47 INFO [Class:c.a.s.s.SlbService->Thread:qtp1656467572-28] ========================app获取的钱包地址13551257407 
+2018-10-18 09:57:48 INFO [Class:c.a.s.s.SlbService->Thread:qtp1656467572-28] ========================app获取的钱包地址获取回来的参数{"message":"成功","data":{"exist":1},"resultCode":0,"totalPage":0} 
+2018-10-18 09:57:50 INFO [Class:c.a.s.s.SlbService->Thread:qtp1656467572-28] ========================app获取的钱包地址14ePEdokRyhRoPP5U3U9955iGQDTgCgLwY 
+2018-10-18 09:59:16 INFO [Class:c.a.s.s.SlbService->Thread:qtp1656467572-26] ========================app获取的钱包地址13551257407 
+2018-10-18 09:59:17 INFO [Class:c.a.s.s.SlbService->Thread:qtp1656467572-26] ========================app获取的钱包地址获取回来的参数{"message":"成功","data":{"exist":1},"resultCode":0,"totalPage":0} 
+2018-10-18 09:59:18 INFO [Class:c.a.s.s.SlbService->Thread:qtp1656467572-26] ========================app获取的钱包地址14ePEdokRyhRoPP5U3U9955iGQDTgCgLwY 
+2018-10-18 10:00:29 INFO [Class:c.a.s.s.SlbService->Thread:qtp1656467572-25] ========================app获取的钱包地址13551257407 
+2018-10-18 10:00:30 INFO [Class:c.a.s.s.SlbService->Thread:qtp1656467572-25] ========================app获取的钱包地址获取回来的参数{"message":"成功","data":{"exist":1},"resultCode":0,"totalPage":0} 
+2018-10-18 10:00:50 INFO [Class:c.a.s.s.SlbService->Thread:qtp1656467572-25] ========================app获取的钱包地址14ePEdokRyhRoPP5U3U9955iGQDTgCgLwY 
+2018-10-18 10:01:07 INFO [Class:c.a.s.s.SlbService->Thread:qtp1656467572-24] ========================app获取的钱包地址13551257407 
+2018-10-18 10:01:08 INFO [Class:c.a.s.s.SlbService->Thread:qtp1656467572-24] ========================app获取的钱包地址获取回来的参数{"message":"成功","data":{"exist":1},"resultCode":0,"totalPage":0} 
+2018-10-18 10:01:09 INFO [Class:c.a.s.s.SlbService->Thread:qtp1656467572-24] ========================app获取的钱包地址14ePEdokRyhRoPP5U3U9955iGQDTgCgLwY 
+2018-10-18 10:01:21 INFO [Class:c.a.s.s.SlbService->Thread:qtp1656467572-26] ========================app获取的钱包地址13551257407 
+2018-10-18 10:01:22 INFO [Class:c.a.s.s.SlbService->Thread:qtp1656467572-26] ========================app获取的钱包地址获取回来的参数{"message":"成功","data":{"exist":1},"resultCode":0,"totalPage":0} 
+2018-10-18 10:01:23 INFO [Class:c.a.s.s.SlbService->Thread:qtp1656467572-26] ========================app获取的钱包地址14ePEdokRyhRoPP5U3U9955iGQDTgCgLwY 
+2018-10-18 10:01:45 INFO [Class:c.a.s.s.SlbService->Thread:qtp1656467572-23] ========================app获取的钱包地址13551257407 
+2018-10-18 10:01:46 INFO [Class:c.a.s.s.SlbService->Thread:qtp1656467572-23] ========================app获取的钱包地址获取回来的参数{"message":"成功","data":{"exist":1},"resultCode":0,"totalPage":0} 
+2018-10-18 10:01:47 INFO [Class:c.a.s.s.SlbService->Thread:qtp1656467572-23] ========================app获取的钱包地址14ePEdokRyhRoPP5U3U9955iGQDTgCgLwY 
+2018-10-18 10:01:51 INFO [Class:c.a.s.s.SlbService->Thread:qtp1656467572-23] ========================app获取的钱包地址13551257407 
+2018-10-18 10:01:52 INFO [Class:c.a.s.s.SlbService->Thread:qtp1656467572-23] ========================app获取的钱包地址获取回来的参数{"message":"成功","data":{"exist":1},"resultCode":0,"totalPage":0} 
+2018-10-18 10:01:54 INFO [Class:c.a.s.s.SlbService->Thread:qtp1656467572-23] ========================app获取的钱包地址14ePEdokRyhRoPP5U3U9955iGQDTgCgLwY 
+2018-10-18 10:02:01 INFO [Class:c.a.s.s.SlbService->Thread:qtp1656467572-26] ========================app获取的钱包地址13551257407 
+2018-10-18 10:02:03 INFO [Class:c.a.s.s.SlbService->Thread:qtp1656467572-26] ========================app获取的钱包地址获取回来的参数{"message":"成功","data":{"exist":1},"resultCode":0,"totalPage":0} 
+2018-10-18 10:02:04 INFO [Class:c.a.s.s.SlbService->Thread:qtp1656467572-26] ========================app获取的钱包地址14ePEdokRyhRoPP5U3U9955iGQDTgCgLwY 
+2018-10-18 10:02:10 INFO [Class:c.a.s.s.SlbService->Thread:qtp1656467572-23] ========================app获取的钱包地址13551257407 
+2018-10-18 10:02:11 INFO [Class:c.a.s.s.SlbService->Thread:qtp1656467572-23] ========================app获取的钱包地址获取回来的参数{"message":"成功","data":{"exist":1},"resultCode":0,"totalPage":0} 
+2018-10-18 10:02:13 INFO [Class:c.a.s.s.SlbService->Thread:qtp1656467572-23] ========================app获取的钱包地址14ePEdokRyhRoPP5U3U9955iGQDTgCgLwY 
+2018-10-18 10:05:59 INFO [Class:c.a.s.s.SlbService->Thread:qtp1656467572-23] ========================app获取的钱包地址13551257407 
+2018-10-18 10:06:00 INFO [Class:c.a.s.s.SlbService->Thread:qtp1656467572-23] ========================app获取的钱包地址获取回来的参数{"message":"成功","data":{"exist":1},"resultCode":0,"totalPage":0} 
+2018-10-18 10:06:01 INFO [Class:c.a.s.s.SlbService->Thread:qtp1656467572-23] ========================app获取的钱包地址14ePEdokRyhRoPP5U3U9955iGQDTgCgLwY 
+2018-10-18 10:06:15 INFO [Class:c.a.s.s.SlbService->Thread:qtp1656467572-25] ========================app获取的钱包地址13551257407 
+2018-10-18 10:06:15 INFO [Class:c.a.s.s.SlbService->Thread:qtp1656467572-25] ========================app获取的钱包地址获取回来的参数{"message":"成功","data":{"exist":1},"resultCode":0,"totalPage":0} 
+2018-10-18 10:06:16 INFO [Class:c.a.s.s.SlbService->Thread:qtp1656467572-25] ========================app获取的钱包地址14ePEdokRyhRoPP5U3U9955iGQDTgCgLwY 
+2018-10-18 10:07:22 INFO [Class:c.a.s.s.SlbService->Thread:qtp1656467572-25] ========================app获取的钱包地址13551257407 
+2018-10-18 10:07:23 INFO [Class:c.a.s.s.SlbService->Thread:qtp1656467572-25] ========================app获取的钱包地址获取回来的参数{"message":"成功","data":{"exist":1},"resultCode":0,"totalPage":0} 
+2018-10-18 10:07:24 INFO [Class:c.a.s.s.SlbService->Thread:qtp1656467572-25] ========================app获取的钱包地址14ePEdokRyhRoPP5U3U9955iGQDTgCgLwY 
+2018-10-18 10:07:45 INFO [Class:o.e.j.s.Server->Thread:main] jetty-8.1.17.v20150415 
+2018-10-18 10:07:47 INFO [Class:o.e.j.s.h.ContextHandler$Context->Thread:main] Initializing Spring root WebApplicationContext 
+2018-10-18 10:08:32 INFO [Class:o.e.j.s.h.ContextHandler$Context->Thread:main] Initializing Spring FrameworkServlet 'springDispatcherServlet' 
+2018-10-18 10:08:35 INFO [Class:o.e.j.s.AbstractConnector->Thread:main] Started SelectChannelConnector@0.0.0.0:10010 
+2018-10-18 10:08:56 INFO [Class:c.a.s.s.SlbService->Thread:qtp959247445-25] ========================app获取的钱包地址13551257407 
+2018-10-18 10:08:57 INFO [Class:c.a.s.s.SlbService->Thread:qtp959247445-25] ========================app获取的钱包地址获取回来的参数{"message":"成功","data":{"exist":1},"resultCode":0,"totalPage":0} 
+2018-10-18 10:08:59 INFO [Class:c.a.s.s.SlbService->Thread:qtp959247445-25] ========================app获取的钱包地址14ePEdokRyhRoPP5U3U9955iGQDTgCgLwY 
+2018-10-18 10:09:23 INFO [Class:c.a.s.s.SlbService->Thread:qtp959247445-25] ========================app获取的钱包地址13551257407 
+2018-10-18 10:09:25 INFO [Class:c.a.s.s.SlbService->Thread:qtp959247445-25] ========================app获取的钱包地址获取回来的参数{"message":"成功","data":{"exist":1},"resultCode":0,"totalPage":0} 
+2018-10-18 10:09:28 INFO [Class:c.a.s.s.SlbService->Thread:qtp959247445-25] ========================app获取的钱包地址14ePEdokRyhRoPP5U3U9955iGQDTgCgLwY 
+2018-10-18 10:10:21 INFO [Class:c.a.s.s.SlbService->Thread:qtp959247445-24] ========================app获取的钱包地址13551257407 
+2018-10-18 10:10:24 INFO [Class:c.a.s.s.SlbService->Thread:qtp959247445-24] ========================app获取的钱包地址获取回来的参数{"message":"成功","data":{"exist":1},"resultCode":0,"totalPage":0} 
+2018-10-18 10:10:27 INFO [Class:c.a.s.s.SlbService->Thread:qtp959247445-24] ========================app获取的钱包地址14ePEdokRyhRoPP5U3U9955iGQDTgCgLwY 
+2018-10-18 10:10:57 INFO [Class:c.a.s.s.SlbService->Thread:qtp959247445-26] ========================app获取的钱包地址13551257407 
+2018-10-18 10:10:58 INFO [Class:c.a.s.s.SlbService->Thread:qtp959247445-26] ========================app获取的钱包地址获取回来的参数{"message":"成功","data":{"exist":1},"resultCode":0,"totalPage":0} 
+2018-10-18 10:11:00 INFO [Class:c.a.s.s.SlbService->Thread:qtp959247445-26] ========================app获取的钱包地址14ePEdokRyhRoPP5U3U9955iGQDTgCgLwY 
+2018-10-18 10:11:25 INFO [Class:c.a.s.s.SlbService->Thread:qtp959247445-27] ========================app获取的钱包地址13551257407 
+2018-10-18 10:11:27 INFO [Class:c.a.s.s.SlbService->Thread:qtp959247445-27] ========================app获取的钱包地址获取回来的参数{"message":"成功","data":{"exist":1},"resultCode":0,"totalPage":0} 
+2018-10-18 10:11:30 INFO [Class:c.a.s.s.SlbService->Thread:qtp959247445-27] ========================app获取的钱包地址14ePEdokRyhRoPP5U3U9955iGQDTgCgLwY 
+2018-10-18 10:11:39 INFO [Class:c.a.s.s.SlbService->Thread:qtp959247445-26] ========================app获取的钱包地址13551257407 
+2018-10-18 10:11:40 INFO [Class:c.a.s.s.SlbService->Thread:qtp959247445-26] ========================app获取的钱包地址获取回来的参数{"message":"成功","data":{"exist":1},"resultCode":0,"totalPage":0} 
+2018-10-18 10:11:50 INFO [Class:c.a.s.s.SlbService->Thread:qtp959247445-26] ========================app获取的钱包地址14ePEdokRyhRoPP5U3U9955iGQDTgCgLwY 
+2018-10-18 10:12:02 INFO [Class:c.a.s.s.SlbService->Thread:qtp959247445-24] ========================app获取的钱包地址13551257407 
+2018-10-18 10:12:03 INFO [Class:c.a.s.s.SlbService->Thread:qtp959247445-24] ========================app获取的钱包地址获取回来的参数{"message":"成功","data":{"exist":1},"resultCode":0,"totalPage":0} 
+2018-10-18 10:12:04 INFO [Class:c.a.s.s.SlbService->Thread:qtp959247445-24] ========================app获取的钱包地址14ePEdokRyhRoPP5U3U9955iGQDTgCgLwY 
+2018-10-18 10:12:15 INFO [Class:c.a.s.s.SlbService->Thread:qtp959247445-23] ========================app获取的钱包地址13551257407 
+2018-10-18 10:12:16 INFO [Class:c.a.s.s.SlbService->Thread:qtp959247445-23] ========================app获取的钱包地址获取回来的参数{"message":"成功","data":{"exist":1},"resultCode":0,"totalPage":0} 
+2018-10-18 10:12:21 INFO [Class:c.a.s.s.SlbService->Thread:qtp959247445-23] ========================app获取的钱包地址14ePEdokRyhRoPP5U3U9955iGQDTgCgLwY 
+2018-10-18 10:12:27 INFO [Class:c.a.s.s.SlbService->Thread:qtp959247445-25] ========================app获取的钱包地址13551257407 
+2018-10-18 10:12:28 INFO [Class:c.a.s.s.SlbService->Thread:qtp959247445-25] ========================app获取的钱包地址获取回来的参数{"message":"成功","data":{"exist":1},"resultCode":0,"totalPage":0} 
+2018-10-18 10:12:29 INFO [Class:c.a.s.s.SlbService->Thread:qtp959247445-25] ========================app获取的钱包地址14ePEdokRyhRoPP5U3U9955iGQDTgCgLwY 
+2018-10-18 10:12:52 INFO [Class:c.a.s.s.SlbService->Thread:qtp959247445-24] ========================app获取的钱包地址13551257407 
+2018-10-18 10:12:53 INFO [Class:c.a.s.s.SlbService->Thread:qtp959247445-24] ========================app获取的钱包地址获取回来的参数{"message":"成功","data":{"exist":1},"resultCode":0,"totalPage":0} 
+2018-10-18 10:12:55 INFO [Class:c.a.s.s.SlbService->Thread:qtp959247445-24] ========================app获取的钱包地址14ePEdokRyhRoPP5U3U9955iGQDTgCgLwY 
+2018-10-18 10:13:01 INFO [Class:c.a.s.s.SlbService->Thread:qtp959247445-28] ========================app获取的钱包地址13551257407 
+2018-10-18 10:13:03 INFO [Class:c.a.s.s.SlbService->Thread:qtp959247445-28] ========================app获取的钱包地址获取回来的参数{"message":"成功","data":{"exist":1},"resultCode":0,"totalPage":0} 
+2018-10-18 10:13:05 INFO [Class:c.a.s.s.SlbService->Thread:qtp959247445-28] ========================app获取的钱包地址14ePEdokRyhRoPP5U3U9955iGQDTgCgLwY 
+2018-10-18 10:13:17 INFO [Class:c.a.s.s.SlbService->Thread:qtp959247445-23] ========================app获取的钱包地址13551257407 
+2018-10-18 10:13:18 INFO [Class:c.a.s.s.SlbService->Thread:qtp959247445-23] ========================app获取的钱包地址获取回来的参数{"message":"成功","data":{"exist":1},"resultCode":0,"totalPage":0} 
+2018-10-18 10:13:19 INFO [Class:c.a.s.s.SlbService->Thread:qtp959247445-23] ========================app获取的钱包地址14ePEdokRyhRoPP5U3U9955iGQDTgCgLwY 
+2018-10-18 10:13:45 INFO [Class:c.a.s.s.SlbService->Thread:qtp959247445-24] ========================app获取的钱包地址13551257407 
+2018-10-18 10:13:47 INFO [Class:c.a.s.s.SlbService->Thread:qtp959247445-24] ========================app获取的钱包地址获取回来的参数{"message":"成功","data":{"exist":1},"resultCode":0,"totalPage":0} 
+2018-10-18 10:13:47 INFO [Class:c.a.s.s.SlbService->Thread:qtp959247445-24] ========================app获取的钱包地址14ePEdokRyhRoPP5U3U9955iGQDTgCgLwY 
+2018-10-18 15:20:45 INFO [Class:o.e.j.s.Server->Thread:main] jetty-8.1.17.v20150415 
+2018-10-18 15:20:47 INFO [Class:o.e.j.s.h.ContextHandler$Context->Thread:main] Initializing Spring root WebApplicationContext 
+2018-10-18 15:21:34 INFO [Class:o.e.j.s.h.ContextHandler$Context->Thread:main] Initializing Spring FrameworkServlet 'springDispatcherServlet' 
+2018-10-18 15:21:37 INFO [Class:o.e.j.s.AbstractConnector->Thread:main] Started SelectChannelConnector@0.0.0.0:10010 
+2018-10-18 15:22:37 INFO [Class:c.a.s.s.SlbService->Thread:qtp1656467572-28] ========================app获取的钱包地址13551257407 
+2018-10-18 15:23:16 INFO [Class:c.a.s.s.SlbService->Thread:qtp1656467572-28] ========================app获取的钱包地址获取回来的参数null 
+2018-10-18 15:23:21 WARN [Class:o.e.j.s.ServletHandler->Thread:qtp1656467572-28]  
+org.springframework.web.util.NestedServletException: Request processing failed; nested exception is java.lang.NullPointerException
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:948) ~[spring-webmvc-3.2.4.RELEASE.jar:3.2.4.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:838) ~[spring-webmvc-3.2.4.RELEASE.jar:3.2.4.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:755) ~[javax.servlet-3.0.0.v201112011016.jar:na]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:812) ~[spring-webmvc-3.2.4.RELEASE.jar:3.2.4.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:848) ~[javax.servlet-3.0.0.v201112011016.jar:na]
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:684) ~[jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1496) ~[jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at aos.framework.web.filter.HttpApiFilter.doFilter(HttpApiFilter.java:93) ~[classes/:na]
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1484) ~[jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at aos.framework.web.filter.HttpFilter.doFilter(HttpFilter.java:45) ~[classes/:na]
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1484) ~[jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:88) ~[spring-web-3.2.4.RELEASE.jar:3.2.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-3.2.4.RELEASE.jar:3.2.4.RELEASE]
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1476) ~[jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:501) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:557) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1086) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:429) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1020) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.Server.handle(Server.java:370) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:494) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:982) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:1043) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:865) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:696) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:53) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_80]
+Caused by: java.lang.NullPointerException: null
+	at com.api.slb.service.SlbService.checkUserRegister(SlbService.java:91) ~[classes/:na]
+	at com.api.slb.service.SlbService.transferToSLB(SlbService.java:176) ~[classes/:na]
+	at com.api.slb.controller.SlbController.transferToSLB(SlbController.java:52) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.7.0_80]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) ~[na:1.7.0_80]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.7.0_80]
+	at java.lang.reflect.Method.invoke(Method.java:606) ~[na:1.7.0_80]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:219) ~[spring-web-3.2.4.RELEASE.jar:3.2.4.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:132) ~[spring-web-3.2.4.RELEASE.jar:3.2.4.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:104) ~[spring-webmvc-3.2.4.RELEASE.jar:3.2.4.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandleMethod(RequestMappingHandlerAdapter.java:745) ~[spring-webmvc-3.2.4.RELEASE.jar:3.2.4.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:686) ~[spring-webmvc-3.2.4.RELEASE.jar:3.2.4.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:80) ~[spring-webmvc-3.2.4.RELEASE.jar:3.2.4.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:925) ~[spring-webmvc-3.2.4.RELEASE.jar:3.2.4.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:856) ~[spring-webmvc-3.2.4.RELEASE.jar:3.2.4.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:936) ~[spring-webmvc-3.2.4.RELEASE.jar:3.2.4.RELEASE]
+	... 35 common frames omitted
+2018-10-18 15:23:21 WARN [Class:o.e.j.s.ServletHandler->Thread:qtp1656467572-28] /aosuite/api/app/v1/transferToSLB.jhtml 
+java.lang.NullPointerException: null
+	at com.api.slb.service.SlbService.checkUserRegister(SlbService.java:91) ~[classes/:na]
+	at com.api.slb.service.SlbService.transferToSLB(SlbService.java:176) ~[classes/:na]
+	at com.api.slb.controller.SlbController.transferToSLB(SlbController.java:52) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.7.0_80]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) ~[na:1.7.0_80]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.7.0_80]
+	at java.lang.reflect.Method.invoke(Method.java:606) ~[na:1.7.0_80]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:219) ~[spring-web-3.2.4.RELEASE.jar:3.2.4.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:132) ~[spring-web-3.2.4.RELEASE.jar:3.2.4.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:104) ~[spring-webmvc-3.2.4.RELEASE.jar:3.2.4.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandleMethod(RequestMappingHandlerAdapter.java:745) ~[spring-webmvc-3.2.4.RELEASE.jar:3.2.4.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:686) ~[spring-webmvc-3.2.4.RELEASE.jar:3.2.4.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:80) ~[spring-webmvc-3.2.4.RELEASE.jar:3.2.4.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:925) ~[spring-webmvc-3.2.4.RELEASE.jar:3.2.4.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:856) ~[spring-webmvc-3.2.4.RELEASE.jar:3.2.4.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:936) ~[spring-webmvc-3.2.4.RELEASE.jar:3.2.4.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:838) ~[spring-webmvc-3.2.4.RELEASE.jar:3.2.4.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:755) ~[javax.servlet-3.0.0.v201112011016.jar:na]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:812) ~[spring-webmvc-3.2.4.RELEASE.jar:3.2.4.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:848) ~[javax.servlet-3.0.0.v201112011016.jar:na]
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:684) ~[jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1496) ~[jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at aos.framework.web.filter.HttpApiFilter.doFilter(HttpApiFilter.java:93) ~[classes/:na]
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1484) ~[jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at aos.framework.web.filter.HttpFilter.doFilter(HttpFilter.java:45) ~[classes/:na]
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1484) ~[jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:88) ~[spring-web-3.2.4.RELEASE.jar:3.2.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-3.2.4.RELEASE.jar:3.2.4.RELEASE]
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1476) ~[jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:501) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:557) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1086) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:429) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1020) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.Server.handle(Server.java:370) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:494) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:982) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:1043) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:865) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:696) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:53) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_80]
+2018-10-18 15:25:33 INFO [Class:o.e.j.s.Server->Thread:main] jetty-8.1.17.v20150415 
+2018-10-18 15:25:35 INFO [Class:o.e.j.s.h.ContextHandler$Context->Thread:main] Initializing Spring root WebApplicationContext 
+2018-10-18 15:26:21 INFO [Class:o.e.j.s.h.ContextHandler$Context->Thread:main] Initializing Spring FrameworkServlet 'springDispatcherServlet' 
+2018-10-18 15:26:24 INFO [Class:o.e.j.s.AbstractConnector->Thread:main] Started SelectChannelConnector@0.0.0.0:10010 
+2018-10-18 15:26:32 INFO [Class:c.a.s.s.SlbService->Thread:qtp272482896-26] ========================app获取的钱包地址13551257407 
+2018-10-18 15:26:34 INFO [Class:c.a.s.s.SlbService->Thread:qtp272482896-26] ========================app获取的钱包地址获取回来的参数{"message":"成功","data":{"exist":1},"resultCode":0,"totalPage":0} 
+2018-10-18 15:26:51 INFO [Class:c.a.s.s.SlbService->Thread:qtp272482896-26] ========================app获取的钱包地址14ePEdokRyhRoPP5U3U9955iGQDTgCgLwY 
+2018-10-18 15:27:08 INFO [Class:c.a.s.s.SlbService->Thread:qtp272482896-23] ========================app获取的钱包地址13551257407 
+2018-10-18 15:27:11 INFO [Class:c.a.s.s.SlbService->Thread:qtp272482896-23] ========================app获取的钱包地址获取回来的参数{"message":"成功","data":{"exist":1},"resultCode":0,"totalPage":0} 
+2018-10-18 15:27:13 INFO [Class:c.a.s.s.SlbService->Thread:qtp272482896-23] ========================app获取的钱包地址14ePEdokRyhRoPP5U3U9955iGQDTgCgLwY 
+2018-10-18 15:28:23 INFO [Class:c.a.s.s.SlbService->Thread:qtp272482896-22] ========================app获取的钱包地址13551257407 
+2018-10-18 15:28:25 INFO [Class:c.a.s.s.SlbService->Thread:qtp272482896-22] ========================app获取的钱包地址获取回来的参数{"message":"成功","data":{"exist":1},"resultCode":0,"totalPage":0} 
+2018-10-18 15:28:26 INFO [Class:c.a.s.s.SlbService->Thread:qtp272482896-22] ========================app获取的钱包地址14ePEdokRyhRoPP5U3U9955iGQDTgCgLwY 
+2018-10-18 15:28:36 INFO [Class:c.a.s.s.SlbService->Thread:qtp272482896-26] ========================app获取的钱包地址13551257407 
+2018-10-18 15:28:38 INFO [Class:c.a.s.s.SlbService->Thread:qtp272482896-26] ========================app获取的钱包地址获取回来的参数{"message":"成功","data":{"exist":1},"resultCode":0,"totalPage":0} 
+2018-10-18 15:28:39 INFO [Class:c.a.s.s.SlbService->Thread:qtp272482896-26] ========================app获取的钱包地址14ePEdokRyhRoPP5U3U9955iGQDTgCgLwY 
+2018-10-18 15:28:52 INFO [Class:c.a.s.s.SlbService->Thread:qtp272482896-23] ========================app获取的钱包地址13551257407 
+2018-10-18 15:28:54 INFO [Class:c.a.s.s.SlbService->Thread:qtp272482896-23] ========================app获取的钱包地址获取回来的参数{"message":"成功","data":{"exist":1},"resultCode":0,"totalPage":0} 
+2018-10-18 15:28:54 INFO [Class:c.a.s.s.SlbService->Thread:qtp272482896-23] ========================app获取的钱包地址14ePEdokRyhRoPP5U3U9955iGQDTgCgLwY 
+2018-10-18 15:29:45 INFO [Class:c.a.s.s.SlbService->Thread:qtp272482896-23] ========================app获取的钱包地址13551257407 
+2018-10-18 15:29:51 INFO [Class:c.a.s.s.SlbService->Thread:qtp272482896-23] ========================app获取的钱包地址获取回来的参数null 
+2018-10-18 15:30:00 INFO [Class:c.a.s.s.SlbService->Thread:qtp272482896-23] ========================app获取的钱包地址null 
+2018-10-18 16:21:58 INFO [Class:o.e.j.s.Server->Thread:main] jetty-8.1.17.v20150415 
+2018-10-18 16:22:00 INFO [Class:o.e.j.s.h.ContextHandler$Context->Thread:main] Initializing Spring root WebApplicationContext 
+2018-10-18 16:22:47 INFO [Class:o.e.j.s.h.ContextHandler$Context->Thread:main] Initializing Spring FrameworkServlet 'springDispatcherServlet' 
+2018-10-18 16:22:50 INFO [Class:o.e.j.s.AbstractConnector->Thread:main] Started SelectChannelConnector@0.0.0.0:10010 
+2018-10-18 16:32:49 INFO [Class:c.a.s.s.SlbService->Thread:qtp1656467572-24] ========================app获取的钱包地址15763589816 
+2018-10-18 16:33:13 INFO [Class:c.a.s.s.SlbService->Thread:qtp1656467572-24] ========================app获取的钱包地址获取回来的参数{"message":"成功","data":{"exist":1},"resultCode":0,"totalPage":0} 
+2018-10-18 16:33:17 INFO [Class:c.a.s.s.SlbService->Thread:qtp1656467572-24] ========================app获取的钱包地址1LPDjLQULPUtvRpKoCm6juTPk6iF5mDY4L 
+2018-10-18 16:33:34 WARN [Class:o.e.j.s.ServletHandler->Thread:qtp1656467572-24]  
+org.springframework.web.util.NestedServletException: Request processing failed; nested exception is java.lang.NullPointerException
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:948) ~[spring-webmvc-3.2.4.RELEASE.jar:3.2.4.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:838) ~[spring-webmvc-3.2.4.RELEASE.jar:3.2.4.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:755) ~[javax.servlet-3.0.0.v201112011016.jar:na]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:812) ~[spring-webmvc-3.2.4.RELEASE.jar:3.2.4.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:848) ~[javax.servlet-3.0.0.v201112011016.jar:na]
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:684) ~[jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1496) ~[jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at aos.framework.web.filter.HttpApiFilter.doFilter(HttpApiFilter.java:93) ~[classes/:na]
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1484) ~[jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at aos.framework.web.filter.HttpFilter.doFilter(HttpFilter.java:45) ~[classes/:na]
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1484) ~[jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:88) ~[spring-web-3.2.4.RELEASE.jar:3.2.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-3.2.4.RELEASE.jar:3.2.4.RELEASE]
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1476) ~[jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:501) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:557) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1086) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:429) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1020) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.Server.handle(Server.java:370) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:494) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:982) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:1043) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:865) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:696) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:53) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_80]
+Caused by: java.lang.NullPointerException: null
+	at java.util.Calendar.setTime(Calendar.java:1106) ~[na:1.7.0_80]
+	at java.text.SimpleDateFormat.format(SimpleDateFormat.java:955) ~[na:1.7.0_80]
+	at java.text.SimpleDateFormat.format(SimpleDateFormat.java:948) ~[na:1.7.0_80]
+	at java.text.DateFormat.format(DateFormat.java:336) ~[na:1.7.0_80]
+	at com.api.slb.service.SlbService.transferToSLB(SlbService.java:200) ~[classes/:na]
+	at com.api.slb.controller.SlbController.transferToSLB(SlbController.java:52) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.7.0_80]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) ~[na:1.7.0_80]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.7.0_80]
+	at java.lang.reflect.Method.invoke(Method.java:606) ~[na:1.7.0_80]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:219) ~[spring-web-3.2.4.RELEASE.jar:3.2.4.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:132) ~[spring-web-3.2.4.RELEASE.jar:3.2.4.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:104) ~[spring-webmvc-3.2.4.RELEASE.jar:3.2.4.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandleMethod(RequestMappingHandlerAdapter.java:745) ~[spring-webmvc-3.2.4.RELEASE.jar:3.2.4.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:686) ~[spring-webmvc-3.2.4.RELEASE.jar:3.2.4.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:80) ~[spring-webmvc-3.2.4.RELEASE.jar:3.2.4.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:925) ~[spring-webmvc-3.2.4.RELEASE.jar:3.2.4.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:856) ~[spring-webmvc-3.2.4.RELEASE.jar:3.2.4.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:936) ~[spring-webmvc-3.2.4.RELEASE.jar:3.2.4.RELEASE]
+	... 35 common frames omitted
+2018-10-18 16:33:34 WARN [Class:o.e.j.s.ServletHandler->Thread:qtp1656467572-24] /aosuite/api/app/v1/transferToSLB.jhtml 
+java.lang.NullPointerException: null
+	at java.util.Calendar.setTime(Calendar.java:1106) ~[na:1.7.0_80]
+	at java.text.SimpleDateFormat.format(SimpleDateFormat.java:955) ~[na:1.7.0_80]
+	at java.text.SimpleDateFormat.format(SimpleDateFormat.java:948) ~[na:1.7.0_80]
+	at java.text.DateFormat.format(DateFormat.java:336) ~[na:1.7.0_80]
+	at com.api.slb.service.SlbService.transferToSLB(SlbService.java:200) ~[classes/:na]
+	at com.api.slb.controller.SlbController.transferToSLB(SlbController.java:52) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.7.0_80]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) ~[na:1.7.0_80]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.7.0_80]
+	at java.lang.reflect.Method.invoke(Method.java:606) ~[na:1.7.0_80]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:219) ~[spring-web-3.2.4.RELEASE.jar:3.2.4.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:132) ~[spring-web-3.2.4.RELEASE.jar:3.2.4.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:104) ~[spring-webmvc-3.2.4.RELEASE.jar:3.2.4.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandleMethod(RequestMappingHandlerAdapter.java:745) ~[spring-webmvc-3.2.4.RELEASE.jar:3.2.4.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:686) ~[spring-webmvc-3.2.4.RELEASE.jar:3.2.4.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:80) ~[spring-webmvc-3.2.4.RELEASE.jar:3.2.4.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:925) ~[spring-webmvc-3.2.4.RELEASE.jar:3.2.4.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:856) ~[spring-webmvc-3.2.4.RELEASE.jar:3.2.4.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:936) ~[spring-webmvc-3.2.4.RELEASE.jar:3.2.4.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:838) ~[spring-webmvc-3.2.4.RELEASE.jar:3.2.4.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:755) ~[javax.servlet-3.0.0.v201112011016.jar:na]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:812) ~[spring-webmvc-3.2.4.RELEASE.jar:3.2.4.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:848) ~[javax.servlet-3.0.0.v201112011016.jar:na]
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:684) ~[jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1496) ~[jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at aos.framework.web.filter.HttpApiFilter.doFilter(HttpApiFilter.java:93) ~[classes/:na]
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1484) ~[jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at aos.framework.web.filter.HttpFilter.doFilter(HttpFilter.java:45) ~[classes/:na]
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1484) ~[jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:88) ~[spring-web-3.2.4.RELEASE.jar:3.2.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-3.2.4.RELEASE.jar:3.2.4.RELEASE]
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1476) ~[jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:501) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:557) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1086) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:429) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1020) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.Server.handle(Server.java:370) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:494) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:982) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:1043) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:865) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:696) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:53) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543) [jetty-all-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_80]

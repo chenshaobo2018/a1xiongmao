@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- zjc_user_address[zjc_user_address]SQL自动映射 -->
+<!--  注意:此文件由AOS平台自动生成-禁止手工修改 2017-05-31 16:50:34 -->
+<mapper namespace="com.zjc.users.dao.ZjcUserAddressDao">
+	
+	<!-- 插入一个数据持久化对象(插入字段为传入PO实体的非空属性) -->
+	<insert id="insert" useGeneratedKeys="true" keyProperty="address_id" parameterType="ZjcUserAddressPO">
+		INSERT INTO zjc_user_address (
+		<if test="user_id != null">
+	         user_id, <!-- 用户id -->
+		</if>
+		<if test="consignee != null and consignee != ''">
+	         consignee, <!-- 收货人 -->
+		</if>
+		<if test="email != null and email != ''">
+	         email, <!-- 邮箱地址 -->
+		</if>
+		<if test="country != null">
+	         country, <!-- 国家 -->
+		</if>
+		<if test="province != null">
+	         province, <!-- 省份 -->
+		</if>
+		<if test="city != null">
+	         city, <!-- 城市 -->
+		</if>
+		<if test="district != null">
+	         district, <!-- 地区 -->
+		</if>
+		<if test="twon != null">
+	         twon, <!-- 乡镇 -->
+		</if>
+		<if test="area_info != null and area_info != ''">
+	         area_info, <!-- 省市区 -->
+		</if>
+		<if test="twon_name != null and twon_name != ''">
+	         twon_name, <!-- 街道地址 -->
+		</if>
+		<if test="address != null and address != ''">
+	         address, <!-- 地址 -->
+		</if>
+		<if test="address_info != null and address_info != ''">
+	         address_info, <!-- 完整地址 -->
+		</if>
+		<if test="zipcode != null and zipcode != ''">
+	         zipcode, <!-- 邮政编码 -->
+		</if>
+		<if test="mobile != null and mobile != ''">
+	         mobile, <!-- 手机 -->
+		</if>
+		<if test="is_default != null">
+	         is_default, <!-- 默认收货地址 -->
+		</if>
+		<if test="is_pickup != null">
+	         is_pickup, <!-- is_pickup -->
+		</if>
+	          address_id
+		)VALUES(
+		<if test="user_id != null">
+	          #{user_id, jdbcType=INTEGER}, <!-- 用户id -->
+	    </if>
+		<if test="consignee != null and consignee != ''">
+	          #{consignee, jdbcType=VARCHAR}, <!-- 收货人 -->
+	    </if>
+		<if test="email != null and email != ''">
+	          #{email, jdbcType=VARCHAR}, <!-- 邮箱地址 -->
+	    </if>
+		<if test="country != null">
+	          #{country, jdbcType=INTEGER}, <!-- 国家 -->
+	    </if>
+		<if test="province != null">
+	          #{province, jdbcType=INTEGER}, <!-- 省份 -->
+	    </if>
+		<if test="city != null">
+	          #{city, jdbcType=INTEGER}, <!-- 城市 -->
+	    </if>
+		<if test="district != null">
+	          #{district, jdbcType=INTEGER}, <!-- 地区 -->
+	    </if>
+		<if test="twon != null">
+	          #{twon, jdbcType=INTEGER}, <!-- 乡镇 -->
+	    </if>
+		<if test="area_info != null and area_info != ''">
+	          #{area_info, jdbcType=VARCHAR}, <!-- 省市区 -->
+	    </if>
+		<if test="twon_name != null and twon_name != ''">
+	          #{twon_name, jdbcType=VARCHAR}, <!-- 街道地址 -->
+	    </if>
+		<if test="address != null and address != ''">
+	          #{address, jdbcType=VARCHAR}, <!-- 地址 -->
+	    </if>
+		<if test="address_info != null and address_info != ''">
+	          #{address_info, jdbcType=VARCHAR}, <!-- 完整地址 -->
+	    </if>
+		<if test="zipcode != null and zipcode != ''">
+	          #{zipcode, jdbcType=VARCHAR}, <!-- 邮政编码 -->
+	    </if>
+		<if test="mobile != null and mobile != ''">
+	          #{mobile, jdbcType=VARCHAR}, <!-- 手机 -->
+	    </if>
+		<if test="is_default != null">
+	          #{is_default, jdbcType=INTEGER}, <!-- 默认收货地址 -->
+	    </if>
+		<if test="is_pickup != null">
+	          #{is_pickup, jdbcType=INTEGER}, <!-- is_pickup -->
+	    </if>
+	          null
+		)
+	</insert>
+	
+	<!-- 插入一个数据持久化对象(含所有字段) -->
+	<insert id="insertAll" useGeneratedKeys="true" keyProperty="address_id" parameterType="ZjcUserAddressPO">
+		INSERT INTO zjc_user_address (
+		    <include refid="column" />
+		)
+		VALUES (
+		    #{address_id, jdbcType=INTEGER},  <!-- 表id -->
+		    #{user_id, jdbcType=INTEGER},  <!-- 用户id -->
+		    #{consignee, jdbcType=VARCHAR},  <!-- 收货人 -->
+		    #{email, jdbcType=VARCHAR},  <!-- 邮箱地址 -->
+		    #{country, jdbcType=INTEGER},  <!-- 国家 -->
+		    #{province, jdbcType=INTEGER},  <!-- 省份 -->
+		    #{city, jdbcType=INTEGER},  <!-- 城市 -->
+		    #{district, jdbcType=INTEGER},  <!-- 地区 -->
+		    #{twon, jdbcType=INTEGER},  <!-- 乡镇 -->
+		    #{area_info, jdbcType=VARCHAR},  <!-- 省市区 -->
+		    #{twon_name, jdbcType=VARCHAR},  <!-- 街道地址 -->
+		    #{address, jdbcType=VARCHAR},  <!-- 地址 -->
+		    #{address_info, jdbcType=VARCHAR},  <!-- 完整地址 -->
+		    #{zipcode, jdbcType=VARCHAR},  <!-- 邮政编码 -->
+		    #{mobile, jdbcType=VARCHAR},  <!-- 手机 -->
+		    #{is_default, jdbcType=INTEGER},  <!-- 默认收货地址 -->
+		    #{is_pickup, jdbcType=INTEGER}  <!-- is_pickup -->
+		)
+	</insert>
+
+	<!-- 根据主键修改数据持久化对象 -->
+	<update id="updateByKey" parameterType="ZjcUserAddressPO">
+		UPDATE zjc_user_address
+		<set>
+			<if test="address_id != null">
+		          address_id = #{address_id, jdbcType=INTEGER},  <!-- 表id -->
+			</if>
+			<if test="user_id != null">
+		          user_id = #{user_id, jdbcType=INTEGER},  <!-- 用户id -->
+			</if>
+			<if test="consignee != null">
+		          consignee = #{consignee, jdbcType=VARCHAR},  <!-- 收货人 -->
+			</if>
+			<if test="email != null">
+		          email = #{email, jdbcType=VARCHAR},  <!-- 邮箱地址 -->
+			</if>
+			<if test="country != null">
+		          country = #{country, jdbcType=INTEGER},  <!-- 国家 -->
+			</if>
+			<if test="province != null">
+		          province = #{province, jdbcType=INTEGER},  <!-- 省份 -->
+			</if>
+			<if test="city != null">
+		          city = #{city, jdbcType=INTEGER},  <!-- 城市 -->
+			</if>
+			<if test="district != null">
+		          district = #{district, jdbcType=INTEGER},  <!-- 地区 -->
+			</if>
+			<if test="twon != null">
+		          twon = #{twon, jdbcType=INTEGER},  <!-- 乡镇 -->
+			</if>
+			<if test="area_info != null">
+		          area_info = #{area_info, jdbcType=VARCHAR},  <!-- 省市区 -->
+			</if>
+			<if test="twon_name != null">
+		          twon_name = #{twon_name, jdbcType=VARCHAR},  <!-- 街道地址 -->
+			</if>
+			<if test="address != null">
+		          address = #{address, jdbcType=VARCHAR},  <!-- 地址 -->
+			</if>
+			<if test="address_info != null">
+		          address_info = #{address_info, jdbcType=VARCHAR},  <!-- 完整地址 -->
+			</if>
+			<if test="zipcode != null">
+		          zipcode = #{zipcode, jdbcType=VARCHAR},  <!-- 邮政编码 -->
+			</if>
+			<if test="mobile != null">
+		          mobile = #{mobile, jdbcType=VARCHAR},  <!-- 手机 -->
+			</if>
+			<if test="is_default != null">
+		          is_default = #{is_default, jdbcType=INTEGER},  <!-- 默认收货地址 -->
+			</if>
+			<if test="is_pickup != null">
+		          is_pickup = #{is_pickup, jdbcType=INTEGER},  <!-- is_pickup -->
+			</if>
+		</set>
+		WHERE  address_id = #{address_id}
+	</update>
+	
+	<!-- 根据主键删除数据持久化对象 -->
+	<delete id="deleteByKey">
+		DELETE FROM zjc_user_address WHERE  address_id = #{address_id}
+	</delete>
+
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="selectByKey" resultType="ZjcUserAddressPO">
+		SELECT
+		<include refid="column" />
+		FROM zjc_user_address WHERE  address_id = #{address_id}
+	</select>
+    
+    <!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="Address" parameterType="ZjcUserAddressPO" resultType="ZjcUserAddressPO">
+		SELECT
+		<include refid="column" />
+		FROM zjc_user_address WHERE  address_id = #{address_id}
+	</select>
+    
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="selectOne" parameterType="Dto" resultType="ZjcUserAddressPO">
+		SELECT
+		    <include refid="column" />
+		FROM zjc_user_address
+		<where>
+		    <include refid="equal" />
+		</where>		
+	</select>
+	
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="address" parameterType="ZjcUserAddressPO" resultType="ZjcUserAddressPO">
+		SELECT
+		    <include refid="column" />
+		FROM zjc_user_address
+		<where>
+		    <include refid="equal" />
+		</where>		
+	</select>
+
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="list" parameterType="Dto" resultType="ZjcUserAddressPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_user_address
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listPage" parameterType="Dto" resultType="ZjcUserAddressPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_user_address
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto模糊查询并返回数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="like" parameterType="Dto" resultType="ZjcUserAddressPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_user_address
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto模糊查询并返回分页数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="likePage" parameterType="Dto" resultType="ZjcUserAddressPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_user_address
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto统计行数 -->
+	<select id="rows" resultType="Integer" parameterType="Dto">
+		SELECT COUNT(1) AS aos_rows_ FROM zjc_user_address
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 根据数学表达式进行数学运算 -->
+	<select id="calc" parameterType="Dto" resultType="String">
+		SELECT
+			${_expr}
+		FROM zjc_user_address
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 表字段 -->
+	<sql id="column">
+		  address_id,  <!-- 表id -->
+		  user_id,  <!-- 用户id -->
+		  consignee,  <!-- 收货人 -->
+		  email,  <!-- 邮箱地址 -->
+		  country,  <!-- 国家 -->
+		  province,  <!-- 省份 -->
+		  city,  <!-- 城市 -->
+		  district,  <!-- 地区 -->
+		  twon,  <!-- 乡镇 -->
+		  area_info,  <!-- 省市区 -->
+		  twon_name,  <!-- 街道地址 -->
+		  address,  <!-- 地址 -->
+		  address_info,  <!-- 完整地址 -->
+		  zipcode,  <!-- 邮政编码 -->
+		  mobile,  <!-- 手机 -->
+		  is_default,  <!-- 默认收货地址 -->
+		  is_pickup  <!-- is_pickup -->
+	</sql>
+	
+	<!-- 表字段(用于外表的关联时引用) -->
+	<sql id="column2">
+		  zjc_user_address.address_id,  <!-- 表id -->
+		  zjc_user_address.user_id,  <!-- 用户id -->
+		  zjc_user_address.consignee,  <!-- 收货人 -->
+		  zjc_user_address.email,  <!-- 邮箱地址 -->
+		  zjc_user_address.country,  <!-- 国家 -->
+		  zjc_user_address.province,  <!-- 省份 -->
+		  zjc_user_address.city,  <!-- 城市 -->
+		  zjc_user_address.district,  <!-- 地区 -->
+		  zjc_user_address.twon,  <!-- 乡镇 -->
+		  zjc_user_address.area_info,  <!-- 省市区 -->
+		  zjc_user_address.twon_name,  <!-- 街道地址 -->
+		  zjc_user_address.address,  <!-- 地址 -->
+		  zjc_user_address.address_info,  <!-- 完整地址 -->
+		  zjc_user_address.zipcode,  <!-- 邮政编码 -->
+		  zjc_user_address.mobile,  <!-- 手机 -->
+		  zjc_user_address.is_default,  <!-- 默认收货地址 -->
+		  zjc_user_address.is_pickup  <!-- is_pickup -->
+	</sql>
+
+	<!-- Where精确匹配字段 -->
+	<sql id="equal">
+	   <if test="address_id != null ">
+		      AND address_id = #{address_id}  <!-- 表id -->
+		</if>
+	   <if test="user_id != null ">
+		      AND user_id = #{user_id}  <!-- 用户id -->
+		</if>
+	    <if test="consignee != null and consignee != ''">
+		      AND consignee = #{consignee}  <!-- 收货人 -->
+		</if>
+	    <if test="email != null and email != ''">
+		      AND email = #{email}  <!-- 邮箱地址 -->
+		</if>
+	   <if test="country != null ">
+		      AND country = #{country}  <!-- 国家 -->
+		</if>
+	   <if test="province != null ">
+		      AND province = #{province}  <!-- 省份 -->
+		</if>
+	   <if test="city != null ">
+		      AND city = #{city}  <!-- 城市 -->
+		</if>
+	   <if test="district != null ">
+		      AND district = #{district}  <!-- 地区 -->
+		</if>
+	   <if test="twon != null ">
+		      AND twon = #{twon}  <!-- 乡镇 -->
+		</if>
+	    <if test="area_info != null and area_info != ''">
+		      AND area_info = #{area_info}  <!-- 省市区 -->
+		</if>
+	    <if test="twon_name != null and twon_name != ''">
+		      AND twon_name = #{twon_name}  <!-- 街道地址 -->
+		</if>
+	    <if test="address != null and address != ''">
+		      AND address = #{address}  <!-- 地址 -->
+		</if>
+	    <if test="address_info != null and address_info != ''">
+		      AND address_info = #{address_info}  <!-- 完整地址 -->
+		</if>
+	    <if test="zipcode != null and zipcode != ''">
+		      AND zipcode = #{zipcode}  <!-- 邮政编码 -->
+		</if>
+	    <if test="mobile != null and mobile != ''">
+		      AND mobile = #{mobile}  <!-- 手机 -->
+		</if>
+	   <if test="is_default != null ">
+		      AND is_default = #{is_default}  <!-- 默认收货地址 -->
+		</if>
+	   <if test="is_pickup != null ">
+		      AND is_pickup = #{is_pickup}  <!-- is_pickup -->
+		</if>
+	</sql>
+	
+	<!-- Where模糊匹配字段 -->
+	<sql id="like">
+	    <if test="consignee != null and consignee != ''">
+		      AND consignee like '${consignee}%'  <!-- 收货人 -->
+		</if>
+	    <if test="email != null and email != ''">
+		      AND email like '${email}%'  <!-- 邮箱地址 -->
+		</if>
+	    <if test="area_info != null and area_info != ''">
+		      AND area_info like '${area_info}%'  <!-- 省市区 -->
+		</if>
+	    <if test="twon_name != null and twon_name != ''">
+		      AND twon_name like '${twon_name}%'  <!-- 街道地址 -->
+		</if>
+	    <if test="address != null and address != ''">
+		      AND address like '${address}%'  <!-- 地址 -->
+		</if>
+	    <if test="address_info != null and address_info != ''">
+		      AND address_info like '${address_info}%'  <!-- 完整地址 -->
+		</if>
+	    <if test="zipcode != null and zipcode != ''">
+		      AND zipcode like '${zipcode}%'  <!-- 邮政编码 -->
+		</if>
+	    <if test="mobile != null and mobile != ''">
+		      AND mobile like '${mobile}%'  <!-- 手机 -->
+		</if>
+	</sql>
+	
+	<!-- ==========================================api接口============================================ -->
+	<!-- 根据Dto查询并返回地址对象集合 -->
+	<select id="listAddress" parameterType="Dto" resultType="ZjcUserAddressPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_user_address
+		<where>
+		    <if test="address_id != null ">
+		    	AND address_id = #{address_id}  <!-- 表id -->
+			</if>
+		    <if test="user_id != null ">
+			    AND user_id = #{user_id}  <!-- 用户id -->
+			</if>
+		</where>
+		order by user_id desc
+	</select>
+	
+	<select id="listUserAddressByUserId" parameterType="Dto" resultType="Dto" useCache="false">
+		select consignee, mobile, address_info from zjc_user_address where user_id = #{user_id}
+	</select>
+</mapper>

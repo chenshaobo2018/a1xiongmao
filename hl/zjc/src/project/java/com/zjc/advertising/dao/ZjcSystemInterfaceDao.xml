@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- zjc_system_interface[zjc_system_interface]SQL自动映射 -->
+<!--  注意:此文件由AOS平台自动生成-禁止手工修改 2017-06-19 11:10:19 -->
+<mapper namespace="com.zjc.advertising.dao.ZjcSystemInterfaceDao">
+	
+	<!-- 插入一个数据持久化对象(插入字段为传入PO实体的非空属性) -->
+	<insert id="insert"  parameterType="ZjcSystemInterfacePO">
+		INSERT INTO zjc_system_interface (
+		<if test="interfacesd != null and interfacesd != ''">
+	         interfacesd, <!-- 接口路径 -->
+		</if>
+		<if test="interface_name != null and interface_name != ''">
+	         interface_name, <!-- 接口名字 -->
+		</if>
+		<if test="version_number != null and version_number != ''">
+	         version_number, <!-- 版本号 -->
+		</if>
+		<if test="interface_note != null and interface_note != ''">
+	         interface_note, <!-- 接口描述 -->
+		</if>
+		<if test="state != null">
+	         state, <!-- 状态 -->
+		</if>
+		<if test="date_time != null and date_time != ''">
+	         date_time, <!-- 添加时间 -->
+		</if>
+		<if test="id != null">
+	          id  <!-- id -->
+	   </if>
+		)VALUES(
+		<if test="interfacesd != null and interfacesd != ''">
+	          #{interfacesd, jdbcType=VARCHAR}, <!-- 接口路径 -->
+	    </if>
+		<if test="interface_name != null and interface_name != ''">
+	          #{interface_name, jdbcType=VARCHAR}, <!-- 接口名字 -->
+	    </if>
+		<if test="version_number != null and version_number != ''">
+	          #{version_number, jdbcType=VARCHAR}, <!-- 版本号 -->
+	    </if>
+		<if test="interface_note != null and interface_note != ''">
+	          #{interface_note, jdbcType=VARCHAR}, <!-- 接口描述 -->
+	    </if>
+		<if test="state != null">
+	          #{state, jdbcType=INTEGER}, <!-- 状态 -->
+	    </if>
+		<if test="date_time != null and date_time != ''">
+	          #{date_time, jdbcType=VARCHAR}, <!-- 添加时间 -->
+	    </if>
+		<if test="id != null">
+		     #{id, jdbcType=INTEGER}  <!-- id -->
+	    </if>
+		)
+	</insert>
+	
+	<!-- 插入一个数据持久化对象(含所有字段) -->
+	<insert id="insertAll"  parameterType="ZjcSystemInterfacePO">
+		INSERT INTO zjc_system_interface (
+		    <include refid="column" />
+		)
+		VALUES (
+		    #{id, jdbcType=INTEGER},  <!-- id -->
+		    #{interfacesd, jdbcType=VARCHAR},  <!-- 接口路径 -->
+		    #{interface_name, jdbcType=VARCHAR},  <!-- 接口名字 -->
+		    #{version_number, jdbcType=VARCHAR},  <!-- 版本号 -->
+		    #{interface_note, jdbcType=VARCHAR},  <!-- 接口描述 -->
+		    #{state, jdbcType=INTEGER},  <!-- 状态 -->
+		    #{date_time, jdbcType=VARCHAR}  <!-- 添加时间 -->
+		)
+	</insert>
+
+	<!-- 根据主键修改数据持久化对象 -->
+	<update id="updateByKey" parameterType="ZjcSystemInterfacePO">
+		UPDATE zjc_system_interface
+		<set>
+			<if test="id != null">
+		          id = #{id, jdbcType=INTEGER},  <!-- id -->
+			</if>
+			<if test="interfacesd != null">
+		          interfacesd = #{interfacesd, jdbcType=VARCHAR},  <!-- 接口路径 -->
+			</if>
+			<if test="interface_name != null">
+		          interface_name = #{interface_name, jdbcType=VARCHAR},  <!-- 接口名字 -->
+			</if>
+			<if test="version_number != null">
+		          version_number = #{version_number, jdbcType=VARCHAR},  <!-- 版本号 -->
+			</if>
+			<if test="interface_note != null">
+		          interface_note = #{interface_note, jdbcType=VARCHAR},  <!-- 接口描述 -->
+			</if>
+			<if test="state != null">
+		          state = #{state, jdbcType=INTEGER},  <!-- 状态 -->
+			</if>
+			<if test="date_time != null">
+		          date_time = #{date_time, jdbcType=VARCHAR},  <!-- 添加时间 -->
+			</if>
+		</set>
+		WHERE  id = #{id}
+	</update>
+	
+	<!-- 根据主键删除数据持久化对象 -->
+	<delete id="deleteByKey">
+		DELETE FROM zjc_system_interface WHERE  id = #{id}
+	</delete>
+
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="selectByKey" resultType="ZjcSystemInterfacePO">
+		SELECT
+		<include refid="column" />
+		FROM zjc_system_interface WHERE  id = #{id}
+	</select>
+
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="selectOne" parameterType="Dto" resultType="ZjcSystemInterfacePO">
+		SELECT
+		    <include refid="column" />
+		FROM zjc_system_interface
+		<where>
+		    <include refid="equal" />
+		</where>		
+	</select>
+
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="list" parameterType="Dto" resultType="ZjcSystemInterfacePO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_system_interface
+		<where>
+		   state =1   
+		   <if test="id != null and id !=''">
+		      AND id = #{id}  <!-- id -->
+		   </if>
+		   <if test="version_number != null and version_number != ''">
+		      AND version_number = #{version_number}  <!-- 版本号 -->
+		</if>
+		</where>
+		order by date_time desc	
+	</select>
+	
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listPage" parameterType="Dto" resultType="ZjcSystemInterfacePO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_system_interface
+		<where>
+		   state =1 
+		    <if test="version_number != null and version_number != ''">
+		      AND version_number = #{version_number}  <!-- 版本号 -->
+		    </if>
+		</where>	
+		order by date_time desc
+	</select>
+	
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listsPage" parameterType="ZjcSystemInterfacePO" resultType="ZjcSystemInterfacePO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_system_interface
+		<where>
+		   state =1 
+		    <if test="version_number != null and version_number != ''">
+		      AND version_number = #{version_number}  <!-- 版本号 -->
+		    </if>
+		</where>	
+		order by date_time desc
+	</select>
+	
+	<!-- 根据Dto模糊查询并返回数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="like" parameterType="Dto" resultType="ZjcSystemInterfacePO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_system_interface
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto模糊查询并返回分页数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="likePage" parameterType="Dto" resultType="ZjcSystemInterfacePO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_system_interface
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+	
+	<!-- 根据版本号查询数据对象集合 -->
+	<select id="selectByVersionNum" parameterType="ZjcSystemInterfacePO" resultType="ZjcSystemInterfacePO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_system_interface
+		<where>
+		   state =1 
+		    <if test="version_number != null and version_number != ''">
+		      AND version_number = #{version_number}  <!-- 版本号 -->
+		    </if>
+		</where>
+		order by date_time desc	
+	</select>
+	
+	<!-- 根据Dto统计行数 -->
+	<select id="rows" resultType="Integer" parameterType="Dto">
+		SELECT COUNT(1) AS aos_rows_ FROM zjc_system_interface
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 根据数学表达式进行数学运算 -->
+	<select id="calc" parameterType="Dto" resultType="String">
+		SELECT
+			${_expr}
+		FROM zjc_system_interface
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 表字段 -->
+	<sql id="column">
+		  id,  <!-- id -->
+		  interfacesd,  <!-- 接口路径 -->
+		  interface_name,  <!-- 接口名字 -->
+		  version_number,  <!-- 版本号 -->
+		  interface_note,  <!-- 接口描述 -->
+		  state,  <!-- 状态 -->
+		  date_time  <!-- 添加时间 -->
+	</sql>
+	
+	<!-- 表字段(用于外表的关联时引用) -->
+	<sql id="column2">
+		  zjc_system_interface.id,  <!-- id -->
+		  zjc_system_interface.interfacesd,  <!-- 接口路径 -->
+		  zjc_system_interface.interface_name,  <!-- 接口名字 -->
+		  zjc_system_interface.version_number,  <!-- 版本号 -->
+		  zjc_system_interface.interface_note,  <!-- 接口描述 -->
+		  zjc_system_interface.state,  <!-- 状态 -->
+		  zjc_system_interface.date_time  <!-- 添加时间 -->
+	</sql>
+
+	<!-- Where精确匹配字段 -->
+	<sql id="equal">
+	   <if test="id != null ">
+		      AND id = #{id}  <!-- id -->
+		</if>
+	    <if test="interfacesd != null and interfacesd != ''">
+		      AND interfacesd = #{interfacesd}  <!-- 接口路径 -->
+		</if>
+	    <if test="interface_name != null and interface_name != ''">
+		      AND interface_name = #{interface_name}  <!-- 接口名字 -->
+		</if>
+	    <if test="version_number != null and version_number != ''">
+		      AND version_number = #{version_number}  <!-- 版本号 -->
+		</if>
+	    <if test="interface_note != null and interface_note != ''">
+		      AND interface_note = #{interface_note}  <!-- 接口描述 -->
+		</if>
+	    <if test="date_time != null and date_time != ''">
+		      AND date_time = #{date_time}  <!-- 添加时间 -->
+		</if>
+	</sql>
+	
+	<!-- Where模糊匹配字段 -->
+	<sql id="like">
+	    <if test="interfacesd != null and interfacesd != ''">
+		      AND interfacesd like '${interfacesd}%'  <!-- 接口路径 -->
+		</if>
+	    <if test="interface_name != null and interface_name != ''">
+		      AND interface_name like '${interface_name}%'  <!-- 接口名字 -->
+		</if>
+	    <if test="version_number != null and version_number != ''">
+		      AND version_number like '${version_number}%'  <!-- 版本号 -->
+		</if>
+	    <if test="interface_note != null and interface_note != ''">
+		      AND interface_note like '${interface_note}%'  <!-- 接口描述 -->
+		</if>
+	    <if test="date_time != null and date_time != ''">
+		      AND date_time like '${date_time}%'  <!-- 添加时间 -->
+		</if>
+	</sql>
+	
+</mapper>

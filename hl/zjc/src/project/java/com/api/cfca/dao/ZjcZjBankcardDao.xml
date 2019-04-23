@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- zjc_zj_bankcard[zjc_zj_bankcard]SQL自动映射 -->
+<!--  注意:此文件由AOS平台自动生成-禁止手工修改 2018-05-16 09:37:29 -->
+<mapper namespace="com.api.cfca.dao.ZjcZjBankcardDao">
+	
+	<!-- 插入一个数据持久化对象(插入字段为传入PO实体的非空属性) -->
+	<insert id="insert"  parameterType="ZjcZjBankcardPO">
+		INSERT INTO zjc_zj_bankcard (
+		<if test="txsnbinding != null and txsnbinding != ''">
+	         txsnbinding, <!-- 绑定流水号 -->
+		</if>
+		<if test="bank_id != null and bank_id != ''">
+	         bank_id, <!-- 银行id -->
+		</if>
+		<if test="accountname != null and accountname != ''">
+	         accountname, <!-- 账号名称 -->
+		</if>
+		<if test="accountnumber != null">
+	         accountnumber, <!-- 银行卡号 -->
+		</if>
+		<if test="identificationtype != null and identificationtype != ''">
+	         identificationtype, <!-- 证件类型 -->
+		</if>
+		<if test="identificationnumber != null and identificationnumber != ''">
+	         identificationnumber, <!-- 证件号码 -->
+		</if>
+		<if test="phonenumber != null">
+	         phonenumber, <!-- 手机号 -->
+		</if>
+		<if test="cardtype != null and cardtype != ''">
+	         cardtype, <!-- 卡类型 -->
+		</if>
+		<if test="banktext != null and banktext != ''">
+	         banktext, <!-- 卡类型 -->
+		</if>
+		<if test="user_id != null">
+	          user_id  <!-- user_id -->
+	   </if>
+		)VALUES(
+		<if test="txsnbinding != null and txsnbinding != ''">
+	          #{txsnbinding, jdbcType=VARCHAR}, <!-- 绑定流水号 -->
+	    </if>
+		<if test="bank_id != null and bank_id != ''">
+	          #{bank_id, jdbcType=VARCHAR}, <!-- 银行id -->
+	    </if>
+		<if test="accountname != null and accountname != ''">
+	          #{accountname, jdbcType=VARCHAR}, <!-- 账号名称 -->
+	    </if>
+		<if test="accountnumber != null">
+	          #{accountnumber, jdbcType=VARCHAR}, <!-- 银行卡号 -->
+	    </if>
+		<if test="identificationtype != null and identificationtype != ''">
+	          #{identificationtype, jdbcType=VARCHAR}, <!-- 证件类型 -->
+	    </if>
+		<if test="identificationnumber != null and identificationnumber != ''">
+	          #{identificationnumber, jdbcType=VARCHAR}, <!-- 证件号码 -->
+	    </if>
+		<if test="phonenumber != null">
+	          #{phonenumber, jdbcType=VARCHAR}, <!-- 手机号 -->
+	    </if>
+		<if test="cardtype != null and cardtype != ''">
+	          #{cardtype, jdbcType=VARCHAR}, <!-- 卡类型 -->
+	    </if>
+	    <if test="banktext != null and banktext != ''">
+	          #{banktext, jdbcType=VARCHAR},  <!-- 卡类型 -->
+		</if>
+		<if test="user_id != null">
+		     #{user_id, jdbcType=INTEGER}  <!-- user_id -->
+	    </if>
+		)
+	</insert>
+	
+	<!-- 插入一个数据持久化对象(含所有字段) -->
+	<insert id="insertAll"  parameterType="ZjcZjBankcardPO">
+		INSERT INTO zjc_zj_bankcard (
+		    <include refid="column" />
+		)
+		VALUES (
+		    #{user_id, jdbcType=INTEGER},  <!-- user_id -->
+		    #{txsnbinding, jdbcType=VARCHAR},  <!-- 绑定流水号 -->
+		    #{bank_id, jdbcType=VARCHAR},  <!-- 银行id -->
+		    #{accountname, jdbcType=VARCHAR},  <!-- 账号名称 -->
+		    #{accountnumber, jdbcType=VARCHAR},  <!-- 银行卡号 -->
+		    #{identificationtype, jdbcType=VARCHAR},  <!-- 证件类型 -->
+		    #{identificationnumber, jdbcType=VARCHAR},  <!-- 证件号码 -->
+		    #{phonenumber, jdbcType=VARCHAR},  <!-- 手机号 -->
+		    #{cardtype, jdbcType=VARCHAR},  <!-- 卡类型 -->
+		    #{banktext, jdbcType=VARCHAR}
+		)
+	</insert>
+
+	<!-- 根据主键修改数据持久化对象 -->
+	<update id="updateByKey" parameterType="ZjcZjBankcardPO">
+		UPDATE zjc_zj_bankcard
+		<set>
+			<if test="user_id != null">
+		          user_id = #{user_id, jdbcType=INTEGER},  <!-- user_id -->
+			</if>
+			<if test="txsnbinding != null">
+		          txsnbinding = #{txsnbinding, jdbcType=VARCHAR},  <!-- 绑定流水号 -->
+			</if>
+			<if test="bank_id != null">
+		          bank_id = #{bank_id, jdbcType=VARCHAR},  <!-- 银行id -->
+			</if>
+			<if test="accountname != null">
+		          accountname = #{accountname, jdbcType=VARCHAR},  <!-- 账号名称 -->
+			</if>
+			<if test="accountnumber != null">
+		          accountnumber = #{accountnumber, jdbcType=VARCHAR},  <!-- 银行卡号 -->
+			</if>
+			<if test="identificationtype != null">
+		          identificationtype = #{identificationtype, jdbcType=VARCHAR},  <!-- 证件类型 -->
+			</if>
+			<if test="identificationnumber != null">
+		          identificationnumber = #{identificationnumber, jdbcType=VARCHAR},  <!-- 证件号码 -->
+			</if>
+			<if test="phonenumber != null">
+		          phonenumber = #{phonenumber, jdbcType=VARCHAR},  <!-- 手机号 -->
+			</if>
+			<if test="cardtype != null">
+		          cardtype = #{cardtype, jdbcType=VARCHAR},  <!-- 卡类型 -->
+			</if>
+			<if test="banktext != null">
+		         #{banktext, jdbcType=VARCHAR},  <!-- 卡类型 -->
+			</if>
+		</set>
+		WHERE  user_id = #{user_id}
+	</update>
+	
+	<!-- 根据主键删除数据持久化对象 -->
+	<delete id="deleteByKey">
+		DELETE FROM zjc_zj_bankcard WHERE  user_id = #{user_id}
+	</delete>
+
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="selectByKey" resultType="ZjcZjBankcardPO">
+		SELECT
+		<include refid="column" />
+		FROM zjc_zj_bankcard WHERE  user_id = #{user_id}
+	</select>
+
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="selectOne" parameterType="Dto" resultType="ZjcZjBankcardPO">
+		SELECT
+		    <include refid="column" />
+		FROM zjc_zj_bankcard
+		<where>
+		    <include refid="equal" />
+		</where>		
+	</select>
+
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="list" parameterType="Dto" resultType="ZjcZjBankcardPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_zj_bankcard
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listPage" parameterType="Dto" resultType="ZjcZjBankcardPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_zj_bankcard
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto模糊查询并返回数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="like" parameterType="Dto" resultType="ZjcZjBankcardPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_zj_bankcard
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto模糊查询并返回分页数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="likePage" parameterType="Dto" resultType="ZjcZjBankcardPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_zj_bankcard
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto统计行数 -->
+	<select id="rows" resultType="Integer" parameterType="Dto">
+		SELECT COUNT(1) AS aos_rows_ FROM zjc_zj_bankcard
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 根据数学表达式进行数学运算 -->
+	<select id="calc" parameterType="Dto" resultType="String">
+		SELECT
+			${_expr}
+		FROM zjc_zj_bankcard
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 表字段 -->
+	<sql id="column">
+		  user_id,  <!-- user_id -->
+		  txsnbinding,  <!-- 绑定流水号 -->
+		  bank_id,  <!-- 银行id -->
+		  accountname,  <!-- 账号名称 -->
+		  accountnumber,  <!-- 银行卡号 -->
+		  identificationtype,  <!-- 证件类型 -->
+		  identificationnumber,  <!-- 证件号码 -->
+		  phonenumber,  <!-- 手机号 -->
+		  cardtype,  <!-- 卡类型 -->
+		  banktext
+	</sql>
+	
+	<!-- 表字段(用于外表的关联时引用) -->
+	<sql id="column2">
+		  zjc_zj_bankcard.user_id,  <!-- user_id -->
+		  zjc_zj_bankcard.txsnbinding,  <!-- 绑定流水号 -->
+		  zjc_zj_bankcard.bank_id,  <!-- 银行id -->
+		  zjc_zj_bankcard.accountname,  <!-- 账号名称 -->
+		  zjc_zj_bankcard.accountnumber,  <!-- 银行卡号 -->
+		  zjc_zj_bankcard.identificationtype,  <!-- 证件类型 -->
+		  zjc_zj_bankcard.identificationnumber,  <!-- 证件号码 -->
+		  zjc_zj_bankcard.phonenumber,  <!-- 手机号 -->
+		  zjc_zj_bankcard.cardtype,  <!-- 卡类型 -->
+		  zjc_zj_bankcard.banktext
+	</sql>
+
+	<!-- Where精确匹配字段 -->
+	<sql id="equal">
+	   <if test="user_id != null ">
+		      AND user_id = #{user_id}  <!-- user_id -->
+		</if>
+	    <if test="txsnbinding != null and txsnbinding != ''">
+		      AND txsnbinding = #{txsnbinding}  <!-- 绑定流水号 -->
+		</if>
+	    <if test="bank_id != null and bank_id != ''">
+		      AND bank_id = #{bank_id}  <!-- 银行id -->
+		</if>
+	    <if test="accountname != null and accountname != ''">
+		      AND accountname = #{accountname}  <!-- 账号名称 -->
+		</if>
+	   <if test="accountnumber != null ">
+		      AND accountnumber = #{accountnumber}  <!-- 银行卡号 -->
+		</if>
+	    <if test="identificationtype != null and identificationtype != ''">
+		      AND identificationtype = #{identificationtype}  <!-- 证件类型 -->
+		</if>
+	    <if test="identificationnumber != null and identificationnumber != ''">
+		      AND identificationnumber = #{identificationnumber}  <!-- 证件号码 -->
+		</if>
+	   <if test="phonenumber != null ">
+		      AND phonenumber = #{phonenumber}  <!-- 手机号 -->
+		</if>
+	    <if test="cardtype != null and cardtype != ''">
+		      AND cardtype = #{cardtype}  <!-- 卡类型 -->
+		</if>
+		 <if test="banktext != null and banktext != ''">
+		      AND banktext = #{banktext}  <!-- 卡类型 -->
+		</if>
+	</sql>
+	
+	<!-- Where模糊匹配字段 -->
+	<sql id="like">
+	    <if test="txsnbinding != null and txsnbinding != ''">
+		      AND txsnbinding like '${txsnbinding}%'  <!-- 绑定流水号 -->
+		</if>
+	    <if test="bank_id != null and bank_id != ''">
+		      AND bank_id like '${bank_id}%'  <!-- 银行id -->
+		</if>
+	    <if test="accountname != null and accountname != ''">
+		      AND accountname like '${accountname}%'  <!-- 账号名称 -->
+		</if>
+	    <if test="identificationtype != null and identificationtype != ''">
+		      AND identificationtype like '${identificationtype}%'  <!-- 证件类型 -->
+		</if>
+	    <if test="identificationnumber != null and identificationnumber != ''">
+		      AND identificationnumber like '${identificationnumber}%'  <!-- 证件号码 -->
+		</if>
+	    <if test="cardtype != null and cardtype != ''">
+		      AND cardtype like '${cardtype}%'  <!-- 卡类型 -->
+		</if>
+	</sql>
+	
+</mapper>

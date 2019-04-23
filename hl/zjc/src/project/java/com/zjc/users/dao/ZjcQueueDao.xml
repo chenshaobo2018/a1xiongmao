@@ -1,0 +1,609 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- zjc_queue[zjc_queue]SQL自动映射 -->
+<!--  注意:此文件由AOS平台自动生成-禁止手工修改 2017-06-07 08:51:17 -->
+<mapper namespace="com.zjc.users.dao.ZjcQueueDao">
+	
+	<!-- 插入一个数据持久化对象(插入字段为传入PO实体的非空属性) -->
+	<insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="ZjcQueuePO">
+		INSERT INTO zjc_queue (
+		<if test="note != null and note != ''">
+	         note, <!-- 备注 -->
+		</if>
+		<if test="type != null">
+	         type, <!-- 消息类型  1 倍增  2 转账 3 结算中到期队列 4 消费积分返回用户 5 易物担保到期取消订单 后期可根据需求添加 6商城购物商家积分返利 -->
+		</if>
+		<if test="add_time != null">
+	         add_time, <!-- 消息加入队列时间  -->
+		</if>
+		<if test="is_send != null">
+	         is_send, <!-- 0 未发送 1 已发送 -->
+		</if>
+		<if test="send_time != null">
+	         send_time, <!-- 消息执行时间  -->
+		</if>
+		<if test="user_id != null">
+	         user_id, <!-- 会员 id -->
+		</if>
+		<if test="xf_points != null">
+	         xf_points, <!-- 需要给会员的消费积分 -->
+		</if>
+		<if test="kz_points != null">
+	         kz_points, <!-- 需要给会员的可转积分 -->
+		</if>
+		<if test="success_time != null">
+	         success_time, <!-- 执行成功时间 -->
+		</if>
+		<if test="num != null">
+	         num, <!-- 发送次数 -->
+		</if>
+		<if test="relation_id != null">
+	         relation_id, <!-- 关联ID -->
+		</if>
+		<if test="is_cancle != null">
+	         is_cancle, <!-- 是否取消返还   0,不取消;1 取消 -->
+		</if>
+	          id
+		)VALUES(
+		<if test="note != null and note != ''">
+	          #{note, jdbcType=VARCHAR}, <!-- 备注 -->
+	    </if>
+		<if test="type != null">
+	          #{type, jdbcType=INTEGER}, <!-- 消息类型  1 倍增  2 转账 3 结算中到期队列 4 消费积分返回用户 5 易物担保到期取消订单 后期可根据需求添加 6商城购物商家积分返利 -->
+	    </if>
+		<if test="add_time != null">
+	          #{add_time, jdbcType=VARCHAR}, <!-- 消息加入队列时间  -->
+	    </if>
+		<if test="is_send != null">
+	          #{is_send, jdbcType=INTEGER}, <!-- 0 未发送 1 已发送 -->
+	    </if>
+		<if test="send_time != null">
+	          #{send_time, jdbcType=VARCHAR}, <!-- 消息执行时间  -->
+	    </if>
+		<if test="user_id != null">
+	          #{user_id, jdbcType=INTEGER}, <!-- 会员 id -->
+	    </if>
+		<if test="xf_points != null">
+	          #{xf_points, jdbcType=INTEGER}, <!-- 需要给会员的消费积分 -->
+	    </if>
+		<if test="kz_points != null">
+	          #{kz_points, jdbcType=INTEGER}, <!-- 需要给会员的可转积分 -->
+	    </if>
+		<if test="success_time != null">
+	          #{success_time, jdbcType=VARCHAR}, <!-- 执行成功时间 -->
+	    </if>
+		<if test="num != null">
+	          #{num, jdbcType=INTEGER}, <!-- 发送次数 -->
+	    </if>
+		<if test="relation_id != null">
+	          #{relation_id, jdbcType=INTEGER}, <!-- 关联ID -->
+	    </if>
+	    <if test="is_cancle != null">
+	          #{is_cancle, jdbcType=INTEGER}, <!-- 是否取消返还   0,不取消;1 取消 -->
+	    </if>
+	          null
+		)
+	</insert>
+	
+	<!-- 插入一个数据持久化对象(含所有字段) -->
+	<insert id="insertAll" useGeneratedKeys="true" keyProperty="id" parameterType="ZjcQueuePO">
+		INSERT INTO zjc_queue (
+		    <include refid="column" />
+		)
+		VALUES (
+		    #{id, jdbcType=INTEGER},  <!-- id -->
+		    #{note, jdbcType=VARCHAR},  <!-- 备注 -->
+		    #{type, jdbcType=INTEGER},  <!-- 消息类型  1 倍增  2 转账 3 结算中到期队列 4 消费积分返回用户 5 易物担保到期取消订单 后期可根据需求添加 6商城购物商家积分返利 -->
+		    #{add_time, jdbcType=VARCHAR},  <!-- 消息加入队列时间  -->
+		    #{is_send, jdbcType=INTEGER},  <!-- 0 未发送 1 已发送 -->
+		    #{send_time, jdbcType=VARCHAR},  <!-- 消息执行时间  -->
+		    #{user_id, jdbcType=INTEGER},  <!-- 会员 id -->
+		    #{xf_points, jdbcType=INTEGER},  <!-- 需要给会员的消费积分 -->
+		    #{kz_points, jdbcType=INTEGER},  <!-- 需要给会员的可转积分 -->
+		    #{success_time, jdbcType=VARCHAR},  <!-- 执行成功时间 -->
+		    #{num, jdbcType=INTEGER},  <!-- 发送次数 -->
+		    #{relation_id, jdbcType=INTEGER},  <!-- 关联ID -->
+		    #{is_cancle, jdbcType=INTEGER}  <!-- 是否取消返还   0,不取消;1 取消 -->
+		)
+	</insert>
+
+	<!-- 根据主键修改数据持久化对象 -->
+	<update id="updateByKey" parameterType="ZjcQueuePO">
+		UPDATE zjc_queue
+		<set>
+			<if test="id != null">
+		          id = #{id, jdbcType=INTEGER},  <!-- id -->
+			</if>
+			<if test="note != null">
+		          note = #{note, jdbcType=VARCHAR},  <!-- 备注 -->
+			</if>
+			<if test="type != null">
+		          type = #{type, jdbcType=INTEGER},  <!-- 消息类型  1 倍增  2 转账 3 结算中到期队列 4 消费积分返回用户 5 易物担保到期取消订单 后期可根据需求添加 6商城购物商家积分返利 -->
+			</if>
+			<if test="add_time != null">
+		          add_time = #{add_time, jdbcType=VARCHAR},  <!-- 消息加入队列时间  -->
+			</if>
+			<if test="is_send != null">
+		          is_send = #{is_send, jdbcType=INTEGER},  <!-- 0 未发送 1 已发送 -->
+			</if>
+			<if test="send_time != null">
+		          send_time = #{send_time, jdbcType=VARCHAR},  <!-- 消息执行时间  -->
+			</if>
+			<if test="user_id != null">
+		          user_id = #{user_id, jdbcType=INTEGER},  <!-- 会员 id -->
+			</if>
+			<if test="xf_points != null">
+		          xf_points = #{xf_points, jdbcType=INTEGER},  <!-- 需要给会员的消费积分 -->
+			</if>
+			<if test="kz_points != null">
+		          kz_points = #{kz_points, jdbcType=INTEGER},  <!-- 需要给会员的可转积分 -->
+			</if>
+			<if test="success_time != null">
+		          success_time = #{success_time, jdbcType=VARCHAR},  <!-- 执行成功时间 -->
+			</if>
+			<if test="num != null">
+		          num = #{num, jdbcType=INTEGER},  <!-- 发送次数 -->
+			</if>
+			<if test="relation_id != null">
+		          relation_id = #{relation_id, jdbcType=INTEGER},  <!-- 关联ID -->
+			</if>
+			<if test="is_cancle != null">
+		          is_cancle = #{is_cancle, jdbcType=INTEGER},  <!-- 是否取消返还   0,不取消;1 取消 -->
+			</if>
+		</set>
+		WHERE  id = #{id}
+	</update>
+	
+	<!-- 根据主键删除数据持久化对象 -->
+	<delete id="deleteByKey">
+		DELETE FROM zjc_queue WHERE  id = #{id}
+	</delete>
+
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="selectByKey" resultType="ZjcQueuePO">
+		SELECT
+		<include refid="column" />
+		FROM zjc_queue WHERE  id = #{id}
+	</select>
+	
+	<select id="selectByKeys"  parameterType="ZjcQueuePO" resultType="ZjcQueuePO">
+		SELECT
+		<include refid="co" />
+		FROM zjc_queue WHERE  id = #{id}
+	</select>
+
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="selectOne" parameterType="Dto" resultType="ZjcQueuePO">
+		SELECT
+		    <include refid="column" />
+		FROM zjc_queue
+		<where>
+		    <include refid="equal" />
+		</where>		
+	</select>
+
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="list" parameterType="Dto" resultType="ZjcQueuePO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_queue
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listPage" parameterType="Dto" resultType="ZjcQueuePO" useCache="false">
+	    SELECT
+			t.id,t.type,t.add_time,t.is_send,t.send_time,t.user_id,t.xf_points,t.kz_points,t.note
+		FRoM zjc_queue t
+		<where>
+		<if test="is_send != null and is_send != '' ">
+			  AND t.is_send=#{is_send}
+		</if>
+		<if test="type != null and type != '' ">
+		      AND t.type = #{type}  <!-- 消息类型  1 倍增  2 转账 3 结算中到期队列 4 消费积分返回用户 5 易物担保到期取消订单 后期可根据需求添加 6商城购物商家积分返利 -->
+		</if>
+		<if test="user_id != null and user_id != ''">
+		      AND t.user_id = #{user_id}  <!-- 会员 id -->
+		</if>
+		<if test="relation_id == null or relation_id =='' ">
+		      <![CDATA[AND t.add_time <= NOW()]]>  <!-- 默认查询小于当天的数据 -->
+		</if>
+		<if test="relation_id != null and relation_id !='' ">
+		      AND t.relation_id = #{relation_id}  <!-- 关联ID -->
+		</if>
+		<if test="add_time_start != null and add_time_start != ''">
+		      <![CDATA[AND date_format(t.add_time,'%Y-%m-%d') >= date_format(#{add_time_start},'%Y-%m-%d')]]>  <!-- 下单时间(起) -->
+		</if>
+		<if test="add_time_end != null and add_time_end != ''">
+		      <![CDATA[AND date_format(t.add_time,'%Y-%m-%d') <= date_format(#{add_time_end},'%Y-%m-%d')]]>  <!-- 下单时间(止) -->
+		</if>
+		</where>
+		order by t.id desc
+	</select>
+	
+	<select id="listQueuePage" parameterType="Dto" resultType="ZjcQueuePO" useCache="false">
+	    SELECT
+			t.id,t.type,t.add_time,t.is_send,t.send_time,t.user_id,t.xf_points,t.kz_points,t.success_time
+		FRoM zjc_queue t
+		<where>
+		<choose>
+			<when test="type == '' or type == null">
+				 t.type in (1,4,6,8)
+			</when>
+			<otherwise>
+				 t.type = #{type}
+			</otherwise>
+		</choose>
+		<if test="type0 != null and type0 != '' ">
+			  AND t.type = #{type}
+		</if>
+		<if test="is_send != null and is_send != '' ">
+			  AND t.is_send=#{is_send}
+		</if>
+		<if test="user_id != null and user_id != ''">
+		      AND t.user_id = #{user_id}  <!-- 会员 id -->
+		</if>
+		<if test="relation_id == null or relation_id =='' ">
+		      <![CDATA[AND t.add_time <= NOW()]]>  <!-- 默认查询小于当天的数据 -->
+		</if>
+		<if test="relation_id != null and relation_id !='' ">
+		      AND t.relation_id = #{relation_id}   <!-- 关联ID -->
+		</if>
+		<if test="add_time_start != null and add_time_start != ''">
+		      <![CDATA[AND date_format(t.add_time,'%Y-%m-%d %H:%i:%s') >= date_format(#{add_time_start},'%Y-%m-%d %H:%i:%s')]]>  <!-- 下单时间(起) -->
+		</if>
+		<if test="add_time_end != null and add_time_end != ''">
+		      <![CDATA[AND date_format(t.add_time,'%Y-%m-%d %H:%i:%s') <= date_format(#{add_time_end},'%Y-%m-%d %H:%i:%s')]]>  <!-- 下单时间(止) -->
+		</if>
+		and t.is_cancle = 0 
+		<if test="type1 != null and type1 != '' ">
+			 ${type1}
+		</if>
+		</where>
+		order by t.id desc
+	</select>
+	
+	<!-- 查询已取消返分的记录集合 -->
+	<select id="listCanclePage" parameterType="Dto" resultType="ZjcQueuePO" useCache="false">
+	    SELECT
+			t.id,t.type,t.add_time,t.is_send,t.send_time,t.user_id,t.success_time,
+			t.xf_points,t.kz_points,t.num,t.relation_id
+		FRoM zjc_queue t
+	<!-- 	left join zjc_order t1 on t.relation_id = t1.order_id -->
+		where t.is_cancle = 1
+		<if test="is_send != null and is_send != '' ">
+			  AND t.is_send=#{is_send}
+		</if>
+		<if test="type != null and type != '' ">
+		      AND t.type = #{type}  <!-- 消息类型  1 倍增  2 转账 3 结算中到期队列 4 消费积分返回用户 5 易物担保到期取消订单 后期可根据需求添加 6商城购物商家积分返利 -->
+		</if>
+		 <if test="user_id != null and user_id != ''">
+		      AND t.user_id = #{user_id}  <!-- 会员 id -->
+		</if>
+		<if test="relation_id == null or relation_id =='' ">
+		      <![CDATA[AND t.add_time <= NOW()]]>  <!-- 默认查询小于当天的数据 -->
+		</if>
+		<if test="relation_id != null and relation_id !='' ">
+		      AND t.relation_id = #{relation_id}  <!-- 关联ID -->
+		</if>
+		<if test="add_time_start != null and add_time_start != ''">
+		      <![CDATA[AND date_format(t.add_time,'%Y-%m-%d') >= date_format(#{add_time_start},'%Y-%m-%d')]]>  <!-- 下单时间(起) -->
+		</if>
+		<if test="add_time_end != null and add_time_end != ''">
+		      <![CDATA[AND date_format(t.add_time,'%Y-%m-%d') <= date_format(#{add_time_end},'%Y-%m-%d')]]>  <!-- 下单时间(止) -->
+		</if>
+		order by id desc
+	</select>
+	
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listuserPage" parameterType="Dto" resultType="ZjcQueuePO" useCache="false">
+	    SELECT
+			<include refid="column3" />	
+		FRoM zjc_queue t left join zjc_users_info t1 on t.user_id = t1.user_id
+		where t.is_send=0
+		<if test="type != null and type != '' ">
+		      AND t.type = #{type}  <!-- 消息类型  1 倍增  2 转账 3 结算中到期队列 4 消费积分返回用户 5 易物担保到期取消订单 后期可根据需求添加 6商城购物商家积分返利 -->
+		</if>
+		 <if test="user_id != null and user_id != ''">
+		      AND t.user_id = #{user_id}  <!-- 会员 id -->
+		</if>
+		<if test="relation_id == null or relation_id =='' ">
+		    <![CDATA[AND t.add_time <= NOW()]]>  <!-- 默认查询小于当天的数据 -->
+		</if>
+		<if test="relation_id != null and relation_id !='' ">
+		      AND t.relation_id = #{relation_id}  <!-- 关联ID -->
+		</if>
+		<if test="is_cancle != null and is_cancle !='' ">
+		      AND t.is_cancle = #{is_cancle}  <!-- 是否取消返还   0,不取消;1 取消 -->
+		</if>
+		<if test="mobile != null and mobile !='' ">
+		      AND t1.mobile = #{mobile}  <!-- 联系电话 -->
+		</if>
+		order by t.id desc
+	</select>
+	
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listfanfenPage" parameterType="Dto" resultType="ZjcQueuePO" useCache="false">
+	    SELECT
+			<include refid="column3" />	
+		FRoM zjc_queue t left join zjc_users_info t1 on t.user_id = t1.user_id
+		where t.is_send=2
+		<if test="type != null and type != '' ">
+		      AND t.type = #{type}  <!-- 消息类型  1 倍增  2 转账 3 结算中到期队列 4 消费积分返回用户 5 易物担保到期取消订单 后期可根据需求添加 6商城购物商家积分返利 -->
+		</if>
+		 <if test="user_id != null and user_id != ''">
+		      AND t.user_id = #{user_id}  <!-- 会员 id -->
+		</if>
+		<if test="relation_id == null or relation_id =='' ">
+		      <![CDATA[AND t.add_time <= NOW()]]>  <!-- 默认查询小于当天的数据 -->
+		</if>
+		<if test="relation_id != null and relation_id !='' ">
+		      AND t.relation_id = #{relation_id}  <!-- 关联ID -->
+		</if>
+		<if test="is_cancle != null and is_cancle !='' ">
+		      AND t.is_cancle = #{is_cancle}  <!-- 是否取消返还   0,不取消;1 取消 -->
+		</if>
+		<if test="mobile != null and mobile !='' ">
+		      AND t1.mobile = #{mobile}  <!-- 联系电话 -->
+		</if>
+		order by id desc
+	</select>
+	
+	<!-- 反分列表 -->
+	<select id="queueListPage" parameterType="Dto" resultType="ZjcQueuePO" useCache="false">
+	    SELECT
+			<include refid="column3" />	
+		FRoM zjc_queue t left join zjc_users_info t1 on t.user_id = t1.user_id
+		where 1=1 and t.is_send=2
+		<if test="is_send != null and is_send != '' ">
+			  AND t.is_send=#{is_send}
+		</if>
+		<if test="type != null and type != '' ">
+		      AND t.type = #{type}  <!-- 消息类型  1 倍增  2 转账 3 结算中到期队列 4 消费积分返回用户 5 易物担保到期取消订单 后期可根据需求添加 6商城购物商家积分返利 -->
+		</if>
+		 <if test="user_id != null and user_id != ''">
+		      AND t.user_id = #{user_id}  <!-- 会员 id -->
+		</if>
+		<if test="relation_id == null or relation_id =='' ">
+		      <![CDATA[AND t.add_time <= NOW()]]>  <!-- 默认查询小于当天的数据 -->
+		</if>
+		<if test="relation_id != null and relation_id !='' ">
+		      AND t.relation_id = #{relation_id}  <!-- 关联ID -->
+		</if>
+		<if test="is_cancle != null and is_cancle !='' ">
+		      AND t.is_cancle = #{is_cancle}  <!-- 是否取消返还   0,不取消;1 取消 -->
+		</if>
+		<if test="mobile != null and mobile !='' ">
+		      AND t1.mobile = #{mobile}  <!-- 联系电话 -->
+		</if>
+		order by id desc
+	</select>
+	
+	<!-- 未返已返，已返未返数据列表 -->
+	<select id="queueList1Page" parameterType="Dto" resultType="ZjcQueuePO" useCache="false">
+	    SELECT
+			t.id,t.user_id,t.type,t.xf_points,t.kz_points,t.add_time,t.is_send, t.send_time
+		FRoM zjc_queue t <!-- left join zjc_users_info t1 on t.user_id = t1.user_id -->
+		<where>
+			<if test="type != null and type != '' ">
+			      AND t.type = #{type}  <!-- 消息类型  1 倍增  2 转账 3 结算中到期队列 4 消费积分返回用户 5 易物担保到期取消订单 后期可根据需求添加 6商城购物商家积分返利 -->
+			</if>
+			 <if test="user_id != null and user_id != ''">
+			      AND t.user_id = #{user_id}  <!-- 会员 id -->
+			</if>
+			<if test="relation_id == null or relation_id =='' ">
+		      <![CDATA[AND date_format(t.add_time,'%Y-%m-%d') <= date_format(NOW(),'%Y-%m-%d')]]>  <!-- 默认查询小于当天的数据 -->
+			</if>
+			<if test="relation_id != null and relation_id !='' ">
+			      AND t.relation_id = #{relation_id}  <!-- 关联ID -->
+			</if>
+			<if test="mobile != null and mobile !='' ">
+			      AND t1.mobile = #{mobile}  <!-- 联系电话 -->
+			</if>
+			<if test="return_time != null and return_time !='' ">
+			 	<![CDATA[AND ((t.add_time < #{return_time} and t.is_send = 0 and t.type != 6) or (t.send_time > now() and t.is_send = 1 and t.type =6))]]>
+			</if>
+			and t.is_cancle = 0
+		</where>
+		order by t.id desc
+	</select>
+	
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listsuccessPage" parameterType="Dto" resultType="ZjcQueuePO" useCache="false">
+	    SELECT
+			<include refid="column3" />	
+		FRoM zjc_queue t left join zjc_users_info t1 on t.user_id = t1.user_id
+		where t.is_send=1
+		<if test="type != null and type != '' ">
+		      AND t.type = #{type}  <!-- 消息类型  1 倍增  2 转账 3 结算中到期队列 4 消费积分返回用户 5 易物担保到期取消订单 后期可根据需求添加 6商城购物商家积分返利 -->
+		</if>
+		 <if test="user_id != null and user_id != ''">
+		      AND t.user_id = #{user_id}  <!-- 会员 id -->
+		</if>
+		<if test="relation_id != null and relation_id !='' ">
+		      AND t.relation_id = #{relation_id}  <!-- 关联ID -->
+		</if>
+		<if test="is_cancle != null and is_cancle !='' ">
+		      AND t.is_cancle = #{is_cancle}  <!-- 是否取消返还   0,不取消;1 取消 -->
+		</if>
+		<if test="mobile != null and mobile !='' ">
+		      AND t1.mobile = #{mobile}  <!-- 联系电话 -->
+		</if>
+		ORDER BY t.success_time DESC
+	</select>
+	
+	<!-- 根据Dto模糊查询并返回数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="like" parameterType="Dto" resultType="ZjcQueuePO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_queue
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto模糊查询并返回分页数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="likePage" parameterType="Dto" resultType="ZjcQueuePO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_queue
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto统计行数 -->
+	<select id="rows" resultType="Integer" parameterType="Dto">
+		SELECT COUNT(1) AS aos_rows_ FROM zjc_queue
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 根据数学表达式进行数学运算 -->
+	<select id="calc" parameterType="Dto" resultType="String">
+		SELECT
+			${_expr}
+		FROM zjc_queue
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<sql id="co">
+		  id,  <!-- id -->
+		  note,  <!-- 备注 -->
+		  type,  <!-- 消息类型  1 倍增  2 转账 3 结算中到期队列 4 消费积分返回用户 5 易物担保到期取消订单 后期可根据需求添加 6商城购物商家积分返利 -->
+		  is_send,  <!-- 0 未发送 1 已发送 -->
+		  send_time,  <!-- 消息执行时间  -->
+		  user_id,  <!-- 会员 id -->
+		  xf_points,  <!-- 需要给会员的消费积分 -->
+		  kz_points,  <!-- 需要给会员的可转积分 -->
+		  success_time,  <!-- 执行成功时间 -->
+		  num,  <!-- 发送次数 -->
+		  relation_id,  <!-- 关联ID -->
+		  is_cancle  <!-- 是否取消返还   0,不取消;1 取消 -->
+	</sql>
+	
+	<!-- 表字段 -->
+	<sql id="column">
+		  id,  <!-- id -->
+		  note,  <!-- 备注 -->
+		  type,  <!-- 消息类型  1 倍增  2 转账 3 结算中到期队列 4 消费积分返回用户 5 易物担保到期取消订单 后期可根据需求添加 6商城购物商家积分返利 -->
+		  add_time,  <!-- 消息加入队列时间  -->
+		  is_send,  <!-- 0 未发送 1 已发送 -->
+		  send_time,  <!-- 消息执行时间  -->
+		  user_id,  <!-- 会员 id -->
+		  xf_points,  <!-- 需要给会员的消费积分 -->
+		  kz_points,  <!-- 需要给会员的可转积分 -->
+		  success_time,  <!-- 执行成功时间 -->
+		  num,  <!-- 发送次数 -->
+		  relation_id,  <!-- 关联ID -->
+		  is_cancle  <!-- 是否取消返还   0,不取消;1 取消 -->
+	</sql>
+	
+	<!-- 表字段(用于外表的关联时引用) -->
+	<sql id="column2">
+		  zjc_queue.id,  <!-- id -->
+		  zjc_queue.note,  <!-- 备注 -->
+		  zjc_queue.type,  <!-- 消息类型  1 倍增  2 转账 3 结算中到期队列 4 消费积分返回用户 5 易物担保到期取消订单 后期可根据需求添加 6商城购物商家积分返利 -->
+		  zjc_queue.add_time,  <!-- 消息加入队列时间  -->
+		  zjc_queue.is_send,  <!-- 0 未发送 1 已发送 -->
+		  zjc_queue.send_time,  <!-- 消息执行时间  -->
+		  zjc_queue.user_id,  <!-- 会员 id -->
+		  zjc_queue.xf_points,  <!-- 需要给会员的消费积分 -->
+		  zjc_queue.kz_points,  <!-- 需要给会员的可转积分 -->
+		  zjc_queue.success_time,  <!-- 执行成功时间 -->
+		  zjc_queue.num,  <!-- 发送次数 -->
+		  zjc_queue.relation_id,  <!-- 关联ID -->
+		  zjc_queue.is_cancle  <!-- 是否取消返还   0,不取消;1 取消 -->
+	</sql>
+	<!-- 系统后台返分返回数据对象 -->
+	<sql id="column3">
+		  t.id,  <!-- id -->
+		  t.note,  <!-- 备注 -->
+		  t.type,  <!-- 消息类型  1 倍增  2 转账 3 结算中到期队列 4 消费积分返回用户 5 易物担保到期取消订单 后期可根据需求添加 6商城购物商家积分返利 -->
+		  t.add_time,  <!-- 消息加入队列时间  -->
+		  t.is_send,  <!-- 0 未发送 1 已发送 -->
+		  t.send_time,  <!-- 消息执行时间  -->
+		  t.user_id,  <!-- 会员 id -->
+		  t.xf_points,  <!-- 需要给会员的消费积分 -->
+		  t.kz_points,  <!-- 需要给会员的可转积分 -->
+		  t.success_time,  <!-- 执行成功时间 -->
+		  t.num,  <!-- 发送次数 -->
+		  t.relation_id,  <!-- 关联ID -->
+		  t.is_cancle, <!-- 是否取消返还   0,不取消;1 取消 -->
+		  t1.mobile <!-- 联系电话 -->
+	</sql>
+
+	<!-- Where精确匹配字段 -->
+	<sql id="equal">
+	   <if test="id != null ">
+		      AND id = #{id}  <!-- id -->
+		</if>
+	    <if test="note != null and note != ''">
+		      AND note = #{note}  <!-- 备注 -->
+		</if>
+	   <if test="type != null ">
+		      AND type = #{type}  <!-- 消息类型  1 倍增  2 转账 3 结算中到期队列 4 消费积分返回用户 5 易物担保到期取消订单 后期可根据需求添加 6商城购物商家积分返利 -->
+		</if>
+	   <if test="add_time != null ">
+		      AND add_time = #{add_time}  <!-- 消息加入队列时间  -->
+		</if>
+	   <if test="is_send != null ">
+		      AND is_send = #{is_send}  <!-- 0 未发送 1 已发送 -->
+		</if>
+	   <if test="send_time != null ">
+		      AND send_time = #{send_time}  <!-- 消息执行时间  -->
+		</if>
+	   <if test="user_id != null ">
+		      AND user_id = #{user_id}  <!-- 会员 id -->
+		</if>
+	   <if test="xf_points != null ">
+		      AND xf_points = #{xf_points}  <!-- 需要给会员的消费积分 -->
+		</if>
+	   <if test="kz_points != null ">
+		      AND kz_points = #{kz_points}  <!-- 需要给会员的可转积分 -->
+		</if>
+	   <if test="success_time != null ">
+		      AND success_time = #{success_time}  <!-- 执行成功时间 -->
+		</if>
+	   <if test="num != null ">
+		      AND num = #{num}  <!-- 发送次数 -->
+		</if>
+	   <if test="relation_id != null ">
+		      AND relation_id = #{relation_id}  <!-- 关联ID -->
+		</if>
+		<if test="is_cancle != null ">
+		      AND is_cancle = #{is_cancle}  <!-- 是否取消返还   0,不取消;1 取消 -->
+		</if>
+	</sql>
+	
+	<!-- Where模糊匹配字段 -->
+	<sql id="like">
+	    <if test="note != null and note != ''">
+		      AND note like '${note}%'  <!-- 备注 -->
+		</if>
+	</sql>
+	
+	<update id="cancleQueue" parameterType="Dto">
+		update zjc_queue set is_cancle = 1 where id = #{id}
+	</update>
+	<!-- 系统后台确认订单已支付时调用（商家返利） -->
+	<update id="requeueByRelationId" parameterType="Dto">
+		update zjc_queue set is_cancle = 0,send_time=date_add(now(), interval #{delay_days} day) where relation_id = #{order_id} and type = 6
+	</update>
+	<!-- 支付宝支付成功时调用(商家返利) -->
+	<update id="updateByRelationId" parameterType="Dto">
+		update zjc_queue set is_cancle = 0 where relation_id = #{order_id} and type = 6
+	</update>
+	
+	<!-- 支付宝支付成功时调用（会员返分）-->
+	<update id="updateUserByRelationId" parameterType="Dto">
+		update zjc_queue set is_cancle = 0 where relation_id = #{order_id} and type = 4
+	</update>
+</mapper>

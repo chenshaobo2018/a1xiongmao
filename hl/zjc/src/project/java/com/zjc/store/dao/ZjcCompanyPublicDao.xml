@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- zjc_company_public[zjc_company_public]SQL自动映射 -->
+<!--  注意:此文件由AOS平台自动生成-禁止手工修改 2017-07-15 10:02:17 -->
+<mapper namespace="com.zjc.store.dao.ZjcCompanyPublicDao">
+	
+	<!-- 插入一个数据持久化对象(插入字段为传入PO实体的非空属性) -->
+	<insert id="insert" useGeneratedKeys="true" keyProperty="cp_id" parameterType="ZjcCompanyPublicPO">
+		INSERT INTO zjc_company_public (
+		<if test="title != null and title != ''">
+	         title, <!-- 标题 -->
+		</if>
+		<if test="add_time != null">
+	         add_time, <!-- 添加时间 -->
+		</if>
+		<if test="img != null and img != ''">
+	         img, <!-- 图片 -->
+		</if>
+		<if test="img_qn != null and img_qn != ''">
+	         img_qn, <!-- 图片七牛地址 -->
+		</if>
+		<if test="cost_price != null">
+	         cost_price, <!-- 等额积分价 -->
+		</if>
+		<if test="click_num != null">
+	         click_num, <!-- 查看次数 -->
+		</if>
+		<if test="is_show != null">
+	         is_show, <!-- 是否显示 -->
+		</if>
+		<if test="sort != null">
+	         sort, <!-- 排序 -->
+		</if>
+		<if test="content != null and content != ''">
+	         content, <!-- 内容 -->
+		</if>
+	          cp_id
+		)VALUES(
+		<if test="title != null and title != ''">
+	          #{title, jdbcType=VARCHAR}, <!-- 标题 -->
+	    </if>
+		<if test="add_time != null">
+	          #{add_time, jdbcType=INTEGER}, <!-- 添加时间 -->
+	    </if>
+		<if test="img != null and img != ''">
+	          #{img, jdbcType=VARCHAR}, <!-- 图片 -->
+	    </if>
+		<if test="img_qn != null and img_qn != ''">
+	          #{img_qn, jdbcType=VARCHAR}, <!-- 图片七牛地址 -->
+	    </if>
+		<if test="cost_price != null">
+	          #{cost_price, jdbcType=NUMERIC}, <!-- 等额积分价 -->
+	    </if>
+		<if test="click_num != null">
+	          #{click_num, jdbcType=INTEGER}, <!-- 查看次数 -->
+	    </if>
+		<if test="is_show != null">
+	          #{is_show, jdbcType=INTEGER}, <!-- 是否显示 -->
+	    </if>
+		<if test="sort != null">
+	          #{sort, jdbcType=INTEGER}, <!-- 排序 -->
+	    </if>
+		<if test="content != null and content != ''">
+	          #{content, jdbcType=VARCHAR}, <!-- 内容 -->
+	    </if>
+	          null
+		)
+	</insert>
+	
+	<!-- 插入一个数据持久化对象(含所有字段) -->
+	<insert id="insertAll" useGeneratedKeys="true" keyProperty="cp_id" parameterType="ZjcCompanyPublicPO">
+		INSERT INTO zjc_company_public (
+		    <include refid="column" />
+		)
+		VALUES (
+		    #{cp_id, jdbcType=INTEGER},  <!-- cp_id -->
+		    #{title, jdbcType=VARCHAR},  <!-- 标题 -->
+		    #{add_time, jdbcType=INTEGER},  <!-- 添加时间 -->
+		    #{img, jdbcType=VARCHAR},  <!-- 图片 -->
+		    #{img_qn, jdbcType=VARCHAR},  <!-- 图片七牛地址 -->
+		    #{cost_price, jdbcType=NUMERIC},  <!-- 等额积分价 -->
+		    #{click_num, jdbcType=INTEGER},  <!-- 查看次数 -->
+		    #{is_show, jdbcType=INTEGER},  <!-- 是否显示 -->
+		    #{sort, jdbcType=INTEGER},  <!-- 排序 -->
+		    #{content, jdbcType=VARCHAR}  <!-- 内容 -->
+		)
+	</insert>
+
+	<!-- 根据主键修改数据持久化对象 -->
+	<update id="updateByKey" parameterType="ZjcCompanyPublicPO">
+		UPDATE zjc_company_public
+		<set>
+			<if test="cp_id != null">
+		          cp_id = #{cp_id, jdbcType=INTEGER},  <!-- cp_id -->
+			</if>
+			<if test="title != null">
+		          title = #{title, jdbcType=VARCHAR},  <!-- 标题 -->
+			</if>
+			<if test="add_time != null">
+		          add_time = #{add_time, jdbcType=INTEGER},  <!-- 添加时间 -->
+			</if>
+			<if test="img != null">
+		          img = #{img, jdbcType=VARCHAR},  <!-- 图片 -->
+			</if>
+			<if test="img_qn != null">
+		          img_qn = #{img_qn, jdbcType=VARCHAR},  <!-- 图片七牛地址 -->
+			</if>
+			<if test="cost_price != null">
+		          cost_price = #{cost_price, jdbcType=NUMERIC},  <!-- 等额积分价 -->
+			</if>
+			<if test="click_num != null">
+		          click_num = #{click_num, jdbcType=INTEGER},  <!-- 查看次数 -->
+			</if>
+			<if test="is_show != null">
+		          is_show = #{is_show, jdbcType=INTEGER},  <!-- 是否显示 -->
+			</if>
+			<if test="sort != null">
+		          sort = #{sort, jdbcType=INTEGER},  <!-- 排序 -->
+			</if>
+			<if test="content != null">
+		          content = #{content, jdbcType=VARCHAR},  <!-- 内容 -->
+			</if>
+		</set>
+		WHERE  cp_id = #{cp_id}
+	</update>
+	
+	<!-- 根据主键删除数据持久化对象 -->
+	<delete id="deleteByKey">
+		DELETE FROM zjc_company_public WHERE  cp_id = #{cp_id}
+	</delete>
+
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="selectByKey" resultType="ZjcCompanyPublicPO">
+		SELECT
+		<include refid="column" />
+		FROM zjc_company_public WHERE  cp_id = #{cp_id}
+	</select>
+
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="selectOne" parameterType="Dto" resultType="ZjcCompanyPublicPO">
+		SELECT
+		    <include refid="column" />
+		FROM zjc_company_public
+		<where>
+		    <include refid="equal" />
+		</where>		
+	</select>
+
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="list" parameterType="Dto" resultType="ZjcCompanyPublicPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_company_public
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listPage" parameterType="Dto" resultType="ZjcCompanyPublicPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_company_public
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listConditionPage" parameterType="Dto" resultType="ZjcCompanyPublicPO" useCache="false">
+	    SELECT
+			cp_id,title,img,cost_price	
+		FRoM zjc_company_public
+		<where>
+		    <if test="condition == 'all' or condition == ''">
+		    	is_show = 1 order by cp_id desc
+		    </if>
+		    <if test="condition == 'free'">
+		    	is_show = 1  and cost_price = 0 order by cp_id desc
+		    </if>
+		    <if test="condition == 'unFree'">
+		    	is_show = 1 and cost_price > 0 order by cp_id desc
+		    </if>
+		</where>	
+	</select>
+	
+	<!-- 根据Dto模糊查询并返回数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="like" parameterType="Dto" resultType="ZjcCompanyPublicPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_company_public
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto模糊查询并返回分页数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="likePage" parameterType="Dto" resultType="ZjcCompanyPublicPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_company_public
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto统计行数 -->
+	<select id="rows" resultType="Integer" parameterType="Dto">
+		SELECT COUNT(1) AS aos_rows_ FROM zjc_company_public
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 根据数学表达式进行数学运算 -->
+	<select id="calc" parameterType="Dto" resultType="String">
+		SELECT
+			${_expr}
+		FROM zjc_company_public
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 表字段 -->
+	<sql id="column">
+		  cp_id,  <!-- cp_id -->
+		  title,  <!-- 标题 -->
+		  add_time,  <!-- 添加时间 -->
+		  img,  <!-- 图片 -->
+		  img_qn,  <!-- 图片七牛地址 -->
+		  cost_price,  <!-- 等额积分价 -->
+		  click_num,  <!-- 查看次数 -->
+		  is_show,  <!-- 是否显示 -->
+		  sort,  <!-- 排序 -->
+		  content  <!-- 内容 -->
+	</sql>
+	
+	<!-- 表字段(用于外表的关联时引用) -->
+	<sql id="column2">
+		  zjc_company_public.cp_id,  <!-- cp_id -->
+		  zjc_company_public.title,  <!-- 标题 -->
+		  zjc_company_public.add_time,  <!-- 添加时间 -->
+		  zjc_company_public.img,  <!-- 图片 -->
+		  zjc_company_public.img_qn,  <!-- 图片七牛地址 -->
+		  zjc_company_public.cost_price,  <!-- 等额积分价 -->
+		  zjc_company_public.click_num,  <!-- 查看次数 -->
+		  zjc_company_public.is_show,  <!-- 是否显示 -->
+		  zjc_company_public.sort,  <!-- 排序 -->
+		  zjc_company_public.content  <!-- 内容 -->
+	</sql>
+
+	<!-- Where精确匹配字段 -->
+	<sql id="equal">
+	   <if test="cp_id != null ">
+		      AND cp_id = #{cp_id}  <!-- cp_id -->
+		</if>
+	    <if test="title != null and title != ''">
+		      AND title = #{title}  <!-- 标题 -->
+		</if>
+	   <if test="add_time != null ">
+		      AND add_time = #{add_time}  <!-- 添加时间 -->
+		</if>
+	    <if test="img != null and img != ''">
+		      AND img = #{img}  <!-- 图片 -->
+		</if>
+	    <if test="img_qn != null and img_qn != ''">
+		      AND img_qn = #{img_qn}  <!-- 图片七牛地址 -->
+		</if>
+	   <if test="cost_price != null ">
+		      AND cost_price = #{cost_price}  <!-- 等额积分价 -->
+		</if>
+	   <if test="click_num != null ">
+		      AND click_num = #{click_num}  <!-- 查看次数 -->
+		</if>
+	   <if test="is_show != null ">
+		      AND is_show = #{is_show}  <!-- 是否显示 -->
+		</if>
+	   <if test="sort != null ">
+		      AND sort = #{sort}  <!-- 排序 -->
+		</if>
+	    <if test="content != null and content != ''">
+		      AND content = #{content}  <!-- 内容 -->
+		</if>
+	</sql>
+	
+	<!-- Where模糊匹配字段 -->
+	<sql id="like">
+	    <if test="title != null and title != ''">
+		      AND title like '${title}%'  <!-- 标题 -->
+		</if>
+	    <if test="img != null and img != ''">
+		      AND img like '${img}%'  <!-- 图片 -->
+		</if>
+	    <if test="img_qn != null and img_qn != ''">
+		      AND img_qn like '${img_qn}%'  <!-- 图片七牛地址 -->
+		</if>
+	    <if test="content != null and content != ''">
+		      AND content like '${content}%'  <!-- 内容 -->
+		</if>
+	</sql>
+	
+</mapper>

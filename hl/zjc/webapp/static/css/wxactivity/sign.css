@@ -1,0 +1,49 @@
+.sign{background:url(../../../static/image/wxactivity/sign/bg_sign.png) no-repeat;width:100%;height:auto;background-size:100% 100%; min-height:100%; } 
+/* 滚动sharesig_two */
+#share_sign_one{overflow:hidden;height:0.9rem;background:#787870;border-radius:15px;width:70%;margin-left:5%;position:relative;padding-left:2%;}
+#share_sign_two{ ;height:auto;text-align:left;}
+#share_sign_tree{height:auto;text-align:left;}
+#demo1 li{list-style-type:none;height:22px;text-align:left;text-indent:15px;}
+#share_sign_tree li{list-style-type:none;height:22px;text-align:left;text-indent:15px;}
+.singm{width:0.7rem;position:relative;top:0.2rem;}
+#share_sign_two li a{color:#d9d9d9;font-size:0.4rem;}
+.sharesig_one{padding-top:2%;}
+.sharesig_two{width:85%;margin:0 auto;text-align:right;padding-top:4.6rem;margin-bottom:1rem;} 
+.see_jp{width:3rem;}
+ @media screen and (max-width: 1080px){.sharesig_two{padding-top:5.3rem;}}@media screen and (max-width: 1024px){.sharesig_two{padding-top:4.7rem;}}@media screen and (max-width: 800px){.sharesig_two{padding-top:4.7rem;}}@media screen and (max-width: 768px){.sharesig_two{padding-top:4.7rem;}} @media screen and (max-width: 600px){.sharesig_two{padding-top:4.5rem;}}@media screen and (max-width: 414px){.sharesig_two{padding-top:5.2rem;}}@media screen and (max-width: 412px){.sharesig_two{padding-top:5.3rem;}}@media screen and (max-width: 375px){.sharesig_two{padding-top:5.2rem;}}@media screen and (max-width: 360px){.sharesig_two{padding-top:5.3rem;}}@media screen and (max-width: 320px){.sharesig_two{padding-top:4.9rem;}} 
+ 
+.zhe_title{color:#de1a00;font-size:0.55rem}
+.zhe_btn button{background:#fff;width:50%;border:1px solid #fff;padding:0.3rem 0;font-size:0.4rem;}
+.zhe_btn button.zhebtn_one{border-right:1px solid #efefef;border-bottom-left-radius:10px;}
+.zhe_btn button.zhebtn_two{border-bottom-right-radius:10px;color:#de1a00;}
+.zdce_side{border:1px solid #efefef;padding:2%;margin-left:10%;width:15%;}
+.zdce_cont{color:#242424;font-size:0.46rem;margin-left:6%;width:55%;margin-top:0.5rem;}
+.zhe_btn{border-top:1px solid #efefef;margin-top:0.6rem;}
+.wripe{width:80%;margin:0 auto; } 
+.sign-3-1{text-align:center;width:50%;margin:0 auto;}
+.sign-3-1 img{width:100%;} 
+.sign-3 .sign-3-2{width:100%;height:100%;background:url(../../../static/image/wxactivity/sign/sign_10.png) no-repeat;background-size:100% 100%;margin-top:2rem;} 
+.sign-3-2 h3{font-size:20px;color:#fff;width:100%;text-align:center;line-height:45px;}
+.turntable-bg {width: 100%;margin: 0 auto; margin-top:1rem;} 
+.turntable-bg .pointer{width: 2rem;margin:0 auto; cursor:pointer;position:relative;z-index:9996;}
+.turntable-bg .rotate{width: 100%;}
+.rotate img,.pointer img{width:100%;}
+.poin{width: 100%;position:absolute;top:2.7rem;z-index:9996;}
+.sign_text{margin-right:1.5rem;}
+.zhe_makesign_mak {z-index: 9997;position:fixed;top:0;left:0;width:100%;height:100%;background:#000;opacity:0.5;filter:alpha(opacity=40);display:none;padding:0 1rem;}
+.zhe_makesign { border-radius:10px;z-index:9998;position:fixed;top:15%;width:80%;margin:0 auto;left:10%;display:none;}
+.btn_ok{text-align:right;background:#f8420a;border:1px solid #f8420a;color:#fff;line-height:1rem;padding:0 0.5rem;}
+#img_rads,#img_rad{width:100%;}
+.zhd_img{position:relative;} 
+.zjdo_img{position:absolute;right:0; margin-right:0.5rem;width:1rem; }
+.yi_makgn_mak {z-index: 9997;position:fixed;top:0;left:0;width:100%;height:100%;background:#000;opacity:0.4;filter:alpha(opacity=40);display:none;padding:0 1rem;}
+.yi_makgn {background:#fff;border-radius:5px;z-index:9998;position:fixed;top:25%;width:80%;margin:0 auto;left:10%;padding-top:2%; padding-top:5%; }
+.yid_text{color:#989898;font-size:0.4rem;margin:0.3rem 0.2rem;} 
+.sign_co{color:#333;font-size:0.55rem;font-family:"黑体";}
+.sign_co span{color:#ec2b20;font-size:1.3rem;}
+.sign_ck{color:#ec2b20;font-size:0.45rem;width:85%;margin:0 auto;margin-top:0.5rem;}
+.sign_ts {padding-bottom:1rem;} 
+#img_rads{display:block; }
+.imgd{background:url(../../../static/image/wxactivity/sign/ben_gn.png) no-repeat center;width:100%;height:1.4rem;background-size:100% 100%;text-align:center;} 
+.btng{margin-top:0.1rem; background:#ffcf4d;border:1px solid #ffcf4d;color:#de2b14;font-size:0.46rem;width:70%;height:auto; border-radius:25px;}
+.me_no button{color:#fff;border:none;background:none;font-size:0.45rem;}.me_no{text-align:center;} 

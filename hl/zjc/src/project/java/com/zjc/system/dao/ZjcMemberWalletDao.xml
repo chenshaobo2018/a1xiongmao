@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- zjc_member_wallet[zjc_member_wallet]SQL自动映射 -->
+<!--  注意:此文件由AOS平台自动生成-禁止手工修改 2017-06-13 17:47:13 -->
+<mapper namespace="com.zjc.system.dao.ZjcMemberWalletDao">
+	
+	<!-- 插入一个数据持久化对象(插入字段为传入PO实体的非空属性) -->
+	<insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="ZjcMemberWalletPO">
+		INSERT INTO zjc_member_wallet (
+		<if test="wallet_amplification_ratio != null and wallet_amplification_ratio != ''">
+	         wallet_amplification_ratio, <!-- 钱包扩增比例 -->
+		</if>
+		<if test="date_time != null and date_time != ''">
+	         date_time, <!-- 添加时间 -->
+		</if>
+	          id
+		)VALUES(
+		<if test="wallet_amplification_ratio != null and wallet_amplification_ratio != ''">
+	          #{wallet_amplification_ratio, jdbcType=VARCHAR}, <!-- 钱包扩增比例 -->
+	    </if>
+		<if test="date_time != null and date_time != ''">
+	          #{date_time, jdbcType=VARCHAR}, <!-- 添加时间 -->
+	    </if>
+	          null
+		)
+	</insert>
+	
+	<!-- 插入一个数据持久化对象(含所有字段) -->
+	<insert id="insertAll" useGeneratedKeys="true" keyProperty="id" parameterType="ZjcMemberWalletPO">
+		INSERT INTO zjc_member_wallet (
+		    <include refid="column" />
+		)
+		VALUES (
+		    #{id, jdbcType=INTEGER},  <!-- 表id -->
+		    #{wallet_amplification_ratio, jdbcType=VARCHAR},  <!-- 钱包扩增比例 -->
+		    #{date_time, jdbcType=VARCHAR}  <!-- 添加时间 -->
+		)
+	</insert>
+
+	<!-- 根据主键修改数据持久化对象 -->
+	<update id="updateByKey" parameterType="ZjcMemberWalletPO">
+		UPDATE zjc_member_wallet
+		<set>
+			<if test="id != null">
+		          id = #{id, jdbcType=INTEGER},  <!-- 表id -->
+			</if>
+			<if test="wallet_amplification_ratio != null">
+		          wallet_amplification_ratio = #{wallet_amplification_ratio, jdbcType=VARCHAR},  <!-- 钱包扩增比例 -->
+			</if>
+			<if test="date_time != null">
+		          date_time = #{date_time, jdbcType=VARCHAR},  <!-- 添加时间 -->
+			</if>
+		</set>
+		WHERE  id = #{id}
+	</update>
+	
+	<!-- 根据主键删除数据持久化对象 -->
+	<delete id="deleteByKey">
+		DELETE FROM zjc_member_wallet WHERE  id = #{id}
+	</delete>
+    
+    <!-- 根据最大id查询最新数据 -->
+	<select id="selectByMaxKey" resultType="ZjcMemberWalletPO">
+		SELECT
+		<include refid="column" />
+		 from zjc_member_wallet t  
+         where t.id=(select max(id) from zjc_member_wallet)
+	</select>
+    
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="selectByKey" resultType="ZjcMemberWalletPO">
+		SELECT
+		<include refid="column" />
+		FROM zjc_member_wallet WHERE  id = #{id}
+	</select>
+
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="selectOne" parameterType="Dto" resultType="ZjcMemberWalletPO">
+		SELECT
+		    <include refid="column" />
+		FROM zjc_member_wallet
+		<where>
+		    <include refid="equal" />
+		</where>		
+	</select>
+
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="list" parameterType="Dto" resultType="ZjcMemberWalletPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_member_wallet
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listPage" parameterType="Dto" resultType="ZjcMemberWalletPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_member_wallet
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto模糊查询并返回数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="like" parameterType="Dto" resultType="ZjcMemberWalletPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_member_wallet
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto模糊查询并返回分页数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="likePage" parameterType="Dto" resultType="ZjcMemberWalletPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_member_wallet
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto统计行数 -->
+	<select id="rows" resultType="Integer" parameterType="Dto">
+		SELECT COUNT(1) AS aos_rows_ FROM zjc_member_wallet
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 根据数学表达式进行数学运算 -->
+	<select id="calc" parameterType="Dto" resultType="String">
+		SELECT
+			${_expr}
+		FROM zjc_member_wallet
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 表字段 -->
+	<sql id="column">
+		  id,  <!-- 表id -->
+		  wallet_amplification_ratio,  <!-- 钱包扩增比例 -->
+		  date_time  <!-- 添加时间 -->
+	</sql>
+	
+	<!-- 表字段(用于外表的关联时引用) -->
+	<sql id="column2">
+		  zjc_member_wallet.id,  <!-- 表id -->
+		  zjc_member_wallet.wallet_amplification_ratio,  <!-- 钱包扩增比例 -->
+		  zjc_member_wallet.date_time  <!-- 添加时间 -->
+	</sql>
+
+	<!-- Where精确匹配字段 -->
+	<sql id="equal">
+	   <if test="id != null ">
+		      AND id = #{id}  <!-- 表id -->
+		</if>
+	    <if test="wallet_amplification_ratio != null and wallet_amplification_ratio != ''">
+		      AND wallet_amplification_ratio = #{wallet_amplification_ratio}  <!-- 钱包扩增比例 -->
+		</if>
+	    <if test="date_time != null and date_time != ''">
+		      AND date_time = #{date_time}  <!-- 添加时间 -->
+		</if>
+	</sql>
+	
+	<!-- Where模糊匹配字段 -->
+	<sql id="like">
+	    <if test="wallet_amplification_ratio != null and wallet_amplification_ratio != ''">
+		      AND wallet_amplification_ratio like '${wallet_amplification_ratio}%'  <!-- 钱包扩增比例 -->
+		</if>
+	    <if test="date_time != null and date_time != ''">
+		      AND date_time like '${date_time}%'  <!-- 添加时间 -->
+		</if>
+	</sql>
+	
+</mapper>

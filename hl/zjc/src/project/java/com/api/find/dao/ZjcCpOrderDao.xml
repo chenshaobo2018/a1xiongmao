@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- zjc_cp_order[zjc_cp_order]SQL自动映射 -->
+<!--  注意:此文件由AOS平台自动生成-禁止手工修改 2017-07-16 11:07:35 -->
+<mapper namespace="com.api.find.dao.ZjcCpOrderDao">
+	
+	<!-- 插入一个数据持久化对象(插入字段为传入PO实体的非空属性) -->
+	<insert id="insert" useGeneratedKeys="true" keyProperty="order_id" parameterType="ZjcCpOrderPO">
+		INSERT INTO zjc_cp_order (
+		<if test="cp_id != null">
+	         cp_id, <!-- 企业宣传ID -->
+		</if>
+		<if test="user_id != null">
+	         user_id, <!-- 用户ID -->
+		</if>
+		<if test="cost_price != null">
+	         cost_price, <!-- 消费积分 -->
+		</if>
+		<if test="add_time != null">
+	         add_time, <!-- 购买时间 -->
+		</if>
+	          order_id
+		)VALUES(
+		<if test="cp_id != null">
+	          #{cp_id, jdbcType=INTEGER}, <!-- 企业宣传ID -->
+	    </if>
+		<if test="user_id != null">
+	          #{user_id, jdbcType=INTEGER}, <!-- 用户ID -->
+	    </if>
+		<if test="cost_price != null">
+	          #{cost_price, jdbcType=NUMERIC}, <!-- 消费积分 -->
+	    </if>
+		<if test="add_time != null">
+	          #{add_time, jdbcType=VARCHAR}, <!-- 购买时间 -->
+	    </if>
+	          null
+		)
+	</insert>
+	
+	<!-- 插入一个数据持久化对象(含所有字段) -->
+	<insert id="insertAll" useGeneratedKeys="true" keyProperty="order_id" parameterType="ZjcCpOrderPO">
+		INSERT INTO zjc_cp_order (
+		    <include refid="column" />
+		)
+		VALUES (
+		    #{order_id, jdbcType=INTEGER},  <!-- 企业宣传订单ID -->
+		    #{cp_id, jdbcType=INTEGER},  <!-- 企业宣传ID -->
+		    #{user_id, jdbcType=INTEGER},  <!-- 用户ID -->
+		    #{cost_price, jdbcType=NUMERIC},  <!-- 消费积分 -->
+		    #{add_time, jdbcType=VARCHAR}  <!-- 购买时间 -->
+		)
+	</insert>
+
+	<!-- 根据主键修改数据持久化对象 -->
+	<update id="updateByKey" parameterType="ZjcCpOrderPO">
+		UPDATE zjc_cp_order
+		<set>
+			<if test="order_id != null">
+		          order_id = #{order_id, jdbcType=INTEGER},  <!-- 企业宣传订单ID -->
+			</if>
+			<if test="cp_id != null">
+		          cp_id = #{cp_id, jdbcType=INTEGER},  <!-- 企业宣传ID -->
+			</if>
+			<if test="user_id != null">
+		          user_id = #{user_id, jdbcType=INTEGER},  <!-- 用户ID -->
+			</if>
+			<if test="cost_price != null">
+		          cost_price = #{cost_price, jdbcType=NUMERIC},  <!-- 消费积分 -->
+			</if>
+			<if test="add_time != null">
+		          add_time = #{add_time, jdbcType=VARCHAR},  <!-- 购买时间 -->
+			</if>
+		</set>
+		WHERE  order_id = #{order_id}
+	</update>
+	
+	<!-- 根据主键删除数据持久化对象 -->
+	<delete id="deleteByKey">
+		DELETE FROM zjc_cp_order WHERE  order_id = #{order_id}
+	</delete>
+
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="selectByKey" resultType="ZjcCpOrderPO">
+		SELECT
+		<include refid="column" />
+		FROM zjc_cp_order WHERE  order_id = #{order_id}
+	</select>
+
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="selectOne" parameterType="Dto" resultType="ZjcCpOrderPO">
+		SELECT
+		    <include refid="column" />
+		FROM zjc_cp_order
+		<where>
+		    <include refid="equal" />
+		</where>		
+	</select>
+
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="list" parameterType="Dto" resultType="ZjcCpOrderPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_cp_order
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listPage" parameterType="Dto" resultType="ZjcCpOrderPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_cp_order
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto模糊查询并返回数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="like" parameterType="Dto" resultType="ZjcCpOrderPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_cp_order
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto模糊查询并返回分页数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="likePage" parameterType="Dto" resultType="ZjcCpOrderPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_cp_order
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto统计行数 -->
+	<select id="rows" resultType="Integer" parameterType="Dto">
+		SELECT COUNT(1) AS aos_rows_ FROM zjc_cp_order
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 根据数学表达式进行数学运算 -->
+	<select id="calc" parameterType="Dto" resultType="String">
+		SELECT
+			${_expr}
+		FROM zjc_cp_order
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 表字段 -->
+	<sql id="column">
+		  order_id,  <!-- 企业宣传订单ID -->
+		  cp_id,  <!-- 企业宣传ID -->
+		  user_id,  <!-- 用户ID -->
+		  cost_price,  <!-- 消费积分 -->
+		  add_time  <!-- 购买时间 -->
+	</sql>
+	
+	<!-- 表字段(用于外表的关联时引用) -->
+	<sql id="column2">
+		  zjc_cp_order.order_id,  <!-- 企业宣传订单ID -->
+		  zjc_cp_order.cp_id,  <!-- 企业宣传ID -->
+		  zjc_cp_order.user_id,  <!-- 用户ID -->
+		  zjc_cp_order.cost_price,  <!-- 消费积分 -->
+		  zjc_cp_order.add_time  <!-- 购买时间 -->
+	</sql>
+
+	<!-- Where精确匹配字段 -->
+	<sql id="equal">
+	   <if test="order_id != null ">
+		      AND order_id = #{order_id}  <!-- 企业宣传订单ID -->
+		</if>
+	   <if test="cp_id != null ">
+		      AND cp_id = #{cp_id}  <!-- 企业宣传ID -->
+		</if>
+	   <if test="user_id != null ">
+		      AND user_id = #{user_id}  <!-- 用户ID -->
+		</if>
+	   <if test="cost_price != null ">
+		      AND cost_price = #{cost_price}  <!-- 消费积分 -->
+		</if>
+	   <if test="add_time != null ">
+		      AND add_time = #{add_time}  <!-- 购买时间 -->
+		</if>
+	</sql>
+	
+	<!-- Where模糊匹配字段 -->
+	<sql id="like">
+	</sql>
+	
+	
+	<!-- 根据企业宣传ID和user_id查询企业宣传订单数据 -->
+	<select id="selectByUserId" parameterType="Dto" resultType="ZjcCpOrderPO">
+		SELECT <include refid="column"></include>
+		FROM zjc_cp_order
+		<where>
+			1=1
+		   <if test="cp_id != null ">
+		      AND cp_id = #{cp_id}  <!-- 企业宣传ID -->
+		   </if>
+	       <if test="user_id != null ">
+		      AND user_id = #{user_id}  <!-- 用户ID -->
+		   </if>
+		</where>
+	</select>
+	
+</mapper>

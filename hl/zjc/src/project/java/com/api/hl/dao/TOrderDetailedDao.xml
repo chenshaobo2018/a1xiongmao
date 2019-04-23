@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- t_order_detailed[t_order_detailed]SQL自动映射 -->
+<!--  注意:此文件由AOS平台自动生成-禁止手工修改 2019-03-05 10:01:10 -->
+<mapper namespace="com.api.hl.dao.TOrderDetailedDao">
+	
+	
+	<!-- 插入一个数据持久化对象(插入字段为传入PO实体的非空属性) -->
+	<insert id="insert"  parameterType="TOrderDetailedPO">
+		INSERT INTO t_order_detailed (
+		<if test="order_id != null and order_id != ''">
+	         order_id, <!-- order_id -->
+		</if>
+		<if test="material_name != null and material_name != ''">
+	         material_name, <!-- material_name -->
+		</if>
+		<if test="number != null and number != ''">
+	         number, <!-- 数量 -->
+		</if>
+		<if test="sum_price != null and sum_price != ''">
+	         sum_price, <!-- 备注 -->
+		</if>
+		<if test="adjust_price != null and adjust_price != ''">
+	         adjust_price, <!-- 备注 -->
+		</if>
+		<if test="specifications_id != null and specifications_id != ''">
+	         specifications_id, <!-- 备注 -->
+		</if>
+		<if test="id != null and id != ''">
+	          id  <!-- id -->
+	   </if>
+		)VALUES(
+		<if test="order_id != null and order_id != ''">
+	          #{order_id, jdbcType=VARCHAR}, <!-- order_id -->
+	    </if>
+		<if test="material_name != null and material_name != ''">
+	          #{material_name, jdbcType=VARCHAR}, <!-- material_name -->
+	    </if>
+		<if test="number != null and number != ''">
+	          #{number, jdbcType=VARCHAR}, <!-- 数量 -->
+	    </if>
+	    <if test="sum_price != null and sum_price != ''">
+	         #{sum_price, jdbcType=VARCHAR}, <!-- 备注 -->
+		</if>
+		<if test="adjust_price != null and adjust_price != ''">
+	         #{adjust_price, jdbcType=VARCHAR}, <!-- 备注 -->
+		</if>
+		<if test="specifications_id != null and specifications_id != ''">
+	         #{specifications_id, jdbcType=VARCHAR}, <!-- 备注 -->
+		</if>
+		<if test="id != null and id != ''">
+		     #{id, jdbcType=VARCHAR}  <!-- id -->
+	    </if>
+		)
+	</insert>
+	
+	<!-- 插入一个数据持久化对象(含所有字段) -->
+	<insert id="insertAll"  parameterType="TOrderDetailedPO">
+		INSERT INTO t_order_detailed (
+		    <include refid="column" />
+		)
+		VALUES (
+		    #{id, jdbcType=VARCHAR},  <!-- id -->
+		    #{order_id, jdbcType=VARCHAR},  <!-- order_id -->
+		    #{material_name, jdbcType=VARCHAR},  <!-- material_name -->
+		    #{number, jdbcType=VARCHAR},  <!-- 数量 -->
+		    #{sum_price, jdbcType=VARCHAR},
+		    #{adjust_price, jdbcType=VARCHAR},
+		    #{specifications_id, jdbcType=VARCHAR}
+		)
+	</insert>
+
+	<!-- 根据主键修改数据持久化对象 -->
+	<update id="updateByKey" parameterType="TOrderDetailedPO">
+		UPDATE t_order_detailed
+		<set>
+			<if test="id != null">
+		          id = #{id, jdbcType=VARCHAR},  <!-- id -->
+			</if>
+			<if test="order_id != null">
+		          order_id = #{order_id, jdbcType=VARCHAR},  <!-- order_id -->
+			</if>
+			<if test="material_name != null">
+		          material_name = #{material_name, jdbcType=VARCHAR},  <!-- material_name -->
+			</if>
+			<if test="number != null">
+		          number = #{number, jdbcType=VARCHAR},  <!-- 数量 -->
+			</if>
+			<if test="sum_price != null">
+		         sum_price=#{sum_price, jdbcType=VARCHAR},  <!-- 备注 -->
+			</if>
+			<if test="adjust_price != null">
+		         adjust_price=  #{adjust_price, jdbcType=VARCHAR},  <!-- 备注 -->
+			</if>
+		</set>
+		WHERE  id = #{id}
+	</update>
+	
+	<!-- 根据主键删除数据持久化对象 -->
+	<delete id="deleteByKey">
+		DELETE FROM t_order_detailed WHERE  id = #{id}
+	</delete>
+
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="selectByKey" resultType="TOrderDetailedPO">
+		SELECT
+		<include refid="column" />
+		FROM t_order_detailed WHERE  id = #{id}
+	</select>
+
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="selectOne" parameterType="Dto" resultType="TOrderDetailedPO">
+		SELECT
+		    <include refid="column" />
+		FROM t_order_detailed
+		<where>
+		    <include refid="equal" />
+		</where>		
+	</select>
+	
+	<select id="order_detailed" parameterType="Dto" resultType="Dto">
+		SELECT
+			t1.id As order_detailed_id,
+			t1.material_name,
+			t1.number,
+			t.sum_price,
+			t3.price,
+			t3.material_name AS goodsName,
+			(select sum(receive_number) from t_order_receive t4 where t4.order_detailed_id = t1.id) AS all_receive_number
+		FROM
+			t_order t
+		INNER JOIN t_order_detailed t1 ON t.id = t1.order_id
+		LEFT JOIN t_specifications t2 ON t2.id = t1.specifications_id
+		LEFT JOIN t_goods t3 ON t3.id = t2.goods_id
+		where t.user_id=#{user_id} and t1.order_id=#{order_id}
+	</select>
+	<select id="orderCash" parameterType="Dto" resultType="Dto">
+		SELECT t.sum_price
+		from t_order t
+		where t.user_id=#{user_id} and t.id=#{order_id}
+	</select>
+	<select id="qgorder_detailedByOrderId" parameterType="Dto" resultType="T_order_detailedVO">
+		SELECT t_order_detailed.*,
+ 		gd.material_name materialname,ty.type_name,sp.brand,
+		sp.specifications_name,gd.note 
+		FROM t_order_detailed t_order_detailed 
+		LEFT JOIN t_specifications sp ON sp.id = t_order_detailed.specifications_id
+		LEFT JOIN t_goods gd on gd.id = sp.goods_id 
+		LEFT JOIN t_type ty on ty.id = gd.type_id 
+		WHERE t_order_detailed.order_id = #{order_id} 
+	</select>
+
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="list" parameterType="Dto" resultType="TOrderDetailedPO">
+		SELECT
+			<include refid="column" />	
+		FROM t_order_detailed
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listPage" parameterType="Dto" resultType="TOrderDetailedPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FROM t_order_detailed
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto模糊查询并返回数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="like" parameterType="Dto" resultType="TOrderDetailedPO">
+		SELECT
+			<include refid="column" />	
+		FROM t_order_detailed
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto模糊查询并返回分页数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="likePage" parameterType="Dto" resultType="TOrderDetailedPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FROM t_order_detailed
+		<where>
+		    <include refid="like" />
+		</where>	
+		
+		
+	</select>
+	
+	<select id="qgtjlikePage" parameterType="Dto" resultType="T_orderqgtjVO" useCache="false">
+	    SELECT dt.material_name,tp.type_name,sp.brand,sp.specifications_name,sp.price,dt.number,
+			 u.username,od.project_name,od.user_name suppliername,od.add_date 
+   		FROM t_order_detailed dt  
+		LEFT JOIN t_specifications sp on sp.id = dt.specifications_id 
+		LEFT JOIN t_order od on od.id = dt.order_id 
+		LEFT JOIN t_goods gds on gds.id = sp.goods_id 
+   		LEFT JOIN t_type tp on tp.id = gds.type_id 
+	 	LEFT JOIN t_userhl u on u.id = od.user_id 
+		<where>
+		    <include refid="like2" />
+		</where>	
+	</select>
+	<select id="qgtjlistVO" parameterType="Dto" resultType="T_orderqgtjVO" useCache="false">
+	    SELECT dt.material_name,tp.type_name,sp.brand,sp.specifications_name,sp.price,dt.number,
+			 u.username,od.project_name,od.user_name suppliername,od.add_date 
+   		FROM t_order_detailed dt  
+		LEFT JOIN t_specifications sp on sp.id = dt.specifications_id 
+		LEFT JOIN t_order od on od.id = dt.order_id 
+		LEFT JOIN t_goods gds on gds.id = sp.goods_id 
+   		LEFT JOIN t_type tp on tp.id = gds.type_id 
+	 	LEFT JOIN t_userhl u on u.id = od.user_id 
+		<where>
+		    <include refid="like2" />
+		</where>	
+	</select>
+	<select id="qgtjcount" parameterType="Dto" resultType="T_orderqgtjVO" useCache="false">
+	    SELECT COUNT(DISTINCT sp.id) specount,SUM(dt.number) totalnum,SUM(dt.number*sp.price) sumprice
+   		FROM t_order_detailed dt  
+		LEFT JOIN t_specifications sp on sp.id = dt.specifications_id 
+		LEFT JOIN t_order od on od.id = dt.order_id 
+		LEFT JOIN t_goods gds on gds.id = sp.goods_id 
+   		LEFT JOIN t_type tp on tp.id = gds.type_id 
+	 	LEFT JOIN t_userhl u on u.id = od.user_id 
+		<where>
+		    <include refid="like2" />
+		</where>	
+	</select>
+	
+	<select id="qgtjOutboundcount" parameterType="Dto" resultType="Dto" useCache="false">
+	   SELECT COUNT(DISTINCT sp.id) specount,SUM(dt.num) totalnum,SUM(dt.num*sp.price) sumprice
+   		FROM t_outbound dt  
+		LEFT JOIN t_specifications sp on sp.id = dt.goods 
+		<where>
+		    <include refid="like2" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto统计行数 -->
+	<select id="rows" resultType="Integer" parameterType="Dto">
+		SELECT COUNT(1) AS aos_rows_ FROM t_order_detailed
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 根据数学表达式进行数学运算 -->
+	<select id="calc" parameterType="Dto" resultType="String">
+		SELECT
+			${_expr}
+		FROM t_order_detailed
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 表字段 -->
+	<sql id="column">
+		  id,  <!-- id -->
+		  order_id,  <!-- order_id -->
+		  material_name,  <!-- material_name -->
+		  number,  <!-- 数量 -->
+		  sum_price,
+		  adjust_price,
+		  specifications_id
+	</sql>
+	
+	<!-- 表字段(用于外表的关联时引用) -->
+	<sql id="column2">
+		  t_order_detailed.id,  <!-- id -->
+		  t_order_detailed.order_id,  <!-- order_id -->
+		  t_order_detailed.material_name,  <!-- material_name -->
+		  t_order_detailed.number,  <!-- 数量 -->
+		  t_order_detailed.sum_price,
+		  t_order_detailed.adjust_price,
+		  t_order_detailed.specifications_id
+	</sql>
+
+	<!-- Where精确匹配字段 -->
+	<sql id="equal">
+	    <if test="id != null and id != ''">
+		      AND id = #{id}  <!-- id -->
+		</if>
+	    <if test="order_id != null and order_id != ''">
+		      AND order_id = #{order_id}  <!-- order_id -->
+		</if>
+	    <if test="material_name != null and material_name != ''">
+		      AND material_name = #{material_name}  <!-- material_name -->
+		</if>
+	    <if test="number != null and number != ''">
+		      AND number = #{number}  <!-- 数量 -->
+		</if>
+	</sql>
+	
+	<!-- Where模糊匹配字段 -->
+	<sql id="like">
+	    <if test="id != null and id != ''">
+		      AND id like '%${id}%'  <!-- id -->
+		</if>
+	    <if test="order_id != null and order_id != ''">
+		      AND order_id like '%${order_id}%'  <!-- order_id -->
+		</if>
+	    <if test="material_name != null and material_name != ''">
+		      AND material_name like '%${material_name}%'  <!-- material_name -->
+		</if>
+	    <if test="number != null and number != ''">
+		      AND number like '%${number}%'  <!-- 数量 -->
+		</if>
+	</sql>
+	<sql id="like2">
+	    <if test="type_id != null and type_id != ''">
+		      AND tp.id = #{type_id}  
+		</if>
+	    <if test="material_name != null and material_name != ''">
+		      AND dt.material_name like concat('%',#{material_name},'%')  <!-- material_name -->
+		</if>
+	    <if test="brand != null and brand != ''">
+		      AND sp.brand like concat('%',#{brand},'%')  
+		</if>
+		<if test="add_dateBegin != null and add_dateBegin != ''">
+		      AND <![CDATA[od.add_date >= #{add_dateBegin}]]> 
+		</if>
+		<if test="add_dateEnd != null and add_dateEnd != ''">
+		      AND <![CDATA[od.add_date <= #{add_dateEnd}]]> 
+		</if>
+	</sql>
+	
+</mapper>

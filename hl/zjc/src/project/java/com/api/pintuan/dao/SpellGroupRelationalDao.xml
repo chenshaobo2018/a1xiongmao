@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- spell_group_relational[spell_group_relational]SQL自动映射 -->
+<!--  注意:此文件由AOS平台自动生成-禁止手工修改 2018-03-23 15:20:38 -->
+<mapper namespace="com.api.pintuan.dao.SpellGroupRelationalDao">
+	
+	<!-- 插入一个数据持久化对象(插入字段为传入PO实体的非空属性) -->
+	<insert id="insert"  parameterType="SpellGroupRelationalPO">
+		INSERT INTO spell_group_relational (
+		<if test="order_id != null and order_id != ''">
+	         order_id, <!-- order_id -->
+		</if>
+		<if test="pin_order_id != null and pin_order_id != ''">
+	         pin_order_id, <!-- order_id -->
+		</if>
+		<if test="goods_id != null and goods_id != ''">
+	         goods_id, <!-- goods_id -->
+		</if>
+		<if test="user_id != null and user_id != ''">
+	         user_id, <!-- user_id -->
+		</if>
+		<if test="is_head != null">
+	         is_head, <!-- 是否是团长 -->
+		</if>
+		<if test="open_id != null and open_id != ''">
+	         open_id, <!-- open_id -->
+		</if>
+		<if test="head_img != null and head_img != ''">
+	         head_img, <!-- 头像 -->
+		</if>
+		<if test="nike_name != null and nike_name != ''">
+	         nike_name, <!-- 昵称 -->
+		</if>
+		<if test="id != null and id != ''">
+	          id  <!-- id -->
+	   </if>
+		)VALUES(
+		<if test="order_id != null and order_id != ''">
+	          #{order_id, jdbcType=VARCHAR}, <!-- order_id -->
+	    </if>
+	    <if test="pin_order_id != null and pin_order_id != ''">
+	        #{pin_order_id, jdbcType=VARCHAR},
+		</if>
+		<if test="goods_id != null and goods_id != ''">
+	          #{goods_id, jdbcType=VARCHAR}, <!-- goods_id -->
+	    </if>
+		<if test="user_id != null and user_id != ''">
+	          #{user_id, jdbcType=VARCHAR}, <!-- user_id -->
+	    </if>
+		<if test="is_head != null">
+	          #{is_head, jdbcType=INTEGER}, <!-- 是否是团长 -->
+	    </if>
+		<if test="open_id != null and open_id != ''">
+	          #{open_id, jdbcType=VARCHAR}, <!-- open_id -->
+	    </if>
+		<if test="head_img != null and head_img != ''">
+	          #{head_img, jdbcType=VARCHAR}, <!-- 头像 -->
+	    </if>
+		<if test="nike_name != null and nike_name != ''">
+	          #{nike_name, jdbcType=VARCHAR}, <!-- 昵称 -->
+	    </if>
+		<if test="id != null and id != ''">
+		     #{id, jdbcType=VARCHAR}  <!-- id -->
+	    </if>
+		)
+	</insert>
+	
+	<!-- 插入一个数据持久化对象(含所有字段) -->
+	<insert id="insertAll"  parameterType="SpellGroupRelationalPO">
+		INSERT INTO spell_group_relational (
+		    <include refid="column" />
+		)
+		VALUES (
+		    #{id, jdbcType=VARCHAR},  <!-- id -->
+		    #{order_id, jdbcType=VARCHAR},  <!-- order_id -->
+		    #{pin_order_id, jdbcType=VARCHAR},
+		    #{goods_id, jdbcType=VARCHAR},  <!-- goods_id -->
+		    #{user_id, jdbcType=VARCHAR},  <!-- user_id -->
+		    #{is_head, jdbcType=INTEGER},  <!-- 是否是团长 -->
+		    #{open_id, jdbcType=VARCHAR},  <!-- open_id -->
+		    #{head_img, jdbcType=VARCHAR},  <!-- 头像 -->
+		    #{nike_name, jdbcType=VARCHAR}  <!-- 昵称 -->
+		)
+	</insert>
+
+	<!-- 根据主键修改数据持久化对象 -->
+	<update id="updateByKey" parameterType="SpellGroupRelationalPO">
+		UPDATE spell_group_relational
+		<set>
+			<if test="id != null">
+		          id = #{id, jdbcType=VARCHAR},  <!-- id -->
+			</if>
+			<if test="order_id != null">
+		          order_id = #{order_id, jdbcType=VARCHAR},  <!-- order_id -->
+			</if>
+			<if test="pin_order_id != null">
+		          pin_order_id = #{pin_order_id, jdbcType=VARCHAR},  <!-- order_id -->
+			</if>
+			<if test="goods_id != null">
+		          goods_id = #{goods_id, jdbcType=VARCHAR},  <!-- goods_id -->
+			</if>
+			<if test="user_id != null">
+		          user_id = #{user_id, jdbcType=VARCHAR},  <!-- user_id -->
+			</if>
+			<if test="is_head != null">
+		          is_head = #{is_head, jdbcType=INTEGER},  <!-- 是否是团长 -->
+			</if>
+			<if test="open_id != null">
+		          open_id = #{open_id, jdbcType=VARCHAR},  <!-- open_id -->
+			</if>
+			<if test="head_img != null">
+		          head_img = #{head_img, jdbcType=VARCHAR},  <!-- 头像 -->
+			</if>
+			<if test="nike_name != null">
+		          nike_name = #{nike_name, jdbcType=VARCHAR},  <!-- 昵称 -->
+			</if>
+		</set>
+		WHERE  id = #{id}
+	</update>
+	
+	<!-- 根据主键删除数据持久化对象 -->
+	<delete id="deleteByKey">
+		DELETE FROM spell_group_relational WHERE  id = #{id}
+	</delete>
+
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="selectByKey" resultType="SpellGroupRelationalPO">
+		SELECT
+		<include refid="column" />
+		FROM spell_group_relational WHERE  id = #{id}
+	</select>
+
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="selectOne" parameterType="Dto" resultType="SpellGroupRelationalPO">
+		SELECT
+		    <include refid="column" />
+		FROM spell_group_relational
+		<where>
+		    <include refid="equal" />
+		</where>		
+	</select>
+
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="list" parameterType="Dto" resultType="SpellGroupRelationalPO">
+		SELECT
+		    <include refid="column" />
+		FROM spell_group_relational
+		<where>
+		    <include refid="equal" />
+		</where>
+		ORDER BY is_head DESC
+	</select>
+	
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="listPituan" parameterType="Dto" resultType="Dto">
+		SELECT
+		    t.*,t1.add_time
+		FROM spell_group_relational t 
+		inner join zjc_order t1 on t.order_id=t1.order_id
+		where 
+		      t.goods_id = #{goods_id} and t1.add_time &gt;= date_sub(now(), interval 3 day)  
+		<if test="is_head != null and is_head != ''">
+		      AND t.is_head = #{is_head} 
+		</if>
+		ORDER BY is_head DESC
+	</select>
+
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listPage" parameterType="Dto" resultType="SpellGroupRelationalPO" useCache="false">
+	    SELECT
+				t.order_id,
+				t.pin_order_id,
+				t.goods_id,
+				t.user_id,
+				t.is_head,
+				t.open_id,
+				t.head_img,
+				t.nike_name
+		from spell_group_relational t 
+		   INNER JOIN zjc_order t1 on t.order_id=t1.order_id
+		   where DATE_SUB(date_format(NOW(),'%Y-%m-%d'),INTERVAL 7 DAY) &lt;= date_format(t1.add_time,'%Y-%m-%d')
+		     and t.goods_id=#{goods_id}
+	</select>
+	
+	<!-- 根据Dto模糊查询并返回数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="like" parameterType="Dto" resultType="SpellGroupRelationalPO">
+		SELECT
+			<include refid="column" />	
+		FROM spell_group_relational
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto模糊查询并返回分页数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="likePage" parameterType="Dto" resultType="SpellGroupRelationalPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM spell_group_relational
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto统计行数 -->
+	<select id="rows" resultType="Integer" parameterType="Dto">
+		SELECT COUNT(1) AS aos_rows_ FROM spell_group_relational
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 根据数学表达式进行数学运算 -->
+	<select id="calc" parameterType="Dto" resultType="String">
+		SELECT
+			${_expr}
+		FROM spell_group_relational
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 表字段 -->
+	<sql id="column">
+		  id,  <!-- id -->
+		  order_id,  <!-- order_id -->
+		  pin_order_id,
+		  goods_id,  <!-- goods_id -->
+		  user_id,  <!-- user_id -->
+		  is_head,  <!-- 是否是团长 -->
+		  open_id,  <!-- open_id -->
+		  head_img,  <!-- 头像 -->
+		  nike_name  <!-- 昵称 -->
+	</sql>
+	
+	<!-- 表字段(用于外表的关联时引用) -->
+	<sql id="column2">
+		  spell_group_relational.id,  <!-- id -->
+		  spell_group_relational.order_id,  <!-- order_id -->
+		  spell_group_relational.pin_order_id,
+		  spell_group_relational.goods_id,  <!-- goods_id -->
+		  spell_group_relational.user_id,  <!-- user_id -->
+		  spell_group_relational.is_head,  <!-- 是否是团长 -->
+		  spell_group_relational.open_id,  <!-- open_id -->
+		  spell_group_relational.head_img,  <!-- 头像 -->
+		  spell_group_relational.nike_name  <!-- 昵称 -->
+	</sql>
+
+	<!-- Where精确匹配字段 -->
+	<sql id="equal">
+	    <if test="id != null and id != ''">
+		      AND id = #{id}  <!-- id -->
+		</if>
+	    <if test="order_id != null and order_id != ''">
+		      AND order_id = #{order_id}  <!-- order_id -->
+		</if>
+		  <if test="pin_order_id != null and pin_order_id != ''">
+		      AND pin_order_id = #{pin_order_id}  <!-- order_id -->
+		</if>
+	    <if test="goods_id != null and goods_id != ''">
+		      AND goods_id = #{goods_id}  <!-- goods_id -->
+		</if>
+	    <if test="user_id != null and user_id != ''">
+		      AND user_id = #{user_id}  <!-- user_id -->
+		</if>
+	   <if test="is_head != null ">
+		      AND is_head = #{is_head}  <!-- 是否是团长 -->
+		</if>
+	    <if test="open_id != null and open_id != ''">
+		      AND open_id = #{open_id}  <!-- open_id -->
+		</if>
+	    <if test="head_img != null and head_img != ''">
+		      AND head_img = #{head_img}  <!-- 头像 -->
+		</if>
+	    <if test="nike_name != null and nike_name != ''">
+		      AND nike_name = #{nike_name}  <!-- 昵称 -->
+		</if>
+	</sql>
+	
+	<!-- Where模糊匹配字段 -->
+	<sql id="like">
+	    <if test="id != null and id != ''">
+		      AND id like '${id}%'  <!-- id -->
+		</if>
+	    <if test="order_id != null and order_id != ''">
+		      AND order_id like '${order_id}%'  <!-- order_id -->
+		</if>
+	    <if test="goods_id != null and goods_id != ''">
+		      AND goods_id like '${goods_id}%'  <!-- goods_id -->
+		</if>
+	    <if test="user_id != null and user_id != ''">
+		      AND user_id like '${user_id}%'  <!-- user_id -->
+		</if>
+	    <if test="open_id != null and open_id != ''">
+		      AND open_id like '${open_id}%'  <!-- open_id -->
+		</if>
+	    <if test="head_img != null and head_img != ''">
+		      AND head_img like '${head_img}%'  <!-- 头像 -->
+		</if>
+	    <if test="nike_name != null and nike_name != ''">
+		      AND nike_name like '${nike_name}%'  <!-- 昵称 -->
+		</if>
+	</sql>
+	
+</mapper>

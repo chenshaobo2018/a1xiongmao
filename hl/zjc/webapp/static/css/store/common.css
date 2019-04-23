@@ -1,0 +1,25 @@
+/* Filename        common.css */
+/* description    css */ 
+@charset "utf-8";
+*{padding:0;margin:0;}
+*,div,p,ul,li,a,span,table,tr,td,img,select{margin:0;padding:0;}
+*,body,div,p,ul,li,a,span,table,tr,td,img{ font-family:"Microsoft YaHei","微软雅黑"; }
+input,button,select{font-family:'Microsoft YaHei';}
+.fl{float:left;}
+.fr{float:right;}
+.clear{clear:both;}
+a{text-decoration:none;}
+li{list-style:none;}
+.container,.  ,.footer{width:100%;}  
+.container{background:#f5f6f6;}
+img{border:none;}
+.bold{font-weight:bold;}
+ 
+  
+ .page_main{background:#fff;width:100%;}  
+.cart_page{width:550px;margin:0 auto;padding-top:20px; padding-bottom:20px;} 
+.cart_page ul li{float:left;margin-right:20px;} 
+.cart_page ul li.next_page,.cart_page ul li.top_page,.cart_page ul li.index_page,.cart_page ul li.end_page{width:80px; height:20px;line-height:20px;background:#eee;border:1px solid #bababa;text-align:center;} 
+.cart_page ul li a{font-size:12px;color:#bababa;} 
+.cart_page ul li a.clicksd{font-size:12px;color:#d00a0a;} 
+.cart_page ul li a:hover{color:#d00a0a;}

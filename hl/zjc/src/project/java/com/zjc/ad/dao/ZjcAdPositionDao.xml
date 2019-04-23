@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- zjc_ad_position[zjc_ad_position]SQL自动映射 -->
+<!--  注意:此文件由AOS平台自动生成-禁止手工修改 2017-05-04 18:04:16 -->
+<mapper namespace="com.zjc.ad.dao.ZjcAdPositionDao">
+	
+	<!-- 插入一个数据持久化对象(插入字段为传入PO实体的非空属性) -->
+	<insert id="insert" useGeneratedKeys="true" keyProperty="position_id" parameterType="ZjcAdPositionPO">
+		INSERT INTO zjc_ad_position (
+		<if test="position_name != null and position_name != ''">
+	         position_name, <!-- 广告位置名称 -->
+		</if>
+		<if test="ad_width != null">
+	         ad_width, <!-- 广告位宽度 -->
+		</if>
+		<if test="ad_height != null">
+	         ad_height, <!-- 广告位高度 -->
+		</if>
+		<if test="position_desc != null and position_desc != ''">
+	         position_desc, <!-- 广告描述 -->
+		</if>
+		<if test="position_style != null and position_style != ''">
+	         position_style, <!-- 模板 -->
+		</if>
+		<if test="is_open != null">
+	         is_open, <!-- 0关闭1开启 -->
+		</if>
+	          position_id
+		)VALUES(
+		<if test="position_name != null and position_name != ''">
+	          #{position_name, jdbcType=VARCHAR}, <!-- 广告位置名称 -->
+	    </if>
+		<if test="ad_width != null">
+	          #{ad_width, jdbcType=INTEGER}, <!-- 广告位宽度 -->
+	    </if>
+		<if test="ad_height != null">
+	          #{ad_height, jdbcType=INTEGER}, <!-- 广告位高度 -->
+	    </if>
+		<if test="position_desc != null and position_desc != ''">
+	          #{position_desc, jdbcType=VARCHAR}, <!-- 广告描述 -->
+	    </if>
+		<if test="position_style != null and position_style != ''">
+	          #{position_style, jdbcType=VARCHAR}, <!-- 模板 -->
+	    </if>
+		<if test="is_open != null">
+	          #{is_open, jdbcType=INTEGER}, <!-- 0关闭1开启 -->
+	    </if>
+	          null
+		)
+	</insert>
+	
+	<!-- 插入一个数据持久化对象(含所有字段) -->
+	<insert id="insertAll" useGeneratedKeys="true" keyProperty="position_id" parameterType="ZjcAdPositionPO">
+		INSERT INTO zjc_ad_position (
+		    <include refid="column" />
+		)
+		VALUES (
+		    #{position_id, jdbcType=INTEGER},  <!-- 表id -->
+		    #{position_name, jdbcType=VARCHAR},  <!-- 广告位置名称 -->
+		    #{ad_width, jdbcType=INTEGER},  <!-- 广告位宽度 -->
+		    #{ad_height, jdbcType=INTEGER},  <!-- 广告位高度 -->
+		    #{position_desc, jdbcType=VARCHAR},  <!-- 广告描述 -->
+		    #{position_style, jdbcType=VARCHAR},  <!-- 模板 -->
+		    #{is_open, jdbcType=INTEGER}  <!-- 0关闭1开启 -->
+		)
+	</insert>
+
+	<!-- 根据主键修改数据持久化对象 -->
+	<update id="updateByKey" parameterType="ZjcAdPositionPO">
+		UPDATE zjc_ad_position
+		<set>
+			<if test="position_id != null">
+		          position_id = #{position_id, jdbcType=INTEGER},  <!-- 表id -->
+			</if>
+			<if test="position_name != null">
+		          position_name = #{position_name, jdbcType=VARCHAR},  <!-- 广告位置名称 -->
+			</if>
+			<if test="ad_width != null">
+		          ad_width = #{ad_width, jdbcType=INTEGER},  <!-- 广告位宽度 -->
+			</if>
+			<if test="ad_height != null">
+		          ad_height = #{ad_height, jdbcType=INTEGER},  <!-- 广告位高度 -->
+			</if>
+			<if test="position_desc != null">
+		          position_desc = #{position_desc, jdbcType=VARCHAR},  <!-- 广告描述 -->
+			</if>
+			<if test="position_style != null">
+		          position_style = #{position_style, jdbcType=VARCHAR},  <!-- 模板 -->
+			</if>
+			<if test="is_open != null">
+		          is_open = #{is_open, jdbcType=INTEGER},  <!-- 0关闭1开启 -->
+			</if>
+		</set>
+		WHERE  position_id = #{position_id}
+	</update>
+	
+	<!-- 根据主键删除数据持久化对象 -->
+	<delete id="deleteByKey">
+		DELETE FROM zjc_ad_position WHERE  position_id = #{position_id}
+	</delete>
+
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="selectByKey" resultType="ZjcAdPositionPO">
+		SELECT
+		<include refid="column" />
+		FROM zjc_ad_position WHERE  position_id = #{position_id}
+	</select>
+
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="selectOne" parameterType="Dto" resultType="ZjcAdPositionPO">
+		SELECT
+		    <include refid="column" />
+		FROM zjc_ad_position
+		<where>
+		    <include refid="equal" />
+		</where>		
+	</select>
+
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="list" parameterType="Dto" resultType="ZjcAdPositionPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_ad_position
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listPage" parameterType="Dto" resultType="ZjcAdPositionPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_ad_position
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+	
+	<!-- 查询自定义下拉组件数据(重点是字段的别名) -->
+	<select id="listPositionComboBoxData" resultType="Dto">
+		SELECT
+		position_id AS value, position_name AS display
+		FROM
+		zjc_ad_position
+		order by position_id desc
+	</select>
+	<!-- 根据Dto模糊查询并返回数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="like" parameterType="Dto" resultType="ZjcAdPositionPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_ad_position
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto模糊查询并返回分页数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="likePage" parameterType="Dto" resultType="ZjcAdPositionPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_ad_position
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto统计行数 -->
+	<select id="rows" resultType="Integer" parameterType="Dto">
+		SELECT COUNT(1) AS aos_rows_ FROM zjc_ad_position
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 根据数学表达式进行数学运算 -->
+	<select id="calc" parameterType="Dto" resultType="String">
+		SELECT
+			${_expr}
+		FROM zjc_ad_position
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 表字段 -->
+	<sql id="column">
+		  position_id,  <!-- 表id -->
+		  position_name,  <!-- 广告位置名称 -->
+		  ad_width,  <!-- 广告位宽度 -->
+		  ad_height,  <!-- 广告位高度 -->
+		  position_desc,  <!-- 广告描述 -->
+		  position_style,  <!-- 模板 -->
+		  is_open  <!-- 0关闭1开启 -->
+	</sql>
+	
+	<!-- 表字段(用于外表的关联时引用) -->
+	<sql id="column2">
+		  zjc_ad_position.position_id,  <!-- 表id -->
+		  zjc_ad_position.position_name,  <!-- 广告位置名称 -->
+		  zjc_ad_position.ad_width,  <!-- 广告位宽度 -->
+		  zjc_ad_position.ad_height,  <!-- 广告位高度 -->
+		  zjc_ad_position.position_desc,  <!-- 广告描述 -->
+		  zjc_ad_position.position_style,  <!-- 模板 -->
+		  zjc_ad_position.is_open  <!-- 0关闭1开启 -->
+	</sql>
+
+	<!-- Where精确匹配字段 -->
+	<sql id="equal">
+	   <if test="position_id != null ">
+		      AND position_id = #{position_id}  <!-- 表id -->
+		</if>
+	    <if test="position_name != null and position_name != ''">
+		      AND position_name = #{position_name}  <!-- 广告位置名称 -->
+		</if>
+	   <if test="ad_width != null ">
+		      AND ad_width = #{ad_width}  <!-- 广告位宽度 -->
+		</if>
+	   <if test="ad_height != null ">
+		      AND ad_height = #{ad_height}  <!-- 广告位高度 -->
+		</if>
+	    <if test="position_desc != null and position_desc != ''">
+		      AND position_desc = #{position_desc}  <!-- 广告描述 -->
+		</if>
+	    <if test="position_style != null and position_style != ''">
+		      AND position_style = #{position_style}  <!-- 模板 -->
+		</if>
+	   <if test="is_open != null ">
+		      AND is_open = #{is_open}  <!-- 0关闭1开启 -->
+		</if>
+	</sql>
+	
+	<!-- Where模糊匹配字段 -->
+	<sql id="like">
+	    <if test="position_name != null and position_name != ''">
+		      AND position_name like '${position_name}%'  <!-- 广告位置名称 -->
+		</if>
+	    <if test="position_desc != null and position_desc != ''">
+		      AND position_desc like '${position_desc}%'  <!-- 广告描述 -->
+		</if>
+	    <if test="position_style != null and position_style != ''">
+		      AND position_style like '${position_style}%'  <!-- 模板 -->
+		</if>
+	</sql>
+	
+</mapper>

@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- zjc_vouchers[zjc_vouchers]SQL自动映射 -->
+<!--  注意:此文件由AOS平台自动生成-禁止手工修改 2017-12-20 09:55:10 -->
+<mapper namespace="com.api.login.dao.ZjcVouchersDao">
+	
+	<!-- 插入一个数据持久化对象(插入字段为传入PO实体的非空属性) -->
+	<insert id="insert"  parameterType="ZjcVouchersPO">
+		INSERT INTO zjc_vouchers (
+		<if test="user_id != null and user_id != ''">
+	         user_id, <!-- 用户id -->
+		</if>
+		<if test="is_use != null">
+	         is_use, <!-- 是否使用 -->
+		</if>
+		<if test="period_validity != null and period_validity != ''">
+	         period_validity, <!-- 有效期 -->
+		</if>
+		<if test="add_time != null and add_time != ''">
+	         add_time, <!-- 添加时间 -->
+		</if>
+		<if test="use_time != null and use_time != ''">
+	         use_time, <!-- 使用时间 -->
+		</if>
+		<if test="order_id != null and order_id != ''">
+	         order_id, <!-- 使用订单号 -->
+		</if>
+		<if test="voucher_limit != null and voucher_limit != ''">
+	         voucher_limit, <!-- 额度 -->
+		</if>
+		<if test="vouchers_id != null and vouchers_id != ''">
+	          vouchers_id  <!-- 代金券表id -->
+	   </if>
+		)VALUES(
+		<if test="user_id != null and user_id != ''">
+	          #{user_id, jdbcType=VARCHAR}, <!-- 用户id -->
+	    </if>
+		<if test="is_use != null">
+	          #{is_use, jdbcType=INTEGER}, <!-- 是否使用 -->
+	    </if>
+		<if test="period_validity != null and period_validity != ''">
+	          #{period_validity, jdbcType=VARCHAR}, <!-- 有效期 -->
+	    </if>
+		<if test="add_time != null and add_time != ''">
+	          #{add_time, jdbcType=VARCHAR}, <!-- 添加时间 -->
+	    </if>
+		<if test="use_time != null and use_time != ''">
+	          #{use_time, jdbcType=VARCHAR}, <!-- 使用时间 -->
+	    </if>
+		<if test="order_id != null and order_id != ''">
+	          #{order_id, jdbcType=VARCHAR}, <!-- 使用订单号 -->
+	    </if>
+	    <if test="voucher_limit != null and voucher_limit != ''">
+	        #{voucher_limit, jdbcType=VARCHAR}, <!-- 额度 -->
+		</if>
+		<if test="vouchers_id != null and vouchers_id != ''">
+		     #{vouchers_id, jdbcType=VARCHAR}  <!-- 代金券表id -->
+	    </if>
+		)
+	</insert>
+	
+	<!-- 插入一个数据持久化对象(含所有字段) -->
+	<insert id="insertAll"  parameterType="ZjcVouchersPO">
+		INSERT INTO zjc_vouchers (
+		    <include refid="column" />
+		)
+		VALUES (
+		    #{vouchers_id, jdbcType=VARCHAR},  <!-- 代金券表id -->
+		    #{user_id, jdbcType=VARCHAR},  <!-- 用户id -->
+		    #{is_use, jdbcType=INTEGER},  <!-- 是否使用 -->
+		    #{period_validity, jdbcType=VARCHAR},  <!-- 有效期 -->
+		    #{add_time, jdbcType=VARCHAR},  <!-- 添加时间 -->
+		    #{use_time, jdbcType=VARCHAR},  <!-- 使用时间 -->
+		    #{order_id, jdbcType=VARCHAR},  <!-- 使用订单号 -->
+		    #{voucher_limit, jdbcType=VARCHAR}
+		)
+	</insert>
+
+	<!-- 根据主键修改数据持久化对象 -->
+	<update id="updateByKey" parameterType="ZjcVouchersPO">
+		UPDATE zjc_vouchers
+		<set>
+			<if test="vouchers_id != null">
+		          vouchers_id = #{vouchers_id, jdbcType=VARCHAR},  <!-- 代金券表id -->
+			</if>
+			<if test="user_id != null">
+		          user_id = #{user_id, jdbcType=VARCHAR},  <!-- 用户id -->
+			</if>
+			<if test="is_use != null">
+		          is_use = #{is_use, jdbcType=INTEGER},  <!-- 是否使用 -->
+			</if>
+			<if test="period_validity != null">
+		          period_validity = #{period_validity, jdbcType=VARCHAR},  <!-- 有效期 -->
+			</if>
+			<if test="add_time != null">
+		          add_time = #{add_time, jdbcType=VARCHAR},  <!-- 添加时间 -->
+			</if>
+			<if test="use_time != null">
+		          use_time = #{use_time, jdbcType=VARCHAR},  <!-- 使用时间 -->
+			</if>
+			<if test="order_id != null">
+		          order_id = #{order_id, jdbcType=VARCHAR},  <!-- 使用订单号 -->
+			</if>
+			<if test="voucher_limit != null">
+		          voucher_limit = #{voucher_limit, jdbcType=VARCHAR},  <!-- 使用订单号 -->
+			</if>
+		</set>
+		WHERE  vouchers_id = #{vouchers_id}
+	</update>
+	
+	<!-- 根据主键删除数据持久化对象 -->
+	<delete id="deleteByKey">
+		DELETE FROM zjc_vouchers WHERE  vouchers_id = #{vouchers_id}
+	</delete>
+
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="selectByKey" resultType="ZjcVouchersPO">
+		SELECT
+		<include refid="column" />
+		FROM zjc_vouchers WHERE  vouchers_id = #{vouchers_id}
+	</select>
+
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="selectOne" parameterType="Dto" resultType="ZjcVouchersPO">
+		SELECT
+		    <include refid="column" />
+		FROM zjc_vouchers
+		<where>
+		    <include refid="equal" />
+		</where>		
+	</select>
+
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="list" parameterType="Dto" resultType="ZjcVouchersPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_vouchers
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listPage" parameterType="Dto" resultType="ZjcVouchersPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_vouchers
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto模糊查询并返回数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="like" parameterType="Dto" resultType="ZjcVouchersPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_vouchers
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto模糊查询并返回分页数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="likePage" parameterType="Dto" resultType="ZjcVouchersPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_vouchers
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto统计行数 -->
+	<select id="rows" resultType="Integer" parameterType="Dto">
+		SELECT COUNT(1) AS aos_rows_ FROM zjc_vouchers
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 根据数学表达式进行数学运算 -->
+	<select id="calc" parameterType="Dto" resultType="String">
+		SELECT
+			${_expr}
+		FROM zjc_vouchers
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 表字段 -->
+	<sql id="column">
+		  vouchers_id,  <!-- 代金券表id -->
+		  user_id,  <!-- 用户id -->
+		  is_use,  <!-- 是否使用 -->
+		  period_validity,  <!-- 有效期 -->
+		  add_time,  <!-- 添加时间 -->
+		  use_time,  <!-- 使用时间 -->
+		  order_id,  <!-- 使用订单号 -->
+		  voucher_limit 
+	</sql>
+	
+	<!-- 表字段(用于外表的关联时引用) -->
+	<sql id="column2">
+		  zjc_vouchers.vouchers_id,  <!-- 代金券表id -->
+		  zjc_vouchers.user_id,  <!-- 用户id -->
+		  zjc_vouchers.is_use,  <!-- 是否使用 -->
+		  zjc_vouchers.period_validity,  <!-- 有效期 -->
+		  zjc_vouchers.add_time,  <!-- 添加时间 -->
+		  zjc_vouchers.use_time,  <!-- 使用时间 -->
+		  zjc_vouchers.order_id,  <!-- 使用订单号 -->
+		  zjc_vouchers.voucher_limit
+	</sql>
+
+	<!-- Where精确匹配字段 -->
+	<sql id="equal">
+	    <if test="vouchers_id != null and vouchers_id != ''">
+		      AND vouchers_id = #{vouchers_id}  <!-- 代金券表id -->
+		</if>
+	    <if test="user_id != null and user_id != ''">
+		      AND user_id = #{user_id}  <!-- 用户id -->
+		</if>
+	   <if test="is_use != null ">
+		      AND is_use = #{is_use}  <!-- 是否使用 -->
+		</if>
+	    <if test="period_validity != null and period_validity != ''">
+		      AND period_validity = #{period_validity}  <!-- 有效期 -->
+		</if>
+	    <if test="add_time != null and add_time != ''">
+		      AND add_time = #{add_time}  <!-- 添加时间 -->
+		</if>
+	    <if test="use_time != null and use_time != ''">
+		      AND use_time = #{use_time}  <!-- 使用时间 -->
+		</if>
+	    <if test="order_id != null and order_id != ''">
+		      AND order_id = #{order_id}  <!-- 使用订单号 -->
+		</if>
+		<if test="voucher_limit != null and voucher_limit != ''">
+		      AND voucher_limit = #{voucher_limit}  <!-- 优惠券 -->
+		</if>
+	</sql>
+	
+	<!-- Where模糊匹配字段 -->
+	<sql id="like">
+	    <if test="vouchers_id != null and vouchers_id != ''">
+		      AND vouchers_id like '${vouchers_id}%'  <!-- 代金券表id -->
+		</if>
+	    <if test="user_id != null and user_id != ''">
+		      AND user_id like '${user_id}%'  <!-- 用户id -->
+		</if>
+	    <if test="period_validity != null and period_validity != ''">
+		      AND period_validity like '${period_validity}%'  <!-- 有效期 -->
+		</if>
+	    <if test="add_time != null and add_time != ''">
+		      AND add_time like '${add_time}%'  <!-- 添加时间 -->
+		</if>
+	    <if test="use_time != null and use_time != ''">
+		      AND use_time like '${use_time}%'  <!-- 使用时间 -->
+		</if>
+	    <if test="order_id != null and order_id != ''">
+		      AND order_id like '${order_id}%'  <!-- 使用订单号 -->
+		</if>
+	</sql>
+	
+</mapper>

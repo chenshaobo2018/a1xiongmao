@@ -1,0 +1,12 @@
+2019-04-14 00:19:51 INFO [Class:o.e.j.s.Server->Thread:main] jetty-8.1.17.v20150415 
+2019-04-14 00:19:54 INFO [Class:o.e.j.s.h.ContextHandler$Context->Thread:main] Initializing Spring root WebApplicationContext 
+2019-04-14 00:20:33 INFO [Class:o.e.j.s.h.ContextHandler$Context->Thread:main] Initializing Spring FrameworkServlet 'springDispatcherServlet' 
+2019-04-14 00:20:36 INFO [Class:o.e.j.s.AbstractConnector->Thread:main] Started SelectChannelConnector@0.0.0.0:10010 
+2019-04-14 08:37:13 INFO [Class:o.e.j.s.Server->Thread:main] jetty-8.1.17.v20150415 
+2019-04-14 08:37:16 INFO [Class:o.e.j.s.h.ContextHandler$Context->Thread:main] Initializing Spring root WebApplicationContext 
+2019-04-14 08:37:54 INFO [Class:o.e.j.s.h.ContextHandler$Context->Thread:main] Initializing Spring FrameworkServlet 'springDispatcherServlet' 
+2019-04-14 08:37:58 INFO [Class:o.e.j.s.AbstractConnector->Thread:main] Started SelectChannelConnector@0.0.0.0:10010 
+2019-04-14 09:30:35 INFO [Class:o.e.j.s.Server->Thread:main] jetty-8.1.17.v20150415 
+2019-04-14 09:30:36 INFO [Class:o.e.j.s.h.ContextHandler$Context->Thread:main] Initializing Spring root WebApplicationContext 
+2019-04-14 09:31:31 INFO [Class:o.e.j.s.h.ContextHandler$Context->Thread:main] Initializing Spring FrameworkServlet 'springDispatcherServlet' 
+2019-04-14 09:31:32 INFO [Class:o.e.j.s.AbstractConnector->Thread:main] Started SelectChannelConnector@0.0.0.0:10010 

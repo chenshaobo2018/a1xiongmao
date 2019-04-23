@@ -1,0 +1,17 @@
+eclipse.preferences.version=1
+encoding//src/project/java/com/api/cfca/service/WebappListener.java=UTF-8
+encoding//src/resources/acp_sdk.properties=UTF-8
+encoding//webapp/WEB-INF/jsp/project/wxactivity/index.jsp=UTF-8
+encoding//webapp/WEB-INF/jsp/project/wxactivity/luck_draw.jsp=UTF-8
+encoding//webapp/WEB-INF/jsp/project/wxstore/my_order.jsp=UTF-8
+encoding//webapp/WEB-INF/jsp/project/zjc/payCfca/pay_fal.jsp=UTF-8
+encoding//webapp/WEB-INF/jsp/project/zjc/wx/myQRCode.jsp=UTF-8
+encoding//webapp/static/css/pcstore/h_foot.css=UTF-8
+encoding//webapp/static/css/pcstore/zjc_index.css=UTF-8
+encoding//webapp/static/css/qrcode/share.css=UTF-8
+encoding//webapp/static/css/qrcode/share_regit.css=UTF-8
+encoding//webapp/static/css/store/common.css=UTF-8
+encoding//webapp/static/css/store/mct_index.css=UTF-8
+encoding//webapp/static/css/wxactivity/share_power.css=UTF-8
+encoding//webapp/static/css/wxstore/index.css=UTF-8
+encoding/<project>=UTF-8

@@ -1,0 +1,2774 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- zjc_order[zjc_order]SQL自动映射 -->
+<!--  注意:此文件由AOS平台自动生成-禁止手工修改 2017-05-24 09:08:52 -->
+<mapper namespace="com.zjc.order.dao.ZjcOrderDao">
+	
+	<resultMap id="queryForListMap" type="com.zjc.order.dao.po.ZjcOrderPO">  
+        <id column="order_id" property="order_id" jdbcType="INTEGER"/>  
+        <result column="order_sn" property="order_sn" jdbcType="VARCHAR"/>
+        <result column="user_name" property="user_name" jdbcType="VARCHAR"/>
+        <result column="user_id" property="user_id" jdbcType="INTEGER"/>
+        <result column="store_id" property="store_id" jdbcType="INTEGER"/>
+        <result column="store_name" property="store_name" jdbcType="VARCHAR"/>
+        <result column="order_status" property="order_status" jdbcType="INTEGER"/>
+        <result column="shipping_status" property="shipping_status" jdbcType="INTEGER"/>
+        <result column="pay_status" property="pay_status" jdbcType="INTEGER"/>
+        <result column="consignee" property="consignee" jdbcType="VARCHAR"/>
+        <result column="country" property="country" jdbcType="INTEGER"/>
+        <result column="province" property="province" jdbcType="INTEGER"/>
+        <result column="city" property="city" jdbcType="INTEGER"/>
+        <result column="district" property="district" jdbcType="INTEGER"/>
+        <result column="twon" property="twon" jdbcType="INTEGER"/>
+        <result column="address" property="address" jdbcType="VARCHAR"/>
+        <result column="zipcode" property="zipcode" jdbcType="VARCHAR"/>
+        <result column="mobile" property="mobile" jdbcType="VARCHAR"/>
+        <result column="email" property="email" jdbcType="VARCHAR"/>
+        <result column="shipping_code" property="shipping_code" jdbcType="VARCHAR"/>
+        <result column="shipping_name" property="shipping_name" jdbcType="VARCHAR"/>
+        <result column="pay_code" property="pay_code" jdbcType="VARCHAR"/>
+        <result column="pay_name" property="pay_name" jdbcType="VARCHAR"/>
+        <result column="invoice_title" property="invoice_title" jdbcType="VARCHAR"/>
+        <result column="goods_price" property="goods_price" jdbcType="NUMERIC"/>
+        <result column="shipping_price" property="shipping_price" jdbcType="NUMERIC"/>
+        <result column="user_money" property="user_money" jdbcType="NUMERIC"/>
+        <result column="coupon_price" property="coupon_price" jdbcType="NUMERIC"/>
+        <result column="integral" property="integral" jdbcType="INTEGER"/>
+        <result column="integral_money" property="integral_money" jdbcType="NUMERIC"/>
+        <result column="order_amount" property="order_amount" jdbcType="NUMERIC"/>
+       	<result column="total_amount" property="total_amount" jdbcType="NUMERIC"/>
+       	<result column="email" property="email" jdbcType="VARCHAR"/>
+        <result column="add_time" property="add_time" jdbcType="VARCHAR"/>
+        <result column="shipping_time" property="shipping_time" jdbcType="VARCHAR"/>
+        <result column="confirm_time" property="confirm_time" jdbcType="VARCHAR"/>
+        <result column="pay_time" property="pay_time" jdbcType="VARCHAR"/>
+        <result column="order_prom_id" property="order_prom_id" jdbcType="INTEGER"/>
+        <result column="order_prom_amount" property="order_prom_amount" jdbcType="NUMERIC"/>
+        <result column="discount" property="discount" jdbcType="NUMERIC"/>
+        <result column="user_note" property="user_note" jdbcType="VARCHAR"/>
+        <result column="admin_note" property="admin_note" jdbcType="VARCHAR"/>
+        <result column="parent_sn" property="parent_sn" jdbcType="VARCHAR"/>
+        <result column="is_distribut" property="is_distribut" jdbcType="INTEGER"/>
+        <result column="order_type" property="order_type" jdbcType="INTEGER"/>
+        <result column="pay_sn" property="pay_sn" jdbcType="VARCHAR"/>
+        <result column="trade_no" property="trade_no" jdbcType="VARCHAR"/>
+        <result column="buy_points" property="buy_points" jdbcType="VARCHAR"/>
+        <result column="is_del" property="is_del" jdbcType="INTEGER"/>
+        <result column="tracking_no" property="tracking_no" jdbcType="VARCHAR"/>
+        <result column="cash" property="cash" jdbcType="NUMERIC"/>
+       	<result column="barter_coupons" property="barter_coupons" jdbcType="NUMERIC"/>
+       	<result column="has_transfer" property="has_transfer" jdbcType="INTEGER"/>
+       	<result column="points_pay_status" property="points_pay_status" jdbcType="INTEGER"/>
+        <collection property="zjcOrderGoodsPO"  ofType="com.zjc.order.dao.po.ZjcOrderGoodsPO">  
+            <id column="rec_id" property="rec_id" jdbcType="INTEGER" />
+            <result column="order_id" property="order_id" jdbcType="INTEGER"/>
+            <result column="goods_id" property="goods_id" jdbcType="INTEGER"/>
+            <result column="goods_name" property="goods_name" jdbcType="VARCHAR"/>
+            <result column="goods_sn" property="goods_sn" jdbcType="VARCHAR"/>
+            <result column="goods_num" property="goods_num" jdbcType="INTEGER"/>
+            <result column="market_price" property="market_price" jdbcType="NUMERIC"/>
+            <result column="goods_price" property="goods_price" jdbcType="NUMERIC"/>
+            <result column="cost_price" property="cost_price" jdbcType="NUMERIC"/>
+            <result column="member_goods_price" property="member_goods_price" jdbcType="NUMERIC"/>
+            <result column="give_integral" property="give_integral" jdbcType="INTEGER"/>
+            <result column="spec_key" property="spec_key" jdbcType="VARCHAR"/>
+            <result column="spec_key_name" property="spec_key_name" jdbcType="VARCHAR"/>
+            <result column="bar_code" property="bar_code" jdbcType="VARCHAR"/>
+            <result column="is_comment" property="is_comment" jdbcType="INTEGER"/>
+            <result column="prom_type" property="prom_type" jdbcType="INTEGER"/>
+            <result column="prom_id" property="prom_id" jdbcType="INTEGER"/>
+            <result column="is_send" property="is_send" jdbcType="INTEGER"/>
+            <result column="delivery_id" property="delivery_id" jdbcType="INTEGER"/>
+            <result column="sku" property="sku" jdbcType="VARCHAR"/>
+        </collection>  
+    </resultMap>  
+	
+	
+	<!-- 插入一个数据持久化对象(插入字段为传入PO实体的非空属性) -->
+	<insert id="insert" useGeneratedKeys="true" keyProperty="order_id" parameterType="ZjcOrderPO">
+		INSERT INTO zjc_order (
+		<if test="order_sn != null and order_sn != ''">
+	         order_sn, <!-- 订单编号 -->
+		</if>
+		<if test="user_name != null and user_name != ''">
+	         user_name, <!-- 会员名称 -->
+		</if>
+		<if test="user_id != null">
+	         user_id, <!-- 用户id -->
+		</if>
+		<if test="store_id != null">
+	         store_id, <!-- 店铺ID -->
+		</if>
+		<if test="store_name != null and store_name != ''">
+	         store_name, <!-- 店铺名称 -->
+		</if>
+		<if test="order_status != null">
+	         order_status, <!-- 订单状态(0-待确认，1-已确认，2-已收货，3-已取消，4-已完成(已评价)，5-已作废) -->
+		</if>
+		<if test="shipping_status != null">
+	         shipping_status, <!-- 发货状态 -->
+		</if>
+		<if test="pay_status != null">
+	         pay_status, <!-- 支付状态 -->
+		</if>
+		<if test="consignee != null and consignee != ''">
+	         consignee, <!-- 收货人 -->
+		</if>
+		<if test="country != null">
+	         country, <!-- 国家 -->
+		</if>
+		<if test="province != null">
+	         province, <!-- 省份 -->
+		</if>
+		<if test="city != null">
+	         city, <!-- 城市 -->
+		</if>
+		<if test="district != null">
+	         district, <!-- 县区 -->
+		</if>
+		<if test="twon != null">
+	         twon, <!-- 乡镇 -->
+		</if>
+		<if test="address != null and address != ''">
+	         address, <!-- 地址 -->
+		</if>
+		<if test="zipcode != null and zipcode != ''">
+	         zipcode, <!-- 邮政编码 -->
+		</if>
+		<if test="mobile != null and mobile != ''">
+	         mobile, <!-- 手机 -->
+		</if>
+		<if test="email != null and email != ''">
+	         email, <!-- 邮件 -->
+		</if>
+		<if test="shipping_code != null and shipping_code != ''">
+	         shipping_code, <!-- 物流code -->
+		</if>
+		<if test="shipping_name != null and shipping_name != ''">
+	         shipping_name, <!-- 物流名称 -->
+		</if>
+		<if test="pay_code != null and pay_code != ''">
+	         pay_code, <!-- 支付code rate 比例支付 equal  等比例支付 cash 现金支付  wxpay 微信支付  alipay 支付宝支付 -->
+		</if>
+		<if test="pay_name != null and pay_name != ''">
+	         pay_name, <!-- 支付方式名称 -->
+		</if>
+		<if test="invoice_title != null and invoice_title != ''">
+	         invoice_title, <!-- 发票抬头 -->
+		</if>
+		<if test="goods_price != null">
+	         goods_price, <!-- 商品总价 -->
+		</if>
+		<if test="shipping_price != null">
+	         shipping_price, <!-- 邮费 -->
+		</if>
+		<if test="user_money != null">
+	         user_money, <!-- 使用余额 -->
+		</if>
+		<if test="coupon_price != null">
+	         coupon_price, <!-- 优惠券抵扣 -->
+		</if>
+		<if test="integral != null">
+	         integral, <!-- 使用积分 -->
+		</if>
+		<if test="integral_money != null">
+	         integral_money, <!-- 使用积分抵多少钱 -->
+		</if>
+		<if test="order_amount != null">
+	         order_amount, <!-- 应付款金额 -->
+		</if>
+		<if test="total_amount != null">
+	         total_amount, <!-- 订单总价 -->
+		</if>
+		<if test="add_time != null and add_time != ''">
+	         add_time, <!-- 下单时间 -->
+		</if>
+		<if test="shipping_time != null and shipping_time != ''">
+	         shipping_time, <!-- 最后新发货时间 -->
+		</if>
+		<if test="confirm_time != null and confirm_time != ''">
+	         confirm_time, <!-- 收货确认时间 -->
+		</if>
+		<if test="pay_time != null and pay_time != ''">
+	         pay_time, <!-- 支付时间 -->
+		</if>
+		<if test="order_prom_id != null">
+	         order_prom_id, <!-- 活动id -->
+		</if>
+		<if test="order_prom_amount != null">
+	         order_prom_amount, <!-- 活动优惠金额 -->
+		</if>
+		<if test="discount != null">
+	         discount, <!-- 价格调整 -->
+		</if>
+		<if test="user_note != null and user_note != ''">
+	         user_note, <!-- 用户备注 -->
+		</if>
+		<if test="admin_note != null and admin_note != ''">
+	         admin_note, <!-- 管理员备注 -->
+		</if>
+		<if test="parent_sn != null and parent_sn != ''">
+	         parent_sn, <!-- 父单单号 -->
+		</if>
+		<if test="is_distribut != null">
+	         is_distribut, <!-- 是否已分成0未分成1已分成 -->
+		</if>
+		<if test="order_type != null">
+	         order_type, <!-- 1-商城普通商品，2-积分充值 -->
+		</if>
+		<if test="pay_sn != null and pay_sn != ''">
+	         pay_sn, <!-- 支付编号 -->
+		</if>
+		<if test="trade_no != null and trade_no != ''">
+	         trade_no, <!-- trade_no -->
+		</if>
+		<if test="buy_points != null and buy_points != ''">
+	         buy_points, <!-- 购买积分 -->
+		</if>
+		<if test="tracking_no != null and tracking_no != ''">
+	         tracking_no, <!-- 购买积分 -->
+		</if>
+		<if test="cash != null">
+	         cash, <!-- 现金 -->
+		</if>
+		<if test="barter_coupons != null">
+	         barter_coupons, <!-- 易物券 -->
+		</if>
+		<if test="has_transfer != null">
+	         has_transfer, <!-- 是否已转账 -->
+		</if>
+		<if test="points_pay_status != null">
+	         points_pay_status, <!-- 易物券支付状态；0:未支付；1:已支付 -->
+		</if>
+		<if test="is_shop_group != null">
+	         is_shop_group,  <!-- 是否拼团订单 0：否 1：是 -->
+		</if>
+		<if test="v_oid != null">
+	         v_oid,  <!-- 是否拼团订单 0：否 1：是 -->
+		</if>
+		<if test="reminder != null">
+	         reminder, <!-- 催单次数 -->
+		</if>
+		<if test="remindertime != null and remindertime != ''">
+	         remindertime, <!-- 上次催单时间 -->
+		</if>
+		<if test="single_back != null">
+	         single_back, <!-- 退单状态：0发起退单1退单中2退单成功3退单失败 -->
+		</if>
+		<if test="single_back_time != null and single_back_time != ''">
+	         single_back_time, <!-- 退单时间 -->
+		</if>
+		<if test="confirm_single_back_time != null and confirm_single_back_time != ''">
+	         confirm_single_back_time, <!-- 确认退单时间 -->
+		</if>
+	          order_id
+		)VALUES(
+		<if test="order_sn != null and order_sn != ''">
+	          #{order_sn, jdbcType=VARCHAR}, <!-- 订单编号 -->
+	    </if>
+		<if test="user_name != null and user_name != ''">
+	          #{user_name, jdbcType=VARCHAR}, <!-- 会员名称 -->
+	    </if>
+		<if test="user_id != null">
+	          #{user_id, jdbcType=INTEGER}, <!-- 用户id -->
+	    </if>
+		<if test="store_id != null">
+	          #{store_id, jdbcType=INTEGER}, <!-- 店铺ID -->
+	    </if>
+		<if test="store_name != null and store_name != ''">
+	          #{store_name, jdbcType=VARCHAR}, <!-- 店铺名称 -->
+	    </if>
+		<if test="order_status != null">
+	          #{order_status, jdbcType=INTEGER}, <!-- 订单状态(0-待确认，1-已确认，2-已收货，3-已取消，4-已完成(已评价)，5-已作废) -->
+	    </if>
+		<if test="shipping_status != null">
+	          #{shipping_status, jdbcType=INTEGER}, <!-- 发货状态 -->
+	    </if>
+		<if test="pay_status != null">
+	          #{pay_status, jdbcType=INTEGER}, <!-- 支付状态 -->
+	    </if>
+		<if test="consignee != null and consignee != ''">
+	          #{consignee, jdbcType=VARCHAR}, <!-- 收货人 -->
+	    </if>
+		<if test="country != null">
+	          #{country, jdbcType=INTEGER}, <!-- 国家 -->
+	    </if>
+		<if test="province != null">
+	          #{province, jdbcType=INTEGER}, <!-- 省份 -->
+	    </if>
+		<if test="city != null">
+	          #{city, jdbcType=INTEGER}, <!-- 城市 -->
+	    </if>
+		<if test="district != null">
+	          #{district, jdbcType=INTEGER}, <!-- 县区 -->
+	    </if>
+		<if test="twon != null">
+	          #{twon, jdbcType=INTEGER}, <!-- 乡镇 -->
+	    </if>
+		<if test="address != null and address != ''">
+	          #{address, jdbcType=VARCHAR}, <!-- 地址 -->
+	    </if>
+		<if test="zipcode != null and zipcode != ''">
+	          #{zipcode, jdbcType=VARCHAR}, <!-- 邮政编码 -->
+	    </if>
+		<if test="mobile != null and mobile != ''">
+	          #{mobile, jdbcType=VARCHAR}, <!-- 手机 -->
+	    </if>
+		<if test="email != null and email != ''">
+	          #{email, jdbcType=VARCHAR}, <!-- 邮件 -->
+	    </if>
+		<if test="shipping_code != null and shipping_code != ''">
+	          #{shipping_code, jdbcType=VARCHAR}, <!-- 物流code -->
+	    </if>
+		<if test="shipping_name != null and shipping_name != ''">
+	          #{shipping_name, jdbcType=VARCHAR}, <!-- 物流名称 -->
+	    </if>
+		<if test="pay_code != null and pay_code != ''">
+	          #{pay_code, jdbcType=VARCHAR}, <!-- 支付code rate 比例支付 equal  等比例支付 cash 现金支付  wxpay 微信支付  alipay 支付宝支付 -->
+	    </if>
+		<if test="pay_name != null and pay_name != ''">
+	          #{pay_name, jdbcType=VARCHAR}, <!-- 支付方式名称 -->
+	    </if>
+		<if test="invoice_title != null and invoice_title != ''">
+	          #{invoice_title, jdbcType=VARCHAR}, <!-- 发票抬头 -->
+	    </if>
+		<if test="goods_price != null">
+	          #{goods_price, jdbcType=NUMERIC}, <!-- 商品总价 -->
+	    </if>
+		<if test="shipping_price != null">
+	          #{shipping_price, jdbcType=NUMERIC}, <!-- 邮费 -->
+	    </if>
+		<if test="user_money != null">
+	          #{user_money, jdbcType=NUMERIC}, <!-- 使用余额 -->
+	    </if>
+		<if test="coupon_price != null">
+	          #{coupon_price, jdbcType=NUMERIC}, <!-- 优惠券抵扣 -->
+	    </if>
+		<if test="integral != null">
+	          #{integral, jdbcType=INTEGER}, <!-- 使用积分 -->
+	    </if>
+		<if test="integral_money != null">
+	          #{integral_money, jdbcType=NUMERIC}, <!-- 使用积分抵多少钱 -->
+	    </if>
+		<if test="order_amount != null">
+	          #{order_amount, jdbcType=NUMERIC}, <!-- 应付款金额 -->
+	    </if>
+		<if test="total_amount != null">
+	          #{total_amount, jdbcType=NUMERIC}, <!-- 订单总价 -->
+	    </if>
+		<if test="add_time != null and add_time != ''">
+	          #{add_time, jdbcType=VARCHAR}, <!-- 下单时间 -->
+	    </if>
+		<if test="shipping_time != null and shipping_time != ''">
+	          #{shipping_time, jdbcType=VARCHAR}, <!-- 最后新发货时间 -->
+	    </if>
+		<if test="confirm_time != null and confirm_time != ''">
+	          #{confirm_time, jdbcType=VARCHAR}, <!-- 收货确认时间 -->
+	    </if>
+		<if test="pay_time != null and pay_time != ''">
+	          #{pay_time, jdbcType=VARCHAR}, <!-- 支付时间 -->
+	    </if>
+		<if test="order_prom_id != null">
+	          #{order_prom_id, jdbcType=INTEGER}, <!-- 活动id -->
+	    </if>
+		<if test="order_prom_amount != null">
+	          #{order_prom_amount, jdbcType=NUMERIC}, <!-- 活动优惠金额 -->
+	    </if>
+		<if test="discount != null">
+	          #{discount, jdbcType=NUMERIC}, <!-- 价格调整 -->
+	    </if>
+		<if test="user_note != null and user_note != ''">
+	          #{user_note, jdbcType=VARCHAR}, <!-- 用户备注 -->
+	    </if>
+		<if test="admin_note != null and admin_note != ''">
+	          #{admin_note, jdbcType=VARCHAR}, <!-- 管理员备注 -->
+	    </if>
+		<if test="parent_sn != null and parent_sn != ''">
+	          #{parent_sn, jdbcType=VARCHAR}, <!-- 父单单号 -->
+	    </if>
+		<if test="is_distribut != null">
+	          #{is_distribut, jdbcType=INTEGER}, <!-- 是否已分成0未分成1已分成 -->
+	    </if>
+		<if test="order_type != null">
+	          #{order_type, jdbcType=INTEGER}, <!-- 1-商城普通商品，2-积分充值 -->
+	    </if>
+		<if test="pay_sn != null and pay_sn != ''">
+	          #{pay_sn, jdbcType=VARCHAR}, <!-- 支付编号 -->
+	    </if>
+		<if test="trade_no != null and trade_no != ''">
+	          #{trade_no, jdbcType=VARCHAR}, <!-- trade_no -->
+	    </if>
+		<if test="buy_points != null and buy_points != ''">
+	          #{buy_points, jdbcType=VARCHAR}, <!-- 购买积分 -->
+	    </if>
+	    <if test="is_del != null">
+	          #{is_del, jdbcType=INTEGER},  <!-- 是否删除（0表示未删除，1表示已删除） -->
+		</if>
+		<if test="tracking_no != null">
+	          #{tracking_no, jdbcType=VARCHAR},  <!-- 是否删除（0表示未删除，1表示已删除） -->
+		</if>
+		<if test="cash != null">
+	          #{cash, jdbcType=NUMERIC}, <!-- 现金 -->
+	    </if>
+		<if test="barter_coupons != null">
+	          #{barter_coupons, jdbcType=NUMERIC}, <!-- 易物券 -->
+	    </if>
+	    <if test="has_transfer != null">
+	         #{has_transfer, jdbcType=INTEGER},  <!-- 是否已转账 -->
+		</if>
+		 <if test="points_pay_status != null">
+	         #{points_pay_status, jdbcType=INTEGER},  <!-- 易物券支付状态；0:未支付；1:已支付 -->
+		</if>
+		<if test="is_shop_group != null">
+	         #{is_shop_group, jdbcType=INTEGER},  <!-- 是否拼团订单 0：否 1：是 -->
+		</if>
+		<if test="v_oid != null">
+	        #{v_oid, jdbcType=VARCHAR},
+		</if>
+		<if test="reminder != null">
+	          #{reminder, jdbcType=INTEGER}, <!-- 催单次数 -->
+	    </if>
+		<if test="remindertime != null and remindertime != ''">
+	          #{remindertime, jdbcType=VARCHAR}, <!-- 上次催单时间 -->
+	    </if>
+		<if test="single_back != null">
+	          #{single_back, jdbcType=INTEGER}, <!-- 退单状态：0发起退单1退单中2退单成功3退单失败 -->
+	    </if>
+		<if test="single_back_time != null and single_back_time != ''">
+	          #{single_back_time, jdbcType=VARCHAR}, <!-- 退单时间 -->
+	    </if>
+		<if test="confirm_single_back_time != null and confirm_single_back_time != ''">
+	          #{confirm_single_back_time, jdbcType=VARCHAR}, <!-- 确认退单时间 -->
+	    </if>
+        <if test="order_id != null">
+         	#{order_id, jdbcType=INTEGER} <!-- 订单id -->
+		</if>
+		)
+	</insert>
+	
+	<!-- 插入一个数据持久化对象(含所有字段) -->
+	<insert id="insertAll" useGeneratedKeys="true" keyProperty="order_id" parameterType="ZjcOrderPO">
+		INSERT INTO zjc_order (
+		    <include refid="column" />
+		)
+		VALUES (
+		    #{order_id, jdbcType=INTEGER},  <!-- 订单id -->
+		    #{order_sn, jdbcType=VARCHAR},  <!-- 订单编号 -->
+		    #{user_name, jdbcType=VARCHAR},  <!-- 会员名称 -->
+		    #{user_id, jdbcType=INTEGER},  <!-- 用户id -->
+		    #{store_id, jdbcType=INTEGER},  <!-- 店铺ID -->
+		    #{store_name, jdbcType=VARCHAR},  <!-- 店铺名称 -->
+		    #{order_status, jdbcType=INTEGER},  <!-- 订单状态(0-待确认，1-已确认，2-已收货，3-已取消，4-已完成(已评价)，5-已作废) -->
+		    #{shipping_status, jdbcType=INTEGER},  <!-- 发货状态 -->
+		    #{pay_status, jdbcType=INTEGER},  <!-- 支付状态 -->
+		    #{consignee, jdbcType=VARCHAR},  <!-- 收货人 -->
+		    #{country, jdbcType=INTEGER},  <!-- 国家 -->
+		    #{province, jdbcType=INTEGER},  <!-- 省份 -->
+		    #{city, jdbcType=INTEGER},  <!-- 城市 -->
+		    #{district, jdbcType=INTEGER},  <!-- 县区 -->
+		    #{twon, jdbcType=INTEGER},  <!-- 乡镇 -->
+		    #{address, jdbcType=VARCHAR},  <!-- 地址 -->
+		    #{zipcode, jdbcType=VARCHAR},  <!-- 邮政编码 -->
+		    #{mobile, jdbcType=VARCHAR},  <!-- 手机 -->
+		    #{email, jdbcType=VARCHAR},  <!-- 邮件 -->
+		    #{shipping_code, jdbcType=VARCHAR},  <!-- 物流code -->
+		    #{shipping_name, jdbcType=VARCHAR},  <!-- 物流名称 -->
+		    #{pay_code, jdbcType=VARCHAR},  <!-- 支付code rate 比例支付 equal  等比例支付 cash 现金支付  wxpay 微信支付  alipay 支付宝支付 -->
+		    #{pay_name, jdbcType=VARCHAR},  <!-- 支付方式名称 -->
+		    #{invoice_title, jdbcType=VARCHAR},  <!-- 发票抬头 -->
+		    #{goods_price, jdbcType=NUMERIC},  <!-- 商品总价 -->
+		    #{shipping_price, jdbcType=NUMERIC},  <!-- 邮费 -->
+		    #{user_money, jdbcType=NUMERIC},  <!-- 使用余额 -->
+		    #{coupon_price, jdbcType=NUMERIC},  <!-- 优惠券抵扣 -->
+		    #{integral, jdbcType=INTEGER},  <!-- 使用积分 -->
+		    #{integral_money, jdbcType=NUMERIC},  <!-- 使用积分抵多少钱 -->
+		    #{order_amount, jdbcType=NUMERIC},  <!-- 应付款金额 -->
+		    #{total_amount, jdbcType=NUMERIC},  <!-- 订单总价 -->
+		    #{add_time, jdbcType=VARCHAR},  <!-- 下单时间 -->
+		    #{shipping_time, jdbcType=VARCHAR},  <!-- 最后新发货时间 -->
+		    #{confirm_time, jdbcType=VARCHAR},  <!-- 收货确认时间 -->
+		    #{pay_time, jdbcType=VARCHAR},  <!-- 支付时间 -->
+		    #{order_prom_id, jdbcType=INTEGER},  <!-- 活动id -->
+		    #{order_prom_amount, jdbcType=NUMERIC},  <!-- 活动优惠金额 -->
+		    #{discount, jdbcType=NUMERIC},  <!-- 价格调整 -->
+		    #{user_note, jdbcType=VARCHAR},  <!-- 用户备注 -->
+		    #{admin_note, jdbcType=VARCHAR},  <!-- 管理员备注 -->
+		    #{parent_sn, jdbcType=VARCHAR},  <!-- 父单单号 -->
+		    #{is_distribut, jdbcType=INTEGER},  <!-- 是否已分成0未分成1已分成 -->
+		    #{order_type, jdbcType=INTEGER},  <!-- 1-商城普通商品，2-积分充值 -->
+		    #{pay_sn, jdbcType=VARCHAR},  <!-- 支付编号 -->
+		    #{trade_no, jdbcType=VARCHAR},  <!-- trade_no -->
+		    #{buy_points, jdbcType=VARCHAR},  <!-- 购买积分 -->
+		    #{is_del, jdbcType=INTEGER},  <!-- 是否删除（0表示未删除，1表示已删除） -->
+		    #{tracking_no, jdbcType=VARCHAR},
+		    #{cash, jdbcType=NUMERIC},  <!-- 现金 -->
+		    #{barter_coupons, jdbcType=NUMERIC},  <!-- 易物券 -->
+		    #{has_transfer, jdbcType=INTEGER},
+	        #{is_shop_group, jdbcType=INTEGER},  <!-- 是否拼团订单 0：否 1：是 -->
+		    #{points_pay_status, jdbcType=INTEGER},
+		    #{v_oid, jdbcType=VARCHAR},
+		    #{reminder, jdbcType=INTEGER},  <!-- 催单次数 -->
+		    #{remindertime, jdbcType=VARCHAR},  <!-- 上次催单时间 -->
+		    #{single_back, jdbcType=INTEGER},  <!-- 退单状态：0发起退单1退单中2退单成功3退单失败 -->
+		    #{single_back_time, jdbcType=VARCHAR},  <!-- 退单时间 -->
+		    #{confirm_single_back_time, jdbcType=VARCHAR}  <!-- 确认退单时间 -->
+		)
+	</insert>
+
+	<!-- 根据主键修改数据持久化对象 -->
+	<update id="updateByKey" parameterType="ZjcOrderPO">
+		UPDATE zjc_order
+		<set>
+			<if test="order_id != null">
+		          order_id = #{order_id, jdbcType=INTEGER},  <!-- 订单id -->
+			</if>
+			<if test="order_sn != null">
+		          order_sn = #{order_sn, jdbcType=VARCHAR},  <!-- 订单编号 -->
+			</if>
+			<if test="user_name != null">
+		          user_name = #{user_name, jdbcType=VARCHAR},  <!-- 会员名称 -->
+			</if>
+			<if test="user_id != null">
+		          user_id = #{user_id, jdbcType=INTEGER},  <!-- 用户id -->
+			</if>
+			<if test="store_id != null">
+		          store_id = #{store_id, jdbcType=INTEGER},  <!-- 店铺ID -->
+			</if>
+			<if test="store_name != null">
+		          store_name = #{store_name, jdbcType=VARCHAR},  <!-- 店铺名称 -->
+			</if>
+			<if test="order_status != null">
+		          order_status = #{order_status, jdbcType=INTEGER},  <!-- 订单状态(0-待确认，1-已确认，2-已收货，3-已取消，4-已完成(已评价)，5-已作废) -->
+			</if>
+			<if test="shipping_status != null">
+		          shipping_status = #{shipping_status, jdbcType=INTEGER},  <!-- 发货状态 -->
+			</if>
+			<if test="pay_status != null">
+		          pay_status = #{pay_status, jdbcType=INTEGER},  <!-- 支付状态 -->
+			</if>
+			<if test="consignee != null">
+		          consignee = #{consignee, jdbcType=VARCHAR},  <!-- 收货人 -->
+			</if>
+			<if test="country != null">
+		          country = #{country, jdbcType=INTEGER},  <!-- 国家 -->
+			</if>
+			<if test="province != null">
+		          province = #{province, jdbcType=INTEGER},  <!-- 省份 -->
+			</if>
+			<if test="city != null">
+		          city = #{city, jdbcType=INTEGER},  <!-- 城市 -->
+			</if>
+			<if test="district != null">
+		          district = #{district, jdbcType=INTEGER},  <!-- 县区 -->
+			</if>
+			<if test="twon != null">
+		          twon = #{twon, jdbcType=INTEGER},  <!-- 乡镇 -->
+			</if>
+			<if test="address != null">
+		          address = #{address, jdbcType=VARCHAR},  <!-- 地址 -->
+			</if>
+			<if test="zipcode != null">
+		          zipcode = #{zipcode, jdbcType=VARCHAR},  <!-- 邮政编码 -->
+			</if>
+			<if test="mobile != null">
+		          mobile = #{mobile, jdbcType=VARCHAR},  <!-- 手机 -->
+			</if>
+			<if test="email != null">
+		          email = #{email, jdbcType=VARCHAR},  <!-- 邮件 -->
+			</if>
+			<if test="shipping_code != null">
+		          shipping_code = #{shipping_code, jdbcType=VARCHAR},  <!-- 物流code -->
+			</if>
+			<if test="shipping_name != null">
+		          shipping_name = #{shipping_name, jdbcType=VARCHAR},  <!-- 物流名称 -->
+			</if>
+			<if test="pay_code != null">
+		          pay_code = #{pay_code, jdbcType=VARCHAR},  <!-- 支付code rate 比例支付 equal  等比例支付 cash 现金支付  wxpay 微信支付  alipay 支付宝支付 -->
+			</if>
+			<if test="pay_name != null">
+		          pay_name = #{pay_name, jdbcType=VARCHAR},  <!-- 支付方式名称 -->
+			</if>
+			<if test="invoice_title != null">
+		          invoice_title = #{invoice_title, jdbcType=VARCHAR},  <!-- 发票抬头 -->
+			</if>
+			<if test="goods_price != null">
+		          goods_price = #{goods_price, jdbcType=NUMERIC},  <!-- 商品总价 -->
+			</if>
+			<if test="shipping_price != null">
+		          shipping_price = #{shipping_price, jdbcType=NUMERIC},  <!-- 邮费 -->
+			</if>
+			<if test="user_money != null">
+		          user_money = #{user_money, jdbcType=NUMERIC},  <!-- 使用余额 -->
+			</if>
+			<if test="coupon_price != null">
+		          coupon_price = #{coupon_price, jdbcType=NUMERIC},  <!-- 优惠券抵扣 -->
+			</if>
+			<if test="integral != null">
+		          integral = #{integral, jdbcType=INTEGER},  <!-- 使用积分 -->
+			</if>
+			<if test="integral_money != null">
+		          integral_money = #{integral_money, jdbcType=NUMERIC},  <!-- 使用积分抵多少钱 -->
+			</if>
+			<if test="order_amount != null">
+		          order_amount = #{order_amount, jdbcType=NUMERIC},  <!-- 应付款金额 -->
+			</if>
+			<if test="total_amount != null">
+		          total_amount = #{total_amount, jdbcType=NUMERIC},  <!-- 订单总价 -->
+			</if>
+			<if test="add_time != null">
+		          add_time = #{add_time, jdbcType=VARCHAR},  <!-- 下单时间 -->
+			</if>
+			<if test="shipping_time != null">
+		          shipping_time = #{shipping_time, jdbcType=VARCHAR},  <!-- 最后新发货时间 -->
+			</if>
+			<if test="confirm_time != null">
+		          confirm_time = #{confirm_time, jdbcType=VARCHAR},  <!-- 收货确认时间 -->
+			</if>
+			<if test="pay_time != null">
+		          pay_time = #{pay_time, jdbcType=VARCHAR},  <!-- 支付时间 -->
+			</if>
+			<if test="order_prom_id != null">
+		          order_prom_id = #{order_prom_id, jdbcType=INTEGER},  <!-- 活动id -->
+			</if>
+			<if test="order_prom_amount != null">
+		          order_prom_amount = #{order_prom_amount, jdbcType=NUMERIC},  <!-- 活动优惠金额 -->
+			</if>
+			<if test="discount != null">
+		          discount = #{discount, jdbcType=NUMERIC},  <!-- 价格调整 -->
+			</if>
+			<if test="user_note != null">
+		          user_note = #{user_note, jdbcType=VARCHAR},  <!-- 用户备注 -->
+			</if>
+			<if test="admin_note != null">
+		          admin_note = #{admin_note, jdbcType=VARCHAR},  <!-- 管理员备注 -->
+			</if>
+			<if test="parent_sn != null">
+		          parent_sn = #{parent_sn, jdbcType=VARCHAR},  <!-- 父单单号 -->
+			</if>
+			<if test="is_distribut != null">
+		          is_distribut = #{is_distribut, jdbcType=INTEGER},  <!-- 是否已分成0未分成1已分成 -->
+			</if>
+			<if test="order_type != null">
+		          order_type = #{order_type, jdbcType=INTEGER},  <!-- 1-商城普通商品，2-积分充值 -->
+			</if>
+			<if test="pay_sn != null">
+		          pay_sn = #{pay_sn, jdbcType=VARCHAR},  <!-- 支付编号 -->
+			</if>
+			<if test="trade_no != null">
+		          trade_no = #{trade_no, jdbcType=VARCHAR},  <!-- trade_no -->
+			</if>
+			<if test="buy_points != null">
+		          buy_points = #{buy_points, jdbcType=VARCHAR},  <!-- 购买积分 -->
+			</if>
+			<if test="is_del != null">
+		          is_del = #{is_del, jdbcType=INTEGER},  <!-- 是否删除（0表示未删除，1表示已删除） -->
+			</if>
+			<if test="tracking_no != null">
+		          tracking_no = #{tracking_no, jdbcType=VARCHAR},  <!-- 是否删除（0表示未删除，1表示已删除） -->
+			</if>
+			<if test="cash != null">
+		          cash = #{cash, jdbcType=NUMERIC},  <!-- 现金-->
+			</if>
+			<if test="barter_coupons != null">
+		          barter_coupons = #{barter_coupons, jdbcType=NUMERIC},  <!-- 易物券 -->
+			</if>
+			<if test="has_transfer != null">
+		          has_transfer = #{has_transfer, jdbcType=INTEGER},  <!-- 易物券 -->
+			</if>
+			<if test="is_shop_group != null">
+		          is_shop_group = #{is_shop_group, jdbcType=INTEGER},  <!-- 是否拼团订单 0：否 1：是 -->
+			</if>
+			<if test="points_pay_status != null">
+		          points_pay_status = #{points_pay_status, jdbcType=INTEGER},  <!-- 易物券支付状态；0:未支付；1:已支付 -->
+			</if> 
+			<if test="v_oid != null">
+		          v_oid = #{v_oid, jdbcType=VARCHAR},  <!-- 易物券支付状态；0:未支付；1:已支付 -->
+			</if>
+			<if test="reminder != null">
+		          reminder = #{reminder, jdbcType=INTEGER},  <!-- 催单次数 -->
+			</if>
+			<if test="remindertime != null">
+		          remindertime = #{remindertime, jdbcType=VARCHAR},  <!-- 上次催单时间 -->
+			</if>
+			<if test="single_back != null">
+		          single_back = #{single_back, jdbcType=INTEGER},  <!-- 退单状态：0发起退单1退单中2退单成功3退单失败 -->
+			</if>
+			<if test="single_back_time != null">
+		          single_back_time = #{single_back_time, jdbcType=VARCHAR},  <!-- 退单时间 -->
+			</if>
+			<if test="confirm_single_back_time != null">
+		          confirm_single_back_time = #{confirm_single_back_time, jdbcType=VARCHAR},  <!-- 确认退单时间 -->
+			</if>
+		</set>
+		WHERE  order_id = #{order_id}
+	</update>
+	
+	<!-- 根据主键删除数据持久化对象 -->
+	<delete id="deleteByKey">
+		DELETE FROM zjc_order WHERE  order_id = #{order_id}
+	</delete>
+	<!-- 根据Dto统计行数 -->
+	<select id="count_order" resultType="Integer" parameterType="ZjcOrderPO">
+		select count(*) from zjc_order t
+      LEFT JOIN zjc_order_action t1 on t.order_id=t1.order_id
+       where t.user_id='10025' and DATE_FORMAT(t.add_time,'%Y-%m-%d')=DATE_FORMAT(#{add_time},'%Y-%m-%d')
+       order by add_time desc	
+	</select>
+	<!-- 根据订单ID修改订单状态 -->
+	<update id="cancleByKey"  parameterType="Dto">
+	UPDATE zjc_order SET
+	order_status = 3
+	where order_id = #{order_id}
+	</update>
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="selectByKey" resultType="ZjcOrderPO" useCache="false">
+		SELECT
+		<include refid="column" />
+		FROM zjc_order WHERE  order_id = #{order_id}
+	</select>
+	
+	<select id="Promptlist" parameterType="Dto" resultType="ZjcOrderPO">
+		SELECT t.user_id from zjc_order t 
+			INNER JOIN zjc_order_goods t1 on t.order_id=t1.order_id
+			 where t.user_id=#{user_id} and t1.goods_id=#{goods_id} and t.order_status != 3
+	</select>
+	
+	<!-- 今日购买次数 -->
+	<select id="countTodayBuyTimes" parameterType="ZjcOrderPO" resultType="Integer">
+		SELECT count(t.order_id) from zjc_order t 
+			INNER JOIN zjc_order_goods t1 on t.order_id=t1.order_id
+			 where t.user_id=#{user_id} and t1.goods_id=#{goods_id} and t.order_status != 3 
+			 and (t.pay_status = 1 OR t.points_pay_status = 1) and DATE_FORMAT(t.add_time,'%Y-%m-%d') = DATE_FORMAT(NOW(),'%Y-%m-%d')
+	</select>
+	
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="ordercount" parameterType="ZjcOrderPO" resultType="ZjcOrderPO">
+		select 
+		  count(*) as country,
+		(select 
+		 count(*)
+		  from zjc_order 
+		   where store_id=#{store_id} and  DATE_FORMAT(add_time,'%Y-%m')=DATE_FORMAT(sysdate(),'%Y-%m'))as province,
+		   (select 
+			 sum(goods_price)
+			  from zjc_order 
+			   where store_id='11' and  DATE_FORMAT(add_time,'%Y-%m')=DATE_FORMAT(sysdate(),'%Y-%m'))as twon,
+		(select 
+		 count(*)
+		  from zjc_order 
+		   where store_id=#{store_id})as city,
+		ifnull((select sum(goods_price) from zjc_order where store_id=#{store_id}), 0)as district
+		  from zjc_order 
+		   where store_id=#{store_id} and  DATE_FORMAT(add_time,'%Y-%m-%d')=date_sub(DATE_FORMAT(sysdate(),'%Y-%m-%d'),interval 1 day)
+			</select>
+	
+	
+	<!-- 根据订单ID和用户ID查找订单 -->
+	<select id="selectByKeyAndUserId" resultType="ZjcOrderPO" useCache="false">
+		SELECT
+		<include refid="column" />
+		FROM zjc_order WHERE  order_id = #{order_id} and user_id = #{user_id}
+	</select>
+	
+	<!-- 根据订单ID查找卖家ID -->
+	<select id="getSaleUserID" parameterType="Integer" resultType="Integer">
+		select t1.user_id from zjc_store t1 left join zjc_order t2 on t1.store_id = t2.store_id where t2.order_id=#{order_id}
+	</select>
+	<!-- 根据order_id和order_status删除订单 -->
+	<delete id="deleteByKeyAndOrderStatus" parameterType="Dto">
+		delete from zjc_order where  order_id = #{order_id}
+	</delete>
+	<!-- 根据order_id和order_status取消订单 -->
+	<delete id="updateByKeyAndOrderStatus" parameterType="Dto">
+		update zjc_order set order_status = 3,is_del=1  where  order_id = #{order_id}
+	</delete>
+	<!-- 根据订单状态查询并返回数据持久化对象 -->
+	<select id="queryByStatus" resultType="ZjcOrderPO">
+		SELECT
+		<include refid="column" />
+		FROM zjc_order 
+		<choose>
+			<when test="order_status == null">
+				where user_id = #{user_id} 
+			</when>
+			<otherwise>
+				where user_id = #{user_id} and order_status = #{order_status} 
+			</otherwise>
+		</choose>
+	</select>
+	
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="goodsCatid" parameterType="ZjcOrderPO" resultType="ZjcOrderPO">
+		SELECT
+		    <include refid="column" />
+		  from zjc_order t
+          LEFT JOIN zjc_order_goods t1 on t.order_id=t1.order_id
+          where t.user_id=#{user_id} and t1.goods_id in (select goods_id from  zjc_goods t where t.cat_id2='44')
+	</select>
+
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="selectOne" parameterType="Dto" resultType="ZjcOrderPO">
+		SELECT
+		    <include refid="column" />
+		FROM zjc_order
+		<where>
+		    <include refid="equal" />
+		</where>		
+	</select>
+    
+    <select id="selectTow" parameterType="Dto" resultType="Dto">
+		SELECT
+			t.v_oid, t.order_sn, t.user_name, t.user_id, t.store_name,t4.goods_id,t.order_status,t.shipping_status,
+		  t.shipping_time,t.confirm_time,t.pay_status, t.consignee, t.mobile,t4.is_car,t.add_time,t.consignee,t.mobile,
+		  t2.user_id as mj,t1.contacts_phone, t.points_pay_status,t.pay_code
+      ,t3.goods_name,t3.goods_num as goods_num,
+		  case t.pay_code when 'rate' then t.goods_price 
+                when 'equal' then  t.goods_price 
+                when 'mixed_payment' then t.barter_coupons 
+			else '0' end  as barter_coupons,
+ 			case t.pay_code when 'cash' then t.goods_price 
+                 when 'wxpay' then  t.goods_price 
+                 when 'alipay' then t.goods_price
+				 when 'mixed_payment' then t.cash
+                 when 'paySYX' then t.cash
+			else '0' end  as cash
+		FRoM zjc_order t 
+		inner join zjc_store t1 on t.store_id = t1.store_id
+		inner join zjc_seller_info t2 on t2.user_id = t1.user_id
+		inner join zjc_order_goods t3 on t.order_id = t3.order_id
+		inner join zjc_goods t4 on t3.goods_id = t4.goods_id
+		<where>
+		     t.v_oid is not null and t.order_id = #{order_id}
+		</where>
+	</select>
+    
+    
+    <!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="ZjcOrderPOlists" parameterType="ZjcOrderPO" resultType="ZjcOrderPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_order
+		<where>
+		    order_id = #{order_id}
+		</where>	
+	</select>
+    
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="list" parameterType="Dto" resultType="ZjcOrderPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_order
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+    
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listPage" parameterType="Dto" resultType="ZjcOrderPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_order
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	
+	
+	<!-- 根据Dto模糊查询并返回数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="like" parameterType="Dto" resultType="ZjcOrderPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_order
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto模糊查询并返回分页数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="likePage" parameterType="Dto" resultType="ZjcOrderPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_order
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+	<!-- 根据Dto模糊查询返回待导出订单数据（新增方法） -->
+	<select id="findExportData" parameterType="Dto" resultType="ZjcOrderExportVO">
+		select
+		  t2.user_id as seller_id,
+		  CONCAT(t.order_sn,' ') as order_sn, 
+		  t.store_name,
+		  t2.mobile as seller_mobile,
+		  t.user_id,
+		  t.consignee,
+		  t.mobile as contract_mobile,
+		  t.cash,
+		  t.barter_coupons,
+		  t3.goods_name,
+		  sum(t3.goods_num) as goods_num,
+		  if (t.order_status = 0,'待确认',if (t.order_status = 1,'已确认',if (t.order_status = 2,'已收货',if (t.order_status = 3,'已取消',if (t.order_status = 4,'已完成','已作废'))))) as order_status,
+		  if(t.pay_status = 0, '未支付', '已支付') as pay_status,
+		  t.pay_name,
+		  if(t.shipping_status = 0, '未发货', '已发货') as shipping_status,
+		  t.add_time,
+		  if(t.shipping_status = 0, '未确认发货', shipping_time) as shipping_time,
+		  if(t.order_status = 2 or t.order_status = 4, confirm_time, '未确认收货') as confirm_time,t.address,
+		  if(t4.is_car=0,'否','是') as is_car
+		from zjc_order t 
+		inner join zjc_store t1 on t.store_id = t1.store_id
+		inner join zjc_seller_info t2 on t2.user_id = t1.user_id
+		inner join zjc_order_goods t3 on t.order_id = t3.order_id
+		inner join zjc_goods t4 on t3.goods_id = t4.goods_id
+		<where>
+		    <if test="mj != null and mj != ''">
+		    	t2.user_id = #{mj}
+		    </if>
+		    <if test="store_name != null and store_name != ''">
+		        and t.store_name like '%${store_name}%'  <!-- 店铺名称 -->
+			</if>
+			 <if test="goods_name != null and goods_name != ''">
+		        and t3.goods_name like '%${goods_name}%'  <!-- 商品名称 -->
+			</if>
+		    <if test="contacts_phone != null and contacts_phone != ''">
+		        and t2.mobile = #{contacts_phone}
+		    </if>
+		    <if test="consignee != null and consignee != ''">
+		    	and t.consignee = #{consignee}
+		    </if>
+		    <if test="order_sn != null and order_sn != ''">
+		    	and t.order_sn = #{order_sn}
+		    </if>
+		    <if test="add_time_start != null and add_time_start != ''">
+		    	and t.add_time &gt;= #{add_time_start}
+		    </if>
+		    <if test="add_time_end != null and add_time_end != ''">
+		    	and t.add_time &lt;= #{add_time_end}
+		    </if>
+		    <if test="order_status != null and order_status != ''">
+		    	and t.order_status = #{order_status}
+		    </if>
+		    <if test="points_pay_status != null and points_pay_status != ''">
+		    	and t.points_pay_status = #{points_pay_status}
+		    </if>
+		    <if test="pay_code != null and pay_code != '' and pay_code == 'others'">
+		       AND t.pay_code is null  <!-- 支付code rate 比例支付 equal  等比例支付 cash 现金支付  wxpay 微信支付  alipay 支付宝支付 -->
+			</if>
+			<if test="pay_code == null or pay_code == ''">
+		       AND ((t.pay_code = 'mixed_payment' and t.points_pay_status = 1) or (t.pay_code != 'mixed_payment'))
+			</if>
+		    <if test="pay_code != null and pay_code != ''and pay_code != 'others'">
+			     <choose>
+			     	<when test="pay_code == 'cash'">
+		     		AND (t.pay_code = 'wxpay' or t.pay_code = 'alipay' or t.pay_code = 'unionpay' or t.pay_code = 'paySYX')
+		     	</when>
+		     	<when test="pay_code == 'mixed_payment'">
+		     		AND (t.pay_code = 'mixed_pay_drops' or t.pay_code = 'mixed_payment') and t.points_pay_status = 1
+		     	</when>
+		     	<otherwise>
+		     	 	AND t.pay_code = #{pay_code}
+		     	</otherwise>
+			     </choose>
+			</if>
+		    <if test="shipping_status != null and shipping_status != ''">
+		    	and t.shipping_status = #{shipping_status}
+		    </if>
+		    <if test="pay_status != null and pay_status != ''">
+		    	and t.pay_status = #{pay_status}
+		    </if>
+		    <if test="user_id != null and user_id != ''">
+		    	and t.user_id = #{user_id}
+		    </if>
+		</where>
+		group by t3.order_id
+		order by t.order_id desc	
+	</select>
+	
+	<select id="findSXYExportData" parameterType="Dto" resultType="ZjcOrderExportVO">
+		select
+		  t.v_oid as v_oid,
+		  t2.user_id as seller_id,
+		  CONCAT(t.order_sn,' ') as order_sn, 
+		  t.store_name,
+		  t2.mobile as seller_mobile,
+		  t.user_id,
+		  t.consignee,
+		  t.mobile as contract_mobile,
+		  t.cash,
+		  t.barter_coupons,
+		  t3.goods_name,
+		  sum(t3.goods_num) as goods_num,
+		  if (t.order_status = 0,'待确认',if (t.order_status = 1,'已确认',if (t.order_status = 2,'已收货',if (t.order_status = 3,'已取消',if (t.order_status = 4,'已完成','已作废'))))) as order_status,
+		  if(t.pay_status = 0, '未支付', '已支付') as pay_status,
+		  t.pay_name,
+		  if(t.shipping_status = 0, '未发货', '已发货') as shipping_status,
+		  t.add_time,
+		  if(t.shipping_status = 0, '未确认发货', shipping_time) as shipping_time,
+		  if(t.order_status = 2 or t.order_status = 4, confirm_time, '未确认收货') as confirm_time,
+		  if(t4.is_car=0,'否','是') as is_car
+		from zjc_order t 
+		inner join zjc_store t1 on t.store_id = t1.store_id
+		inner join zjc_seller_info t2 on t2.user_id = t1.user_id
+		inner join zjc_order_goods t3 on t.order_id = t3.order_id
+		inner join zjc_goods t4 on t3.goods_id = t4.goods_id
+		<where>
+		    t.v_oid is not null
+		    <if test="mj != null and mj != ''">
+		    	and t2.user_id = #{mj}
+		    </if>
+		    <if test="store_name != null and store_name != ''">
+		        and t.store_name like '%${store_name}%'  <!-- 店铺名称 -->
+			</if>
+			 <if test="goods_name != null and goods_name != ''">
+		        and t3.goods_name like '%${goods_name}%'  <!-- 商品名称 -->
+			</if>
+		    <if test="contacts_phone != null and contacts_phone != ''">
+		        and t2.mobile = #{contacts_phone}
+		    </if>
+		    <if test="consignee != null and consignee != ''">
+		    	and t.consignee = #{consignee}
+		    </if>
+		    <if test="order_sn != null and order_sn != ''">
+		    	and t.order_sn = #{order_sn}
+		    </if>
+		    <if test="add_time_start != null and add_time_start != ''">
+		    	and t.add_time &gt;= #{add_time_start}
+		    </if>
+		    <if test="add_time_end != null and add_time_end != ''">
+		    	and t.add_time &lt;= #{add_time_end}
+		    </if>
+		    <if test="order_status != null and order_status != ''">
+		    	and t.order_status = #{order_status}
+		    </if>
+		    <if test="points_pay_status != null and points_pay_status != ''">
+		    	and t.points_pay_status = #{points_pay_status}
+		    </if>
+		    <if test="pay_code != null and pay_code != '' and pay_code == 'others'">
+		       AND t.pay_code is null  <!-- 支付code rate 比例支付 equal  等比例支付 cash 现金支付  wxpay 微信支付  alipay 支付宝支付 -->
+			</if>
+			<if test="pay_code == null or pay_code == ''">
+		       AND ((t.pay_code = 'mixed_payment' and t.points_pay_status = 1) or (t.pay_code != 'mixed_payment'))
+			</if>
+		    <if test="pay_code != null and pay_code != ''and pay_code != 'others'">
+			     <choose>
+			     	<when test="pay_code == 'cash'">
+		     		AND (t.pay_code = 'wxpay' or t.pay_code = 'alipay' or t.pay_code = 'unionpay' or t.pay_code = 'paySYX')
+		     	</when>
+		     	<when test="pay_code == 'mixed_payment'">
+		     		AND (t.pay_code = 'mixed_pay_drops' or t.pay_code = 'mixed_payment') and t.points_pay_status = 1
+		     	</when>
+		     	<otherwise>
+		     	 	AND t.pay_code = #{pay_code}
+		     	</otherwise>
+			     </choose>
+			</if>
+		    <if test="shipping_status != null and shipping_status != ''">
+		    	and t.shipping_status = #{shipping_status}
+		    </if>
+		    <if test="pay_status != null and pay_status != ''">
+		    	and t.pay_status = #{pay_status}
+		    </if>
+		    <if test="user_id != null and user_id != ''">
+		    	and t.user_id = #{user_id}
+		    </if>
+		    <if test="order_id != null and order_id != ''">
+		    	and t.order_id = #{order_id}
+		    </if>
+		</where>
+		group by t3.order_id
+		order by t.order_id desc	
+	</select>
+	<!-- 系统后台查询订单列表 -->
+	<select id="likeOrdersPage" parameterType="Dto" resultType="ZjcOrderPO" useCache="false">
+	    SELECT
+			t.order_id, t.order_sn, t.user_name, t.user_id, t.store_name, t.order_status,t.shipping_status, 
+		  t.pay_status, t.consignee, t.mobile, t.add_time, t.shipping_time,  
+		  t.confirm_time, t.cash,t.barter_coupons, t2.user_id as mj,t1.contacts_phone, t.points_pay_status,
+		  if(t.pay_code = 'mixed_payment', 'mixed_payment', if(t.pay_code = 'rate' or t.pay_code = 'equal', 'rate', 'cash')) as pay_code 
+		FRoM zjc_order t 
+		inner join zjc_store t1 on t.store_id = t1.store_id
+		inner join zjc_seller_info t2 on t2.user_id = t1.user_id
+		inner join zjc_order_goods t3 on t.order_id = t3.order_id
+		<where>
+		    <include refid="like0" />
+		</where>
+		order by t.order_id desc		
+	</select>
+	
+		<select id="likeOrders1Page" parameterType="Dto" resultType="Dto" useCache="false">
+	    SELECT
+			t.order_id, t.order_sn, t.user_name, t.user_id, t.store_name, t.order_status,t.shipping_status, 
+		  t.pay_status, t.consignee, t.mobile, t.add_time, t.shipping_time,t.address,t.pay_time,t4.is_car,
+		  t.confirm_time, t2.user_id as mj,t1.contacts_phone, t.points_pay_status,t.pay_code,t3.goods_id, t3.goods_name,sum(t3.goods_num) as goods_num,
+		  case t.pay_code when 'rate' then t.goods_price 
+                when 'equal' then  t.goods_price 
+                when 'mixed_payment' then t.barter_coupons 
+			else '0' end  as barter_coupons,
+			
+ 			case t.pay_code when 'cash' then t.goods_price 
+                 when 'wxpay' then  t.goods_price 
+                 when 'alipay' then t.goods_price
+				 when 'mixed_payment' then t.cash
+				 when 'mixed_pay_drops' then t.cash
+				 when 'paySYX' then t.goods_price
+			else '0' end  as cash
+		FRoM zjc_order t 
+		inner join zjc_store t1 on t.store_id = t1.store_id
+		inner join zjc_seller_info t2 on t2.user_id = t1.user_id
+		inner join zjc_order_goods t3 on t.order_id = t3.order_id
+		inner join zjc_goods t4 on t3.goods_id = t4.goods_id
+		<where>
+		    <include refid="like0" />
+		</where>
+		group by t3.order_id
+		order by t.order_id desc		
+	</select>
+	
+	
+	<!-- 混合支付订单列表-->
+	<select id="listZjcOrdersPage" parameterType="Dto" resultType="Dto" useCache="false">
+	    SELECT
+			t.order_id, t.order_sn, t.user_name, t.user_id, t.store_name,t4.goods_id,t.order_status,t.shipping_status,
+		  t.shipping_time,t.confirm_time,t.pay_status, t.consignee, t.mobile,t4.is_car,t.add_time,t.consignee,t.mobile,
+		  t2.user_id as mj,t1.contacts_phone, t.points_pay_status,t.pay_code
+      ,t3.goods_name,sum(t3.goods_num) as goods_num,
+		  case t.pay_code when 'rate' then t.goods_price 
+                when 'equal' then  t.goods_price 
+                when 'mixed_payment' then t.barter_coupons 
+                when 'paySYX' then t.barter_coupons 
+			else '0' end  as barter_coupons,
+ 			case t.pay_code when 'cash' then t.goods_price 
+                 when 'wxpay' then  t.goods_price 
+                 when 'alipay' then t.goods_price
+				 when 'mixed_payment' then t.cash
+				 when 'mixed_pay_drops' then t.cash
+				  when 'paySYX' then t.goods_price
+			else '0' end  as cash
+		FRoM zjc_order t 
+		inner join zjc_store t1 on t.store_id = t1.store_id
+		inner join zjc_seller_info t2 on t2.user_id = t1.user_id
+		inner join zjc_order_goods t3 on t.order_id = t3.order_id
+		inner join zjc_goods t4 on t3.goods_id = t4.goods_id
+		<where>
+		    <include refid="like0" />
+		</where>
+		group by t3.order_id
+		order by t.order_id desc	
+			
+	</select>
+	
+	
+	<!-- 混合支付订单列表-->
+	<select id="listZjcSXYOrdersPage" parameterType="Dto" resultType="Dto" useCache="false">
+	    SELECT
+			t.v_oid, t.order_sn, t.user_name, t.user_id, t.store_name,t4.goods_id,t.order_status,t.shipping_status,
+		  t.shipping_time,t.confirm_time,t.pay_status, t.consignee, t.mobile,t4.is_car,t.add_time,t.consignee,t.mobile,
+		  t2.user_id as mj,t1.contacts_phone, t.points_pay_status,t.pay_code
+      ,t3.goods_name,t3.goods_num as goods_num,
+		  case t.pay_code when 'rate' then t.goods_price 
+                when 'equal' then  t.goods_price 
+                when 'mixed_payment' then t.barter_coupons 
+                when 'paySYX' then t.barter_coupons 
+			else '0' end  as barter_coupons,
+ 			case t.pay_code when 'cash' then t.goods_price 
+                 when 'wxpay' then  t.goods_price 
+                 when 'alipay' then t.goods_price
+				 when 'mixed_payment' then t.cash
+				 when 'mixed_pay_drops' then t.cash
+                 when 'paySYX' then t.cash
+			else '0' end  as cash
+		FRoM zjc_order t 
+		inner join zjc_store t1 on t.store_id = t1.store_id
+		inner join zjc_seller_info t2 on t2.user_id = t1.user_id
+		inner join zjc_order_goods t3 on t.order_id = t3.order_id
+		inner join zjc_goods t4 on t3.goods_id = t4.goods_id
+		<where>
+		     t.v_oid is not null
+		    <include refid="like0" />
+		</where>
+		group by t3.order_id
+		order by t.order_id desc	
+	</select>
+	
+	
+	
+	<sql id="column0">
+		  t.order_id,  <!-- 订单id -->
+		  t.order_sn,  <!-- 订单编号 -->
+		  t.user_name,  <!-- 会员名称 -->
+		  t.user_id,  <!-- 用户id -->
+		  t.store_id,  <!-- 店铺ID -->
+		  t.store_name,  <!-- 店铺名称 -->
+		  t.order_status,  <!-- 订单状态(0-待确认，1-已确认，2-已收货，3-已取消，4-已完成(已评价)，5-已作废) -->
+		  t.shipping_status,  <!-- 发货状态 -->
+		  t.pay_status,  <!-- 支付状态 -->
+		  t.consignee,  <!-- 收货人 -->
+		  t.country,  <!-- 国家 -->
+		  t.province,  <!-- 省份 -->
+		  t.city,  <!-- 城市 -->
+		  t.district,  <!-- 县区 -->
+		  t.twon,  <!-- 乡镇 -->
+		  t.address,  <!-- 地址 -->
+		  t.zipcode,  <!-- 邮政编码 -->
+		  t.mobile,  <!-- 手机 -->
+		  t.email,  <!-- 邮件 -->
+		  t.shipping_code,  <!-- 物流code -->
+		  t.shipping_name,  <!-- 物流名称 -->
+		  t.pay_code,  <!-- 支付code rate 比例支付 equal  等比例支付 cash 现金支付  wxpay 微信支付  alipay 支付宝支付 -->
+		  t.pay_name,  <!-- 支付方式名称 -->
+		  t.invoice_title,  <!-- 发票抬头 -->
+		  t.goods_price,  <!-- 商品总价 -->
+		  t.shipping_price,  <!-- 邮费 -->
+		  t.user_money,  <!-- 使用余额 -->
+		  t.coupon_price,  <!-- 优惠券抵扣 -->
+		  t.integral,  <!-- 使用积分 -->
+		  t.integral_money,  <!-- 使用积分抵多少钱 -->
+		  t.order_amount,  <!-- 应付款金额 -->
+		  t.total_amount,  <!-- 订单总价 -->
+		  t.add_time,  <!-- 下单时间 -->
+		  t.shipping_time,  <!-- 最后新发货时间 -->
+		  t.confirm_time,  <!-- 收货确认时间 -->
+		  t.pay_time,  <!-- 支付时间 -->
+		  t.order_prom_id,  <!-- 活动id -->
+		  t.order_prom_amount,  <!-- 活动优惠金额 -->
+		  t.discount,  <!-- 价格调整 -->
+		  t.user_note,  <!-- 用户备注 -->
+		  t.admin_note,  <!-- 管理员备注 -->
+		  t.parent_sn,  <!-- 父单单号 -->
+		  t.is_distribut,  <!-- 是否已分成0未分成1已分成 -->
+		  t.order_type,  <!-- 1-商城普通商品，2-积分充值 -->
+		  t.pay_sn,  <!-- 支付编号 -->
+		  t.trade_no,  <!-- trade_no -->
+		  t.buy_points,  <!-- 购买积分 -->
+		  t.is_del,  <!-- 是否删除（0表示未删除，1表示已删除） -->
+		  t.tracking_no,
+		  t.cash,	<!-- 现金 -->
+		  t.barter_coupons, <!-- 易物券 -->
+		  t.points_pay_status, <!-- 易物券支付状态；0:未支付；1:已支付 -->
+		  t.is_shop_group,  <!-- 是否拼团订单 0：否 1：是 -->
+		  t.v_oid,
+		  t1.contacts_phone, <!-- 商家联系电话 -->
+		  t.has_transfer, <!-- 是否已转账 -->
+		  t.has_transfer, <!-- 是否已转账 -->
+		  t.reminder,  <!-- 催单次数 -->
+		  t.remindertime,  <!-- 上次催单时间 -->
+		  t.single_back,  <!-- 退单状态：0发起退单1退单中2退单成功3退单失败 -->
+		  t.single_back_time,  <!-- 退单时间 -->
+		  t.confirm_single_back_time  <!-- 确认退单时间 -->
+	</sql>
+	
+	<sql id="like0">
+	    <if test="mj != null and mj != '' ">
+		      AND t2.user_id = #{mj}  <!-- 商家账户ID -->
+		</if>
+	 	<if test="order_status != null and order_status != '' ">
+		      AND t.order_status = #{order_status}  <!-- 订单状态(0-待确认，1-已确认，2-已收货，3-已取消，4-已完成(已评价)，5-已作废) -->
+		</if>
+	 	<if test="order_id != null and order_id != ''">
+		      AND t.order_id = #{order_id}  <!-- 订单ID -->
+		</if>
+	    <if test="order_sn != null and order_sn != ''">
+		      AND t.order_sn = #{order_sn}  <!-- 订单编号 -->
+		</if>
+		<if test="user_id != null and user_id != '' ">
+		      AND t.user_id = #{user_id}  <!-- 用户id -->
+		</if>
+		<if test="shipping_status != null and shipping_status != '' ">
+		      AND t.shipping_status = #{shipping_status}  <!-- 发货状态 -->
+		</if>
+	   <if test="pay_status != null  and pay_status != ''">
+		      AND t.pay_status = #{pay_status}  <!-- 支付状态 -->
+		</if>
+		 <if test="points_pay_status != null  and points_pay_status != ''">
+		      AND t.points_pay_status = #{points_pay_status}  <!-- 混合支付易物券支付状态 -->
+		</if>
+		<if test="is_del != null and is_del != ''">
+		      AND t.is_del = #{is_del}  <!-- 是否删除（0表示未删除，1表示已删除） -->
+		</if>
+		<if test="add_time_start != null and add_time_start != ''">
+		      <![CDATA[AND t.add_time >= #{add_time_start}]]>  <!-- 下单时间(起) -->
+		</if>
+		<if test="add_time_end != null and add_time_end != ''">
+		      <![CDATA[AND t.add_time <= #{add_time_end}]]>  <!-- 下单时间(止) -->
+		</if>
+	    <if test="user_name != null and user_name != ''">
+		      AND t.user_name = #{user_name}  <!-- 会员名称 -->
+		</if>
+	    <if test="store_name != null and store_name != ''">
+		      AND t.store_name like '${store_name}%'  <!-- 店铺名称 -->
+		</if>
+	    <if test="consignee != null and consignee != ''">
+		      AND t.consignee = #{consignee}  <!-- 收货人 -->
+		</if>
+	    <if test="address != null and address != ''">
+		      AND t.address like '%${address}%'  <!-- 地址 -->
+		</if>
+	    <if test="zipcode != null and zipcode != ''">
+		      AND t.zipcode like '${zipcode}%'  <!-- 邮政编码 -->
+		</if>
+	    <if test="mobile != null and mobile != ''">
+		      AND t.mobile like '${mobile}%'  <!-- 手机 -->
+		</if>
+	    <if test="email != null and email != ''">
+		      AND t.email like '${email}%'  <!-- 邮件 -->
+		</if>
+	    <if test="shipping_code != null and shipping_code != ''">
+		      AND t.shipping_code like '${shipping_code}%'  <!-- 物流code -->
+		</if>
+	    <if test="shipping_name != null and shipping_name != ''">
+		      AND t.shipping_name like '${shipping_name}%'  <!-- 物流名称 -->
+		</if>
+		<if test="pay_code != null and pay_code != '' and pay_code == 'others'">
+		      AND t.pay_code is null  <!-- 支付code rate 比例支付 equal  等比例支付 cash 现金支付  wxpay 微信支付  alipay 支付宝支付 -->
+		</if>
+		<if test="pay_code == null or pay_code == ''">
+	       AND ((t.pay_code = 'mixed_payment' and t.points_pay_status = 1) or (t.pay_code != 'mixed_payment'))
+		</if>
+	    <if test="pay_code != null and pay_code != ''and pay_code != 'others'">
+		     <choose>
+		     	<when test="pay_code == 'cash'">
+		     		AND (t.pay_code = 'wxpay' or t.pay_code = 'alipay' or t.pay_code = 'unionpay' or t.pay_code = 'paySYX')
+		     	</when>
+		     	<when test="pay_code == 'mixed_payment'">
+		     		AND (t.pay_code = 'mixed_payment' or t.pay_code = 'mixed_pay_drops') and t.points_pay_status = 1
+		     	</when>
+		     	<otherwise>
+		     	 	AND t.pay_code = #{pay_code}
+		     	</otherwise>
+		     </choose>
+		</if>
+	    <if test="pay_name != null and pay_name != ''">
+		      AND t.pay_name like '${pay_name}%'  <!-- 支付方式名称 -->
+		</if>
+	    <if test="invoice_title != null and invoice_title != ''">
+		      AND t.invoice_title like '${invoice_title}%'  <!-- 发票抬头 -->
+		</if>
+	    <if test="user_note != null and user_note != ''">
+		      AND t.user_note like '${user_note}%'  <!-- 用户备注 -->
+		</if>
+	    <if test="admin_note != null and admin_note != ''">
+		      AND t.admin_note like '${admin_note}%'  <!-- 管理员备注 -->
+		</if>
+	    <if test="parent_sn != null and parent_sn != ''">
+		      AND t.parent_sn like '${parent_sn}%'  <!-- 父单单号 -->
+		</if>
+	    <if test="pay_sn != null and pay_sn != ''">
+		      AND t.pay_sn = #{pay_sn}  <!-- 支付编号 -->
+		</if>
+	    <if test="trade_no != null and trade_no != ''">
+		      AND t.trade_no like '${trade_no}%'  <!-- trade_no -->
+		</if>
+	    <if test="buy_points != null and buy_points != ''">
+		      AND t.buy_points like '${buy_points}%'  <!-- 购买积分 -->
+		</if>
+		<if test="tracking_no != null and tracking_no != ''">
+		      AND t.tracking_no like '${tracking_no}%'  <!-- 购买积分 -->
+		</if>
+		<if test="contacts_phone != null and contacts_phone != ''">
+		      AND t1.contacts_phone like '${contacts_phone}%'  <!-- 商家联系电话 -->
+		</if>
+		<if test="goods_name != null and goods_name != ''">
+		      AND t3.goods_name like '%${goods_name}%'  <!-- 商品名称 -->
+		</if>
+		<if test="v_oid != null and v_oid != ''">
+		      AND t.v_oid =#{v_oid}
+		</if>
+	</sql>
+	
+	<!-- 根据Dto统计行数 -->
+	<select id="rows" resultType="Integer" parameterType="Dto">
+		SELECT COUNT(1) AS aos_rows_ FROM zjc_order
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 根据数学表达式进行数学运算 -->
+	<select id="calc" parameterType="Dto" resultType="String">
+		SELECT
+			${_expr}
+		FROM zjc_order
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 根据user_id查询当天该用户商城购物的额度 -->
+	<select id="getTodayShopOnlineNum" parameterType="Dto" resultType="String">
+		SELECT
+			ifnull(sum(barter_coupons),0)
+		FROM zjc_order 
+		<where>
+		   user_id  = #{user_id} and to_days(add_time) = to_days(NOW())
+		</where>
+	</select>
+	
+	<!-- 检查用户充值积分需要的现金 -->
+	<select id="check_buy_points" parameterType="Dto" resultType="String">
+		select format(t2.barter_coupo_rate * #{buy_points},2) as pay_money from zjc_member_parameter t2 
+		where id = (select MAX(id) from zjc_member_parameter t1)
+	</select>
+	
+	<!-- 检查用户当天还可以购买多少积分-->
+	<select id="check_user_points" parameterType="Dto" resultType="Integer">
+		select ifnull((#{sum_points_today} - SUM(buy_points)),#{sum_points_today}) as surplus from zjc_recharge 
+		where user_id = #{user_id} 
+		and ctime >= timestamp(date(sysdate())) 
+		and ctime &lt;= timestamp(adddate(date(sysdate()),1))
+	</select>
+	
+	<!-- 易物劵结算操作 -->
+	<update id="confirmSettle" parameterType="Dto">
+		{call p2(#{uer_id}, #{store_id}, #{real_name}, #{customer_pay}, #{customer_wallet}, #{subsidy}, #{store_income})}
+	</update>
+	<!-- 表字段 -->
+	<sql id="column">
+		  order_id,  <!-- 订单id -->
+		  order_sn,  <!-- 订单编号 -->
+		  user_name,  <!-- 会员名称 -->
+		  user_id,  <!-- 用户id -->
+		  store_id,  <!-- 店铺ID -->
+		  store_name,  <!-- 店铺名称 -->
+		  order_status,  <!-- 订单状态(0-待确认，1-已确认，2-已收货，3-已取消，4-已完成(已评价)，5-已作废) -->
+		  shipping_status,  <!-- 发货状态 -->
+		  pay_status,  <!-- 支付状态 -->
+		  consignee,  <!-- 收货人 -->
+		  country,  <!-- 国家 -->
+		  province,  <!-- 省份 -->
+		  city,  <!-- 城市 -->
+		  district,  <!-- 县区 -->
+		  twon,  <!-- 乡镇 -->
+		  address,  <!-- 地址 -->
+		  zipcode,  <!-- 邮政编码 -->
+		  mobile,  <!-- 手机 -->
+		  email,  <!-- 邮件 -->
+		  shipping_code,  <!-- 物流code -->
+		  shipping_name,  <!-- 物流名称 -->
+		  pay_code,  <!-- 支付code rate 比例支付 equal  等比例支付 cash 现金支付  wxpay 微信支付  alipay 支付宝支付 -->
+		  pay_name,  <!-- 支付方式名称 -->
+		  invoice_title,  <!-- 发票抬头 -->
+		  goods_price,  <!-- 商品总价 -->
+		  shipping_price,  <!-- 邮费 -->
+		  user_money,  <!-- 使用余额 -->
+		  coupon_price,  <!-- 优惠券抵扣 -->
+		  integral,  <!-- 使用积分 -->
+		  integral_money,  <!-- 使用积分抵多少钱 -->
+		  order_amount,  <!-- 应付款金额 -->
+		  total_amount,  <!-- 订单总价 -->
+		  add_time,  <!-- 下单时间 -->
+		  shipping_time,  <!-- 最后新发货时间 -->
+		  confirm_time,  <!-- 收货确认时间 -->
+		  pay_time,  <!-- 支付时间 -->
+		  order_prom_id,  <!-- 活动id -->
+		  order_prom_amount,  <!-- 活动优惠金额 -->
+		  discount,  <!-- 价格调整 -->
+		  user_note,  <!-- 用户备注 -->
+		  admin_note,  <!-- 管理员备注 -->
+		  parent_sn,  <!-- 父单单号 -->
+		  is_distribut,  <!-- 是否已分成0未分成1已分成 -->
+		  order_type,  <!-- 1-商城普通商品，2-积分充值 -->
+		  pay_sn,  <!-- 支付编号 -->
+		  trade_no,  <!-- trade_no -->
+		  buy_points,<!-- 购买积分 -->
+		  is_del,  <!-- 是否删除（0表示未删除，1表示已删除） -->
+		  tracking_no,
+		  cash,	<!-- 现金 -->
+		  barter_coupons, <!-- 易物券 -->
+		  points_pay_status, <!-- 易物券支付状态；0:未支付；1:已支付 -->
+		  is_shop_group,  <!-- 是否拼团订单 0：否 1：是 -->
+		  v_oid,
+		  has_transfer, <!-- 是否已转账 -->
+		  reminder,  <!-- 催单次数 -->
+		  remindertime,  <!-- 上次催单时间 -->
+		  single_back,  <!-- 退单状态：0发起退单1退单中2退单成功3退单失败 -->
+		  single_back_time,  <!-- 退单时间 -->
+		  confirm_single_back_time  <!-- 确认退单时间 -->
+	</sql>
+	
+	<!-- 表字段(用于外表的关联时引用) -->
+	<sql id="column2">
+		  zjc_order.order_id,  <!-- 订单id -->
+		  zjc_order.order_sn,  <!-- 订单编号 -->
+		  zjc_order.user_name,  <!-- 会员名称 -->
+		  zjc_order.user_id,  <!-- 用户id -->
+		  zjc_order.store_id,  <!-- 店铺ID -->
+		  zjc_order.store_name,  <!-- 店铺名称 -->
+		  zjc_order.order_status,  <!-- 订单状态(0-待确认，1-已确认，2-已收货，3-已取消，4-已完成(已评价)，5-已作废) -->
+		  zjc_order.shipping_status,  <!-- 发货状态 -->
+		  zjc_order.pay_status,  <!-- 支付状态 -->
+		  zjc_order.consignee,  <!-- 收货人 -->
+		  zjc_order.country,  <!-- 国家 -->
+		  zjc_order.province,  <!-- 省份 -->
+		  zjc_order.city,  <!-- 城市 -->
+		  zjc_order.district,  <!-- 县区 -->
+		  zjc_order.twon,  <!-- 乡镇 -->
+		  zjc_order.address,  <!-- 地址 -->
+		  zjc_order.zipcode,  <!-- 邮政编码 -->
+		  zjc_order.mobile,  <!-- 手机 -->
+		  zjc_order.email,  <!-- 邮件 -->
+		  zjc_order.shipping_code,  <!-- 物流code -->
+		  zjc_order.shipping_name,  <!-- 物流名称 -->
+		  zjc_order.pay_code,  <!-- 支付code rate 比例支付 equal  等比例支付 cash 现金支付  wxpay 微信支付  alipay 支付宝支付 -->
+		  zjc_order.pay_name,  <!-- 支付方式名称 -->
+		  zjc_order.invoice_title,  <!-- 发票抬头 -->
+		  zjc_order.goods_price,  <!-- 商品总价 -->
+		  zjc_order.shipping_price,  <!-- 邮费 -->
+		  zjc_order.user_money,  <!-- 使用余额 -->
+		  zjc_order.coupon_price,  <!-- 优惠券抵扣 -->
+		  zjc_order.integral,  <!-- 使用积分 -->
+		  zjc_order.integral_money,  <!-- 使用积分抵多少钱 -->
+		  zjc_order.order_amount,  <!-- 应付款金额 -->
+		  zjc_order.total_amount,  <!-- 订单总价 -->
+		  zjc_order.add_time,  <!-- 下单时间 -->
+		  zjc_order.shipping_time,  <!-- 最后新发货时间 -->
+		  zjc_order.confirm_time,  <!-- 收货确认时间 -->
+		  zjc_order.pay_time,  <!-- 支付时间 -->
+		  zjc_order.order_prom_id,  <!-- 活动id -->
+		  zjc_order.order_prom_amount,  <!-- 活动优惠金额 -->
+		  zjc_order.discount,  <!-- 价格调整 -->
+		  zjc_order.user_note,  <!-- 用户备注 -->
+		  zjc_order.admin_note,  <!-- 管理员备注 -->
+		  zjc_order.parent_sn,  <!-- 父单单号 -->
+		  zjc_order.is_distribut,  <!-- 是否已分成0未分成1已分成 -->
+		  zjc_order.order_type,  <!-- 1-商城普通商品，2-积分充值 -->
+		  zjc_order.pay_sn,  <!-- 支付编号 -->
+		  zjc_order.trade_no,  <!-- trade_no -->
+		  zjc_order.buy_points,  <!-- 购买积分 -->
+		  zjc_order.is_del,  <!-- 是否删除（0表示未删除，1表示已删除） -->
+		  zjc_order.tracking_no,
+		  zjc_order.cash,	<!-- 现金 -->
+		  zjc_order.barter_coupons, <!-- 易物券 -->
+		  zjc_order.points_pay_status, <!-- 易物券支付状态；0:未支付；1:已支付 -->
+		  zjc_order.is_shop_group,  <!-- 是否拼团订单 0：否 1：是 -->
+		  zjc_order.v_oid,
+		  zjc_order.has_transfer, <!-- 是否已转账 -->
+		  zjc_order.has_transfer, <!-- 是否已转账 -->
+		  zjc_order.reminder,  <!-- 催单次数 -->
+		  zjc_order.remindertime,  <!-- 上次催单时间 -->
+		  zjc_order.single_back,  <!-- 退单状态：0发起退单1退单中2退单成功3退单失败 -->
+		  zjc_order.single_back_time,  <!-- 退单时间 -->
+		  zjc_order.confirm_single_back_time  <!-- 确认退单时间 -->
+	</sql>
+
+	<!-- Where精确匹配字段 -->
+	<sql id="equal">
+	   <if test="order_id != null ">
+		      AND order_id = #{order_id}  <!-- 订单id -->
+		</if>
+	    <if test="order_sn != null and order_sn != ''">
+		      AND order_sn = #{order_sn}  <!-- 订单编号 -->
+		</if>
+	    <if test="user_name != null and user_name != ''">
+		      AND user_name = #{user_name}  <!-- 会员名称 -->
+		</if>
+	   <if test="user_id != null ">
+		      AND user_id = #{user_id}  <!-- 用户id -->
+		</if>
+	   <if test="store_id != null ">
+		      AND store_id = #{store_id}  <!-- 店铺ID -->
+		</if>
+	    <if test="store_name != null and store_name != ''">
+		      AND store_name = #{store_name}  <!-- 店铺名称 -->
+		</if>
+	   <if test="order_status != null ">
+		      AND order_status = #{order_status}  <!-- 订单状态(0-待确认，1-已确认，2-已收货，3-已取消，4-已完成(已评价)，5-已作废) -->
+		</if>
+	   <if test="shipping_status != null ">
+		      AND shipping_status = #{shipping_status}  <!-- 发货状态 -->
+		</if>
+	   <if test="pay_status != null ">
+		      AND pay_status = #{pay_status}  <!-- 支付状态 -->
+		</if>
+	    <if test="consignee != null and consignee != ''">
+		      AND consignee = #{consignee}  <!-- 收货人 -->
+		</if>
+	   <if test="country != null ">
+		      AND country = #{country}  <!-- 国家 -->
+		</if>
+	   <if test="province != null ">
+		      AND province = #{province}  <!-- 省份 -->
+		</if>
+	   <if test="city != null ">
+		      AND city = #{city}  <!-- 城市 -->
+		</if>
+	   <if test="district != null ">
+		      AND district = #{district}  <!-- 县区 -->
+		</if>
+	   <if test="twon != null ">
+		      AND twon = #{twon}  <!-- 乡镇 -->
+		</if>
+	    <if test="address != null and address != ''">
+		      AND address = #{address}  <!-- 地址 -->
+		</if>
+	    <if test="zipcode != null and zipcode != ''">
+		      AND zipcode = #{zipcode}  <!-- 邮政编码 -->
+		</if>
+	    <if test="mobile != null and mobile != ''">
+		      AND mobile = #{mobile}  <!-- 手机 -->
+		</if>
+	    <if test="email != null and email != ''">
+		      AND email = #{email}  <!-- 邮件 -->
+		</if>
+	    <if test="shipping_code != null and shipping_code != ''">
+		      AND shipping_code = #{shipping_code}  <!-- 物流code -->
+		</if>
+	    <if test="shipping_name != null and shipping_name != ''">
+		      AND shipping_name = #{shipping_name}  <!-- 物流名称 -->
+		</if>
+	    <if test="pay_code != null and pay_code != ''">
+		      AND pay_code = #{pay_code}  <!-- 支付code rate 比例支付 equal  等比例支付 cash 现金支付  wxpay 微信支付  alipay 支付宝支付 -->
+		</if>
+	    <if test="pay_name != null and pay_name != ''">
+		      AND pay_name = #{pay_name}  <!-- 支付方式名称 -->
+		</if>
+	    <if test="invoice_title != null and invoice_title != ''">
+		      AND invoice_title = #{invoice_title}  <!-- 发票抬头 -->
+		</if>
+	   <if test="goods_price != null ">
+		      AND goods_price = #{goods_price}  <!-- 商品总价 -->
+		</if>
+	   <if test="shipping_price != null ">
+		      AND shipping_price = #{shipping_price}  <!-- 邮费 -->
+		</if>
+	   <if test="user_money != null ">
+		      AND user_money = #{user_money}  <!-- 使用余额 -->
+		</if>
+	   <if test="coupon_price != null ">
+		      AND coupon_price = #{coupon_price}  <!-- 优惠券抵扣 -->
+		</if>
+	   <if test="integral != null ">
+		      AND integral = #{integral}  <!-- 使用积分 -->
+		</if>
+	   <if test="integral_money != null ">
+		      AND integral_money = #{integral_money}  <!-- 使用积分抵多少钱 -->
+		</if>
+	   <if test="order_amount != null ">
+		      AND order_amount = #{order_amount}  <!-- 应付款金额 -->
+		</if>
+	   <if test="total_amount != null ">
+		      AND total_amount = #{total_amount}  <!-- 订单总价 -->
+		</if>
+	    <if test="add_time != null and add_time != ''">
+		      AND add_time = #{add_time}  <!-- 下单时间 -->
+		</if>
+	    <if test="shipping_time != null and shipping_time != ''">
+		      AND shipping_time = #{shipping_time}  <!-- 最后新发货时间 -->
+		</if>
+	    <if test="confirm_time != null and confirm_time != ''">
+		      AND confirm_time = #{confirm_time}  <!-- 收货确认时间 -->
+		</if>
+	    <if test="pay_time != null and pay_time != ''">
+		      AND pay_time = #{pay_time}  <!-- 支付时间 -->
+		</if>
+	   <if test="order_prom_id != null ">
+		      AND order_prom_id = #{order_prom_id}  <!-- 活动id -->
+		</if>
+	   <if test="order_prom_amount != null ">
+		      AND order_prom_amount = #{order_prom_amount}  <!-- 活动优惠金额 -->
+		</if>
+	   <if test="discount != null ">
+		      AND discount = #{discount}  <!-- 价格调整 -->
+		</if>
+	    <if test="user_note != null and user_note != ''">
+		      AND user_note = #{user_note}  <!-- 用户备注 -->
+		</if>
+	    <if test="admin_note != null and admin_note != ''">
+		      AND admin_note = #{admin_note}  <!-- 管理员备注 -->
+		</if>
+	    <if test="parent_sn != null and parent_sn != ''">
+		      AND parent_sn = #{parent_sn}  <!-- 父单单号 -->
+		</if>
+	   <if test="is_distribut != null ">
+		      AND is_distribut = #{is_distribut}  <!-- 是否已分成0未分成1已分成 -->
+		</if>
+	   <if test="order_type != null ">
+		      AND order_type = #{order_type}  <!-- 1-商城普通商品，2-积分充值 -->
+		</if>
+	    <if test="pay_sn != null and pay_sn != ''">
+		      AND pay_sn = #{pay_sn}  <!-- 支付编号 -->
+		</if>
+	    <if test="trade_no != null and trade_no != ''">
+		      AND trade_no = #{trade_no}  <!-- trade_no -->
+		</if>
+	    <if test="buy_points != null and buy_points != ''">
+		      AND buy_points = #{buy_points}  <!-- 购买积分 -->
+		</if>
+		<if test="is_del != null and is_del != ''">
+		      AND is_del = #{is_del}  <!-- 是否删除（0表示未删除，1表示已删除） -->
+		</if>
+		<if test="tracking_no != null and tracking_no != ''">
+		      AND tracking_no = #{tracking_no}  <!-- 是否删除（0表示未删除，1表示已删除） -->
+		</if>
+		<if test="cash != null ">
+		      AND cash = #{cash}  <!-- 现金 -->
+		</if>
+	   <if test="barter_coupons != null ">
+		      AND barter_coupons = #{barter_coupons}  <!-- 易物券 -->
+		</if>
+		<if test="has_transfer != null ">
+		      AND has_transfer = #{has_transfer}  <!-- 易物券 -->
+		</if>
+		<if test="points_pay_status != null ">
+		      AND points_pay_status = #{points_pay_status}  <!-- 易物券支付状态；0:未支付；1:已支付 -->
+		</if>
+		<if test="is_shop_group != null ">
+		      AND is_shop_group = #{is_shop_group}   <!-- 是否拼团订单 0：否 1：是 -->
+		</if>
+		<if test="v_oid != null ">
+		      AND v_oid = #{v_oid}   <!-- 是否拼团订单 0：否 1：是 -->
+		</if>
+		<if test="reminder != null ">
+		      AND reminder = #{reminder}  <!-- 催单次数 -->
+		</if>
+	    <if test="remindertime != null and remindertime != ''">
+		      AND remindertime = #{remindertime}  <!-- 上次催单时间 -->
+		</if>
+	   <if test="single_back != null ">
+		      AND single_back = #{single_back}  <!-- 退单状态：0发起退单1退单中2退单成功3退单失败 -->
+		</if>
+	    <if test="single_back_time != null and single_back_time != ''">
+		      AND single_back_time = #{single_back_time}  <!-- 退单时间 -->
+		</if>
+	    <if test="confirm_single_back_time != null and confirm_single_back_time != ''">
+		      AND confirm_single_back_time = #{confirm_single_back_time}  <!-- 确认退单时间 -->
+		</if>
+	</sql>
+	
+	<!-- Where模糊匹配字段 -->
+	<sql id="like">
+	 	<if test="order_status != null and order_status != '' ">
+		      AND order_status = #{order_status}  <!-- 订单状态(0-待确认，1-已确认，2-已收货，3-已取消，4-已完成(已评价)，5-已作废) -->
+		</if>
+	 	<if test="order_id != null and order_id != ''">
+		      AND order_id = #{order_id}  <!-- 订单ID -->
+		</if>
+	    <if test="order_sn != null and order_sn != ''">
+		      AND order_sn = #{order_sn}  <!-- 订单编号 -->
+		</if>
+		<if test="user_id != null and user_id != '' ">
+		      AND user_id = #{user_id}  <!-- 用户id -->
+		</if>
+		<if test="shipping_status != null and shipping_status != '' ">
+		      AND shipping_status = #{shipping_status}  <!-- 发货状态 -->
+		</if>
+	   <if test="pay_status != null  and pay_status != ''">
+		      AND pay_status = #{pay_status}  <!-- 支付状态 -->
+		</if>
+		<if test="is_del != null and is_del != ''">
+		      AND is_del = #{is_del}  <!-- 是否删除（0表示未删除，1表示已删除） -->
+		</if>
+		<if test="add_time_start != null and add_time_start != ''">
+		      <![CDATA[AND add_time >= #{add_time_start}]]>  <!-- 下单时间(起) -->
+		</if>
+		<if test="add_time_end != null and add_time_end != ''">
+		      <![CDATA[AND add_time <= #{add_time_end}]]>  <!-- 下单时间(止) -->
+		</if>
+	    <if test="user_name != null and user_name != ''">
+		      AND user_name = #{user_name}  <!-- 会员名称 -->
+		</if>
+	    <if test="store_name != null and store_name != ''">
+		      AND store_name like '${store_name}%'  <!-- 店铺名称 -->
+		</if>
+	    <if test="consignee != null and consignee != ''">
+		      AND consignee = #{consignee}  <!-- 收货人 -->
+		</if>
+	    <if test="address != null and address != ''">
+		      AND address = #{address}  <!-- 地址 -->
+		</if>
+	    <if test="zipcode != null and zipcode != ''">
+		      AND zipcode like '${zipcode}%'  <!-- 邮政编码 -->
+		</if>
+	    <if test="mobile != null and mobile != ''">
+		      AND mobile = #{mobile}  <!-- 手机 -->
+		</if>
+	    <if test="email != null and email != ''">
+		      AND email like '${email}%'  <!-- 邮件 -->
+		</if>
+	    <if test="shipping_code != null and shipping_code != ''">
+		      AND shipping_code like '${shipping_code}%'  <!-- 物流code -->
+		</if>
+	    <if test="shipping_name != null and shipping_name != ''">
+		      AND shipping_name like '${shipping_name}%'  <!-- 物流名称 -->
+		</if>
+		<if test="pay_code != null and pay_code != '' and pay_code == 'others'">
+		      AND pay_code is null  <!-- 支付code rate 比例支付 equal  等比例支付 cash 现金支付  wxpay 微信支付  alipay 支付宝支付 -->
+		</if>
+	    <if test="pay_code != null and pay_code != ''and pay_code != 'others'">
+		      AND pay_code = #{pay_code}  <!-- 支付code rate 比例支付 equal  等比例支付 cash 现金支付  wxpay 微信支付  alipay 支付宝支付 -->
+		</if>
+	    <if test="pay_name != null and pay_name != ''">
+		      AND pay_name like '${pay_name}%'  <!-- 支付方式名称 -->
+		</if>
+	    <if test="invoice_title != null and invoice_title != ''">
+		      AND invoice_title like '${invoice_title}%'  <!-- 发票抬头 -->
+		</if>
+	    <if test="user_note != null and user_note != ''">
+		      AND user_note like '${user_note}%'  <!-- 用户备注 -->
+		</if>
+	    <if test="admin_note != null and admin_note != ''">
+		      AND admin_note like '${admin_note}%'  <!-- 管理员备注 -->
+		</if>
+	    <if test="parent_sn != null and parent_sn != ''">
+		      AND parent_sn like '${parent_sn}%'  <!-- 父单单号 -->
+		</if>
+	    <if test="pay_sn != null and pay_sn != ''">
+		      AND pay_sn like '${pay_sn}%'  <!-- 支付编号 -->
+		</if>
+	    <if test="trade_no != null and trade_no != ''">
+		      AND trade_no like '${trade_no}%'  <!-- trade_no -->
+		</if>
+	    <if test="buy_points != null and buy_points != ''">
+		      AND buy_points like '${buy_points}%'  <!-- 购买积分 -->
+		</if>
+		<if test="tracking_no != null and tracking_no != ''">
+		      AND tracking_no like '${tracking_no}%'  <!-- 购买积分 -->
+		</if>
+	</sql>
+	
+	<!-- =================================================app接口================================================= -->
+	<!-- 根据订单状态查询并返回数据持久化对象 -->
+	<select id="queryByStatusPage" resultType="ZjcOrderPO">
+		SELECT
+		<include refid="column" />
+		FROM zjc_order 
+		<choose>
+			<when test="order_status == null">
+				where user_id = #{user_id}
+			</when>
+			<when test="order_status == 0">
+				where user_id = #{user_id} and order_status = #{order_status} and date_add(add_time, interval 30 minute)> NOW() and NOW()>=add_time
+			</when>
+			<otherwise>
+				where user_id = #{user_id} and order_status = #{order_status}
+			</otherwise>
+		</choose>
+		
+	</select>
+	<!-- 根据订单状态查询并返回数据持久化对象 --><!-- and date_add(add_time, interval 30 minute)> NOW() -->
+	<select id="myOrderListPage" resultType="ZjcOrderPO">
+		SELECT
+			order_id, order_sn, store_name, store_id,  order_status, cash, barter_coupons, add_time, address, consignee,pay_code,
+			pay_name,pay_time, pay_status,points_pay_status, tracking_no as invoice_no,is_shop_group,reminder,single_back,is_shop_group
+		FROM zjc_order 
+		<choose>
+			<when test="order_status == 0">
+				where is_del= 0 and user_id = #{user_id} and order_status = 0 and shipping_status = 0 and ((pay_status = 0 and points_pay_status = 1) or (pay_status = 0 and points_pay_status = 0 and add_time &gt;= DATE_SUB(NOW(),INTERVAL 120 MINUTE))) 
+			    <if test="is_shop_group != null and is_shop_group != ''">
+				and is_shop_group = #{is_shop_group}
+			    </if>
+			</when>
+			<when test="order_status == 1">
+				where is_del= 0 and user_id = #{user_id} and shipping_status = 0 and pay_status = 1
+				<if test="is_shop_group != null and is_shop_group != ''">
+				and is_shop_group = #{is_shop_group}
+			    </if>
+			</when>
+			<when test="order_status == 2">
+				where is_del= 0 and user_id = #{user_id} and shipping_status = 1 and order_status = 1
+				<if test="is_shop_group != null and is_shop_group != ''">
+				and is_shop_group = #{is_shop_group}
+			    </if>
+			</when>
+			<when test="order_status == 3">
+				where is_del= 0 and user_id = #{user_id} and order_status = 2
+				<if test="is_shop_group != null and is_shop_group != ''">
+				and is_shop_group = #{is_shop_group}
+			    </if>
+			</when>
+			<when test="order_status == 4">
+				where is_del= 0 and user_id = #{user_id} and order_status = 4 
+				<if test="is_shop_group != null and is_shop_group != ''">
+				and is_shop_group = #{is_shop_group}
+			    </if>
+			</when>
+			<otherwise>
+				where 1 &lt;&gt; 1 and is_del= 0 
+				<if test="is_shop_group != null and is_shop_group != ''">
+				and is_shop_group = #{is_shop_group}
+			    </if>
+			</otherwise>
+		</choose>
+		order by add_time desc
+	</select>
+	
+	<!-- 提交评论后修改订单状态为以评论 -->
+	<update id="order_has_comment">
+		update zjc_order set order_status = 4 where order_id = #{order_id}
+	</update>
+	<!-- =================================商家后台=================================================================== -->
+	<!-- 根据条件查询用户订单 -->
+	<select id="serachOrderPage" parameterType="Dto" resultType="Dto">
+		select 
+			t1.order_id,t1.order_sn,t1.user_id,t1.consignee,t2.goods_name,t1.goods_price,t3.display as order_status,t4.display as pay_status,
+			t5.display as shipping_status,t1.pay_name,t1.add_time,ifnull(t1.shipping_name, " ") as shipping_name,t1.confirm_time,
+			t1.tracking_no,t1.shipping_name,t1.shipping_time,t1.points_pay_status,t1.pay_code,
+			case t1.pay_code when 'rate' then t1.goods_price 
+                when 'equal' then  t1.goods_price 
+                when 'mixed_payment' then t1.barter_coupons 
+			else '0' end  as barter_coupons,
+ 			case t1.pay_code when 'cash' then t1.goods_price 
+                 when 'wxpay' then  t1.goods_price 
+                 when 'alipay' then t1.goods_price
+				 when 'mixed_payment' then t1.cash
+				 when 'paySYX' then t1.cash
+			else '0' end  as cash, sum(t2.goods_num) as goods_num
+			, t1.address, t1.mobile,case t6.is_send when 1 then '已返还' ELSE '未返还' end as success_time,t1.drops
+		from zjc_order t1 
+		left join zjc_order_goods t2 on t1.order_id = t2.order_id 
+		left join (select code as value, dic_desc as display from aos_dic where dic_key = "order_status") t3 on t1.order_status = t3.value
+		left join (select code as value, dic_desc as display from aos_dic where dic_key = "pay_status") t4 on t1.pay_status = t4.value
+		left join (select code as value, dic_desc as display from aos_dic where dic_key = "shipping_status") t5 on t1.shipping_status = t5.value
+		left join zjc_queue t6 on t1.order_id = t6.relation_id and t6.type = '6' and t6.is_cancle=0
+		<where>
+			<if test="consignee != null and consignee != ''">
+				and t1.consignee = #{consignee}
+			</if>
+			<if test="order_sn != null and order_sn != ''">
+				and t1.order_sn = #{order_sn}
+			</if>
+			<if test="goods_name != null and goods_name != ''">
+				and t2.goods_name like '%${goods_name}%'
+			</if>
+			<if test="add_time_end != null and add_time_end != ''">
+				and date_format(t1.add_time,'%Y-%m-%d') &lt;= #{add_time_end}
+			</if>
+			<if test="add_time_start != null and add_time_start != ''">
+				and date_format(t1.add_time,'%Y-%m-%d') &gt;= #{add_time_start}
+			</if>
+			<if test="pay_time != null and pay_time != ''">
+				and date_format(t1.pay_time,'%Y-%m-%d') = #{pay_time}
+			</if>
+			<if test="order_status != null and order_status != ''">
+				and t1.order_status = #{order_status}
+			</if>
+			<if test="shipping_status != null and shipping_status != ''">
+				and t1.shipping_status = #{shipping_status}
+			</if>
+			<if test="pay_status != null and pay_status != ''">
+				and t1.pay_status = #{pay_status}
+			</if>
+			<choose>
+				<when test="pay_code != null and pay_code == 'mixed_payment'">
+					and t1.pay_code = 'mixed_payment' and t1.points_pay_status = 1
+				</when>
+				<when test="pay_code != null and pay_code == 'others'">
+					and ((t1.pay_code = 'mixed_payment') or (t1.pay_code != 'mixed_payment' and t1.pay_status = 1))
+				</when>
+				<when test="pay_code == null or pay_code == ''">
+					and ((t1.pay_code = 'mixed_pay_drops' and t1.points_pay_status = 1) or (t1.pay_code = 'paySYX' and t1.points_pay_status = 1) or (t1.pay_code = 'mixed_payment' and t1.points_pay_status = 1) or (t1.pay_code != 'mixed_payment' and t1.pay_status = 1))
+				</when>
+				<when test="pay_code == 'cash'">
+		     		AND t1.pay_status = 1 and (t1.pay_code = 'wxpay' or t1.pay_code = 'paySYX' or t1.pay_code = 'alipay' or t1.pay_code = 'unionpay')
+		     	</when>
+				<otherwise>
+					and t1.pay_status = 1 and t1.pay_code = #{pay_code}
+				</otherwise>
+			</choose>
+			and t1.store_id = #{store_id}
+		</where>
+		group by t1.order_id
+		order by t1.order_id desc
+	</select>
+	
+	<select id="findExportOrder" parameterType="Dto" resultType="OrderExportVO">
+		select 
+			t1.order_id,CONCAT(t1.order_sn,' ') as order_sn, t1.user_id,t1.consignee,t2.goods_name,t3.display as order_status,t4.display as pay_status,
+			t5.display as shipping_status,t1.pay_name,t1.add_time,ifnull(t1.shipping_name, " ") as shipping_name,t1.confirm_time,t1.shipping_time,
+			case t1.pay_code when 'rate' then t1.goods_price 
+                when 'equal' then  t1.goods_price 
+                when 'mixed_payment' then t1.barter_coupons 
+			else '0' end  as barter_coupons,
+ 			case t1.pay_code when 'cash' then t1.goods_price 
+                 when 'wxpay' then  t1.goods_price 
+                 when 'alipay' then t1.goods_price
+				 when 'mixed_payment' then t1.cash
+				 when 'paySYX' then t1.cash
+			else '0' end  as cash, sum(t2.goods_num) as goods_num, t1.address, t1.mobile
+		from zjc_order t1 
+		left join zjc_order_goods t2 on t1.order_id = t2.order_id 
+		left join (select code as value, dic_desc as display from aos_dic where dic_key = "order_status") t3 on t1.order_status = t3.value
+		left join (select code as value, dic_desc as display from aos_dic where dic_key = "pay_status") t4 on t1.pay_status = t4.value
+		left join (select code as value, dic_desc as display from aos_dic where dic_key = "shipping_status") t5 on t1.shipping_status = t5.value
+		<where>
+			<if test="consignee != null and consignee != ''">
+				and t1.consignee = #{consignee}
+			</if>
+			<if test="order_sn != null and order_sn != ''">
+				and t1.order_sn = #{order_sn}
+			</if>
+			<if test="goods_name != null and goods_name != ''">
+				and t2.goods_name like '%${goods_name}%'
+			</if>
+			<if test="add_time_end != null and add_time_end != ''">
+				and date_format(t1.add_time,'%Y-%m-%d') &lt;= #{add_time_end}
+			</if>
+			<if test="add_time_start != null and add_time_start != ''">
+				and date_format(t1.add_time,'%Y-%m-%d') &gt;= #{add_time_start}
+			</if>
+			<if test="pay_time != null and pay_time != ''">
+				and date_format(t1.pay_time,'%Y-%m-%d') = #{pay_time}
+			</if>
+			<if test="order_status != null and order_status != ''">
+				and t1.order_status = #{order_status}
+			</if>
+			<if test="shipping_status != null and shipping_status != ''">
+				and t1.shipping_status = #{shipping_status}
+			</if>
+			<if test="pay_status != null and pay_status != ''">
+				and t1.pay_status = #{pay_status}
+			</if>
+			<choose>
+				<when test="pay_code != null and pay_code == 'mixed_payment'">
+					and t1.pay_code = 'mixed_payment' and t1.points_pay_status = 1
+				</when>
+				<when test="pay_code != null and pay_code == 'others'">
+					and ((t1.pay_code = 'mixed_payment') or (t1.pay_code != 'mixed_payment' and t1.pay_status = 1))
+				</when>
+				<when test="pay_code == null or pay_code == ''">
+					and ((t1.pay_code = 'mixed_payment' and t1.points_pay_status = 1) or (t1.pay_code != 'mixed_payment' and t1.pay_status = 1))
+				</when>
+				<when test="pay_code == 'cash'">
+		     		AND t1.pay_status = 1 and (t1.pay_code = 'wxpay' or t1.pay_code = 'alipay' or t1.pay_code = 'unionpay')
+		     	</when>
+				<otherwise>
+					and t1.pay_status = 1 and t1.pay_code = #{pay_code}
+				</otherwise>
+			</choose>
+			and t1.store_id = #{store_id} 
+		</where>
+		group by t1.order_id
+		order by order_id desc
+	</select>
+	<!-- 微信待发货 -->
+	<select id="getWxOrderf" parameterType="ZjcOrderPO" resultType="ZjcOrderPO">
+			SELECT
+			 t.order_sn, t.store_name,t.user_id,t.cash,t.user_name,t.add_time, t.address,t1.market_price as market_price, t1.cost_price as cost_price, t.barter_coupons,
+        t1.goods_num as goods_num,t1.goods_name as goods_name,t2.original_img as original_img
+		FROM zjc_order t
+        LEFT JOIN zjc_order_goods t1 on t.order_id=t1.order_id
+        LEFT JOIN zjc_goods t2 on t1.goods_id=t2.goods_id
+        where  t.user_id=#{user_id} and t.is_del= 0 and t.pay_status=1 and t.shipping_status = 0 and (t.order_status=0 or t.order_status=1) order by t.order_id desc
+	</select>
+	<!-- 微信待收货  -->
+		<select id="getWxOrders" parameterType="ZjcOrderPO" resultType="ZjcOrderPO">
+			SELECT
+			 t.order_id,t.order_sn, t.store_name,t.user_id,t.cash,t.user_name,t.add_time, t.address,t1.market_price as market_price, t1.cost_price as cost_price, t.barter_coupons,
+        t1.goods_num as goods_num,t1.goods_name as goods_name,t2.original_img as original_img
+		FROM zjc_order t
+        LEFT JOIN zjc_order_goods t1 on t.order_id=t1.order_id
+        LEFT JOIN zjc_goods t2 on t1.goods_id=t2.goods_id
+        where  t.is_del= 0 and t.pay_status=1 and t.shipping_status = 1 and t.order_status=1 and t.user_id=#{user_id} order by t.order_id desc
+	</select>
+	
+	<!-- 查找用户全部发货单 -->
+	<select id="getAllInvoicePage" parameterType="Dto" resultType="Dto">
+		select <include refid="column4"></include>
+		from zjc_order t1 left join zjc_order_goods t2 on t1.order_id = t2.order_id 
+		where store_id = #{store_id}
+		order by order_id desc
+	</select>
+	<!-- 根据条件查询发货单 -->
+	<select id="serachInvoPage" parameterType="Dto" resultType="Dto">
+		select <include refid="column4"></include>
+		from zjc_order t1 left join zjc_order_goods t2 on t1.order_id = t2.order_id 
+		<where>
+			<if test="consignee != null and consignee != ''">
+				and t1.consignee = #{consignee}
+			</if>
+			<if test="order_sn != null and order_sn != ''">
+				and t1.order_sn = #{order_sn}
+			</if>
+			<if test="goods_name != null and goods_name != ''">
+				and t2.goods_name like '%${goods_name}%'
+			</if>
+			<if test="add_time != null and add_time != ''">
+				and date_format(t1.add_time,'%Y-%m-%d') = #{add_time}
+			</if>
+			<if test="pay_time != null and pay_time != ''">
+				and date_format(t1.pay_time,'%Y-%m-%d') = #{pay_time}
+			</if>
+			<if test="pay_code != null and pay_code != ''">
+				and t1.pay_code = #{pay_code}
+			</if>
+			<if test="order_status != null and order_status != ''">
+				and t1.order_status = #{order_status}
+			</if>
+			<if test="true">
+				and t1.store_id = #{store_id} and t1.pay_status = 1 and t1.shipping_status = 1
+			</if>
+		</where>
+		order by order_id desc
+	</select>
+	<!-- 查找订单详情 -->
+	<select id="order_detial" parameterType="Dto" resultMap="order_detial_map"> 
+		select t1.order_id, t1.user_name, t1.order_sn, t1.user_id, t4.display as order_status , t5.display as pay_status, t6.display as shipping_status,
+		t1.cash, t1.barter_coupons,t1.points_pay_status,
+		t4.display as a_order_status , t5.display as a_pay_status, t6.display as a_shipping_status, t1.cash,t1.barter_coupons,
+		t1.consignee, t1.address, t1.mobile, t1.shipping_name, t1.pay_code, t1.pay_name, t1.goods_price,
+		t1.shipping_price, t1.integral, t1.add_time, t1.pay_time, t1.user_note, t1.admin_note, t1.tracking_no,
+		t2.goods_name, t2.goods_num, t2.market_price, t2.cost_price, t3.action_user, t3.log_time, t3.action_note, t3.status_desc
+		from zjc_order t1 
+			left join zjc_order_goods t2 on t1.order_id  = t2.order_id
+			left join zjc_order_action t3 on t1.order_id = t3.order_id
+			left join (select code as value, dic_desc as display from aos_dic where dic_key = "order_status") t4 on t1.order_status = t4.value
+			left join (select code as value, dic_desc as display from aos_dic where dic_key = "pay_status") t5 on t1.pay_status = t5.value
+			left join (select code as value, dic_desc as display from aos_dic where dic_key = "shipping_status") t6 on t1.shipping_status = t6.value
+		where t1.order_id = #{order_id} 
+	</select>
+	<!-- 确认发货 -->
+	<update id="invo_comfirm" parameterType="Dto">
+		update zjc_order set 
+			shipping_status = 1,
+			shipping_time = #{shipping_time, jdbcType=VARCHAR},
+			 where order_id = #{order_id}
+	</update>
+	<select id="getOrderStatus" parameterType="Dto" resultType="Dto">
+		select code as value, dic_desc as display from aos_dic where dic_key = "order_status"
+	</select>
+	<select id="getAllPayType" parameterType="Dto" resultType="Dto">
+		select code as value, dic_desc as display from aos_dic where dic_key = "pay_code"
+	</select>
+	<select id="getAllPayStatus" parameterType="Dto" resultType="Dto">
+		select code as value, dic_desc as display from aos_dic where dic_key = "pay_status"
+	</select>
+	<select id="getAllLogistics" parameterType="Dto" resultType="Dto">
+		select value, display from zjc_logistics
+	</select>
+	<select id="getAllShipping" parameterType="Dto" resultType="Dto">
+		select code as value, dic_desc as display from aos_dic where dic_key = "shipping_status"
+	</select>
+	
+	<sql id="column4">
+		t1.order_id,
+		t1.order_sn, 
+		t1.pay_time, 
+		t1.shipping_time, 
+		ifnull(t1.shipping_name, " ") as shipping_name, 
+		t1.tracking_no, 
+		t1.consignee, 
+		t2.goods_name, 
+		t1.pay_code,
+		t1.cash,
+		t1.barter_coupons
+	</sql>
+	
+	<resultMap id="order_detial_map" type="com.zjc.order.dao.po.ZjcOrderVO2">  
+        <id column="order_id" property="order_id" jdbcType="INTEGER"/>  
+        <result column="order_sn" property="order_sn" jdbcType="VARCHAR"/>
+        <result column="user_name" property="user_name" jdbcType="VARCHAR"/>
+        <result column="user_id" property="user_id" jdbcType="INTEGER"/>
+        <result column="order_status" property="order_status" jdbcType="INTEGER"/>
+        <result column="shipping_status" property="shipping_status" jdbcType="INTEGER"/>
+        <result column="pay_status" property="pay_status" jdbcType="INTEGER"/>
+        <result column="consignee" property="consignee" jdbcType="VARCHAR"/>
+        <result column="address" property="address" jdbcType="VARCHAR"/>
+        <result column="mobile" property="mobile" jdbcType="VARCHAR"/>
+        <result column="shipping_name" property="shipping_name" jdbcType="VARCHAR"/>
+        <result column="pay_code" property="pay_code" jdbcType="VARCHAR"/>
+        <result column="pay_name" property="pay_name" jdbcType="VARCHAR"/>
+        <result column="goods_price" property="goods_price" jdbcType="NUMERIC"/>
+        <result column="shipping_price" property="shipping_price" jdbcType="NUMERIC"/>
+        <result column="integral" property="integral" jdbcType="INTEGER"/>
+        <result column="add_time" property="add_time" jdbcType="VARCHAR"/>
+        <result column="pay_time" property="pay_time" jdbcType="VARCHAR"/>
+        <result column="user_note" property="user_note" jdbcType="VARCHAR"/>
+        <result column="admin_note" property="admin_note" jdbcType="VARCHAR"/>
+        <result column="tracking_no" property="tracking_no" jdbcType="VARCHAR"/>
+        <result column="cash" property="cash" jdbcType="NUMERIC"/>
+       	<result column="barter_coupons" property="barter_coupons" jdbcType="NUMERIC"/>
+       	<result column="points_pay_status" property="points_pay_status" jdbcType="INTEGER"/>
+       	<result column="is_shop_group" property="is_shop_group" jdbcType="INTEGER"/>
+        <collection property="zjcOrderGoodsPO"  ofType="com.zjc.order.dao.po.ZjcOrderGoodsPO">  
+            <result column="goods_name" property="goods_name" jdbcType="VARCHAR"/>
+            <result column="goods_num" property="goods_num" jdbcType="INTEGER"/>
+            <result column="market_price" property="market_price" jdbcType="NUMERIC"/>
+            <result column="cost_price" property="cost_price" jdbcType="NUMERIC"/>
+        </collection> 
+        <collection property="zjcOrderActionPOs" ofType="com.zjc.order.dao.po.ZjcOrderActionVO2">
+        	<result column="action_user" property="action_user" jdbcType="INTEGER"/>
+        	<result column="log_time" property="log_time" jdbcType="VARCHAR"/>
+        	<result column="a_order_status" property="order_status" jdbcType="INTEGER"/>
+        	<result column="a_pay_status" property="pay_status" jdbcType="INTEGER"/>
+        	<result column="a_shipping_status" property="shipping_status" jdbcType="INTEGER"/>
+        	<result column="action_note" property="action_note" jdbcType="VARCHAR"/>
+        	<result column="status_desc" property="status_desc" jdbcType="VARCHAR"/>
+        </collection> 
+    </resultMap>
+    
+    <select id="getZjcOrderInfoByOrderId" resultType="Dto" useCache="false">
+		select 
+			t1.order_id, 
+			t1.order_sn,
+			t1.add_time,
+			t1.shipping_code,
+			t1.pay_code,
+			t1.store_name,
+			t2.area_info,
+			t2.contacts_phone,
+			t2.contacts_email,
+			t1.consignee,
+			t1.mobile,
+			t1.zipcode,
+			t1.address, 
+			t1.tracking_no
+		from zjc_order t1 left join zjc_store t2 on t1.store_id = t2.store_id
+		where t1.order_id = #{order_id}
+	</select> 
+	
+	<!-- 打印送货单 --> 
+	<select id="order_invo" parameterType="Dto" resultType="Dto">
+		select 
+			t1.add_time,
+			t1.shipping_time,
+			t1.order_sn,
+			t1.tracking_no,
+			t1.user_id,
+			t1.consignee,
+			t2.store_name,
+			t1.address,
+			t2.address_detail,
+			t1.address,
+			t3.mobile as j_mobile,
+			t1.mobile as s_mobile
+		from zjc_order t1 
+		left join zjc_store t2 on t1.store_id = t2.store_id 
+		left join zjc_users_info t3 on t1.user_id = t3.user_id
+		where t1.order_id = #{order_id}
+	</select>
+	
+	<select id="list2" parameterType="Dto" resultType="Dto">
+		select t2.goods_name, t2.spec_key_name, t2.goods_num, if(t1.pay_code = 'cash ' or t1.pay_code = 'wxpay ' or t1.pay_code = 'alipay ' or t1.pay_code = 'unionpay ', t2.cost_price, if(t1.pay_code = 'mixed_payment ', t2.cost_price + t2.market_price, t2.market_price)) as goods_price 
+		from zjc_order t1 left join zjc_order_goods t2 on t1.order_id = t2.order_id where t1.order_id = #{order_id}
+	</select>
+	
+	<select id="listConsumeRankPage" parameterType="Dto" resultType="Dto">
+		select
+			user_id,
+			user_name,
+			sum(case pay_code when 'rate' then goods_price 
+                when 'equal' then goods_price 
+                when 'mixed_payment' then barter_coupons 
+			else '0' end) as sum_barter_coupons,
+			sum(case pay_code when 'cash' then goods_price 
+                 when 'wxpay' then goods_price 
+                 when 'alipay' then goods_price
+				 when 'mixed_payment' then cash
+				 when 'paySYX' then cash
+			else '0' end) as sum_cash
+		from zjc_order 
+		<where>
+			pay_status = 1
+			<if test="user_id != null and user_id != ''">
+				and user_id = #{user_id}
+			</if>
+			<if test="start_time != null and start_time != ''">
+				and pay_time &gt;= #{start_time}
+			</if>
+			<if test="end_time != null and end_time != ''">
+				and pay_time &lt;= #{end_time}
+			</if>
+			<if test="user_name != null and user_name != ''">
+				and user_name like '%${user_name}%'
+			</if>
+		</where>
+		group by user_id order by sum_cash desc, sum_barter_coupons desc
+	</select>
+	
+	<select id="getOrderListByUserId" parameterType="Dto" resultType="ZjcOrderPO" useCache="false">
+		select <include refid="column"></include> from zjc_order
+		<where>
+			user_id = #{user_id} and pay_status = 1
+			<if test="start_time != null and start_time != ''">
+				and pay_time &gt;= #{start_time}
+			</if>
+			<if test="end_time != null and end_time != ''">
+				and pay_time &lt;= #{end_time}
+			</if>
+		</where>
+		order by pay_time desc
+	</select>
+	
+	<select id="waitPayOrderPage" parameterType="Dto" resultType="Dto">
+		select t1.order_sn, t1.user_id, t1.consignee, t2.goods_name, t1.barter_coupons, t1.cash, t1.add_time, t1.pay_code 
+		from zjc_order t1 left join zjc_order_goods t2 on t1.order_id = t2.order_id 
+		where t1.store_id = #{store_id} and to_days(t1.add_time) = to_days(NOW()) and t1.pay_status = 0
+	</select>
+	<select id="waitDeliveryOrderPage" parameterType="Dto" resultType="Dto">
+		select t1.order_sn, t1.user_id, t1.consignee, t2.goods_name, t1.barter_coupons, t1.cash, t1.add_time, t1.pay_code  
+		from zjc_order t1 left join zjc_order_goods t2 on t1.order_id = t2.order_id 
+		where t1.store_id = #{store_id} and to_days(t1.add_time) = to_days(NOW()) and t1.pay_status = 1 and t1.shipping_status = 0
+	</select>
+	<select id="waitCommentOrderPage" parameterType="Dto" resultType="Dto">
+		select t1.order_sn, t1.user_id, t1.consignee, t2.goods_name, t1.barter_coupons, t1.cash, t1.add_time, t1.pay_code  
+		from zjc_order t1 left join zjc_order_goods t2 on t1.order_id = t2.order_id 
+		where t1.store_id = #{store_id} and to_days(t1.add_time) = to_days(NOW()) and t1.order_status = 2
+	</select>
+	<select id="waitFinishOrderPage" parameterType="Dto" resultType="Dto">
+		select t1.order_sn, t1.user_id, t1.consignee, t2.goods_name, t1.barter_coupons, t1.cash, t1.add_time, t1.pay_code  
+		from zjc_order t1 left join zjc_order_goods t2 on t1.order_id = t2.order_id 
+		where t1.store_id = #{store_id} and to_days(t1.add_time) = to_days(NOW()) and t1.order_status = 4
+	</select>
+	
+	<select id="selectByOrderSn" parameterType="Dto" resultType="ZjcOrderPO">
+		select * from zjc_order where order_sn = #{order_sn}
+	</select>
+	
+	<!-- =============================================商家app ========================================= -->
+	<select id="sellerOrderListPage" resultType="ZjcOrderPO">
+		SELECT
+			t.order_id,t.user_id,t.mobile, t.order_sn,t.store_id,  t.order_status, t.cash, t.barter_coupons, t.add_time, t.address, t.consignee,t.pay_code,t.shipping_time,
+			t.pay_name,t.pay_time, t.pay_status,t.points_pay_status, t.tracking_no as invoice_no,t1.goods_name,t1.goods_num,t1.market_price,t1.cost_price,t.confirm_time
+		FROM zjc_order t left join zjc_order_goods t1 on t.order_id = t1.order_id
+		<choose>
+			<when test="order_status == 0"><!-- 待支付订单 -->
+				where t.is_del= 0 and t.order_status = 0 and t.pay_code = 'mixed_payment' and t.pay_status=0 and t.points_pay_status = 1
+			</when>
+			<when test="order_status == 1"><!-- 待发货订单 -->
+				where t.is_del= 0 and t.pay_status=1 and t.shipping_status = 0 and (t.order_status=0 or t.order_status=1)
+			</when>
+			<when test="order_status == 2"><!-- 待收货订单 -->
+				where t.is_del= 0 and t.pay_status=1 and t.shipping_status = 1 and t.order_status=1
+			</when>
+			<when test="order_status == 3"><!-- 已完成订单 -->
+				where t.is_del= 0 and t.pay_status=1 and t.shipping_status =1 and (t.order_status=4 or t.order_status =2)
+			</when>
+			<otherwise>
+				where is_del= 0 
+			</otherwise>
+		</choose>
+		<if test="store_id != null and store_id != ''">
+			and store_id = #{store_id}
+		</if>
+		<if test="user_name != null and user_name != ''">
+		      AND t.consignee = #{user_name}  <!-- 会员名称 -->
+		</if>
+		<if test="mobile != null and mobile != ''">
+		      AND t.mobile like '${mobile}%'  <!-- 手机 -->
+		</if>
+		<if test="goods_name != null and goods_name != ''">
+		      AND t1.goods_name like '%${goods_name}%'  <!-- 商品名称 -->
+		</if>
+		order by t.order_id desc
+	</select>
+	<!-- 统计订单数量 -->
+	<select id="orderNum" parameterType="Dto" resultType="Dto" useCache="false">
+		select 
+			sum(case when (pay_code != 'mixed_payment' and pay_status = 0) or (pay_code = 'mixed_payment' and pay_status=0 and points_pay_status = 1) then 1 else 0 end) as dzfNum,
+			sum(case when (pay_status=1 and shipping_status = 0) then 1 else 0 end) as dfhNum,
+			sum(case when (pay_status=1 and shipping_status = 1 and order_status=1) then 1 else 0 end) as dshNum,
+			sum(case when (pay_status=1 and shipping_status =1 and (order_status=4 or order_status =2)) then 1 else 0 end) as ywcNum
+		from zjc_order where store_id = #{store_id}
+	</select>
+	<!-- 统计固定月份订单数据 -->
+	<select id="sellerAppCountOrder" parameterType="Dto" resultType="Dto" useCache="false">
+		SELECT
+			DATE_FORMAT(t.add_time, '%Y-%m-%d') days,
+			count(t.order_id) as orderNum,
+			sum(t.cash) as cashSum,
+			sum(t.barter_coupons) as couponsSum
+		FROM
+			zjc_order t
+		WHERE
+			DATE_FORMAT(t.add_time, '%Y%m') = DATE_FORMAT(#{add_time}, '%Y%m') and t.pay_status=1 and t.store_id = #{store_id}
+		GROUP BY
+			days
+	</select>
+	
+	<!-- 根据订单id查询订单对象 -->
+	<select id="myOrderDetail" resultType="ZjcOrderPO">
+		SELECT
+			order_id, order_sn, store_name, store_id,  order_status, cash, barter_coupons, add_time, address, consignee,pay_code,
+			pay_name,pay_time, pay_status,points_pay_status, tracking_no as invoice_no,mobile,shipping_status,is_shop_group
+		FROM zjc_order 
+		<where>
+		    <if test="order_id != null and order_id != ''">
+		    	and order_id = #{order_id}
+		    </if>
+		</where>
+	</select>
+	
+	<!-- ==================================================小平台订单查询========================================== -->
+	<select id="likeXptOrderListPage" parameterType="Dto" resultType="Dto" useCache="false">
+	    SELECT
+			t.consignee,t.address,t.points_pay_status,t.pay_code,t5.mobile,t4.goods_sn,t4.goods_id,
+			t5.real_name,t.shipping_status,t.pay_time,t.barter_coupons as ywq,t.cash as money,t.order_status,
+			t4.is_car,t.pay_status,t.user_id,t1.store_name,t3.goods_num,t.order_id,t.add_time,t2.user_id as mj,
+			t.order_sn,t5.id_card,t4.goods_name,t1.contacts_phone
+		FRoM zjc_order t 
+		inner join zjc_store t1 on t.store_id = t1.store_id
+		inner join zjc_seller_info t2 on t2.user_id = t1.user_id
+		inner join zjc_order_goods t3 on t.order_id = t3.order_id
+		inner join zjc_goods t4 on t3.goods_id = t4.goods_id
+		inner join zjc_users_info t5 on t5.user_id = t.user_id
+		inner join xpttsgoodsid t6 on t6.goods_id = t4.goods_id
+		<where>
+		    <if test="mj != null and mj != '' ">
+			      AND t2.user_id = #{mj}  <!-- 商家账户ID -->
+			</if>
+		 	<if test="order_status != null and order_status != '' ">
+			      AND t.order_status = #{order_status}  <!-- 订单状态(0-待确认，1-已确认，2-已收货，3-已取消，4-已完成(已评价)，5-已作废) -->
+			</if>
+		 	<if test="order_id != null and order_id != ''">
+			      AND t.order_id = #{order_id}  <!-- 订单ID -->
+			</if>
+		    <if test="order_sn != null and order_sn != ''">
+			      AND t.order_sn = #{order_sn}  <!-- 订单编号 -->
+			</if>
+			<if test="user_id != null and user_id != '' ">
+			      AND t.user_id = #{user_id}  <!-- 用户id -->
+			</if>
+			<if test="shipping_status != null and shipping_status != '' ">
+			      AND t.shipping_status = #{shipping_status}  <!-- 发货状态 -->
+			</if>
+		   <if test="pay_status != null  and pay_status != ''">
+			      AND t.pay_status = #{pay_status}  <!-- 支付状态 -->
+			</if>
+			 <if test="points_pay_status != null  and points_pay_status != ''">
+			      AND t.points_pay_status = #{points_pay_status}  <!-- 混合支付易物券支付状态 -->
+			</if>
+			<if test="is_del != null and is_del != ''">
+			      AND t.is_del = #{is_del}  <!-- 是否删除（0表示未删除，1表示已删除） -->
+			</if>
+			<if test="add_time_start != null and add_time_start != ''">
+			      <![CDATA[AND t.add_time >= #{add_time_start}]]>  <!-- 下单时间(起) -->
+			</if>
+			<if test="add_time_end != null and add_time_end != ''">
+			      <![CDATA[AND t.add_time <= #{add_time_end}]]>  <!-- 下单时间(止) -->
+			</if>
+		    <if test="user_name != null and user_name != ''">
+			      AND t.user_name = #{user_name}  <!-- 会员名称 -->
+			</if>
+		    <if test="store_name != null and store_name != ''">
+			      AND t.store_name like '${store_name}%'  <!-- 店铺名称 -->
+			</if>
+		    <if test="consignee != null and consignee != ''">
+			      AND t.consignee = #{consignee}  <!-- 收货人 -->
+			</if>
+		    <if test="mobile != null and mobile != ''">
+			      AND t5.mobile = #{mobile}  <!-- 手机 -->
+			</if>
+		    <if test="email != null and email != ''">
+			      AND t.email like '${email}%'  <!-- 邮件 -->
+			</if>
+			<if test="pay_code != null and pay_code != '' and pay_code == 'others'">
+			      AND t.pay_code is null  <!-- 支付code rate 比例支付 equal  等比例支付 cash 现金支付  wxpay 微信支付  alipay 支付宝支付 -->
+			</if>
+			<if test="pay_code == null or pay_code == ''">
+		       AND ((t.pay_code = 'mixed_payment' and t.points_pay_status = 1) or (t.pay_code != 'mixed_payment'))
+			</if>
+		    <if test="pay_code != null and pay_code != ''and pay_code != 'others'">
+			     <choose>
+			     	<when test="pay_code == 'cash'">
+			     		AND (t.pay_code = 'wxpay' or t.pay_code = 'alipay' or t.pay_code = 'unionpay')
+			     	</when>
+			     	<when test="pay_code == 'mixed_payment'">
+			     		AND t.pay_code = 'mixed_payment' and t.points_pay_status = 1
+			     	</when>
+			     	<otherwise>
+			     	 	AND t.pay_code = #{pay_code}
+			     	</otherwise>
+			     </choose>
+			</if>
+		    <if test="pay_name != null and pay_name != ''">
+			      AND t.pay_name like '${pay_name}%'  <!-- 支付方式名称 -->
+			</if>
+		    <if test="pay_sn != null and pay_sn != ''">
+			      AND t.pay_sn = #{pay_sn}  <!-- 支付编号 -->
+			</if>
+			<if test="goods_name != null and goods_name != ''">
+			      AND t3.goods_name like '%${goods_name}%'  <!-- 商品名称 -->
+			</if>
+		</where>
+		group by t3.order_id
+		order by t.order_id desc		
+	</select>
+	
+	<select id="getOrderInfoByOrderId" parameterType="Dto" resultType="Dto" useCache="false">
+	    SELECT
+			t.consignee,t.address,t.points_pay_status,t.pay_code,t4.mobile,t5.goods_sn,t5.goods_id,
+			t4.real_name,t.shipping_status,t.pay_time,t.barter_coupons as ywq,t.cash as money,t.order_status,
+			t5.is_car,t.pay_status,t.user_id,t1.store_name,t3.goods_num,t.order_id,t.add_time,t2.user_id as mj,
+			t.order_sn,t4.id_card,t5.goods_name,t1.contacts_phone
+		FRoM zjc_order t 
+		inner join zjc_store t1 on t.store_id = t1.store_id
+		inner join zjc_seller_info t2 on t2.user_id = t1.user_id
+		inner join zjc_order_goods t3 on t.order_id = t3.order_id
+		inner join zjc_users_info t4 on t4.user_id = t.user_id
+		inner join zjc_goods t5 on t3.goods_id = t5.goods_id
+		<where>
+		    <if test="order_id != null and order_id != ''">
+			      AND t.order_id = #{order_id}  <!-- 订单ID -->
+			</if>
+		</where>
+	</select>
+	
+	<select id="getTransferOrderPage" parameterType="Dto" resultType="Dto" useCache="false">
+	   SELECT
+			t.order_sn,t4.user_id,t4.real_name,t.cash as money,t.add_time,t5.goods_name
+           ,t.order_id,t6.transfer_time as transfer_time,case t6.transfer_type when '1' then '已转账'
+                else '未转账' end transfer_type
+		FRoM zjc_order t 
+		inner join zjc_store t1 on t.store_id = t1.store_id
+		inner join zjc_seller_info t2 on t2.user_id = t1.user_id
+		inner join zjc_order_goods t3 on t.order_id = t3.order_id
+		inner join zjc_users_info t4 on t4.user_id = t.user_id
+		inner join zjc_goods t5 on t3.goods_id = t5.goods_id
+        LEFT JOIN  zjc_transfer_order_time t6 on t6.order_id=t.order_id
+		<where>
+				t.pay_status = 1 and t.points_pay_status = 1
+		    <if test="order_sn != null and order_sn != ''">
+			      AND t.order_sn = #{order_sn}  <!-- 订单ID -->
+			</if>
+			<if test="store_id != null and store_id != ''">
+			      AND t1.store_id = #{store_id}  <!-- 订单ID -->
+			</if>
+			 <if test="user_id != null and user_id != ''">
+			      AND t4.user_id = #{user_id}  <!-- 订单ID -->
+			</if>
+			 <if test="real_name != null and real_name != ''">
+			      AND t4.real_name = #{real_name}  <!-- 订单ID -->
+			</if>
+			 <if test="pay_code != null and pay_code != ''">
+			      AND t.pay_code = #{pay_code}  <!-- 订单ID -->
+			</if>
+			<if test="transfer_type != null and transfer_type != ''">
+			      AND t6.transfer_type = #{transfer_type}  <!-- 订单ID -->
+			</if>
+			 <if test="transfer == 0">
+			      AND t6.transfer_type is null
+			</if>
+			<if test="s_add_time != null and s_add_time != ''">
+			      <![CDATA[AND t.add_time >= #{s_add_time}]]>  <!-- 下单时间(起) -->
+			</if>
+			<if test="e_add_time != null and e_add_time != ''">
+			      <![CDATA[AND t.add_time <= #{e_add_time}]]>  <!-- 下单时间(止) -->
+			</if>
+		</where>
+	</select>
+	
+	
+	<select id="getTransferOrder" parameterType="Dto" resultType="ZjcTransferOrderVO" useCache="false">
+	   SELECT
+			t.order_sn as order_sn,t4.user_id as user_id,t4.real_name as real_name,t.cash as money,t.add_time as add_time
+			,t5.goods_name as goods_name,t.order_id as order_id,t6.transfer_time as transfer_time,case t6.transfer_type when '1' then '已转账'
+                else '未转账' end transfer_type
+		FRoM zjc_order t 
+		inner join zjc_store t1 on t.store_id = t1.store_id
+		inner join zjc_seller_info t2 on t2.user_id = t1.user_id
+		inner join zjc_order_goods t3 on t.order_id = t3.order_id
+		inner join zjc_users_info t4 on t4.user_id = t.user_id
+		inner join zjc_goods t5 on t3.goods_id = t5.goods_id
+        LEFT JOIN  zjc_transfer_order_time t6 on t6.order_id=t.order_id
+		<where>
+		    <if test="order_sn != null and order_sn != ''">
+			      AND t.order_sn = #{order_sn}  <!-- 订单ID -->
+			</if>
+			<if test="store_id != null and store_id != ''">
+			      AND t1.store_id = #{store_id}  <!-- 订单ID -->
+			</if>
+			 <if test="user_id != null and user_id != ''">
+			      AND t4.user_id = #{user_id}  <!-- 订单ID -->
+			</if>
+			 <if test="real_name != null and real_name != ''">
+			      AND t4.real_name = #{real_name}  <!-- 订单ID -->
+			</if>
+			 <if test="pay_code != null and pay_code != ''">
+			      AND t.pay_code = #{pay_code}  <!-- 订单ID -->
+			</if>
+			<if test="s_add_time != null and s_add_time != ''">
+			      <![CDATA[AND t.add_time >= #{s_add_time}]]>  <!-- 下单时间(起) -->
+			</if>
+			<if test="e_add_time != null and e_add_time != ''">
+			      <![CDATA[AND t.add_time <= #{e_add_time}]]>  <!-- 下单时间(止) -->
+			</if>
+		</where>
+	</select>
+	
+	<select id="getTypeNull" parameterType="Dto" resultType="Dto" useCache="false">
+	  SELECT
+			count(t.order_id) as countType
+		FRoM zjc_order t 
+		inner join zjc_store t1 on t.store_id = t1.store_id
+		inner join zjc_seller_info t2 on t2.user_id = t1.user_id
+		inner join zjc_order_goods t3 on t.order_id = t3.order_id
+		inner join zjc_users_info t4 on t4.user_id = t.user_id
+		inner join zjc_goods t5 on t3.goods_id = t5.goods_id
+        LEFT JOIN  zjc_transfer_order_time t6 on t6.order_id=t.order_id
+        where  t1.store_id=#{store_id} and t6.transfer_type is  null 
+	</select>
+	
+	<select id="getTypeNotNull" parameterType="Dto" resultType="Dto" useCache="false">
+	  SELECT
+			count(t.order_id) as countTypeNot
+		FRoM zjc_order t 
+		inner join zjc_store t1 on t.store_id = t1.store_id
+		inner join zjc_seller_info t2 on t2.user_id = t1.user_id
+		inner join zjc_order_goods t3 on t.order_id = t3.order_id
+		inner join zjc_users_info t4 on t4.user_id = t.user_id
+		inner join zjc_goods t5 on t3.goods_id = t5.goods_id
+        LEFT JOIN  zjc_transfer_order_time t6 on t6.order_id=t.order_id
+        where  t1.store_id=#{store_id} and t6.transfer_type is not null 
+	</select>
+	
+	<select id="getTransferUserOrderPage" parameterType="Dto" resultType="Dto" useCache="false">
+	
+			SELECT
+			t.order_sn,t4.user_id,t.add_time,t5.goods_name
+      ,t.order_id,DATE_FORMAT(t6.transfer_time,'%Y-%m-%d') as transfer_time
+      ,case t6.transfer_type when '1' then '1'
+                else '0' end transfer_type,DATE_FORMAT(t.add_time,'%Y-%m') time
+		FRoM zjc_order t 
+		inner join zjc_order_goods t3 on t.order_id = t3.order_id
+		inner join zjc_users_info t4 on t4.user_id = t.user_id
+		inner join zjc_goods t5 on t3.goods_id = t5.goods_id
+    LEFT JOIN  zjc_transfer_order_time t6 on t6.order_id=t.order_id
+    where
+           t4.user_id = #{user_id} and t.pay_status = 1 and t.points_pay_status = 1
+            <if test="transfer_type != null and transfer_type != ''">
+			      AND t6.transfer_type = #{transfer_type}  <!-- 订单ID -->
+			</if>
+			 <if test="transfer == 0">
+			      AND t6.transfer_type is null
+			</if>
+			<if test="add_time != null and add_time != ''">
+			      AND DATE_FORMAT(t.add_time,'%Y-%m') = #{add_time}  <!-- 订单ID -->
+			</if>
+    ORDER BY t.add_time desc
+	</select>
+	
+	<!-- 根据用户id查询连续购买1号店商品的天数 -->
+	<select id="getContinuousOrderDays" resultType="Integer" parameterType="Dto">
+		SELECT COUNT(1) AS ordernum FROM zjc_order t 
+		where t.pay_status =1 and t.store_id=#{store_id} and t.user_id = #{user_id} 
+		and DATE_FORMAT(t.add_time,'%Y-%d-%m')=DATE_FORMAT(date_sub(now(), interval #{djs_day} day),'%Y-%d-%m')
+	</select>
+	
+	<!-- 根据条件查询用户退单催单订单 -->
+	<select id="serachCDTHOrderPage" parameterType="Dto" resultType="Dto">
+		select 
+			t1.order_id,t1.order_sn,t1.user_id,t1.consignee,t2.goods_name,t3.display as single_back,t1.pay_code,
+			t1.add_time,t1.confirm_time,t1.reminder,t1.remindertime,t1.single_back_time,t1.confirm_single_back_time,
+			case t1.pay_code when 'rate' then t1.goods_price 
+                when 'equal' then  t1.goods_price 
+                when 'mixed_payment' then t1.barter_coupons 
+			else '0' end  as barter_coupons,
+ 			case t1.pay_code when 'cash' then t1.goods_price 
+                 when 'wxpay' then  t1.goods_price 
+                 when 'alipay' then t1.goods_price
+				 when 'mixed_payment' then t1.cash
+			else '0' end  as cash
+		from zjc_order t1 
+		left join zjc_order_goods t2 on t1.order_id = t2.order_id 
+		left join (select code as value, dic_desc as display from aos_dic where dic_key = "single_back") t3 on t1.single_back = t3.value
+		<where>
+		t1.store_id = #{store_id} and t1.single_back != 0 and t1.pay_status = 1
+			<if test="consignee != null and consignee != ''">
+				and t1.consignee = #{consignee}
+			</if>
+			<if test="user_id != null and user_id != ''">
+				and t1.user_id = #{user_id}
+			</if>
+			<if test="order_sn != null and order_sn != ''">
+				and t1.order_sn = #{order_sn}
+			</if>
+			<if test="reminder != null and reminder != '' and reminder==0">
+				and t1.reminder = 0
+			</if>
+			<if test="reminder != null and reminder != '' and reminder==1">
+				and t1.reminder &gt; 0
+			</if>
+			<if test="add_time_start != null and add_time_start != ''">
+				and date_format(t1.add_time,'%Y-%m-%d') &gt;= #{add_time_start}
+			</if>
+			<if test="add_time_end != null and add_time_end != ''">
+				and date_format(t1.add_time,'%Y-%m-%d') &lt;= #{add_time_end}
+			</if>
+			<if test="reminderTime_start != null and reminderTime_start != ''">
+				and date_format(t1.remindertime,'%Y-%m-%d') &gt;= #{reminderTime_start}
+			</if>
+			<if test="reminderTime_end != null and reminderTime_end != ''">
+				and date_format(t1.remindertime,'%Y-%m-%d') &lt;= #{reminderTime_end}
+			</if>
+			<if test="sing_back_time_start != null and sing_back_time_start != ''">
+				and date_format(t1.single_back_time,'%Y-%m-%d') &gt;= #{sing_back_time_start}
+			</if>
+			<if test="sing_back_time_end != null and sing_back_time_end != ''">
+				and date_format(t1.single_back_time,'%Y-%m-%d') &lt;= #{sing_back_time_end}
+			</if>
+			<if test="sing_back != null and sing_back != ''">
+				and t1.single_back = #{sing_back}
+			</if>
+			<if test="pay_code != null and pay_code != ''">
+				and t1.pay_code = #{pay_code}
+			</if>
+		</where>
+		group by t1.order_id
+		order by t1.order_id desc
+	</select>
+	<!-- 导出退单催单订单数据 -->
+	<select id="findExportTDOrder" parameterType="Dto" resultType="ZjcTDOrderExportVO">
+		select 
+			t1.order_sn,t1.user_id,t1.consignee,t2.goods_name,t3.display as single_back,
+			t1.add_time,t1.reminder,t1.remindertime,t1.single_back_time,t1.confirm_single_back_time,
+			case t1.pay_code when 'rate' then t1.goods_price 
+                when 'equal' then  t1.goods_price 
+                when 'mixed_payment' then t1.barter_coupons 
+			else '0' end  as barter_coupons,
+ 			case t1.pay_code when 'cash' then t1.goods_price 
+                 when 'wxpay' then  t1.goods_price 
+                 when 'alipay' then t1.goods_price
+				 when 'mixed_payment' then t1.cash
+			else '0' end  as cash
+		from zjc_order t1 
+		left join zjc_order_goods t2 on t1.order_id = t2.order_id 
+		left join (select code as value, dic_desc as display from aos_dic where dic_key = "single_back") t3 on t1.single_back = t3.value
+		<where>
+		t1.store_id = #{store_id} and t1.single_back != 0 and t1.pay_status = 1
+			<if test="consignee != null and consignee != ''">
+				and t1.consignee = #{consignee}
+			</if>
+			<if test="user_id != null and user_id != ''">
+				and t1.user_id = #{user_id}
+			</if>
+			<if test="order_sn != null and order_sn != ''">
+				and t1.order_sn = #{order_sn}
+			</if>
+			<if test="reminder != null and reminder != '' and reminder==0">
+				and t1.reminder = 0
+			</if>
+			<if test="reminder != null and reminder != '' and reminder==1">
+				and t1.reminder &gt; 0
+			</if>
+			<if test="add_time_start != null and add_time_start != ''">
+				and date_format(t1.add_time,'%Y-%m-%d') &gt;= #{add_time_start}
+			</if>
+			<if test="add_time_end != null and add_time_end != ''">
+				and date_format(t1.add_time,'%Y-%m-%d') &lt;= #{add_time_end}
+			</if>
+			<if test="reminderTime_start != null and reminderTime_start != ''">
+				and date_format(t1.remindertime,'%Y-%m-%d') &gt;= #{reminderTime_start}
+			</if>
+			<if test="reminderTime_end != null and reminderTime_end != ''">
+				and date_format(t1.remindertime,'%Y-%m-%d') &lt;= #{reminderTime_end}
+			</if>
+			<if test="sing_back_time_start != null and sing_back_time_start != ''">
+				and date_format(t1.single_back_time,'%Y-%m-%d') &gt;= #{sing_back_time_start}
+			</if>
+			<if test="sing_back_time_end != null and sing_back_time_end != ''">
+				and date_format(t1.single_back_time,'%Y-%m-%d') &lt;= #{sing_back_time_end}
+			</if>
+			<if test="sing_back != null and sing_back != ''">
+				and t1.single_back = #{sing_back}
+			</if>
+			<if test="pay_code != null and pay_code != ''">
+				and t1.pay_code = #{pay_code}
+			</if>
+		</where>
+		group by t1.order_id
+		order by t1.order_id desc
+	</select>
+	
+</mapper>

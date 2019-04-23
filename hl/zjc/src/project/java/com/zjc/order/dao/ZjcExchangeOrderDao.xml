@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- zjc_exchange_order[zjc_exchange_order]SQL自动映射 -->
+<!--  注意:此文件由AOS平台自动生成-禁止手工修改 2017-06-06 17:29:44 -->
+<mapper namespace="com.zjc.order.dao.ZjcExchangeOrderDao">
+	
+	<!-- 插入一个数据持久化对象(插入字段为传入PO实体的非空属性) -->
+	<insert id="insert" useGeneratedKeys="true" keyProperty="ex_id" parameterType="ZjcExchangeOrderPO">
+		INSERT INTO zjc_exchange_order (
+		<if test="ex_sn != null and ex_sn != ''">
+	         ex_sn, <!-- 订单编号 -->
+		</if>
+		<if test="user_id != null">
+	         user_id, <!-- 用户id -->
+		</if>
+		<if test="user_name != null and user_name != ''">
+	         user_name, <!-- 会员名称 -->
+		</if>
+		<if test="seller_id != null">
+	         seller_id, <!-- 卖家 -->
+		</if>
+		<if test="seller_name != null and seller_name != ''">
+	         seller_name, <!-- 卖家名称 -->
+		</if>
+		<if test="ex_price != null">
+	         ex_price, <!-- 转多少积分 -->
+		</if>
+		<if test="mobile != null and mobile != ''">
+	         mobile, <!-- 手机号 -->
+		</if>
+		<if test="ex_fee != null">
+	         ex_fee, <!-- 手续费 -->
+		</if>
+		<if test="add_time != null and add_time != ''">
+	         add_time, <!-- add_time -->
+		</if>
+		<if test="status != null">
+	         status, <!-- 0待审核  1 已审核  2  未通过  3  已失效 -->
+		</if>
+		<if test="type != null">
+	         type, <!-- 1 积分转账  2 易物担保 -->
+		</if>
+		<if test="note != null and note != ''">
+	         note, <!-- 订单备注 -->
+		</if>
+		<if test="code != null and code != ''">
+	         code, <!-- 易物担保验证码 -->
+		</if>
+	          ex_id
+		)VALUES(
+		<if test="ex_sn != null and ex_sn != ''">
+	          #{ex_sn, jdbcType=VARCHAR}, <!-- 订单编号 -->
+	    </if>
+		<if test="user_id != null">
+	          #{user_id, jdbcType=INTEGER}, <!-- 用户id -->
+	    </if>
+		<if test="user_name != null and user_name != ''">
+	          #{user_name, jdbcType=VARCHAR}, <!-- 会员名称 -->
+	    </if>
+		<if test="seller_id != null">
+	          #{seller_id, jdbcType=INTEGER}, <!-- 卖家 -->
+	    </if>
+		<if test="seller_name != null and seller_name != ''">
+	          #{seller_name, jdbcType=VARCHAR}, <!-- 卖家名称 -->
+	    </if>
+		<if test="ex_price != null">
+	          #{ex_price, jdbcType=NUMERIC}, <!-- 转多少积分 -->
+	    </if>
+		<if test="mobile != null and mobile != ''">
+	          #{mobile, jdbcType=VARCHAR}, <!-- 手机号 -->
+	    </if>
+		<if test="ex_fee != null">
+	          #{ex_fee, jdbcType=NUMERIC}, <!-- 手续费 -->
+	    </if>
+		<if test="add_time != null and add_time != ''">
+	          #{add_time, jdbcType=VARCHAR}, <!-- add_time -->
+	    </if>
+		<if test="status != null">
+	          #{status, jdbcType=INTEGER}, <!-- 0待审核  1 已审核  2  未通过  3  已失效 -->
+	    </if>
+		<if test="type != null">
+	          #{type, jdbcType=INTEGER}, <!-- 1 积分转账  2 易物担保 -->
+	    </if>
+		<if test="note != null and note != ''">
+	          #{note, jdbcType=VARCHAR}, <!-- 订单备注 -->
+	    </if>
+		<if test="code != null and code != ''">
+	          #{code, jdbcType=VARCHAR}, <!-- 易物担保验证码 -->
+	    </if>
+	          null
+		)
+	</insert>
+	
+	<!-- 插入一个数据持久化对象(含所有字段) -->
+	<insert id="insertAll" useGeneratedKeys="true" keyProperty="ex_id" parameterType="ZjcExchangeOrderPO">
+		INSERT INTO zjc_exchange_order (
+		    <include refid="column" />
+		)
+		VALUES (
+		    #{ex_id, jdbcType=INTEGER},  <!-- 订单id -->
+		    #{ex_sn, jdbcType=VARCHAR},  <!-- 订单编号 -->
+		    #{user_id, jdbcType=INTEGER},  <!-- 用户id -->
+		    #{user_name, jdbcType=VARCHAR},  <!-- 会员名称 -->
+		    #{seller_id, jdbcType=INTEGER},  <!-- 卖家 -->
+		    #{seller_name, jdbcType=VARCHAR},  <!-- 卖家名称 -->
+		    #{ex_price, jdbcType=NUMERIC},  <!-- 转多少积分 -->
+		    #{mobile, jdbcType=VARCHAR},  <!-- 手机号 -->
+		    #{ex_fee, jdbcType=NUMERIC},  <!-- 手续费 -->
+		    #{add_time, jdbcType=VARCHAR},  <!-- add_time -->
+		    #{status, jdbcType=INTEGER},  <!-- 0待审核  1 已审核  2  未通过  3  已失效 -->
+		    #{type, jdbcType=INTEGER},  <!-- 1 积分转账  2 易物担保 -->
+		    #{note, jdbcType=VARCHAR},  <!-- 订单备注 -->
+		    #{code, jdbcType=VARCHAR}  <!-- 易物担保验证码 -->
+		)
+	</insert>
+
+	<!-- 根据主键修改数据持久化对象 -->
+	<update id="updateByKey" parameterType="ZjcExchangeOrderPO">
+		UPDATE zjc_exchange_order
+		<set>
+			<if test="ex_id != null">
+		          ex_id = #{ex_id, jdbcType=INTEGER},  <!-- 订单id -->
+			</if>
+			<if test="ex_sn != null">
+		          ex_sn = #{ex_sn, jdbcType=VARCHAR},  <!-- 订单编号 -->
+			</if>
+			<if test="user_id != null">
+		          user_id = #{user_id, jdbcType=INTEGER},  <!-- 用户id -->
+			</if>
+			<if test="user_name != null">
+		          user_name = #{user_name, jdbcType=VARCHAR},  <!-- 会员名称 -->
+			</if>
+			<if test="seller_id != null">
+		          seller_id = #{seller_id, jdbcType=INTEGER},  <!-- 卖家 -->
+			</if>
+			<if test="seller_name != null">
+		          seller_name = #{seller_name, jdbcType=VARCHAR},  <!-- 卖家名称 -->
+			</if>
+			<if test="ex_price != null">
+		          ex_price = #{ex_price, jdbcType=NUMERIC},  <!-- 转多少积分 -->
+			</if>
+			<if test="mobile != null">
+		          mobile = #{mobile, jdbcType=VARCHAR},  <!-- 手机号 -->
+			</if>
+			<if test="ex_fee != null">
+		          ex_fee = #{ex_fee, jdbcType=NUMERIC},  <!-- 手续费 -->
+			</if>
+			<if test="add_time != null">
+		          add_time = #{add_time, jdbcType=VARCHAR},  <!-- add_time -->
+			</if>
+			<if test="status != null">
+		          status = #{status, jdbcType=INTEGER},  <!-- 0待审核  1 已审核  2  未通过  3  已失效 -->
+			</if>
+			<if test="type != null">
+		          type = #{type, jdbcType=INTEGER},  <!-- 1 积分转账  2 易物担保 -->
+			</if>
+			<if test="note != null">
+		          note = #{note, jdbcType=VARCHAR},  <!-- 订单备注 -->
+			</if>
+			<if test="code != null">
+		          code = #{code, jdbcType=VARCHAR},  <!-- 易物担保验证码 -->
+			</if>
+		</set>
+		WHERE  ex_id = #{ex_id}
+	</update>
+	
+	<!-- 根据主键删除数据持久化对象 -->
+	<delete id="deleteByKey">
+		DELETE FROM zjc_exchange_order WHERE  ex_id = #{ex_id}
+	</delete>
+
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="selectByKey" resultType="ZjcExchangeOrderPO">
+		SELECT
+		<include refid="column" />
+		FROM zjc_exchange_order WHERE  ex_id = #{ex_id}
+	</select>
+
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="selectOne" parameterType="Dto" resultType="ZjcExchangeOrderPO">
+		SELECT
+		    <include refid="column" />
+		FROM zjc_exchange_order
+		<where>
+		    <include refid="equal" />
+		</where>		
+	</select>
+
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="list" parameterType="Dto" resultType="ZjcExchangeOrderPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_exchange_order
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listPage" parameterType="Dto" resultType="ZjcExchangeOrderPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_exchange_order
+		<where>
+		    <include refid="equal" />
+		</where>	
+		order by add_time desc
+	</select>
+	
+	<!-- 根据Dto模糊查询并返回数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="like" parameterType="Dto" resultType="ZjcExchangeOrderPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_exchange_order
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto模糊查询并返回分页数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="likePage" parameterType="Dto" resultType="ZjcExchangeOrderPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_exchange_order
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto统计行数 -->
+	<select id="rows" resultType="Integer" parameterType="Dto">
+		SELECT COUNT(1) AS aos_rows_ FROM zjc_exchange_order
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 根据数学表达式进行数学运算 -->
+	<select id="calc" parameterType="Dto" resultType="String">
+		SELECT
+			${_expr}
+		FROM zjc_exchange_order
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+		<!-- 根据user_id查询当天该用户转账的额度 -->
+	<select id="getTodayTransferNum" parameterType="Dto" resultType="String">
+		SELECT
+			ifnull(sum(ex_price),0)
+		FROM zjc_exchange_order 
+		<where>
+		   user_id  = #{user_id} and type = #{type} and to_days(add_time) = to_days(NOW())
+		</where>
+	</select>
+	
+	<!-- 表字段 -->
+	<sql id="column">
+		  ex_id,  <!-- 订单id -->
+		  ex_sn,  <!-- 订单编号 -->
+		  user_id,  <!-- 用户id -->
+		  user_name,  <!-- 会员名称 -->
+		  seller_id,  <!-- 卖家 -->
+		  seller_name,  <!-- 卖家名称 -->
+		  ex_price,  <!-- 转多少积分 -->
+		  mobile,  <!-- 手机号 -->
+		  ex_fee,  <!-- 手续费 -->
+		  add_time,  <!-- add_time -->
+		  status,  <!-- 0待审核  1 已审核  2  未通过  3  已失效 -->
+		  type,  <!-- 1 积分转账  2 易物担保 -->
+		  note,  <!-- 订单备注 -->
+		  code  <!-- 易物担保验证码 -->
+	</sql>
+	
+	<!-- 表字段(用于外表的关联时引用) -->
+	<sql id="column2">
+		  zjc_exchange_order.ex_id,  <!-- 订单id -->
+		  zjc_exchange_order.ex_sn,  <!-- 订单编号 -->
+		  zjc_exchange_order.user_id,  <!-- 用户id -->
+		  zjc_exchange_order.user_name,  <!-- 会员名称 -->
+		  zjc_exchange_order.seller_id,  <!-- 卖家 -->
+		  zjc_exchange_order.seller_name,  <!-- 卖家名称 -->
+		  zjc_exchange_order.ex_price,  <!-- 转多少积分 -->
+		  zjc_exchange_order.mobile,  <!-- 手机号 -->
+		  zjc_exchange_order.ex_fee,  <!-- 手续费 -->
+		  zjc_exchange_order.add_time,  <!-- add_time -->
+		  zjc_exchange_order.status,  <!-- 0待审核  1 已审核  2  未通过  3  已失效 -->
+		  zjc_exchange_order.type,  <!-- 1 积分转账  2 易物担保 -->
+		  zjc_exchange_order.note,  <!-- 订单备注 -->
+		  zjc_exchange_order.code  <!-- 易物担保验证码 -->
+	</sql>
+
+	<!-- Where精确匹配字段 -->
+	<sql id="equal">
+	   <if test="ex_id != null ">
+		      AND ex_id = #{ex_id}  <!-- 订单id -->
+		</if>
+	    <if test="ex_sn != null and ex_sn != ''">
+		      AND ex_sn = #{ex_sn}  <!-- 订单编号 -->
+		</if>
+	   <if test="user_id != null ">
+		      AND user_id = #{user_id}  <!-- 用户id -->
+		</if>
+	    <if test="user_name != null and user_name != ''">
+		      AND user_name = #{user_name}  <!-- 会员名称 -->
+		</if>
+	   <if test="seller_id != null ">
+		      AND seller_id = #{seller_id}  <!-- 卖家 -->
+		</if>
+	    <if test="seller_name != null and seller_name != ''">
+		      AND seller_name = #{seller_name}  <!-- 卖家名称 -->
+		</if>
+	   <if test="ex_price != null ">
+		      AND ex_price = #{ex_price}  <!-- 转多少积分 -->
+		</if>
+	    <if test="mobile != null and mobile != ''">
+		      AND mobile = #{mobile}  <!-- 手机号 -->
+		</if>
+	   <if test="ex_fee != null ">
+		      AND ex_fee = #{ex_fee}  <!-- 手续费 -->
+		</if>
+	  <if test="add_time != null and add_time != ''">
+		      AND add_time = #{add_time}  <!-- add_time -->
+		</if>
+	   <if test="status != null ">
+		      AND status = #{status}  <!-- 0待审核  1 已审核  2  未通过  3  已失效 -->
+		</if>
+	   <if test="type != null ">
+		      AND type = #{type}  <!-- 1 积分转账  2 易物担保 -->
+		</if>
+	    <if test="note != null and note != ''">
+		      AND note = #{note}  <!-- 订单备注 -->
+		</if>
+	    <if test="code != null and code != ''">
+		      AND code = #{code}  <!-- 易物担保验证码 -->
+		</if>
+	</sql>
+	
+	<!-- Where模糊匹配字段 -->
+	<sql id="like">
+		 <if test="user_id != null and user_id != ''">
+		      AND user_id = #{user_id}  <!-- 用户编号 -->
+		</if>
+	   <if test="seller_id != null and seller_id != ''">
+		      AND seller_id = #{seller_id}  <!-- 卖家编号 -->
+		</if>
+		<if test="add_time_start != null and add_time_start != ''">
+		      <![CDATA[AND add_time >= #{add_time_start}]]>  <!-- 下单时间(起) -->
+		</if>
+		<if test="add_time_end != null and add_time_end != ''">
+		      <![CDATA[AND add_time <= #{add_time_end}]]>  <!-- 下单时间(止) -->
+		</if>
+	    <if test="ex_sn != null and ex_sn != ''">
+		      AND ex_sn = #{ex_sn}  <!-- 订单编号 -->
+		</if>
+	    <if test="user_name != null and user_name != ''">
+		      AND user_name like '${user_name}%'  <!-- 会员名称 -->
+		</if>
+	    <if test="seller_name != null and seller_name != ''">
+		      AND seller_name like '${seller_name}%'  <!-- 卖家名称 -->
+		</if>
+	    <if test="mobile != null and mobile != ''">
+		      AND mobile = #{mobile}  <!-- 手机号 -->
+		</if>
+	    <if test="note != null and note != ''">
+		      AND note like '${note}%'  <!-- 订单备注 -->
+		</if>
+	    <if test="code != null and code != ''">
+		      AND code like '${code}%'  <!-- 易物担保验证码 -->
+		</if>
+	</sql>
+	<!-- 获取转账排行列表 -->
+	<select id="exchangeRankListPage" parameterType="Dto" resultType="Dto">
+	select 
+			t1.user_id, 
+			t2.nickname, 
+			t2.real_name,
+			t2.mobile,
+			sum(t1.ex_price) as sum_ex
+		from zjc_exchange_order t1 
+		inner join zjc_users_info t2 on t1.user_id = t2.user_id
+		<where>
+			t1.status = 1
+			<if test="user_id != null and user_id != ''">
+				and t1.user_id = #{user_id}
+			</if>
+			<if test="nickname != null and nickname != ''">
+				and t2.user_id = #{nickname}
+			</if>
+			<if test="ex_sn != null and ex_sn != ''">
+				and t1.ex_sn= #{ex_sn}
+			</if>
+			<if test="mobile != null and mobile != ''">
+				and t2.mobile= #{mobile}
+			</if>
+			<if test="start_time != null and start_time != ''">
+				and t1.add_time &gt;= #{start_time}
+			</if>
+			<if test="end_time != null and end_time != ''">
+				and t1.add_time &lt;= #{end_time}
+			</if>
+		</where>
+		group by t1.user_id order by sum_ex desc
+	</select>
+	
+	<select id="getExchangeList" parameterType="Dto" resultType="Dto">
+		select <include refid="column"></include> from zjc_exchange_order
+		<where>
+			<if test="user_id != null and user_id != ''">
+				user_id = #{user_id}
+			</if>
+			<if test="start_time != null and start_time != ''">
+				and add_time &gt;= #{start_time}
+			</if>
+			<if test="end_time != null and end_time != ''">
+				and add_time &lt;= #{end_time}
+			</if>
+		</where>
+		order by add_time desc
+	</select>
+	
+	<select id="exchangeListPage" parameterType="Dto" resultType="Dto">
+		select ex_sn, user_id, user_name, seller_id, seller_name, ex_price, type, status, add_time
+		 from zjc_exchange_order 
+		<where>
+			<if test="user_id != null and user_id != ''">
+				and user_id = #{user_id}
+			</if>
+			<if test="seller_id != null and seller_id != ''">
+				and seller_id = #{seller_id}
+			</if>
+			<if test="ex_sn != null and ex_sn != ''">
+				and ex_sn = #{ex_sn}
+			</if>
+			<if test="start_time != null and start_time != ''">
+				and add_time &gt;= #{start_time}
+			</if>
+			<if test="end_time != null and end_time != ''">
+				and add_time &lt;= #{end_time}
+			</if>
+		</where>
+		order by add_time desc
+	</select>
+</mapper>

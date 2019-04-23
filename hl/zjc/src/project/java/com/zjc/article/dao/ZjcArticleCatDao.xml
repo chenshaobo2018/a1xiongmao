@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- zjc_article_cat[zjc_article_cat]SQL自动映射 -->
+<!--  注意:此文件由AOS平台自动生成-禁止手工修改 2017-07-07 11:48:02 -->
+<mapper namespace="com.zjc.article.dao.ZjcArticleCatDao">
+	
+	<!-- 插入一个数据持久化对象(插入字段为传入PO实体的非空属性) -->
+	<insert id="insert" useGeneratedKeys="true" keyProperty="cat_id" parameterType="ZjcArticleCatPO">
+		INSERT INTO zjc_article_cat (
+		<if test="cat_name != null and cat_name != ''">
+	         cat_name, <!-- 类别名称 -->
+		</if>
+		<if test="cat_type != null">
+	         cat_type, <!-- 系统分组 -->
+		</if>
+		<if test="parent_id != null">
+	         parent_id, <!-- 夫级ID -->
+		</if>
+		<if test="show_in_nav != null">
+	         show_in_nav, <!-- 是否导航显示 -->
+		</if>
+		<if test="sort_order != null">
+	         sort_order, <!-- 排序 -->
+		</if>
+		<if test="cat_desc != null and cat_desc != ''">
+	         cat_desc, <!-- 分类描述 -->
+		</if>
+		<if test="keywords != null and keywords != ''">
+	         keywords, <!-- 搜索关键词 -->
+		</if>
+		<if test="cat_alias != null and cat_alias != ''">
+	         cat_alias, <!-- 别名 -->
+		</if>
+	          cat_id
+		)VALUES(
+		<if test="cat_name != null and cat_name != ''">
+	          #{cat_name, jdbcType=VARCHAR}, <!-- 类别名称 -->
+	    </if>
+		<if test="cat_type != null">
+	          #{cat_type, jdbcType=INTEGER}, <!-- 系统分组 -->
+	    </if>
+		<if test="parent_id != null">
+	          #{parent_id, jdbcType=INTEGER}, <!-- 夫级ID -->
+	    </if>
+		<if test="show_in_nav != null">
+	          #{show_in_nav, jdbcType=INTEGER}, <!-- 是否导航显示 -->
+	    </if>
+		<if test="sort_order != null">
+	          #{sort_order, jdbcType=INTEGER}, <!-- 排序 -->
+	    </if>
+		<if test="cat_desc != null and cat_desc != ''">
+	          #{cat_desc, jdbcType=VARCHAR}, <!-- 分类描述 -->
+	    </if>
+		<if test="keywords != null and keywords != ''">
+	          #{keywords, jdbcType=VARCHAR}, <!-- 搜索关键词 -->
+	    </if>
+		<if test="cat_alias != null and cat_alias != ''">
+	          #{cat_alias, jdbcType=VARCHAR}, <!-- 别名 -->
+	    </if>
+	          null
+		)
+	</insert>
+	
+	<!-- 插入一个数据持久化对象(含所有字段) -->
+	<insert id="insertAll" useGeneratedKeys="true" keyProperty="cat_id" parameterType="ZjcArticleCatPO">
+		INSERT INTO zjc_article_cat (
+		    <include refid="column" />
+		)
+		VALUES (
+		    #{cat_id, jdbcType=INTEGER},  <!-- 表id -->
+		    #{cat_name, jdbcType=VARCHAR},  <!-- 类别名称 -->
+		    #{cat_type, jdbcType=INTEGER},  <!-- 系统分组 -->
+		    #{parent_id, jdbcType=INTEGER},  <!-- 夫级ID -->
+		    #{show_in_nav, jdbcType=INTEGER},  <!-- 是否导航显示 -->
+		    #{sort_order, jdbcType=INTEGER},  <!-- 排序 -->
+		    #{cat_desc, jdbcType=VARCHAR},  <!-- 分类描述 -->
+		    #{keywords, jdbcType=VARCHAR},  <!-- 搜索关键词 -->
+		    #{cat_alias, jdbcType=VARCHAR}  <!-- 别名 -->
+		)
+	</insert>
+	
+	<!-- 遍历所有的分类 -->
+	<select id="getTypes" resultType="ZjcArticleCatPO">
+		select cat_name,cat_id from zjc_article_cat
+	</select>
+	<!-- 根据主键修改数据持久化对象 -->
+	<update id="updateByKey" parameterType="ZjcArticleCatPO">
+		UPDATE zjc_article_cat
+		<set>
+			<if test="cat_id != null">
+		          cat_id = #{cat_id, jdbcType=INTEGER},  <!-- 表id -->
+			</if>
+			<if test="cat_name != null">
+		          cat_name = #{cat_name, jdbcType=VARCHAR},  <!-- 类别名称 -->
+			</if>
+			<if test="cat_type != null">
+		          cat_type = #{cat_type, jdbcType=INTEGER},  <!-- 系统分组 -->
+			</if>
+			<if test="parent_id != null">
+		          parent_id = #{parent_id, jdbcType=INTEGER},  <!-- 夫级ID -->
+			</if>
+			<if test="show_in_nav != null">
+		          show_in_nav = #{show_in_nav, jdbcType=INTEGER},  <!-- 是否导航显示 -->
+			</if>
+			<if test="sort_order != null">
+		          sort_order = #{sort_order, jdbcType=INTEGER},  <!-- 排序 -->
+			</if>
+			<if test="cat_desc != null">
+		          cat_desc = #{cat_desc, jdbcType=VARCHAR},  <!-- 分类描述 -->
+			</if>
+			<if test="keywords != null">
+		          keywords = #{keywords, jdbcType=VARCHAR},  <!-- 搜索关键词 -->
+			</if>
+			<if test="cat_alias != null">
+		          cat_alias = #{cat_alias, jdbcType=VARCHAR},  <!-- 别名 -->
+			</if>
+		</set>
+		WHERE  cat_id = #{cat_id}
+	</update>
+	
+	<!-- 根据主键删除数据持久化对象 -->
+	<delete id="deleteByKey">
+		DELETE FROM zjc_article_cat WHERE  cat_id = #{cat_id}
+	</delete>
+
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="selectByKey" resultType="ZjcArticleCatPO">
+		SELECT
+		<include refid="column" />
+		FROM zjc_article_cat WHERE  cat_id = #{cat_id}
+	</select>
+
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="selectOne" parameterType="Dto" resultType="ZjcArticleCatPO">
+		SELECT
+		    <include refid="column" />
+		FROM zjc_article_cat
+		<where>
+		    <include refid="equal" />
+		</where>		
+	</select>
+
+	<insert id="insertCat" parameterType="Dto">
+		insert into zjc_article_cat (
+		cat_name,cat_desc,keywords
+		)values(
+			#{cat_name},#{cat_desc},#{keywords}
+		)
+	</insert>
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="list" parameterType="Dto" resultType="ZjcArticleCatPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_article_cat
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+	<!-- 条件查询数据 -->
+	<select id="listLikePage" parameterType="Dto" resultType="ZjcArticleCatPO">
+		select  
+		<include refid="column"></include>
+		from zjc_article_cat
+		<where>
+			<include refid="like"></include>
+		</where>
+	</select>
+	
+	<update id="updateArticleCat" parameterType="Dto">
+		update zjc_article_cat 
+		set
+			show_in_nav = #{is_show_nav},
+			cat_desc = #{cat_desc},
+			keywords = #{keywords},
+			cat_alias = #{cat_alias}
+		where cat_id = #{cat_id}
+	</update>
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listPage" parameterType="Dto" resultType="ZjcArticleCatPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_article_cat
+		<where>
+		    <include refid="equal" />
+		</where>	
+		order by cat_id desc
+	</select>
+	
+	<!-- 删除分类，级联删除下面的文章 -->
+	<delete id="delete" parameterType="Dto">
+		delete from zjc_article_cat where cat_id = #{cat_id};
+		delete from zjc_article where cat_id = #{cat_id}
+	</delete>
+	<!-- 根据Dto模糊查询并返回数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="like" parameterType="Dto" resultType="ZjcArticleCatPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_article_cat
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto模糊查询并返回分页数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="likePage" parameterType="Dto" resultType="ZjcArticleCatPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_article_cat
+		<where>
+		    <include refid="like" />
+		</where>	
+		order by cat_id desc
+	</select>
+	
+	<!-- 根据Dto统计行数 -->
+	<select id="rows" resultType="Integer" parameterType="Dto">
+		SELECT COUNT(1) AS aos_rows_ FROM zjc_article_cat
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 根据数学表达式进行数学运算 -->
+	<select id="calc" parameterType="Dto" resultType="String">
+		SELECT
+			${_expr}
+		FROM zjc_article_cat
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 表字段 -->
+	<sql id="column">
+		  cat_id,  <!-- 表id -->
+		  cat_name,  <!-- 类别名称 -->
+		  cat_type,  <!-- 系统分组 -->
+		  parent_id,  <!-- 夫级ID -->
+		  show_in_nav,  <!-- 是否导航显示 -->
+		  sort_order,  <!-- 排序 -->
+		  cat_desc,  <!-- 分类描述 -->
+		  keywords,  <!-- 搜索关键词 -->
+		  cat_alias  <!-- 别名 -->
+	</sql>
+	
+	<!-- 表字段(用于外表的关联时引用) -->
+	<sql id="column2">
+		  zjc_article_cat.cat_id,  <!-- 表id -->
+		  zjc_article_cat.cat_name,  <!-- 类别名称 -->
+		  zjc_article_cat.cat_type,  <!-- 系统分组 -->
+		  zjc_article_cat.parent_id,  <!-- 夫级ID -->
+		  zjc_article_cat.show_in_nav,  <!-- 是否导航显示 -->
+		  zjc_article_cat.sort_order,  <!-- 排序 -->
+		  zjc_article_cat.cat_desc,  <!-- 分类描述 -->
+		  zjc_article_cat.keywords,  <!-- 搜索关键词 -->
+		  zjc_article_cat.cat_alias  <!-- 别名 -->
+	</sql>
+
+	<!-- Where精确匹配字段 -->
+	<sql id="equal">
+	   <if test="cat_id != null ">
+		      AND cat_id = #{cat_id}  <!-- 表id -->
+		</if>
+	    <if test="cat_name != null and cat_name != ''">
+		      AND cat_name = #{cat_name}  <!-- 类别名称 -->
+		</if>
+	   <if test="cat_type != null ">
+		      AND cat_type = #{cat_type}  <!-- 系统分组 -->
+		</if>
+	   <if test="parent_id != null ">
+		      AND parent_id = #{parent_id}  <!-- 夫级ID -->
+		</if>
+	   <if test="show_in_nav != null ">
+		      AND show_in_nav = #{show_in_nav}  <!-- 是否导航显示 -->
+		</if>
+	   <if test="sort_order != null ">
+		      AND sort_order = #{sort_order}  <!-- 排序 -->
+		</if>
+	    <if test="cat_desc != null and cat_desc != ''">
+		      AND cat_desc = #{cat_desc}  <!-- 分类描述 -->
+		</if>
+	    <if test="keywords != null and keywords != ''">
+		      AND keywords = #{keywords}  <!-- 搜索关键词 -->
+		</if>
+	    <if test="cat_alias != null and cat_alias != ''">
+		      AND cat_alias = #{cat_alias}  <!-- 别名 -->
+		</if>
+	</sql>
+	
+	<!-- Where模糊匹配字段 -->
+	<sql id="like">
+	    <if test="cat_name != null and cat_name != ''">
+		      AND cat_name like '${cat_name}%'  <!-- 类别名称 -->
+		</if>
+	    <if test="cat_desc != null and cat_desc != ''">
+		      AND cat_desc like '${cat_desc}%'  <!-- 分类描述 -->
+		</if>
+	    <if test="keywords != null and keywords != ''">
+		      AND keywords like '${keywords}%'  <!-- 搜索关键词 -->
+		</if>
+	    <if test="cat_alias != null and cat_alias != ''">
+		      AND cat_alias like '${cat_alias}%'  <!-- 别名 -->
+		</if>
+	</sql>
+	
+</mapper>

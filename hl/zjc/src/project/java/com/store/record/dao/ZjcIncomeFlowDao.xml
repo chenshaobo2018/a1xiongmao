@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- zjc_income_flow[zjc_income_flow]SQL自动映射 -->
+<!--  注意:此文件由AOS平台自动生成-禁止手工修改 2017-09-11 18:04:39 -->
+<mapper namespace="com.store.record.dao.ZjcIncomeFlowDao">
+	
+	<!-- 插入一个数据持久化对象(插入字段为传入PO实体的非空属性) -->
+	<insert id="insert"  parameterType="ZjcIncomeFlowPO" useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO zjc_income_flow (
+		<if test="exchange_time != null and exchange_time != ''">
+	         exchange_time, <!-- 交易时间 -->
+		</if>
+		<if test="order_sn != null and order_sn != ''">
+	         order_sn, <!-- 订单ID -->
+		</if>
+		<if test="income != null">
+	         income, <!-- 收入卷 -->
+		</if>
+		<if test="expend != null">
+	         expend, <!-- 支出卷 -->
+		</if>
+		<if test="balance != null">
+	         balance, <!-- 当前账户可转易物劵 -->
+		</if>
+		<if test="type != null">
+	         type, <!-- 收支类型：0用户下单，商家获得易物劵；1商家从商家后台转账到自己账号 -->
+		</if>
+		<if test="in_user_id != null">
+	         in_user_id, <!-- 收入方ID -->
+		</if>
+		<if test="out_user_id != null">
+	         out_user_id, <!-- 支出方 -->
+		</if>
+			id
+		)VALUES(
+		<if test="exchange_time != null and exchange_time != ''">
+	          #{exchange_time, jdbcType=VARCHAR}, <!-- 交易时间 -->
+	    </if>
+		<if test="order_sn != null and order_sn != ''">
+	          #{order_sn, jdbcType=VARCHAR}, <!-- 订单ID -->
+	    </if>
+		<if test="income != null">
+	          #{income, jdbcType=INTEGER}, <!-- 收入卷 -->
+	    </if>
+		<if test="expend != null">
+	          #{expend, jdbcType=INTEGER}, <!-- 支出卷 -->
+	    </if>
+		<if test="balance != null">
+	          #{balance, jdbcType=INTEGER}, <!-- 当前账户可转易物劵 -->
+	    </if>
+		<if test="type != null">
+	          #{type, jdbcType=INTEGER}, <!-- 收支类型：0用户下单，商家获得易物劵；1商家从商家后台转账到自己账号 -->
+	    </if>
+		<if test="in_user_id != null">
+	          #{in_user_id, jdbcType=INTEGER}, <!-- 收入方ID -->
+	    </if>
+		<if test="out_user_id != null">
+	          #{out_user_id, jdbcType=INTEGER}, <!-- 支出方 -->
+	    </if>
+			null
+		)
+	</insert>
+	
+	<!-- 插入一个数据持久化对象(含所有字段) -->
+	<insert id="insertAll"  parameterType="ZjcIncomeFlowPO">
+		INSERT INTO zjc_income_flow (
+		    <include refid="column" />
+		)
+		VALUES (
+		    #{id, jdbcType=INTEGER},  <!-- 表ID -->
+		    #{exchange_time, jdbcType=VARCHAR},  <!-- 交易时间 -->
+		    #{order_sn, jdbcType=VARCHAR},  <!-- 订单ID -->
+		    #{income, jdbcType=INTEGER},  <!-- 收入卷 -->
+		    #{expend, jdbcType=INTEGER},  <!-- 支出卷 -->
+		    #{balance, jdbcType=INTEGER},  <!-- 当前账户可转易物劵 -->
+		    #{type, jdbcType=INTEGER},  <!-- 收支类型：0用户下单，商家获得易物劵；1商家从商家后台转账到自己账号 -->
+		    #{in_user_id, jdbcType=INTEGER},  <!-- 收入方ID -->
+		    #{out_user_id, jdbcType=INTEGER}  <!-- 支出方 -->
+		)
+	</insert>
+
+	<!-- 根据主键修改数据持久化对象 -->
+	<update id="updateByKey" parameterType="ZjcIncomeFlowPO">
+		UPDATE zjc_income_flow
+		<set>
+			<if test="id != null">
+		          id = #{id, jdbcType=INTEGER},  <!-- 表ID -->
+			</if>
+			<if test="exchange_time != null">
+		          exchange_time = #{exchange_time, jdbcType=VARCHAR},  <!-- 交易时间 -->
+			</if>
+			<if test="order_sn != null">
+		          order_sn = #{order_sn, jdbcType=VARCHAR},  <!-- 订单ID -->
+			</if>
+			<if test="income != null">
+		          income = #{income, jdbcType=INTEGER},  <!-- 收入卷 -->
+			</if>
+			<if test="expend != null">
+		          expend = #{expend, jdbcType=INTEGER},  <!-- 支出卷 -->
+			</if>
+			<if test="balance != null">
+		          balance = #{balance, jdbcType=INTEGER},  <!-- 当前账户可转易物劵 -->
+			</if>
+			<if test="type != null">
+		          type = #{type, jdbcType=INTEGER},  <!-- 收支类型：0用户下单，商家获得易物劵；1商家从商家后台转账到自己账号 -->
+			</if>
+			<if test="in_user_id != null">
+		          in_user_id = #{in_user_id, jdbcType=INTEGER},  <!-- 收入方ID -->
+			</if>
+			<if test="out_user_id != null">
+		          out_user_id = #{out_user_id, jdbcType=INTEGER},  <!-- 支出方 -->
+			</if>
+		</set>
+		WHERE  id = #{id}
+	</update>
+	
+	<!-- 根据主键删除数据持久化对象 -->
+	<delete id="deleteByKey">
+		DELETE FROM zjc_income_flow WHERE  id = #{id}
+	</delete>
+
+	<!-- 根据主键查询并返回数据持久化对象 -->
+	<select id="selectByKey" resultType="ZjcIncomeFlowPO">
+		SELECT
+		<include refid="column" />
+		FROM zjc_income_flow WHERE  id = #{id}
+	</select>
+
+	<!-- 根据唯一组合条件查询并返回数据持久化对象 -->
+	<select id="selectOne" parameterType="Dto" resultType="ZjcIncomeFlowPO">
+		SELECT
+		    <include refid="column" />
+		FROM zjc_income_flow
+		<where>
+		    <include refid="equal" />
+		</where>		
+	</select>
+
+	<!-- 根据Dto查询并返回数据持久化对象集合 -->
+	<select id="list" parameterType="Dto" resultType="ZjcIncomeFlowPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_income_flow
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto查询并返回分页数据持久化对象集合 -->
+	<select id="listPage" parameterType="Dto" resultType="ZjcIncomeFlowPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_income_flow
+		<where>
+		    <include refid="equal" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto模糊查询并返回数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="like" parameterType="Dto" resultType="ZjcIncomeFlowPO">
+		SELECT
+			<include refid="column" />	
+		FROM zjc_income_flow
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+
+	<!-- 根据Dto模糊查询并返回分页数据持久化对象集合(字符型字段模糊匹配，其余字段精确匹配) -->
+	<select id="likePage" parameterType="Dto" resultType="ZjcIncomeFlowPO" useCache="false">
+	    SELECT
+			<include refid="column" />	
+		FRoM zjc_income_flow
+		<where>
+		    <include refid="like" />
+		</where>	
+	</select>
+	
+	<!-- 根据Dto统计行数 -->
+	<select id="rows" resultType="Integer" parameterType="Dto">
+		SELECT COUNT(1) AS aos_rows_ FROM zjc_income_flow
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 根据数学表达式进行数学运算 -->
+	<select id="calc" parameterType="Dto" resultType="String">
+		SELECT
+			${_expr}
+		FROM zjc_income_flow
+		<where>
+		    <include refid="equal" />
+		</where>
+	</select>
+	
+	<!-- 表字段 -->
+	<sql id="column">
+		  id,  <!-- 表ID -->
+		  exchange_time,  <!-- 交易时间 -->
+		  order_sn,  <!-- 订单ID -->
+		  income,  <!-- 收入卷 -->
+		  expend,  <!-- 支出卷 -->
+		  balance,  <!-- 当前账户可转易物劵 -->
+		  type,  <!-- 收支类型：0用户下单，商家获得易物劵；1商家从商家后台转账到自己账号 -->
+		  in_user_id,  <!-- 收入方ID -->
+		  out_user_id  <!-- 支出方 -->
+	</sql>
+	
+	<!-- 表字段(用于外表的关联时引用) -->
+	<sql id="column2">
+		  zjc_income_flow.id,  <!-- 表ID -->
+		  zjc_income_flow.exchange_time,  <!-- 交易时间 -->
+		  zjc_income_flow.order_sn,  <!-- 订单ID -->
+		  zjc_income_flow.income,  <!-- 收入卷 -->
+		  zjc_income_flow.expend,  <!-- 支出卷 -->
+		  zjc_income_flow.balance,  <!-- 当前账户可转易物劵 -->
+		  zjc_income_flow.type,  <!-- 收支类型：0用户下单，商家获得易物劵；1商家从商家后台转账到自己账号 -->
+		  zjc_income_flow.in_user_id,  <!-- 收入方ID -->
+		  zjc_income_flow.out_user_id  <!-- 支出方 -->
+	</sql>
+	<!-- 商家后台交易记录暂时列 -->
+	<sql id="column1">
+		  id,  <!-- 表ID -->
+		  exchange_time,  <!-- 交易时间 -->
+		  order_sn,  <!-- 订单ID -->
+		  income,  <!-- 收入卷 -->
+		  expend,  <!-- 支出卷 -->
+		  balance,  <!-- 当前账户可转易物劵 -->
+		 case type when 0 then '商城购物'
+                when 2 then  '线下购物'
+                when 3 then '售后处理'
+			else '转账' end  as type,  <!-- 收支类型：0会员商城购物获得券；2会员线下购物获得券；1商家从商家后台转账到自己账号 -->
+		  in_user_id,  <!-- 收入方ID -->
+		  case when type=1 then in_user_id else out_user_id end as out_user_id <!-- 支出方 -->
+	</sql>
+
+	<!-- Where精确匹配字段 -->
+	<sql id="equal">
+	   <if test="id != null ">
+		      AND id = #{id}  <!-- 表ID -->
+		</if>
+	    <if test="exchange_time != null and exchange_time != ''">
+		      AND exchange_time = #{exchange_time}  <!-- 交易时间 -->
+		</if>
+	    <if test="order_sn != null and order_sn != ''">
+		      AND order_sn = #{order_sn}  <!-- 订单ID -->
+		</if>
+	   <if test="income != null ">
+		      AND income = #{income}  <!-- 收入卷 -->
+		</if>
+	   <if test="expend != null ">
+		      AND expend = #{expend}  <!-- 支出卷 -->
+		</if>
+	   <if test="balance != null ">
+		      AND balance = #{balance}  <!-- 当前账户可转易物劵 -->
+		</if>
+	   <if test="type != null ">
+		      AND type = #{type}  <!-- 收支类型：0用户下单，商家获得易物劵；1商家从商家后台转账到自己账号 -->
+		</if>
+	   <if test="in_user_id != null ">
+		      AND in_user_id = #{in_user_id}  <!-- 收入方ID -->
+		</if>
+	   <if test="out_user_id != null ">
+		      AND out_user_id = #{out_user_id}  <!-- 支出方 -->
+		</if>
+	</sql>
+	
+	<!-- Where模糊匹配字段 -->
+	<sql id="like">
+	    <if test="exchange_time != null and exchange_time != ''">
+		      AND exchange_time like '${exchange_time}%'  <!-- 交易时间 -->
+		</if>
+	    <if test="order_sn != null and order_sn != ''">
+		      AND order_sn like '${order_sn}%'  <!-- 订单ID -->
+		</if>
+	</sql>
+	
+	<select id="getFlowPage" parameterType="Dto" resultType="Dto">
+		select <include refid="column1"></include> from zjc_income_flow 
+		where in_user_id = #{user_id} or out_user_id = #{user_id}
+		order by exchange_time desc
+	</select>
+</mapper>

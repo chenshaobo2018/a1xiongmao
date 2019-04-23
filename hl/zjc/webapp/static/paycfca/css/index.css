@@ -1,0 +1,69 @@
+*,div,p,ul,li,table,tr,td,a,span,img,label,input,button{margin:0;padding:0;}  
+html,body{height: 100%;width: 100%;margin:0;padding:0;font-size:62.5%;font-family:'Microsoft YaHei','微软雅黑';}
+a{text-decoration: none;color: #333;}
+ul li{list-style: none;}
+.fl{float:left;}
+.fr{float:right;}
+/* clear */
+.clearfix:before,.clearfix:after {display: table;content: " ";}
+.clearfix:after {clear: both;}
+.clearfix{*zoom: 1;}
+.center{text-align:center;} 
+
+body{background:#f7f7f7;} 
+.pay_img{width:35%;margin:0 auto;padding:0.5rem 0;}
+.pay_imsrc img{width:0.8rem;}
+.pay_imsrc{font-size:0.40rem;color:#df362c;margin:0.2rem 0;}
+.img_text{font-size:0.65rem;color:#333;font-weight:bold;}
+.img_text span{font-size:0.4rem;font-weight:normal;}
+.pay_border{border-bottom:1px solid #f7f7f7;}
+.pays_one_one{color:#707070;font-size:0.4rem;background:#fff;padding:0.3rem 0;} 
+.psyd_side{padding-left:0.2rem;width:20%;}
+.psyd_cont{padding-right:0.2rem;width:75%;text-align:right;}
+.pays_two{background:#fff;margin-top:0.2rem;padding-bottom:0.8rem;}
+.paytwo_title{color:#707070;font-size:0.4rem;padding:0.5rem 0;} 
+.pays_cont{padding:3% 2%;width:43%; margin:0 auto;background:#e6e6e6;}
+.paytwo_content{width:90%;margin:0 auto;}
+.hu_one{font-size:0.45rem;color:#666;}
+.hu_two,.hu_twos{font-size:0.35rem;color:#666;margin-top:0.15rem;}
+.hu_twos,.hu_two{margin-top:0.3rem;} 
+.hu_twos span{font-size:0.5rem;color:#df362c;font-weight:bold;}
+.hu_tree,.hu_five{font-size:0.3rem;color:#666;}
+.hu_five{margin:0.26REM 0;}
+.hu_five span{font-size:0.45rem;color:#df362c;}
+.hu_tree{margin-top:0.30rem;margin-bottom:0.2rem;}
+.pay_share{background:#df362c;color:#fff;margin-top:0.15rem;font-size:0.35rem;border:1px solid #df362c;border-radius:0.1rem;padding:0.01rem 0.4rem;}
+.pays_tree{width:90%;margin:0 auto;}
+.psys_ok{font-size:0.5rem;width:90%;margin-left:5%;background:#df362c;color:#fff;border:1px solid #df362c;border-radius:0.1rem;padding:0.2rem 0;margin-top:0.4rem;margin-bottom:1rem;}
+.psys_over{font-size:0.5rem;width:100%;background:#df362c;color:#fff;border:1px solid #df362c;border-radius:0.1rem;padding:0.2rem 0;margin-top:1.5rem;margin-bottom:1rem;}
+.pay_bad{font-size:0.40rem;color:#808080;margin:0.2rem 0;}
+.five_share{background:#df362c;border:1px solid #df362c;border-radius:0.05rem;font-size:0.35rem;color:#fff;width:40%;margin:0 auto;padding:0.1rem 0;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
