@@ -97,32 +97,40 @@ public class HtController {
 	@Autowired
 	private SqlDao sqlDao;
 	
+	//==============================================系统后台页面==============================================
+	//用户项目信息
+	public void initUserProject(HttpModel httpModel) {
+		httpModel.setViewPath("house/hl/t_user_project_list.jsp");
+	}
+	
+	//材料信息
 	public void init(HttpModel httpModel) {
 		httpModel.setAttribute("juid", httpModel.getInDto().getString("juid"));
 		httpModel.setViewPath("house/hl/t_goods_list.jsp");
 	}
 	
+	//分类列表
+	public void initBase(HttpModel httpModel) {
+		httpModel.setViewPath("house/hl/t_base_list.jsp");
+	}
+	
+	//请购记录
+	public void initQgorder(HttpModel httpModel) {
+		httpModel.setViewPath("house/hl/t_qgorder_list.jsp");
+	}
+	
+	//请购统计
+	public void initQgorderTj(HttpModel httpModel) {
+		httpModel.setViewPath("house/hl/t_qgtjorder_list.jsp");
+	}
+	
+	//材料出库
 	public void chuku(HttpModel httpModel) {
 		httpModel.setAttribute("juid", httpModel.getInDto().getString("juid"));
 		httpModel.setViewPath("house/hl/t_OutboundMaterial_list.jsp");
 	}
 	
-	public void initBase(HttpModel httpModel) {
-		httpModel.setViewPath("house/hl/t_base_list.jsp");
-	}
-	
-	public void initUserProject(HttpModel httpModel) {
-		httpModel.setViewPath("house/hl/t_user_project_list.jsp");
-	}
-	
-	public void initQgorder(HttpModel httpModel) {
-		httpModel.setViewPath("house/hl/t_qgorder_list.jsp");
-		}
-	
-	public void initQgorderTj(HttpModel httpModel) {
-		httpModel.setViewPath("house/hl/t_qgtjorder_list.jsp");
-	}
-	
+	//==============================================系统后台接口==============================================
 	/**
 	 * 根据查询条件查询材料信息集合
 	 * 
@@ -131,6 +139,7 @@ public class HtController {
 	 */
 	public void getT_goodsPOList(HttpModel httpModel) {
 		Dto inDto = httpModel.getInDto();
+		System.out.println(inDto.toString());
 		List<T_goodsVO> list = t_goodsMapper.likePage(inDto);
 		String outString = AOSJson.toGridJson(list, inDto.getPageTotal());
 		httpModel.setOutMsg(outString);
@@ -223,6 +232,7 @@ public class HtController {
 	 */
 	public void getQgorderList(HttpModel httpModel) {
 		Dto inDto = httpModel.getInDto();
+		System.out.println(inDto.toString());
 		List<TOrderPO> list = t_orderMapper.qglikePage(inDto);
 		String outString = AOSJson.toGridJson(list, inDto.getPageTotal());
 		httpModel.setOutMsg(outString);
@@ -832,4 +842,35 @@ public class HtController {
 		String outString = AOSJson.toJson(goodslist);
 		httpModel.setOutMsg(outString);
 	}
+	
+	//**********************************陈**************************************
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

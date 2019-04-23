@@ -51,7 +51,7 @@
 			<aos:column header="项目" dataIndex="project_name" />
 			<aos:column header="供应商" dataIndex="user_name" />
 			<aos:column header="下单时间" dataIndex="add_date" />
-			<aos:column header="状态" dataIndex="is_refer" />
+			<aos:column header="状态" dataIndex="is_refer" rendererFn="format_lock"/>
 			<aos:column header="备注" dataIndex="note" />
 		</aos:gridpanel>
 		
@@ -240,6 +240,16 @@
 			});
 		}
 		
+		//格式化商家状态
+        function format_lock(value, metaData, record, rowIndex, colIndex,store){
+			var status = record.data.is_refer;
+			console.debug(status);
+			if(status == "已确认"){//禁用
+ 				return '<div style="color:red">已确认</div>'; 
+			} else {
+				return '<div style="color:green">待确认</div>';
+			}
+		}
 		
 		
 	</script>

@@ -50,13 +50,13 @@
 	</aos:body>
 </aos:html>
 <aos:onready>
-
 	<aos:viewport layout="border">
 		<aos:formpanel id="_f_query" layout="column" labelWidth="70" header="false" region="north" border="false">
 			<aos:docked forceBoder="0 0 1 0">
 				<aos:dockeditem xtype="tbtext" text="查询条件" />
 			</aos:docked>
-			<aos:textfield name="material_name" fieldLabel="商品名称" columnWidth="0.25" />
+			<aos:textfield name="material_name" fieldLabel="商品名称" columnWidth="0.2" />
+			<aos:textfield name="type_name" fieldLabel="分类名称" columnWidth="0.2" />
 			
 			<aos:docked dock="bottom" ui="footer" margin="0 0 8 0">
 				<aos:dockeditem xtype="tbfill" />

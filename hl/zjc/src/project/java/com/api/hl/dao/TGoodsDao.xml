@@ -401,5 +401,8 @@
 	    <if test="note != null and note != ''">
 		      AND t_goods.note like concat('%',#{note},'%')  <!-- 备注 -->
 		</if>
+	    <if test="type_name != null and type_name != ''">
+		      AND tp.type_name like concat('%',#{type_name},'%')  <!-- 备注 -->
+		</if>
 	</sql>
 </mapper>
