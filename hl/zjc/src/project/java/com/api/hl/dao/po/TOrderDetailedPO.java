@@ -46,6 +46,7 @@ public class TOrderDetailedPO extends PO {
 	private String adjust_price;
 	
 	private int all_receive_number;//该订单的总的实际收货数量，数据库无该字段
+	
 	public int getAll_receive_number() {
 		return all_receive_number;
 	}

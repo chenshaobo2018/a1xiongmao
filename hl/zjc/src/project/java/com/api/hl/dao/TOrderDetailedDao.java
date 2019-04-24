@@ -4,12 +4,13 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
-import aos.framework.core.annotation.Dao;
-import aos.framework.core.typewrap.Dto;
-
 import com.api.hl.dao.po.TOrderDetailedPO;
+import com.api.hl.vo.T_inPutGoodsjVO;
 import com.api.hl.vo.T_order_detailedVO;
 import com.api.hl.vo.T_orderqgtjVO;
+
+import aos.framework.core.annotation.Dao;
+import aos.framework.core.typewrap.Dto;
 
 /**
  * <b>t_order_detailed[t_order_detailed]数据访问接口</b>
@@ -44,6 +45,8 @@ public interface TOrderDetailedDao {
 	int insertAll(TOrderDetailedPO tOrderDetailedPO);
 
 	List<T_orderqgtjVO> qgtjlikePage(Dto pDto);
+	
+	List<T_inPutGoodsjVO> inPutGoods(Dto pDto);
 	
 	List<T_orderqgtjVO> qgtjlistVO(Dto pDto);
 	

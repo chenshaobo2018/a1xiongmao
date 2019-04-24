@@ -169,3 +169,4 @@ java.net.BindException: Address already in use: bind
 2019-04-23 23:46:14 INFO [Class:o.e.j.s.h.ContextHandler$Context->Thread:main] Initializing Spring root WebApplicationContext 
 2019-04-23 23:46:48 INFO [Class:o.e.j.s.h.ContextHandler$Context->Thread:main] Initializing Spring FrameworkServlet 'springDispatcherServlet' 
 2019-04-23 23:46:49 INFO [Class:o.e.j.s.AbstractConnector->Thread:main] Started SelectChannelConnector@0.0.0.0:10010 
+2019-04-23 23:53:02 WARN [Class:o.e.j.i.n.SelectorManager$SelectSet->Thread:qtp15373792-17 Selector0] Selector org.eclipse.jetty.io.nio.SelectorManager$SelectSet@efa15e keys=0 selected=0 is too busy, pausing! 

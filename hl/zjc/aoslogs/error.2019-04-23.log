@@ -138,3 +138,4 @@ java.net.BindException: Address already in use: bind
 	at aos.framework.core.server.AOSServer.start(AOSServer.java:82) [classes/:na]
 	at aos.framework.AOS.main(AOS.java:27) [classes/:na]
 2019-04-23 17:18:25 ERROR [Class:a.f.c.s.AOSServer->Thread:main] AOSuite启动失败 
+2019-04-23 23:53:02 WARN [Class:o.e.j.i.n.SelectorManager$SelectSet->Thread:qtp15373792-17 Selector0] Selector org.eclipse.jetty.io.nio.SelectorManager$SelectSet@efa15e keys=0 selected=0 is too busy, pausing! 

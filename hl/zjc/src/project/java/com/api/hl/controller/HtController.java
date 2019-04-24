@@ -37,6 +37,7 @@ import com.api.hl.dao.po.TUserProjectPO;
 import com.api.hl.dao.po.TUserhlPO;
 import com.api.hl.service.HtService;
 import com.api.hl.vo.T_goodsVO;
+import com.api.hl.vo.T_inPutGoodsjVO;
 import com.api.hl.vo.T_order_detailedVO;
 import com.api.hl.vo.T_orderqgtjVO;
 import com.api.hl.vo.T_user_projectVO;
@@ -838,7 +839,7 @@ public class HtController {
 	}
 	
 	//************************************************************************页面
-	//材料出库
+	//材料收货
 	public void shouhuo(HttpModel httpModel) {
 		httpModel.setAttribute("juid", httpModel.getInDto().getString("juid"));
 		httpModel.setViewPath("house/hl/t_ReceiveMaterial_list.jsp");
@@ -894,16 +895,94 @@ public class HtController {
 		wb.write(new FileOutputStream(fsv.getHomeDirectory()+"\\"+"材料信息"+newDateStr+".xls"));
 	}
 	
-	//材料收货集合
-	public void inPutGoods(HttpModel httpModel){
-		Dto dto = httpModel.getInDto();
-		List<T_orderqgtjVO> goodslist = t_order_detailedMapper.qgtjlikePage(dto);
-		System.out.println(goodslist.toString());
-		String outString = AOSJson.toJson(goodslist);
-		httpModel.setOutMsg(outString);
+	//导出材料收货信息
+	public void exportReceiveGoodList(HttpModel httpModel) throws FileNotFoundException, IOException {
+		//1.创建时间格式
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		OutputStream out = httpModel.getResponse().getOutputStream();
+		
+		//2.创建表格
+		HSSFWorkbook wb = new HSSFWorkbook();
+		HSSFSheet sheet = wb.createSheet("table");  //创建table工作薄
+		
+		Dto inDto = httpModel.getInDto();//查询参数
+		List<T_inPutGoodsjVO> list = t_order_detailedMapper.inPutGoods(inDto);//查询数据
+		System.out.println("***************"+list.toString());
+		
+		HSSFRow row1= sheet.createRow(1);   ////创建第二列 标题
+		HSSFCell cell1 = row1.createCell((short)0);   //--->创建一个单元格  
+		cell1.setCellValue("商品名称");
+		
+		HSSFCell cell2 = row1.createCell((short)1);   //--->创建一个单元格  
+		cell2.setCellValue("分类");
+		
+		HSSFCell cell3 = row1.createCell((short)2);   //--->创建一个单元格  
+		cell3.setCellValue("规格");
+		
+		HSSFCell cell4 = row1.createCell((short)3);   //--->创建一个单元格  
+		cell4.setCellValue("项目 ");
+		
+		HSSFCell cell5 = row1.createCell((short)4);   //--->创建一个单元格  
+		cell5.setCellValue("价格");
+		
+		HSSFCell cell6 = row1.createCell((short)5);   //--->创建一个单元格  
+		cell6.setCellValue("收货人");
+		
+		HSSFCell cell7 = row1.createCell((short)6);   //--->创建一个单元格  
+		cell7.setCellValue("请购数量");
+		
+		HSSFCell cell8 = row1.createCell((short)7);   //--->创建一个单元格  
+		cell8.setCellValue("收货数量");
+		
+		HSSFCell cell9 = row1.createCell((short)8);   //--->创建一个单元格  
+		cell9.setCellValue("收货时间");
+		
+		for(int i = 0;i < list.size();i ++) {
+			T_inPutGoodsjVO vo = list.get(i);
+			
+			HSSFRow row = sheet.createRow(i+2);//创建表格行。。。
+		    
+	        HSSFCell c0 = row.createCell(0);
+	        c0.setCellValue(null != vo.getMaterial_name() ? vo.getMaterial_name() : "");
+	        
+	        HSSFCell c1 = row.createCell(1);
+	        c1.setCellValue(null != vo.getType_name() ? vo.getType_name() : "");
+	        
+	        HSSFCell c2 = row.createCell(2);
+	        c2.setCellValue(null != vo.getSpecifications_name() ? vo.getSpecifications_name() : "");
+	        
+	        HSSFCell c3 = row.createCell(3);
+	        c3.setCellValue(null != vo.getNote() ? vo.getNote() : "");
+	        
+	        HSSFCell c4 = row.createCell(4);
+	        c4.setCellValue(null != vo.getProject_name() ? vo.getProject_name() : "");
+	        
+	        HSSFCell c5 = row.createCell(5);
+	        c5.setCellValue(null != vo.getSum_price() ? vo.getSum_price() : "0");
+	        
+	        HSSFCell c6 = row.createCell(6);
+	        c6.setCellValue(null != vo.getUser_name() ? vo.getUser_name() : "");
+	        
+	        HSSFCell c7 = row.createCell(7);
+	        c7.setCellValue(null != vo.getAll_receive_number()+"" ? vo.getAll_receive_number()+"" : "0");//
+	        
+	        HSSFCell c8 = row.createCell(8);
+	        c8.setCellValue(null != vo.getReceive_time() ? sdf.format(vo.getReceive_time()) : "");
+	        
+		}
+		FileSystemView fsv = FileSystemView.getFileSystemView();
+		SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd HHmmss");
+		String newDateStr = sd.format(new Date());
+		wb.write(new FileOutputStream(fsv.getHomeDirectory()+"\\"+"材料信息"+newDateStr+".xls"));
 	}
 	
 	
-	
+	//材料收货集合
+	public void inPutGoods(HttpModel httpModel){
+		Dto dto = httpModel.getInDto();
+		List<T_inPutGoodsjVO> goodslist = t_order_detailedMapper.inPutGoods(dto);
+		String outString = AOSJson.toJson(goodslist);
+		httpModel.setOutMsg(outString);
+	}
 	
 }
