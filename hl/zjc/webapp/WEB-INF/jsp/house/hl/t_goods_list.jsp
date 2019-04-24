@@ -77,6 +77,7 @@
 		<aos:gridpanel id="_g_goods" url="HtController.getT_goodsPOList" onrender="_g_goods_query" region="center" pageSize="20">
 			<aos:docked forceBoder="1 0 1 0">
 				<aos:dockeditem xtype="tbtext" text="材料信息" />
+				<aos:dockeditem text="导出" icon="icon70.png" onclick="fn_xls" />
 			</aos:docked>
 			<aos:selmodel type="checkbox" mode="multi" />
 					<aos:column type="rowno" />
@@ -518,6 +519,17 @@
 	               document.getElementById(smallImgID).src = fileobj.path;
 	             }
 	        });
+		}
+		function fn_xls() {
+			AOS.tip("已导出到桌面");
+			var params = AOS.getValue('_f_query');
+			AOS.ajax({
+				url : 'HtController.exportGoodList',
+				params : params,
+				ok : function(data) {
+					
+				}
+			});
 		}
 	</script>
 </aos:onready>

@@ -242,6 +242,33 @@
 		</where>	
 	</select>
 	
+	<!-- 材料收货集合 -->
+	SELECT t.* FROM (
+		SELECT 
+		t1.id,
+		t6.material_name,
+		t8.type_name,
+		t7.specifications_name,
+		t5.project_name,
+		t1.sum_price,
+		t5.user_name,
+		t1.number,
+		(SELECT SUM(t3.receive_number) FROM t_order_receive t3 WHERE t1.id = t3.order_detailed_id) AS all_receive_number,
+		t2.receive_time
+		FROM t_order_detailed t1 
+		LEFT JOIN t_order_receive t2 ON t1.id = t2.order_detailed_id
+		LEFT JOIN t_order t5 ON t5.id = t1.order_id
+		LEFT JOIN t_goods t6 ON t6.id = t5.goods_id
+		LEFT JOIN t_specifications t7 ON t7.goods_id = t6.id
+		LEFT JOIN t_type t8 ON t8.id = t6.type_id
+		<where>
+		    <include refid="like3" />
+		</where>
+		ORDER BY t2.receive_time DESC
+	) t
+	GROUP BY t.id
+		
+	
 	<!-- 根据Dto统计行数 -->
 	<select id="rows" resultType="Integer" parameterType="Dto">
 		SELECT COUNT(1) AS aos_rows_ FROM t_order_detailed
