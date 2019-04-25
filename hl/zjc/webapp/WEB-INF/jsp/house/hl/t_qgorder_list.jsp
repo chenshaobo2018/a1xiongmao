@@ -86,25 +86,23 @@
 		</aos:gridpanel>
 			<aos:docked dock="bottom" ui="footer" height="30">
 				<aos:dockeditem xtype="tbfill" />
-				<aos:dockeditem onclick="_f_add_saveChangeQgorderPrice();" text="保存" icon="ok.png" />
-				<aos:dockeditem text="导出" icon="icon70.png" onclick="fn_xls" />
+				<%-- <aos:dockeditem onclick="_f_add_saveChangeQgorderPrice();" text="保存" icon="ok.png" /> --%>
+				<%-- <aos:dockeditem text="导出" icon="icon70.png" onclick="fn_xls" /> --%>
 				<aos:dockeditem onclick="_w_add_qgorderdetail.close();" text="关闭" icon="close.png" />
 			</aos:docked>
 		</aos:window>
-	
-	
-		
-	
+				
 	</aos:viewport>
 	<script type="text/javascript">
 	function fn_xls() {
 		var order_id = AOS.getValue("order_id");
+		console.log("+++++++++++"+order_id);
 		var project_name = AOS.getValue("project_name");
 		var xdsj = AOS.getValue("xdsj");
 		var zhanghao = AOS.getValue("zhanghao");
 		AOS.tip("已导出到桌面");
 		AOS.ajax({
-			url : 'fillReportQgDetail.jhtml',
+			url : 'HtController.fillReportQgDetail',
 			params : {"order_id" : order_id,"project_name" : project_name,"xdsj" : xdsj,
 				"zhanghao" : zhanghao},
 			ok : function(data) {

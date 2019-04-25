@@ -713,6 +713,7 @@ public class HtController {
 		HSSFSheet sheet = wb.createSheet("table");  //创建table工作薄
 	
 		String order_id = inDto.getString("order_id");
+		System.out.println("++++++"+order_id);
 		String project_name = inDto.getString("project_name");
 		String xdsj = inDto.getString("xdsj");
 		String zhanghao = inDto.getString("zhanghao");
@@ -771,7 +772,7 @@ public class HtController {
 		FileSystemView fsv = FileSystemView.getFileSystemView();
 		SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd HHmmss");
 		String newDateStr = sd.format(new Date());
-		wb.write(new FileOutputStream(fsv.getHomeDirectory()+"\\"+"请购记录详情"+newDateStr+".xls"));
+//		wb.write(new FileOutputStream(fsv.getHomeDirectory()+"\\"+"请购记录详情"+newDateStr+".xls"));
 	}
 	/**
 	 * 导出请购统计
@@ -907,7 +908,6 @@ public class HtController {
 		
 		Dto inDto = httpModel.getInDto();//查询参数
 		List<T_inPutGoodsjVO> list = t_order_detailedMapper.inPutGoods(inDto);//查询数据
-		System.out.println("***************"+list.toString());
 		
 		HSSFRow row1= sheet.createRow(1);   ////创建第二列 标题
 		HSSFCell cell1 = row1.createCell((short)0);   //--->创建一个单元格  
@@ -967,7 +967,7 @@ public class HtController {
 	        c7.setCellValue(null != vo.getAll_receive_number()+"" ? vo.getAll_receive_number()+"" : "0");//
 	        
 	        HSSFCell c8 = row.createCell(8);
-	        c8.setCellValue(null != vo.getReceive_time() ? sdf.format(vo.getReceive_time()) : "");
+	        c8.setCellValue(null != vo.getReceive_time() ? vo.getReceive_time() : "");
 	        
 		}
 		FileSystemView fsv = FileSystemView.getFileSystemView();
@@ -981,6 +981,14 @@ public class HtController {
 	public void inPutGoods(HttpModel httpModel){
 		Dto dto = httpModel.getInDto();
 		List<T_inPutGoodsjVO> goodslist = t_order_detailedMapper.inPutGoods(dto);
+		String outString = AOSJson.toJson(goodslist);
+		httpModel.setOutMsg(outString);
+	}
+	
+	//出库材料
+	public void inPutGoodsTj(HttpModel httpModel){
+		Dto dto = httpModel.getInDto();
+		Dto goodslist = (Dto) sqlDao.selectOne("com.api.hl.dao.TOrderDetailedDao.inPutGoodsTj", dto);
 		String outString = AOSJson.toJson(goodslist);
 		httpModel.setOutMsg(outString);
 	}

@@ -19,7 +19,7 @@
 			<aos:textfield name="material_name" fieldLabel="商品名称" columnWidth="0.25" />
 			<aos:textfield name="project_name" fieldLabel="项目名称" columnWidth="0.25" />
 			<aos:textfield name="user_name" fieldLabel="账号" columnWidth="0.25" />
-			<aos:datetimefield name = "add_dateBegin" fieldLabel="出库时间"></aos:datetimefield>
+			<aos:datetimefield name = "add_dateBegin" fieldLabel="收货时间"></aos:datetimefield>
 			<aos:displayfield value="至"/>
 			<aos:datetimefield name = "add_dateEnd"></aos:datetimefield>
 			
@@ -61,8 +61,8 @@
 			<aos:column header="收货人" dataIndex="user_name" />
 			
 			<aos:column header="请购数量" dataIndex="number" />
-			<aos:column header="收货数量" dataIndex="all_receive_number" />
-			<aos:column header="收货时间" dataIndex="receive_time" />
+			<aos:column header="总收货数量" dataIndex="all_receive_number" />
+			<aos:column header="收货时间（最新）" dataIndex="receive_time" />
 		</aos:gridpanel>
 		
 		<!-- 3.弹出窗口列内容 -->
@@ -93,8 +93,8 @@
 			_g_inPutGoods_store.getProxy().extraParams = params;
 			_g_inPutGoods_store.loadPage(1);
 			
-			AOS.ajax({
-				url : 'HtController.Outboundtj',
+ 			AOS.ajax({
+				url : 'HtController.inPutGoodsTj',
 				params: params,
 				ok : function(data) {
 					if (data.appcode === -1) {
@@ -105,7 +105,7 @@
                         AOS.setValue("sumprice",data.sumprice);
                     }
 				}
-			});
+			}); 
 		}
 		
 		

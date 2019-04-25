@@ -240,8 +240,21 @@
 		</where>	
 	</select>
 	
+	<!-- 收货材料统计 -->
+	<select id="inPutGoodsTj" parameterType="Dto" resultType="Dto" useCache="false">
+	   	SELECT 
+			SUM(t2.receive_number) totalnum,
+			SUM(t1.sum_price) sumprice,
+			SUM(DISTINCT t1.specifications_id) specount
+		FROM t_order_receive t2
+		LEFT JOIN t_order_detailed t1 ON t1.id = t2.order_detailed_id
+<!-- 		<where>
+		    <include refid="like3" />
+		</where>	 -->
+	</select>
+	
 	<!-- 材料收货集合 -->
-	<select id="inPutGoods" parameterType="Dto" resultType="T_inPutGoodsjVO" useCache="false">
+	<select id="inPutGoods" parameterType="Dto" resultType="com.api.hl.vo.T_inPutGoodsjVO" useCache="false">
 		SELECT t0.* FROM (
 			SELECT 
 				t1.id,
