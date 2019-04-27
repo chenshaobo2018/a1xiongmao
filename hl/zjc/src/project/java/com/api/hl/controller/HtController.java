@@ -4,12 +4,16 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.swing.filechooser.FileSystemView;
 
 import org.apache.poi.hssf.usermodel.HSSFCell;
@@ -41,6 +45,8 @@ import com.api.hl.vo.T_inPutGoodsjVO;
 import com.api.hl.vo.T_order_detailedVO;
 import com.api.hl.vo.T_orderqgtjVO;
 import com.api.hl.vo.T_user_projectVO;
+import com.zjc.common.po.ExportExcelInfo;
+import com.zjc.common.util.ExportExcle;
 
 import aos.framework.core.dao.SqlDao;
 import aos.framework.core.typewrap.Dto;
@@ -897,6 +903,49 @@ public class HtController {
 	}
 	
 	//导出材料收货信息
+	public void exportReceiveGoodList1(HttpModel httpModel) throws FileNotFoundException, IOException {
+		Dto inDto = httpModel.getInDto();
+		try {
+			if(AOSUtils.isNotEmpty(inDto.getString("real_name"))){
+					inDto.put("real_name", URLDecoder.decode(inDto.getString("real_name"), "UTF-8"));
+			}
+			if(AOSUtils.isNotEmpty(inDto.getString("store_name"))){
+				inDto.put("store_name", URLDecoder.decode(inDto.getString("store_name"), "UTF-8"));
+			}
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		HttpServletRequest req = httpModel.getRequest();
+		try {
+			req.setCharacterEncoding("utf-8");
+			HttpServletResponse resp = httpModel.getResponse();
+	        String title = "店铺信息";
+	        String[] strHeader =
+	            {"商家ID","店铺名称", "真实姓名", "联系电话1", "联系电话2","产品分类","营业执照"};
+	        String[] strField =
+	            {"user_id","store_name","real_name","mobile","contacts_phone","cat_name","business_licence_number_elc"};
+	        //根据条件查询待导出订单数据
+	        List list = sqlDao.list("com.zjc.store.dao.ZjcStoreDao.findStoreExportData", inDto);
+	        
+	        ExportExcelInfo paramExcelInfo = new ExportExcelInfo();
+	        paramExcelInfo.setObjList(list);
+	        paramExcelInfo.setTitle(title);
+	        paramExcelInfo.setStrHeader(strHeader);
+	        paramExcelInfo.setStrField(strField);
+	        paramExcelInfo.setReq(req);
+	        paramExcelInfo.setResp(resp);
+	        //导出excel
+	        boolean b =ExportExcle.exportExcel(paramExcelInfo);
+	        if(b){
+	        	httpModel.setOutMsg("订单信息导出成功");
+	        } else {
+	        	httpModel.setOutMsg("订单信息导出失败");
+	        }
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public void exportReceiveGoodList(HttpModel httpModel) throws FileNotFoundException, IOException {
 		//1.创建时间格式
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");

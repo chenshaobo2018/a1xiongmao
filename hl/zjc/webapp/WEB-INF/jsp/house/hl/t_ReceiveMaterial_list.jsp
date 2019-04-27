@@ -128,7 +128,7 @@
 		}
 		
 		function fn_xls() {
-			AOS.tip("已导出到桌面");
+ 			AOS.tip("已导出到桌面");
 			var params = AOS.getValue('_f_inPutGoods_query');
 			AOS.ajax({
 				url : 'HtController.exportReceiveGoodList',
@@ -137,6 +137,16 @@
 					
 				}
 			});
+/* 			console.log(11);
+			var params = AOS.getValue('f_query'); 
+			//juid需要再这个页面的初始化方法中赋值,这里才引用得到
+			AOS.file('do.jhtml?router=HtController.exportReceiveGoodList1&juid=${juid}');
+ 					+ '&store_name='+encodeURI(encodeURI(params.store_name)) 
+					+ '&user_id='+params.user_id
+					+ '&mobile=' + params.mobile 
+					+ '&real_name=' + encodeURI(encodeURI(params.real_name)) 
+					+ '&id_card=' + params.id_card 
+					+ '&store_state=' + params.store_state);  */
 		}
 	</script>
 </aos:onready>
